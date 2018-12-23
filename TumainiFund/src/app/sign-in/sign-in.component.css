@@ -1,0 +1,14 @@
+/* Add mobile styles for the component here.  */
+.centered{
+    vertical-align:middle;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.centered > StackLayout {
+    width: 100%;
+}
+.centered > StackLayout > * {
+    width: 50%;
+    margin: 0 auto;
+}
