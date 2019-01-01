@@ -20,6 +20,6 @@ export class SignInComponent implements OnInit {
   }
 
   Home(args: EventData){
-    this.router.navigate(['home']);
+    this.router.navigateByUrl('/home');
   }
 }
