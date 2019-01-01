@@ -1,18 +1,11 @@
 /* Add mobile styles for the component here.  */
-.centered{
-    vertical-align:middle;
-    margin: 0 auto;
-    width: 80%;
+.page {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    background-color: #82CC33;
 }
-
-StackLayout {
-    width: 100%
-}
-
-.centered > StackLayout > * {
-    width: 50%;
-}
-
-.btn {
-    width: 100%;
+.form {
+    vertical-align: middle;
 }

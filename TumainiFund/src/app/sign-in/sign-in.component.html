@@ -1,12 +1,12 @@
-<StackLayout orientation="vertical" class="centered">
-    <Image src="~/app/images/Logo.png" stretch="none"></Image>
-    <StackLayout orientation="horizontal">
-        <Label text = "Username"></Label>
-        <TextField hint = "Username" [text]="username" class="input input-border"></TextField>
+<FlexboxLayout class="page">
+    <StackLayout orientation="vertical" class="form">
+        <Image src="~/app/images/Logo.png" stretch="none"></Image>
+        <StackLayout orientation="horizontal" class="input-field">
+            <TextField returnKeyType="next" id="username" hint="Username" class="input"></TextField>
+        </StackLayout>
+        <StackLayout orientation="horizontal" class="input-field">
+            <TextField id="password" hint="Password" class="input"></TextField>
+        </StackLayout>
+        <Button text="Sign In" onTap="Home($event)" class="btn btn-primary btn-active"></Button>
     </StackLayout>
-    <StackLayout orientation="horizontal">
-        <Label text = "Password"></Label>
-        <TextField hint = "Password" [text]="password" class="input input-border"></TextField>
-    </StackLayout>
-    <Button text="Sign In" onTap="Home($event)" class="btn btn-primary btn-active"></Button>
-</StackLayout>
+</FlexboxLayout>
