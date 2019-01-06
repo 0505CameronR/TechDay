@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getString } from 'tns-core-modules/application-settings/application-settings';
 
 @Component({
   selector: 'ns-home',
@@ -13,4 +14,5 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  user=getString("username");
 }

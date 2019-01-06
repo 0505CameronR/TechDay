@@ -2,24 +2,63 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Page, EventData } from 'tns-core-modules/ui/page/page';
 
+import { getString, setString } from "tns-core-modules/application-settings";
+import { User } from '../shared/user/user.model';
+import { UserService } from '../shared/user/user.service';
+
 @Component({
   selector: 'ns-sign-in',
   templateUrl: './sign-in.component.html',
+  providers: [UserService],
   styleUrls: ['./sign-in.component.css'],
   moduleId: module.id,
 })
 export class SignInComponent implements OnInit {
+  user: User;
+  isLoggingIn = true;
 
   public constructor(
     private router: Router,
-    private page: Page
-  ) { }
+    private userService: UserService
+  ) {
+    this.user = new User()
+    // this.user.username = getString("username");
+    // this.user.password = getString("password");
+  }
+
 
   ngOnInit() {
-    this.page.backgroundColor = '#82CC33';
   }
 
-  Home(args: EventData){
-    this.router.navigateByUrl('/home');
+  login() {
+    this.userService.login(this.user)
+      .subscribe(
+        () => this.router.navigate(["/home"]),
+        (error) => alert("Unfortunately we could not find your account.")
+      );
   }
+
+  signUp() {
+    // FIXME: Need to move to web version
+    this.userService.register(this.user)
+      .subscribe(
+        () => {
+          alert("Your account was successfully created.");
+          this.toggleDisplay();
+        },
+        () => alert("Unfortunately we were unable to create your account.")
+      );
+  }
+
+  toggleDisplay(){
+    this.isLoggingIn = !this.isLoggingIn;
+  }
+  submit(args: EventData) {
+    if (this.isLoggingIn) {
+      this.login();
+    } else {
+      this.signUp()
+    }
+  }
+
 }

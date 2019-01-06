@@ -1,12 +1,9 @@
-<FlexboxLayout class="page">
-    <StackLayout orientation="vertical" class="form">
+<FlexboxLayout>
+    <StackLayout class="form">
         <Image src="~/app/images/Logo.png" stretch="none"></Image>
-        <StackLayout orientation="horizontal" class="input-field">
-            <TextField returnKeyType="next" id="username" hint="Username" class="input"></TextField>
-        </StackLayout>
-        <StackLayout orientation="horizontal" class="input-field">
-            <TextField id="password" hint="Password" class="input"></TextField>
-        </StackLayout>
-        <Button text="Sign In" onTap="Home($event)" class="btn btn-primary btn-active"></Button>
+        <TextField returnKeyType="next" id="username" hint="Username" class="input input-rounded input-border" [(ngModel)]="user.username"></TextField>
+        <TextField id="password" hint="Password" secure="true" class="input input-rounded input-border" [(ngModel)]="user.password"></TextField>
+        <Button text="Sign In" (tap)="submit($event)" class="btn btn-primary btn-rounded-lg btn-active"></Button>
+        <Button text="Sign Up" (tap)="submit($event)"></Button>
     </StackLayout>
 </FlexboxLayout>

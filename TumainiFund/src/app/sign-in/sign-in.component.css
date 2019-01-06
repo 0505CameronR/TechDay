@@ -1,10 +1,37 @@
 /* Add mobile styles for the component here.  */
-.page {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: auto;
+
+FlexboxLayout {
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-color: #82CC33;
 }
-.form {
-    vertical-align: middle;
+
+StackLayout {
+  width: 300;
+  padding: 10 16;
+}
+
+/* Image {
+  margin-bottom: 20;
+  height: 70;
+} */
+
+Button, TextField {
+  margin: 10 0;
+}
+
+.btn-primary {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+TextField {
+  placeholder-color: #C4AFB4;
+  color: black;
+}
+
+.input, .btn-primary {
+  background-color: white;
+  color: black;
 }
