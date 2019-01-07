@@ -1,9 +1,0 @@
-<FlexboxLayout>
-    <StackLayout class="form">
-        <Image src="~/app/images/Logo.png" stretch="none"></Image>
-        <TextField returnKeyType="next" id="username" hint="Username" class="input input-rounded input-border" [(ngModel)]="user.username"></TextField>
-        <TextField id="password" hint="Password" secure="true" class="input input-rounded input-border" [(ngModel)]="user.password"></TextField>
-        <Button text="Sign In" (tap)="submit($event)" class="btn btn-primary btn-rounded-lg btn-active"></Button>
-        <Button text="Sign Up" (tap)="submit($event)"></Button>
-    </StackLayout>
-</FlexboxLayout>
