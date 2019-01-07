@@ -1,12 +1,12 @@
 # NativeScript
-# hooks/
-# node_modules/
-# platforms/
+hooks/
+node_modules/
+platforms/
 
 # NativeScript Template
 *.js.map
 *.js
-#!webpack.config.js
+!webpack.config.js
 
 # Logs
 logs
@@ -26,8 +26,8 @@ tmp/
 typings/
 
 # Visual Studio Code
-#.vscode/*
-#!.vscode/settings.json
-#!.vscode/tasks.json
-#!.vscode/launch.json
-#!.vscode/extensions.json
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
