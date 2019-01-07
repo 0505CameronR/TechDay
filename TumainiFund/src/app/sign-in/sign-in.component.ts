@@ -22,37 +22,32 @@ export class SignInComponent implements OnInit {
     private userService: UserService
   ) {
     this.user = new User()
-    this.user.username = getString("username");
-    this.user.password = getString("password");
+    // this.user.username = getString("username");
+    // this.user.password = getString("password");
   }
+
 
   ngOnInit() {
   }
 
   login() {
     this.userService.login(this.user)
-      .then(() => {
-        setString("username",this.user.username);
-        setString("password",this.user.password);
-        this.router.navigate(["/home"])
-      })
-      .catch(() => {
-        alert("Unfortunately we could not find your account.")
-      });
+      .subscribe(
+        () => this.router.navigate(["/home"]),
+        (error) => alert("Unfortunately we could not find your account.")
+      );
   }
 
   signUp() {
     // FIXME: Need to move to web version
     this.userService.register(this.user)
-      .then(() => {
+      .subscribe(
+        () => {
           alert("Your account was successfully created.");
-          setString("username",this.user.username);
-          setString("password",this.user.password);
           this.toggleDisplay();
-        })
-        .catch(() => {
-          alert("Unfortunately we were unable to create your account.")
-        });
+        },
+        () => alert("Unfortunately we were unable to create your account.")
+      );
   }
 
   toggleDisplay(){
