@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/1e95d15a1c802d58428a9444ab7e2355/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/1e95d15a1c802d58428a9444ab7e2355/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    }
+]
