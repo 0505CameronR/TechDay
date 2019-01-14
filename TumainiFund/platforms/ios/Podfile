@@ -1,9 +1,0 @@
-use_frameworks!
-
-target "TumainiFund" do
-# Begin Podfile - /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/kinvey-nativescript-sdk/platforms/ios/Podfile
-platform :ios, '9.0'
-pod 'SAMKeychain', '~> 1.5.2'
-
-# End Podfile
-end
