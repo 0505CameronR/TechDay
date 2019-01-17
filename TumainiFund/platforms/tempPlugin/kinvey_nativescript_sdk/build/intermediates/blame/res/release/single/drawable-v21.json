@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/drawable-v21/abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/drawable-v21/notification_action_background.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/8fe48e6687e4817a3f32e5252c118a94/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/drawable-v21/abc_btn_colored_material.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/drawable-v21/abc_edit_text_material.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/drawable-v21/abc_edit_text_material.xml"
+    }
+]

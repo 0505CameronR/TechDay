@@ -4,6 +4,9 @@
     "id": "org.nativescript.TumainiFundDev2",
     "tns-ios": {
       "version": "5.1.0"
+    },
+    "tns-android": {
+      "version": "5.1.0"
     }
   },
   "version": "0.0.0",
@@ -32,6 +35,8 @@
     "kinvey-angular2-sdk": "3.12.3",
     "kinvey-nativescript-sdk": "^3.12.3",
     "nativescript-angular": "~7.1.0",
+    "nativescript-feedback": "1.3.3",
+    "nativescript-iqkeyboardmanager": "1.3.0",
     "nativescript-theme-core": "~1.0.4",
     "reflect-metadata": "~0.1.8",
     "rxjs": "~6.3.3",

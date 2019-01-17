@@ -1,3 +1,9 @@
-<p>
-  sign-in works!
-</p>
+<div class="form">
+  <div class="form-contents">  
+  <img src="assets/images/logo.png" stretch="none">
+    <input id="username" placeholder="Username" type="text" class="input input-rounded input-border" [(ngModel)]="user.username">
+    <input id="password" placeholder="Password" type="password" class="input input-rounded input-border" [(ngModel)]="user.password">
+    <button (click)="submit()" class="btn btn-primary btn-rounded-lg btn-active">{{isLoggingIn ? 'Sign In' : 'Sign Up'}}</button>
+	<button (click)="toggleDisplay()">{{isLoggingIn ? 'Sign Up' : 'Back To Login'}}</button>
+  </div>
+</div>

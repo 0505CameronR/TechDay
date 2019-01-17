@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/8fe48e6687e4817a3f32e5252c118a94/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/8fe48e6687e4817a3f32e5252c118a94/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/8fe48e6687e4817a3f32e5252c118a94/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/layout-v21/notification_action.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/8fe48e6687e4817a3f32e5252c118a94/res/layout-v21/notification_action.xml"
+    }
+]

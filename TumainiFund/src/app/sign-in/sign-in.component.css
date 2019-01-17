@@ -42,3 +42,21 @@ FlexboxLayout {
     background-color: white;
     color: black;
   }
+
+  .form {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: auto;
+    width: auto;
+    max-width:90%;
+  }
+
+  .form-contents {
+    width:fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    margin: auto;
+  }

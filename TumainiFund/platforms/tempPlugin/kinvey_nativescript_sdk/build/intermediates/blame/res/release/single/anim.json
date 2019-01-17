@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/abc_slide_in_top.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/abc_fade_out.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/tooltip_exit.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/tooltip_exit.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/tooltip_enter.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/tooltip_enter.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/abc_fade_in.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/kinvey_nativescript_sdk/build/intermediates/res/merged/release/anim/abc_popup_exit.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.2.aar/b136a2f9cb8429bac7e18b6b3e704f93/res/anim/abc_popup_exit.xml"
+    }
+]

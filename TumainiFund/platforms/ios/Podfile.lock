@@ -1,16 +1,33 @@
 PODS:
+  - IQKeyboardManager (5.0.8)
+  - ISMessages (1.2)
   - SAMKeychain (1.5.3)
 
 DEPENDENCIES:
+  - IQKeyboardManager (~> 5.0.0)
+  - ISMessages (from `https://github.com/EddyVerbruggen/ISMessages.git`, commit `580ac8cab611e2f92ebdd62b2201f9dada36ccd4`)
   - SAMKeychain (~> 1.5.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - IQKeyboardManager
     - SAMKeychain
 
+EXTERNAL SOURCES:
+  ISMessages:
+    :commit: 580ac8cab611e2f92ebdd62b2201f9dada36ccd4
+    :git: https://github.com/EddyVerbruggen/ISMessages.git
+
+CHECKOUT OPTIONS:
+  ISMessages:
+    :commit: 580ac8cab611e2f92ebdd62b2201f9dada36ccd4
+    :git: https://github.com/EddyVerbruggen/ISMessages.git
+
 SPEC CHECKSUMS:
+  IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
+  ISMessages: d39098b48672813d69d30f44da06260b9920fed4
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
 
-PODFILE CHECKSUM: 2391467bafdaa696a6676fc76b7c41783de29192
+PODFILE CHECKSUM: 33bf76a65b750406826deab9432bc77ef9f53e24
 
 COCOAPODS: 1.5.3

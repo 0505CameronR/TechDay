@@ -500,7 +500,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n:disabled {\
 /***/ "./app/sign-in/sign-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto,auto\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://logo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.username\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" id=\"password\" hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.password\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\" class=\"btn btn-primary btn-rounded-lg btn-active\"></Button>\n        <Button row=\"4\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign Up' : 'Back To Login'\" (tap)=\"toggleDisplay($event)\"></Button>\n        <ActivityIndicator rowSpan=\"5\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
+module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto,auto\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://logo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\" returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\" class=\"btn btn-primary btn-rounded-lg btn-active\"></Button>\n        <Button row=\"4\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign Up' : 'Back To Login'\" (tap)=\"toggleDisplay($event)\"></Button>\n        <ActivityIndicator rowSpan=\"5\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
 
 /***/ }),
 
@@ -512,8 +512,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignInComponent", function() { return SignInComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _shared_user_user_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./app/shared/user/user.model.ts");
-/* harmony import */ var _shared_user_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./app/shared/user/user.service.ts");
+/* harmony import */ var tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./app/shared/user/user.model.ts");
+/* harmony import */ var _shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/shared/user/user.service.ts");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -527,14 +531,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var SignInComponent = /** @class */ (function () {
-    function SignInComponent(user, router, userService) {
+    function SignInComponent(user, router, userService, page) {
         this.user = user;
         this.router = router;
         this.userService = userService;
+        this.page = page;
         this.isLoggingIn = true;
         this.processing = false;
-        this.user = new _shared_user_user_model__WEBPACK_IMPORTED_MODULE_2__["User"]();
+        page.actionBarHidden = true;
+        this.user = new _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]();
+        this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"]();
     }
     SignInComponent.prototype.ngOnInit = function () {
     };
@@ -547,7 +556,9 @@ var SignInComponent = /** @class */ (function () {
         })
             .catch(function () {
             _this.processing = false;
-            alert("Unfortunately we could not find your account " + _this.user.username);
+            _this.feedback.error({
+                message: "Unfortunately we could not find your account " + _this.user.username
+            });
         });
     };
     SignInComponent.prototype.signUp = function () {
@@ -556,36 +567,65 @@ var SignInComponent = /** @class */ (function () {
         this.userService.register(this.user)
             .then(function () {
             _this.processing = false;
-            alert("Your account was successfully created.");
+            _this.feedback.success({
+                message: "Your account was successfully created."
+            });
             _this.toggleDisplay();
         })
             .catch(function () {
             _this.processing = false;
-            alert("Unfortunately we were unable to create your account.");
+            _this.feedback.error({
+                message: "Unfortunately we were unable to create your account"
+            });
         });
     };
     SignInComponent.prototype.toggleDisplay = function () {
         this.isLoggingIn = !this.isLoggingIn;
     };
     SignInComponent.prototype.submit = function (args) {
-        this.processing = true;
-        if (this.isLoggingIn) {
-            this.login();
+        if (!this.user.username && this.user.password) {
+            this.feedback.error({
+                message: "Please Provide Username"
+            });
+        }
+        else if (this.user.username && !this.user.password) {
+            this.feedback.error({
+                message: "Please Provide Password"
+            });
+        }
+        else if (!this.user.username && !this.user.password) {
+            this.feedback.error({
+                message: "Please Provide Both a Username and a Password"
+            });
         }
         else {
-            this.signUp();
+            this.processing = true;
+            if (this.isLoggingIn) {
+                this.login();
+            }
+            else {
+                this.signUp();
+            }
         }
     };
+    SignInComponent.prototype.switchToPass = function (args) {
+        this.password.nativeElement.focus();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("password"),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], SignInComponent.prototype, "password", void 0);
     SignInComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-sign-in',
             template: __webpack_require__("./app/sign-in/sign-in.component.html"),
-            providers: [_shared_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _shared_user_user_model__WEBPACK_IMPORTED_MODULE_2__["User"]],
+            providers: [_shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]],
             styles: [__webpack_require__("./app/sign-in/sign-in.component.css")]
         }),
-        __metadata("design:paramtypes", [_shared_user_user_model__WEBPACK_IMPORTED_MODULE_2__["User"],
+        __metadata("design:paramtypes", [_shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _shared_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+            _shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+            tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__["Page"]])
     ], SignInComponent);
     return SignInComponent;
 }());

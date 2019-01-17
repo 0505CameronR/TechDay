@@ -35,6 +35,54 @@
 						<string>Unknown</string>
 					</dict>
 					<key>name</key>
+					<string>IQKeyboardManager.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>FQ4MRV6S87</string>
+						<key>name</key>
+						<string>Cameron Riou</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string></string>
+						<key>dateExpires</key>
+						<string></string>
+						<key>type</key>
+						<string>Unknown</string>
+					</dict>
+					<key>name</key>
+					<string>ISMessages.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>FQ4MRV6S87</string>
+						<key>name</key>
+						<string>Cameron Riou</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string></string>
+						<key>dateExpires</key>
+						<string></string>
+						<key>type</key>
+						<string>Unknown</string>
+					</dict>
+					<key>name</key>
 					<string>NativeScript.framework</string>
 					<key>team</key>
 					<dict>

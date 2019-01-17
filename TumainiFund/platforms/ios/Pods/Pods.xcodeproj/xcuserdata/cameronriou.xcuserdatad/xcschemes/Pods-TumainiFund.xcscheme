@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6ADAE0D6E0D77B5981AE273A5BBAE01E"
+               BlueprintIdentifier = "5D58E5EEE913CB440C8052F63DAEB184"
                BlueprintName = "Pods-TumainiFund"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "Pods-TumainiFund.framework">

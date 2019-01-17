@@ -1,9 +1,12 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { EventData } from 'tns-core-modules/ui/page/page';
+import { Page } from 'tns-core-modules/ui/page';
 
 import { User } from '../shared/user/user.model';
 import { UserService } from '../shared/user/user.service';
+
+import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
 
 @Component({
   selector: 'app-sign-in',
@@ -12,16 +15,22 @@ import { UserService } from '../shared/user/user.service';
   styleUrls: ['./sign-in.component.css'],
   moduleId: module.id,
 })
+
 export class SignInComponent implements OnInit {
+  @ViewChild("password") password: ElementRef;
+  feedback: Feedback;
   isLoggingIn = true;
   processing = false;
 
   public constructor(
     private user: User,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private page: Page,
   ) {
+    page.actionBarHidden = true;
     this.user = new User()
+    this.feedback = new Feedback();
   }
   ngOnInit() {
   }
@@ -33,7 +42,9 @@ export class SignInComponent implements OnInit {
       })
       .catch(() => {
         this.processing = false;
-        alert(`Unfortunately we could not find your account ${this.user.username}`)
+        this.feedback.error({
+          message: `Unfortunately we could not find your account ${this.user.username}`
+        });
       });
   }
   signUp() {
@@ -41,23 +52,44 @@ export class SignInComponent implements OnInit {
     this.userService.register(this.user)
       .then(() => {
         this.processing = false;
-        alert("Your account was successfully created.");
+        this.feedback.success({
+          message: "Your account was successfully created."
+        });
         this.toggleDisplay();
       })
       .catch(() => {
         this.processing = false;
-        alert("Unfortunately we were unable to create your account.")
+        this.feedback.error({
+          message: "Unfortunately we were unable to create your account"
+        });
       });
   }
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
   }
   submit(args: EventData) {
-    this.processing = true;
-    if (this.isLoggingIn) {
-      this.login();
-    } else {
-      this.signUp()
+    if(!this.user.username && this.user.password){
+      this.feedback.error({
+        message: "Please Provide Username"
+      });
+    }else if(this.user.username && !this.user.password){
+      this.feedback.error({
+        message: "Please Provide Password"
+      });
+    }else if(!this.user.username && !this.user.password) {
+      this.feedback.error({
+        message: "Please Provide Both a Username and a Password"
+      });
+    }else{
+      this.processing = true;
+      if (this.isLoggingIn) {
+        this.login();
+      } else {
+        this.signUp()
+      }
     }
+  }
+  switchToPass(args: EventData) {
+    this.password.nativeElement.focus();
   }
 }
