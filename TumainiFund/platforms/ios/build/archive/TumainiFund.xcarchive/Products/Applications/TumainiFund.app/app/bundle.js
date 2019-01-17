@@ -493,14 +493,14 @@ var UserService = /** @class */ (function () {
 /***/ "./app/sign-in/sign-in.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* Add mobile styles for the component here.  */\n:disabled {\n  opacity: 0.5;\n}\n\n:disabled > :disabled {\n  opacity: 1;\n}\n\nFlexboxLayout {\n    justify-content: center;\n    align-items: center;\n    background-size: cover;\n    background-color: #82CC33;\n  }\n  \n  GridLayout {\n    width: 300;\n    padding: 10 16;\n  }\n  \n  /* Image {\n    margin-bottom: 20;\n    height: 70;\n  } */\n  \n  Button, TextField {\n    margin: 10 0;\n  }\n  \n  .btn-primary {\n    margin-left: 0;\n    margin-right: 0;\n  }\n  \n  TextField {\n    placeholder-color: #C4AFB4;\n    color: black;\n  }\n  \n  .input, .btn-primary {\n    background-color: white;\n    color: black;\n  }"
+module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n  opacity: 0.5;\n}\n\n:disabled> :disabled {\n  opacity: 1;\n}\n\nFlexboxLayout {\n  justify-content: center;\n  align-items: center;\n  background-size: cover;\n  background-color: #82CC33;\n}\n\nGridLayout {\n  width: 300;\n  padding: 10 16;\n}\n\nButton, TextField {\n  margin: 10 0;\n}\n\n.btn-primary {\n  margin-left: 0;\n  margin-right: 0;\n}\n\nTextField {\n  placeholder-color: #C4AFB4;\n  color: black;\n}\n\n.input, .btn-primary {\n  background-color: white;\n  color: black;\n}\n\n.form {\n  display: flex;\n  align-items: center;\n  height: 100vh;\n  margin: auto;\n  width: auto;\n  max-width: 90%;\n}\n\n.form-contents {\n  width: fit-content;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  margin: auto;\n}"
 
 /***/ }),
 
 /***/ "./app/sign-in/sign-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto,auto\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://logo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\" returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\" class=\"btn btn-primary btn-rounded-lg btn-active\"></Button>\n        <Button row=\"4\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign Up' : 'Back To Login'\" (tap)=\"toggleDisplay($event)\"></Button>\n        <ActivityIndicator rowSpan=\"5\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
+module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto,auto\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://logo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\" returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\" class=\"btn btn-primary btn-rounded-lg btn-active\"></Button>\n        <Button row=\"4\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign Up' : 'Back To Login'\" (tap)=\"toggleDisplay($event)\"></Button>\n        <ActivityIndicator rowSpan=\"5\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
 
 /***/ }),
 
@@ -512,10 +512,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignInComponent", function() { return SignInComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _shared_user_user_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./app/shared/user/user.model.ts");
-/* harmony import */ var _shared_user_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./app/shared/user/user.service.ts");
-/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
-/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./app/shared/user/user.model.ts");
+/* harmony import */ var _shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/shared/user/user.service.ts");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -530,15 +532,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var SignInComponent = /** @class */ (function () {
-    function SignInComponent(user, router, userService) {
+    function SignInComponent(user, router, userService, page) {
         this.user = user;
         this.router = router;
         this.userService = userService;
+        this.page = page;
         this.isLoggingIn = true;
         this.processing = false;
-        this.user = new _shared_user_user_model__WEBPACK_IMPORTED_MODULE_2__["User"]();
-        this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_4__["Feedback"]();
+        page.actionBarHidden = true;
+        this.user = new _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]();
+        this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"]();
     }
     SignInComponent.prototype.ngOnInit = function () {
     };
@@ -614,12 +619,13 @@ var SignInComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-sign-in',
             template: __webpack_require__("./app/sign-in/sign-in.component.html"),
-            providers: [_shared_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _shared_user_user_model__WEBPACK_IMPORTED_MODULE_2__["User"]],
+            providers: [_shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]],
             styles: [__webpack_require__("./app/sign-in/sign-in.component.css")]
         }),
-        __metadata("design:paramtypes", [_shared_user_user_model__WEBPACK_IMPORTED_MODULE_2__["User"],
+        __metadata("design:paramtypes", [_shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _shared_user_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+            _shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+            tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__["Page"]])
     ], SignInComponent);
     return SignInComponent;
 }());
