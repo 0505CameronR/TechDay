@@ -1,0 +1,10 @@
+<FlexboxLayout>
+    <GridLayout [isEnabled]="!processing" rows="auto,auto,auto,auto,auto" class="form">
+        <Image [isEnabled]="!processing" row="0" src="res://logo" stretch="none"></Image>
+        <TextField row="1" [isEnabled]="!processing" returnKeyType="next" id="username" hint="Username" class="input input-rounded input-border" [(ngModel)]="user.username"></TextField>
+        <TextField row="2" [isEnabled]="!processing" id="password" hint="Password" secure="true" class="input input-rounded input-border" [(ngModel)]="user.password"></TextField>
+        <Button row="3" [isEnabled]="!processing" [text]="isLoggingIn ? 'Sign In' : 'Sign Up'" (tap)="submit($event)" class="btn btn-primary btn-rounded-lg btn-active"></Button>
+        <Button row="4" [isEnabled]="!processing" [text]="isLoggingIn ? 'Sign Up' : 'Back To Login'" (tap)="toggleDisplay($event)"></Button>
+        <ActivityIndicator rowSpan="5" [busy]="processing"></ActivityIndicator>
+    </GridLayout>
+</FlexboxLayout>

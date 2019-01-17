@@ -1,0 +1,44 @@
+/* Add mobile styles for the component here.  */
+:disabled {
+  opacity: 0.5;
+}
+
+:disabled > :disabled {
+  opacity: 1;
+}
+
+FlexboxLayout {
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-color: #82CC33;
+  }
+  
+  GridLayout {
+    width: 300;
+    padding: 10 16;
+  }
+  
+  /* Image {
+    margin-bottom: 20;
+    height: 70;
+  } */
+  
+  Button, TextField {
+    margin: 10 0;
+  }
+  
+  .btn-primary {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  TextField {
+    placeholder-color: #C4AFB4;
+    color: black;
+  }
+  
+  .input, .btn-primary {
+    background-color: white;
+    color: black;
+  }
