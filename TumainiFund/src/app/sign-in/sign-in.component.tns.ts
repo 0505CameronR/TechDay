@@ -43,30 +43,30 @@ export class SignInComponent implements OnInit {
       .catch(() => {
         this.processing = false;
         this.feedback.error({
-          message: `Unfortunately we could not find your account ${this.user.username}`
+          message: `Unfortunately we could not find your account: ${this.user.username}`
         });
       });
   }
-  signUp() {
-    // FIXME: Need to move to web version
-    this.userService.register(this.user)
-      .then(() => {
-        this.processing = false;
-        this.feedback.success({
-          message: "Your account was successfully created."
-        });
-        this.toggleDisplay();
-      })
-      .catch(() => {
-        this.processing = false;
-        this.feedback.error({
-          message: "Unfortunately we were unable to create your account"
-        });
-      });
-  }
-  toggleDisplay() {
-    this.isLoggingIn = !this.isLoggingIn;
-  }
+  // signUp() {
+  //   // FIXME: Need to move to web version
+  //   this.userService.register(this.user)
+  //     .then(() => {
+  //       this.processing = false;
+  //       this.feedback.success({
+  //         message: "Your account was successfully created."
+  //       });
+  //       this.toggleDisplay();
+  //     })
+  //     .catch(() => {
+  //       this.processing = false;
+  //       this.feedback.error({
+  //         message: "Unfortunately we were unable to create your account"
+  //       });
+  //     });
+  // // }
+  // toggleDisplay() {
+  //   this.isLoggingIn = !this.isLoggingIn;
+  // }
   submit(args: EventData) {
     if(!this.user.username && this.user.password){
       this.feedback.error({
@@ -85,7 +85,7 @@ export class SignInComponent implements OnInit {
       if (this.isLoggingIn) {
         this.login();
       } else {
-        this.signUp()
+        // this.signUp()
       }
     }
   }

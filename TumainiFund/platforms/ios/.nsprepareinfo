@@ -26,8 +26,8 @@
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/src/app/shared/user/user.service.ts": "d3a1f3a29cc530fbd426d55272be688e43b2d630",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/src/app/sign-in/sign-in.component.css": "1ec8408e603e5cddcc36fe9eb79d53cead1e265f",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/src/app/sign-in/sign-in.component.html": "e468d813b5ca2e375af717ba8449fd07b3df834a",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/src/app/sign-in/sign-in.component.tns.html": "d2df0a5e239e1e0a56b142d17647419bb5bf60cb",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/src/app/sign-in/sign-in.component.tns.ts": "411120bf590b2423e0343cd5d0d369c8c64b249f",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/src/app/sign-in/sign-in.component.tns.html": "06d0a9851db5e386126e8e2a9e39ab87f35b1a7d",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/src/app/sign-in/sign-in.component.tns.ts": "6bc575dc61d21a4f7dceea200376ae880de8b70e",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/src/app/sign-in/sign-in.component.ts": "dc6d4164408749951d9ad78e4acd461ceefc0fca",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/src/app.css": "0dd8c27458bb9fee2e1c94571651e4242d9746c3",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/src/assets/images/logo.png": "bd420d3281562942a9f70147a340d9ceeb3c7d31",
@@ -50,7 +50,7 @@
 	"release": false,
 	"bundle": true,
 	"changesRequireBuild": false,
-	"time": "Thu Jan 17 2019 19:13:26 GMT+0000 (Greenwich Mean Time)",
+	"time": "Thu Jan 17 2019 19:17:38 GMT+0000 (Greenwich Mean Time)",
 	"changesRequireBuildTime": "Thu Jan 17 2019 19:09:22 GMT+0000 (Greenwich Mean Time)",
 	"projectFileHash": "505f6e251bce5ca8c182f4cf7a1996c69be8cf9c85083e0e1b27c2b6fbf17af7"
 }
