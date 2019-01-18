@@ -230,7 +230,7 @@ module.exports = ""
 /***/ "./app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "  <page-router-outlet></page-router-outlet>\n"
+module.exports = "  <page-router-outlet></page-router-outlet>"
 
 /***/ }),
 
@@ -370,7 +370,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<ActionBar [title]=\"title\"></ActionBar>\n<StackLayout  class=\"p-20\">\n    <Label text=\"Welcome to {{ title }}!\" class=\"h1 text-center\" textWrap=\"true\"></Label>\n</StackLayout>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-header></app-header>\n<StackLayout  class=\"p-20\">\n    <Label text=\"Welcome to {{ title }}!\" class=\"h1 text-center\" textWrap=\"true\"></Label>\n</StackLayout>"
 
 /***/ }),
 
@@ -500,7 +500,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled 
 /***/ "./app/sign-in/sign-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto,auto\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://logo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\"\n            returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\"\n            class=\"btn btn-primary btn-rounded-lg btn-active\"></Button>\n        <Button row=\"4\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign Up' : 'Back To Login'\" (tap)=\"toggleDisplay($event)\"></Button>\n        <ActivityIndicator rowSpan=\"5\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
+module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://logo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\"\n            returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\"\n            class=\"btn btn-primary btn-rounded-lg btn-active\"></Button>\n        <!-- <Button row=\"4\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign Up' : 'Back To Login'\" (tap)=\"toggleDisplay($event)\"></Button> -->\n        <ActivityIndicator rowSpan=\"4\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
 
 /***/ }),
 
@@ -545,8 +545,7 @@ var SignInComponent = /** @class */ (function () {
         this.user = new _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]();
         this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"]();
     }
-    SignInComponent.prototype.ngOnInit = function () {
-    };
+    SignInComponent.prototype.ngOnInit = function () { };
     SignInComponent.prototype.login = function () {
         var _this = this;
         this.userService.login(this.user)
@@ -557,32 +556,12 @@ var SignInComponent = /** @class */ (function () {
             .catch(function () {
             _this.processing = false;
             _this.feedback.error({
-                message: "Unfortunately we could not find your account " + _this.user.username
+                message: "Unfortunately we could not find your account: " + _this.user.username
             });
         });
-    };
-    SignInComponent.prototype.signUp = function () {
-        var _this = this;
-        // FIXME: Need to move to web version
-        this.userService.register(this.user)
-            .then(function () {
-            _this.processing = false;
-            _this.feedback.success({
-                message: "Your account was successfully created."
-            });
-            _this.toggleDisplay();
-        })
-            .catch(function () {
-            _this.processing = false;
-            _this.feedback.error({
-                message: "Unfortunately we were unable to create your account"
-            });
-        });
-    };
-    SignInComponent.prototype.toggleDisplay = function () {
-        this.isLoggingIn = !this.isLoggingIn;
     };
     SignInComponent.prototype.submit = function (args) {
+        this.processing = true;
         if (!this.user.username && this.user.password) {
             this.feedback.error({
                 message: "Please Provide Username"
@@ -599,13 +578,7 @@ var SignInComponent = /** @class */ (function () {
             });
         }
         else {
-            this.processing = true;
-            if (this.isLoggingIn) {
-                this.login();
-            }
-            else {
-                this.signUp();
-            }
+            this.login();
         }
     };
     SignInComponent.prototype.switchToPass = function (args) {

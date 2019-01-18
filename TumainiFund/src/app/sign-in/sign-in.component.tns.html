@@ -7,7 +7,7 @@
             [(ngModel)]="user.password" autocorrect="false" autocapitalizationType="none" (returnPress)="submit($event)"
             returnKeyType="done"></TextField>
         <Button row="3" [isEnabled]="!processing" [text]="isLoggingIn ? 'Sign In' : 'Sign Up'" (tap)="submit($event)"
-            class="btn btn-primary btn-rounded-lg btn-active"></Button>
+            class="btn btn-primary btn-rounded-lg btn-active" clearHistory="true"></Button>
         <!-- <Button row="4" [isEnabled]="!processing" [text]="isLoggingIn ? 'Sign Up' : 'Back To Login'" (tap)="toggleDisplay($event)"></Button> -->
         <ActivityIndicator rowSpan="4" [busy]="processing"></ActivityIndicator>
     </GridLayout>
