@@ -363,14 +363,14 @@ var routes = [
 /***/ "./app/home/home.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    color: white;\n    margin: 10;\n    font-size: 22;\n    border-color: #2b3c6a;\n    background-color: #3B5997;\n}"
+module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    color: white;\n    margin: 10;\n    font-size: 22;\n    border-color: #2b3c6a;\n    background-color: #3B5997;\n}\nActionBar {\n    background-color: #82CC33;\n    /* #A8F259 */\n}\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}"
 
 /***/ }),
 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<ActionBar class=\"action-bar\">\n    <NavigationButton visibility=\"collapsed\"></NavigationButton>\n    <SearchBar></SearchBar>>\n</ActionBar>\n<StackLayout class=\"p-20\">\n    <Label text=\"Welcome to {{ title }}!\" class=\"h1 text-center\" textWrap=\"true\"></Label>\n</StackLayout>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<ActionBar class=\"action-bar\">\n    <NavigationButton visibility=\"collapsed\"></NavigationButton>\n    <StackLayout orientation=\"horizontal\">\n        <Image src=\"res://homeLogo\" class=\"action-image\" ios:horizontalAlignment=\"left\" android:horizontalAlignment=\"left\"></Image>\n        <SearchBar ios:horizontalAlignment=\"stretch\" android:horizontalAlignment=\"stretch\"></SearchBar>\n        <ActionItem icon=\"res://ic_menu\" ios:position=\"right\" android:position=\"right\"></ActionItem>\n    </StackLayout>\n</ActionBar>\n<FlexBox>\n    <StackLayout class=\"p-20\">\n        <Label text=\"Welcome to {{ title }}!\" class=\"h1 text-center\" textWrap=\"true\"></Label>\n    </StackLayout>\n</FlexBox>"
 
 /***/ }),
 
@@ -500,7 +500,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled 
 /***/ "./app/sign-in/sign-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://logo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\"\n            returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\"\n            class=\"btn btn-primary btn-rounded-lg btn-active\" clearHistory=\"true\"></Button>\n        <!-- <Button row=\"4\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign Up' : 'Back To Login'\" (tap)=\"toggleDisplay($event)\"></Button> -->\n        <ActivityIndicator rowSpan=\"4\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
+module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://homeLogo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\"\n            returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\"\n            class=\"btn btn-primary btn-rounded-lg btn-active\" clearHistory=\"true\"></Button>\n        <ActivityIndicator rowSpan=\"4\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
 
 /***/ }),
 

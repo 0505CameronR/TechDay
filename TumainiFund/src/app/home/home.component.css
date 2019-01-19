@@ -8,3 +8,12 @@
     border-color: #2b3c6a;
     background-color: #3B5997;
 }
+ActionBar {
+    background-color: #82CC33;
+    /* #A8F259 */
+}
+.action-image {
+    height: 30;
+    vertical-align: center;
+    horizontal-align: center;
+}
