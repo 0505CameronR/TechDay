@@ -1,0 +1,1 @@
+/Users/cameronriou/Library/Developer/Xcode/DerivedData/TumainiFund-gjfahiekktgqbgbkojdubzeenylk/Build/Intermediates.noindex/ArchiveIntermediates/TumainiFund/InstallationBuildProductsLocation/Applications/TumainiFund.app

@@ -1,0 +1,10 @@
+android {
+}
+
+repositories {
+	maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+	compile 'com.github.JesusM:FingerprintManager:v2.0.2'
+}
