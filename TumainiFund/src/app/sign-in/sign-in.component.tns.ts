@@ -7,6 +7,9 @@ import { User } from '../shared/user/user.model';
 import { UserService } from '../shared/user/user.service';
 
 import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
+import { Kinvey } from 'kinvey-nativescript-sdk';
+
+import { FingerprintAuth, BiometricIDAvailableResult } from "nativescript-fingerprint-auth";
 
 @Component({
   selector: 'app-sign-in',
@@ -21,6 +24,11 @@ export class SignInComponent implements OnInit {
   feedback: Feedback;
   isLoggingIn = true;
   processing = false;
+  bioType = null;
+  bioOn = "hidden";
+  private bioValues;
+  private fingerprintAuth: FingerprintAuth;
+
 
   public constructor(
     private user: User,
@@ -28,12 +36,28 @@ export class SignInComponent implements OnInit {
     private userService: UserService,
     private page: Page,
   ) {
-    page.actionBarHidden = true;
-    this.user = new User()
+    this.page.actionBarHidden = true;
+    this.user = new User();
     this.feedback = new Feedback();
-  }
+    this.fingerprintAuth = new FingerprintAuth();
+    this.fingerprintAuth.available().then((result: BiometricIDAvailableResult) => {
+      this.bioValues = result;
+    })
+  };
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.bioValues.face) {
+      this.bioType = "Use Face ID";
+    } else if (this.bioValues.touch) {
+      this.bioType = "Use Touch ID";
+    }
+    if (Kinvey.User.getActiveUser()) {
+      console.log("Auto Sign In");
+      Kinvey.User.getActiveUser().me();
+      this.user.username = Kinvey.User.getActiveUser().username;
+      this.bioOn = "visible";
+    };
+  };
 
   login() {
     this.userService.login(this.user)
@@ -71,5 +95,17 @@ export class SignInComponent implements OnInit {
   }
   switchToPass(args: EventData) {
     this.password.nativeElement.focus();
+  }
+  touchID() {
+    this.fingerprintAuth.verifyFingerprint(
+      {
+        title: 'Authenticate', // optional title (used only on Android)
+        message: `Sign Into User '${this.user.username}'`,
+        authenticationValidityDuration: 10, // optional (used on Android, default 5)
+        useCustomAndroidUI: false // set to true to use a different authentication screen (see below)
+      })
+      .then(() => {
+        this.router.navigate(["/home"])
+      })
   }
 }

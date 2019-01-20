@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchBar } from "tns-core-modules/ui/search-bar";
+import { Kinvey } from 'kinvey-nativescript-sdk';
 
 @Component({
   selector: 'ns-home',
@@ -8,10 +9,10 @@ import { SearchBar } from "tns-core-modules/ui/search-bar";
   // moduleId: module.id,
 })
 export class HomeComponent implements OnInit{
-  title = 'TumainiFund';
+  private activeUser = Kinvey.User.getActiveUser();
+  user = this.activeUser.username;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

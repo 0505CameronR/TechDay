@@ -13,6 +13,7 @@
     "kinvey-nativescript-sdk": true,
     "nativescript-angular": true,
     "nativescript-feedback": true,
+    "nativescript-fingerprint-auth": true,
     "nativescript-iqkeyboardmanager": true,
     "nativescript-theme-core": true,
     "reflect-metadata": true,

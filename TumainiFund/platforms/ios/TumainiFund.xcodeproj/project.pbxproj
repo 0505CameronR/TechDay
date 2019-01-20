@@ -6,28 +6,22 @@
 	objectVersion = 46;
 	objects = {
 /* Begin PBXBuildFile section */
-		2C29C8E140DE405E85219EDE /* TNSWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EEAFF175D3941539459285E /* TNSWidgets.framework */; };
-		34684B0D0008369F80C16558 /* Pods_TumainiFund.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2DB1895BE9EA29DA9E3D4C /* Pods_TumainiFund.framework */; };
+		0C0DCEA9500043D78518393A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70F924D211E1481BAB98DFE5 /* LaunchScreen.storyboard */; };
+		0F4C2C1EFE4040D78518A77E /* sqlitewrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1AF90546A34336939A1870 /* sqlitewrapper.framework */; };
+		126F5C79F4B64EF1AD58C256 /* build.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 19A7301C15494FE19ADFF690 /* build.xcconfig */; };
+		2375D62F6A9D4272BA034386 /* TNSWidgets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 839F5AFE078B4D06AD4181BF /* TNSWidgets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		245BC34CF9AB46C0BC824777 /* @3xhomeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = DCE27E83F43D4D62BA0D2238 /* @3xhomeLogo.png */; };
+		301D7C5D310B4BB8B9E6C1AC /* TNSWidgets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839F5AFE078B4D06AD4181BF /* TNSWidgets.framework */; };
+		34365A132ED8479F95ECBD40 /* sqlitewrapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DF1AF90546A34336939A1870 /* sqlitewrapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		62B545E2CBD141C2A757A2EB /* NativeScriptEmbedder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6463F97951A44DFAB525E1EE /* NativeScriptEmbedder.m */; };
 		858B842D18CA22B800AB12DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 858B833A18CA111C00AB12DE /* InfoPlist.strings */; };
-		868BF3F357574CD29F187E0F /* sqlitewrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD24541E17346AB92B4BA8B /* sqlitewrapper.framework */; };
-		A750A6FAEB6E44F8A73CB35D /* TNSWidgets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4EEAFF175D3941539459285E /* TNSWidgets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4DC5E77E9EC4A4897A65BB7 /* @2xhomeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 132F23C88EFA42968A0E0321 /* @2xhomeLogo.png */; };
+		AFDFD1CA96C1482B97F81906 /* homeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F16C25A665324D29874C5F7D /* homeLogo.png */; };
+		C91A6FD1FA9F94FEFE845E52 /* Pods_TumainiFund.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C08DA9A269C7B58268DA1404 /* Pods_TumainiFund.framework */; };
 		CD45EE7C18DC2D5800FB50C0 /* app in Resources */ = {isa = PBXBuildFile; fileRef = CD45EE7A18DC2D5800FB50C0 /* app */; };
 		CD62955D1BB2678900AE3A93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD62955C1BB2678900AE3A93 /* main.m */; };
-		F3A5452B857548F99E507854 /* sqlitewrapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD24541E17346AB92B4BA8B /* sqlitewrapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FB75DA77869B456CA793E0D1 /* NativeScriptEmbedder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4D9334DD23404FB7D37146 /* NativeScriptEmbedder.m */; };
-		DA1BBC4BC9B24DFBBF11797F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0EF0A13FEF74E7DBADF46E8 /* LaunchScreen.xib */; };
-		C937B06D1A3B435E935AB6BC /* baseline_menu_black_18pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50750F31D7DF4F01A2A414CE /* baseline_menu_black_18pt_1x.png */; };
-		8C7C375E177E46DF8BE26C1E /* baseline_menu_black_18pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 060AF5A8A5BF4B27AE19D1B6 /* baseline_menu_black_18pt_2x.png */; };
-		3DE36B6BFE1843B9B9C3A85D /* baseline_menu_black_18pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 062E56EF212345E9AB3D8714 /* baseline_menu_black_18pt_3x.png */; };
-		F26F50FC6E9D46EE98608B38 /* baseline_menu_black_24pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D4ED2A587D24BD9A55471CD /* baseline_menu_black_24pt_1x.png */; };
-		3C78C3B581AA427E9D1DF4A0 /* baseline_menu_black_24pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B7887BD5EE10488DBD5CFB48 /* baseline_menu_black_24pt_2x.png */; };
-		B5A25D57B9044BE397FB4AAE /* baseline_menu_black_24pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BAFD12DDB534E7AB801DFD8 /* baseline_menu_black_24pt_3x.png */; };
-		E330D432A4FF44E6A26126D1 /* baseline_menu_black_36pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = E465535E223A4056909676C2 /* baseline_menu_black_36pt_1x.png */; };
-		EF1B2B347A054B78A7DDEABF /* baseline_menu_black_36pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D88EC945E0CC456DB5A50AF5 /* baseline_menu_black_36pt_2x.png */; };
-		0701ECA55760434C927B4084 /* baseline_menu_black_36pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A1BEDE182649C085FC3956 /* baseline_menu_black_36pt_3x.png */; };
-		7A33467EDEC3443C82A1187F /* baseline_menu_black_48pt_1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 225B1FC9663347CA97AAF119 /* baseline_menu_black_48pt_1x.png */; };
-		9B384BF914884F6D8288446E /* baseline_menu_black_48pt_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FC4EA3824E3D428E99A6A95C /* baseline_menu_black_48pt_2x.png */; };
-		A054424A6BC14A2EAE8A896B /* baseline_menu_black_48pt_3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D260DA5CEDA477F8EBA6470 /* baseline_menu_black_48pt_3x.png */; };
+		D08D5D2FEEDA4D01AA0BCFEC /* @1xhomeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = CAA0AB6357F14DA4924D257B /* @1xhomeLogo.png */; };
+		FCD59B75D4BF41BE9A1F496E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0361492F4C894D228CA8E37B /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,8 +31,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F3A5452B857548F99E507854 /* sqlitewrapper.framework in Embed Frameworks */,
-				A750A6FAEB6E44F8A73CB35D /* TNSWidgets.framework in Embed Frameworks */,
+				34365A132ED8479F95ECBD40 /* sqlitewrapper.framework in Embed Frameworks */,
+				2375D62F6A9D4272BA034386 /* TNSWidgets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,34 +40,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0BD24541E17346AB92B4BA8B /* sqlitewrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sqlitewrapper.framework; path = "$(SRCROOT)/../../node_modules/nativescript-sqlite/platforms/ios/sqlitewrapper.framework"; sourceTree = "<group>"; };
-		151DEFCA303B431CA4EAF222 /* NativeScriptEmbedder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NativeScriptEmbedder.h; path = "../../node_modules/tns-core-modules/platforms/ios/src/NativeScriptEmbedder.h"; sourceTree = "<group>"; };
-		4EEAFF175D3941539459285E /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework"; sourceTree = "<group>"; };
-		5D2DB1895BE9EA29DA9E3D4C /* Pods_TumainiFund.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumainiFund.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F4D9334DD23404FB7D37146 /* NativeScriptEmbedder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NativeScriptEmbedder.m; path = "../../node_modules/tns-core-modules/platforms/ios/src/NativeScriptEmbedder.m"; sourceTree = "<group>"; };
+		0361492F4C894D228CA8E37B /* Assets.xcassets */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = Assets.xcassets; path = TumainiFund/Resources/Assets.xcassets; sourceTree = "<group>"; };
+		132F23C88EFA42968A0E0321 /* @2xhomeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "@2xhomeLogo.png"; path = "TumainiFund/Resources/@2xhomeLogo.png"; sourceTree = "<group>"; };
+		19A7301C15494FE19ADFF690 /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = build.xcconfig; path = TumainiFund/Resources/build.xcconfig; sourceTree = "<group>"; };
+		27DD56E9D960454DA4E980E6 /* NativeScriptEmbedder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NativeScriptEmbedder.h; path = "../../node_modules/tns-core-modules/platforms/ios/src/NativeScriptEmbedder.h"; sourceTree = "<group>"; };
+		6463F97951A44DFAB525E1EE /* NativeScriptEmbedder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NativeScriptEmbedder.m; path = "../../node_modules/tns-core-modules/platforms/ios/src/NativeScriptEmbedder.m"; sourceTree = "<group>"; };
+		70F924D211E1481BAB98DFE5 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = LaunchScreen.storyboard; path = TumainiFund/Resources/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		839F5AFE078B4D06AD4181BF /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework"; sourceTree = "<group>"; };
 		858B832E18CA111C00AB12DE /* TumainiFund.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumainiFund.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		858B833918CA111C00AB12DE /* TumainiFund-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TumainiFund-Info.plist"; sourceTree = "<group>"; };
 		858B833B18CA111C00AB12DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		858B833F18CA111C00AB12DE /* TumainiFund-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TumainiFund-Prefix.pch"; sourceTree = "<group>"; };
 		858B843318CA22B800AB12DE /* TumainiFund.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TumainiFund.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08DA9A269C7B58268DA1404 /* Pods_TumainiFund.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumainiFund.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAA0AB6357F14DA4924D257B /* @1xhomeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "@1xhomeLogo.png"; path = "TumainiFund/Resources/@1xhomeLogo.png"; sourceTree = "<group>"; };
 		CD45EE7A18DC2D5800FB50C0 /* app */ = {isa = PBXFileReference; lastKnownFileType = folder; path = app; sourceTree = "<group>"; };
 		CD62955C1BB2678900AE3A93 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = internal/main.m; sourceTree = SOURCE_ROOT; };
 		CDD59A261BB43B5D00EC2671 /* build-debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "build-debug.xcconfig"; sourceTree = "<group>"; };
 		CDD59A271BB43B5D00EC2671 /* build-release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "build-release.xcconfig"; sourceTree = "<group>"; };
 		CDF4743E1BA4855C0087EA85 /* build.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = build.xcconfig; sourceTree = "<group>"; };
-		B0EF0A13FEF74E7DBADF46E8 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = "TumainiFund/Resources/LaunchScreen.xib"; sourceTree = "<group>"; fileEncoding = 4; };
-		50750F31D7DF4F01A2A414CE /* baseline_menu_black_18pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_18pt_1x.png; path = "TumainiFund/Resources/baseline_menu_black_18pt_1x.png"; sourceTree = "<group>"; };
-		060AF5A8A5BF4B27AE19D1B6 /* baseline_menu_black_18pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_18pt_2x.png; path = "TumainiFund/Resources/baseline_menu_black_18pt_2x.png"; sourceTree = "<group>"; };
-		062E56EF212345E9AB3D8714 /* baseline_menu_black_18pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_18pt_3x.png; path = "TumainiFund/Resources/baseline_menu_black_18pt_3x.png"; sourceTree = "<group>"; };
-		0D4ED2A587D24BD9A55471CD /* baseline_menu_black_24pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_24pt_1x.png; path = "TumainiFund/Resources/baseline_menu_black_24pt_1x.png"; sourceTree = "<group>"; };
-		B7887BD5EE10488DBD5CFB48 /* baseline_menu_black_24pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_24pt_2x.png; path = "TumainiFund/Resources/baseline_menu_black_24pt_2x.png"; sourceTree = "<group>"; };
-		7BAFD12DDB534E7AB801DFD8 /* baseline_menu_black_24pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_24pt_3x.png; path = "TumainiFund/Resources/baseline_menu_black_24pt_3x.png"; sourceTree = "<group>"; };
-		E465535E223A4056909676C2 /* baseline_menu_black_36pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_36pt_1x.png; path = "TumainiFund/Resources/baseline_menu_black_36pt_1x.png"; sourceTree = "<group>"; };
-		D88EC945E0CC456DB5A50AF5 /* baseline_menu_black_36pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_36pt_2x.png; path = "TumainiFund/Resources/baseline_menu_black_36pt_2x.png"; sourceTree = "<group>"; };
-		47A1BEDE182649C085FC3956 /* baseline_menu_black_36pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_36pt_3x.png; path = "TumainiFund/Resources/baseline_menu_black_36pt_3x.png"; sourceTree = "<group>"; };
-		225B1FC9663347CA97AAF119 /* baseline_menu_black_48pt_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_48pt_1x.png; path = "TumainiFund/Resources/baseline_menu_black_48pt_1x.png"; sourceTree = "<group>"; };
-		FC4EA3824E3D428E99A6A95C /* baseline_menu_black_48pt_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_48pt_2x.png; path = "TumainiFund/Resources/baseline_menu_black_48pt_2x.png"; sourceTree = "<group>"; };
-		2D260DA5CEDA477F8EBA6470 /* baseline_menu_black_48pt_3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = baseline_menu_black_48pt_3x.png; path = "TumainiFund/Resources/baseline_menu_black_48pt_3x.png"; sourceTree = "<group>"; };
+		DCE27E83F43D4D62BA0D2238 /* @3xhomeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "@3xhomeLogo.png"; path = "TumainiFund/Resources/@3xhomeLogo.png"; sourceTree = "<group>"; };
+		DF1AF90546A34336939A1870 /* sqlitewrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = sqlitewrapper.framework; path = "$(SRCROOT)/../../node_modules/nativescript-sqlite/platforms/ios/sqlitewrapper.framework"; sourceTree = "<group>"; };
+		F16C25A665324D29874C5F7D /* homeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homeLogo.png; path = TumainiFund/Resources/homeLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,27 +69,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				868BF3F357574CD29F187E0F /* sqlitewrapper.framework in Frameworks */,
-				2C29C8E140DE405E85219EDE /* TNSWidgets.framework in Frameworks */,
-				34684B0D0008369F80C16558 /* Pods_TumainiFund.framework in Frameworks */,
+				0F4C2C1EFE4040D78518A77E /* sqlitewrapper.framework in Frameworks */,
+				301D7C5D310B4BB8B9E6C1AC /* TNSWidgets.framework in Frameworks */,
+				C91A6FD1FA9F94FEFE845E52 /* Pods_TumainiFund.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		65026020627F85FF6A875A10 /* Pods */ = {
+		730DFBF11CB039DCA7C273FC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		77383EAD70C5410CAE0D2D4A /* tns-core-modules */ = {
+		767034C0054E409291270F54 /* tns-core-modules */ = {
 			isa = PBXGroup;
 			children = (
-				151DEFCA303B431CA4EAF222 /* NativeScriptEmbedder.h */,
-				6F4D9334DD23404FB7D37146 /* NativeScriptEmbedder.m */,
+				27DD56E9D960454DA4E980E6 /* NativeScriptEmbedder.h */,
+				6463F97951A44DFAB525E1EE /* NativeScriptEmbedder.m */,
 			);
 			name = "tns-core-modules";
 			sourceTree = "<group>";
@@ -113,8 +101,8 @@
 				858B833718CA111C00AB12DE /* TumainiFund */,
 				858B833018CA111C00AB12DE /* Frameworks */,
 				858B832F18CA111C00AB12DE /* Products */,
-				77383EAD70C5410CAE0D2D4A /* tns-core-modules */,
-				65026020627F85FF6A875A10 /* Pods */,
+				767034C0054E409291270F54 /* tns-core-modules */,
+				730DFBF11CB039DCA7C273FC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,9 +118,9 @@
 		858B833018CA111C00AB12DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0BD24541E17346AB92B4BA8B /* sqlitewrapper.framework */,
-				4EEAFF175D3941539459285E /* TNSWidgets.framework */,
-				5D2DB1895BE9EA29DA9E3D4C /* Pods_TumainiFund.framework */,
+				DF1AF90546A34336939A1870 /* sqlitewrapper.framework */,
+				839F5AFE078B4D06AD4181BF /* TNSWidgets.framework */,
+				C08DA9A269C7B58268DA1404 /* Pods_TumainiFund.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,19 +151,13 @@
 		E070579D1B39A9D000214BF1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B0EF0A13FEF74E7DBADF46E8 /* LaunchScreen.xib */,
-				50750F31D7DF4F01A2A414CE /* baseline_menu_black_18pt_1x.png */,
-				060AF5A8A5BF4B27AE19D1B6 /* baseline_menu_black_18pt_2x.png */,
-				062E56EF212345E9AB3D8714 /* baseline_menu_black_18pt_3x.png */,
-				0D4ED2A587D24BD9A55471CD /* baseline_menu_black_24pt_1x.png */,
-				B7887BD5EE10488DBD5CFB48 /* baseline_menu_black_24pt_2x.png */,
-				7BAFD12DDB534E7AB801DFD8 /* baseline_menu_black_24pt_3x.png */,
-				E465535E223A4056909676C2 /* baseline_menu_black_36pt_1x.png */,
-				D88EC945E0CC456DB5A50AF5 /* baseline_menu_black_36pt_2x.png */,
-				47A1BEDE182649C085FC3956 /* baseline_menu_black_36pt_3x.png */,
-				225B1FC9663347CA97AAF119 /* baseline_menu_black_48pt_1x.png */,
-				FC4EA3824E3D428E99A6A95C /* baseline_menu_black_48pt_2x.png */,
-				2D260DA5CEDA477F8EBA6470 /* baseline_menu_black_48pt_3x.png */,
+				CAA0AB6357F14DA4924D257B /* @1xhomeLogo.png */,
+				132F23C88EFA42968A0E0321 /* @2xhomeLogo.png */,
+				DCE27E83F43D4D62BA0D2238 /* @3xhomeLogo.png */,
+				0361492F4C894D228CA8E37B /* Assets.xcassets */,
+				70F924D211E1481BAB98DFE5 /* LaunchScreen.storyboard */,
+				19A7301C15494FE19ADFF690 /* build.xcconfig */,
+				F16C25A665324D29874C5F7D /* homeLogo.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -187,7 +169,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 858B843018CA22B800AB12DE /* Build configuration list for PBXNativeTarget "TumainiFund" */;
 			buildPhases = (
-				98FAD9FBD76DA3F594DD3BA6 /* [CP] Check Pods Manifest.lock */,
+				425E127196D52D5E3665A446 /* [CP] Check Pods Manifest.lock */,
 				C97FD7AC1ADE5369004DB2A4 /* NativeScript PreBuild */,
 				858B83F218CA22B800AB12DE /* Sources */,
 				CD62955B1BB2651D00AE3A93 /* NativeScript PreLink */,
@@ -195,7 +177,7 @@
 				858B842C18CA22B800AB12DE /* Resources */,
 				85F5BDFC1A9363BE006B9701 /* Embed Frameworks */,
 				CD3EAD351B05FF060042DBFC /* NativeScript PostBuild */,
-				57CE0BA8BAC06F47E709429D /* [CP] Embed Pods Frameworks */,
+				45D0AE813A6745E73669C74C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,26 +228,42 @@
 			files = (
 				CD45EE7C18DC2D5800FB50C0 /* app in Resources */,
 				858B842D18CA22B800AB12DE /* InfoPlist.strings in Resources */,
-				DA1BBC4BC9B24DFBBF11797F /* LaunchScreen.xib in Resources */,
-				C937B06D1A3B435E935AB6BC /* baseline_menu_black_18pt_1x.png in Resources */,
-				8C7C375E177E46DF8BE26C1E /* baseline_menu_black_18pt_2x.png in Resources */,
-				3DE36B6BFE1843B9B9C3A85D /* baseline_menu_black_18pt_3x.png in Resources */,
-				F26F50FC6E9D46EE98608B38 /* baseline_menu_black_24pt_1x.png in Resources */,
-				3C78C3B581AA427E9D1DF4A0 /* baseline_menu_black_24pt_2x.png in Resources */,
-				B5A25D57B9044BE397FB4AAE /* baseline_menu_black_24pt_3x.png in Resources */,
-				E330D432A4FF44E6A26126D1 /* baseline_menu_black_36pt_1x.png in Resources */,
-				EF1B2B347A054B78A7DDEABF /* baseline_menu_black_36pt_2x.png in Resources */,
-				0701ECA55760434C927B4084 /* baseline_menu_black_36pt_3x.png in Resources */,
-				7A33467EDEC3443C82A1187F /* baseline_menu_black_48pt_1x.png in Resources */,
-				9B384BF914884F6D8288446E /* baseline_menu_black_48pt_2x.png in Resources */,
-				A054424A6BC14A2EAE8A896B /* baseline_menu_black_48pt_3x.png in Resources */,
+				D08D5D2FEEDA4D01AA0BCFEC /* @1xhomeLogo.png in Resources */,
+				A4DC5E77E9EC4A4897A65BB7 /* @2xhomeLogo.png in Resources */,
+				245BC34CF9AB46C0BC824777 /* @3xhomeLogo.png in Resources */,
+				FCD59B75D4BF41BE9A1F496E /* Assets.xcassets in Resources */,
+				0C0DCEA9500043D78518393A /* LaunchScreen.storyboard in Resources */,
+				126F5C79F4B64EF1AD58C256 /* build.xcconfig in Resources */,
+				AFDFD1CA96C1482B97F81906 /* homeLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		57CE0BA8BAC06F47E709429D /* [CP] Embed Pods Frameworks */ = {
+		425E127196D52D5E3665A446 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TumainiFund-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45D0AE813A6745E73669C74C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -289,28 +287,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TumainiFund/Pods-TumainiFund-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		98FAD9FBD76DA3F594DD3BA6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TumainiFund-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C97FD7AC1ADE5369004DB2A4 /* NativeScript PreBuild */ = {
@@ -366,7 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD62955D1BB2678900AE3A93 /* main.m in Sources */,
-				FB75DA77869B456CA793E0D1 /* NativeScriptEmbedder.m in Sources */,
+				62B545E2CBD141C2A757A2EB /* NativeScriptEmbedder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

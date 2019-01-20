@@ -1,5 +1,5 @@
 <FlexboxLayout>
-    <GridLayout [isEnabled]="!processing" rows="auto,auto,auto,auto" class="form">
+    <GridLayout [isEnabled]="!processing" rows="auto,auto,auto,auto,auto" class="form">
         <Image [isEnabled]="!processing" row="0" src="res://homeLogo" stretch="none"></Image>
         <TextField row="1" [isEnabled]="!processing" returnKeyType="next" id="username" hint="Username" class="input input-rounded input-border"
             [(ngModel)]="user.username" autocorrect="false" autocapitalizationType="none" (returnPress)="switchToPass($event)"></TextField>
@@ -8,6 +8,7 @@
             returnKeyType="done"></TextField>
         <Button row="3" [isEnabled]="!processing" [text]="isLoggingIn ? 'Sign In' : 'Sign Up'" (tap)="submit($event)"
             class="btn btn-primary btn-rounded-lg btn-active" clearHistory="true"></Button>
-        <ActivityIndicator rowSpan="4" [busy]="processing"></ActivityIndicator>
+            <Button row="4" [isEnabled]="!processing" (tap)="touchID()" [text]="bioType" [visibility]="bioOn"></Button>
+        <ActivityIndicator rowSpan="5" [busy]="processing"></ActivityIndicator>
     </GridLayout>
 </FlexboxLayout>

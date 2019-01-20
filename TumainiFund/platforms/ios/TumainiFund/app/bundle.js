@@ -370,7 +370,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<ActionBar class=\"action-bar\">\n    <NavigationButton visibility=\"collapsed\"></NavigationButton>\n    <StackLayout orientation=\"horizontal\">\n        <Image src=\"res://homeLogo\" class=\"action-image\" ios:horizontalAlignment=\"left\" android:horizontalAlignment=\"left\"></Image>\n        <SearchBar ios:horizontalAlignment=\"stretch\" android:horizontalAlignment=\"stretch\"></SearchBar>\n        <ActionItem icon=\"res://ic_menu\" ios:position=\"right\" android:position=\"right\"></ActionItem>\n    </StackLayout>\n</ActionBar>\n<FlexBox>\n    <StackLayout class=\"p-20\">\n        <Label text=\"Welcome to {{ title }}!\" class=\"h1 text-center\" textWrap=\"true\"></Label>\n    </StackLayout>\n</FlexBox>"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<ActionBar class=\"action-bar\">\n    <NavigationButton visibility=\"collapsed\"></NavigationButton>\n    <StackLayout orientation=\"horizontal\">\n        <Image src=\"res://homeLogo\" class=\"action-image\" ios:horizontalAlignment=\"left\" android:horizontalAlignment=\"left\"></Image>\n        <SearchBar ios:horizontalAlignment=\"stretch\" android:horizontalAlignment=\"stretch\"></SearchBar>\n        <!-- <ActionItem icon=\"res://homeLogo\" ios:position=\"right\" android:position=\"right\"></ActionItem> -->\n    </StackLayout>\n</ActionBar>\n<FlexBox>\n    <StackLayout class=\"p-20\">\n        <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\"></Label>\n    </StackLayout>\n</FlexBox>"
 
 /***/ }),
 
@@ -381,6 +381,8 @@ module.exports = "<!--The content below is only a placeholder and can be replace
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
+/* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -391,12 +393,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomeComponent = /** @class */ (function () {
     function HomeComponent() {
-        this.title = 'TumainiFund';
+        this.activeUser = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.getActiveUser();
+        this.user = this.activeUser.username;
     }
-    HomeComponent.prototype.ngOnInit = function () {
-    };
+    HomeComponent.prototype.ngOnInit = function () { };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'ns-home',
@@ -500,7 +503,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled 
 /***/ "./app/sign-in/sign-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://homeLogo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\"\n            returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\"\n            class=\"btn btn-primary btn-rounded-lg btn-active\" clearHistory=\"true\"></Button>\n        <ActivityIndicator rowSpan=\"4\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
+module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto,auto\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://homeLogo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\"\n            returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\"\n            class=\"btn btn-primary btn-rounded-lg btn-active\" clearHistory=\"true\"></Button>\n            <Button row=\"4\" [isEnabled]=\"!processing\" (tap)=\"touchID()\" [text]=\"bioType\" [visibility]=\"bioOn\"></Button>\n        <ActivityIndicator rowSpan=\"5\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
 
 /***/ }),
 
@@ -518,6 +521,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/shared/user/user.service.ts");
 /* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
 /* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
+/* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("../node_modules/nativescript-fingerprint-auth/fingerprint-auth.js");
+/* harmony import */ var nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_7__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -533,19 +540,44 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var SignInComponent = /** @class */ (function () {
     function SignInComponent(user, router, userService, page) {
+        var _this = this;
         this.user = user;
         this.router = router;
         this.userService = userService;
         this.page = page;
         this.isLoggingIn = true;
         this.processing = false;
-        page.actionBarHidden = true;
+        this.bioType = null;
+        this.bioOn = "hidden";
+        this.page.actionBarHidden = true;
         this.user = new _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]();
         this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"]();
+        this.fingerprintAuth = new nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_7__["FingerprintAuth"]();
+        this.fingerprintAuth.available().then(function (result) {
+            _this.bioValues = result;
+        });
     }
-    SignInComponent.prototype.ngOnInit = function () { };
+    ;
+    SignInComponent.prototype.ngOnInit = function () {
+        if (this.bioValues.face) {
+            this.bioType = "Use Face ID";
+        }
+        else if (this.bioValues.touch) {
+            this.bioType = "Use Touch ID";
+        }
+        if (kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6__["Kinvey"].User.getActiveUser()) {
+            console.log("Auto Sign In");
+            kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6__["Kinvey"].User.getActiveUser().me();
+            this.user.username = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6__["Kinvey"].User.getActiveUser().username;
+            this.bioOn = "visible";
+        }
+        ;
+    };
+    ;
     SignInComponent.prototype.login = function () {
         var _this = this;
         this.userService.login(this.user)
@@ -586,6 +618,18 @@ var SignInComponent = /** @class */ (function () {
     };
     SignInComponent.prototype.switchToPass = function (args) {
         this.password.nativeElement.focus();
+    };
+    SignInComponent.prototype.touchID = function () {
+        var _this = this;
+        this.fingerprintAuth.verifyFingerprint({
+            title: 'Authenticate',
+            message: "Sign Into User '" + this.user.username + "'",
+            authenticationValidityDuration: 10,
+            useCustomAndroidUI: false // set to true to use a different authentication screen (see below)
+        })
+            .then(function () {
+            _this.router.navigate(["/home"]);
+        });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("password"),
