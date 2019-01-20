@@ -370,7 +370,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<ActionBar class=\"action-bar\">\n    <NavigationButton visibility=\"collapsed\"></NavigationButton>\n    <StackLayout orientation=\"horizontal\">\n        <Image src=\"res://homeLogo\" class=\"action-image\" ios:horizontalAlignment=\"left\" android:horizontalAlignment=\"left\"></Image>\n        <SearchBar ios:horizontalAlignment=\"stretch\" android:horizontalAlignment=\"stretch\"></SearchBar>\n        <!-- <ActionItem icon=\"res://homeLogo\" ios:position=\"right\" android:position=\"right\"></ActionItem> -->\n    </StackLayout>\n</ActionBar>\n<FlexBox>\n    <StackLayout class=\"p-20\">\n        <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\"></Label>\n    </StackLayout>\n</FlexBox>"
+module.exports = "<ActionBar class=\"action-bar\">\n    <NavigationButton visibility=\"collapsed\"></NavigationButton>\n    <!-- <StackLayout orientation=\"horizontal\"> -->\n        <Image src=\"res://homeLogo\" class=\"action-image\"></Image>\n    <!-- </StackLayout> -->\n</ActionBar>\n<FlexBox>\n    <StackLayout class=\"p-20\">\n        <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\"></Label>\n    </StackLayout>\n</FlexBox>"
 
 /***/ }),
 

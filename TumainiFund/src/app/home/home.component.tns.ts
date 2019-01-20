@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchBar } from "tns-core-modules/ui/search-bar";
+import { ActionItem } from "tns-core-modules/ui/action-bar";
 import { Kinvey } from 'kinvey-nativescript-sdk';
 
 @Component({
