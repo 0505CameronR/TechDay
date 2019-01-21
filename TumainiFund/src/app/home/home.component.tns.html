@@ -1,11 +1,18 @@
-<ActionBar class="action-bar">
-    <NavigationButton visibility="collapsed"></NavigationButton>
-    <!-- <StackLayout orientation="horizontal"> -->
-        <Image src="res://homeLogo" class="action-image"></Image>
-    <!-- </StackLayout> -->
-</ActionBar>
-<FlexBox>
-    <StackLayout class="p-20">
-        <Label text="Welcome {{user}}" class="h1 text-center" textWrap="true"></Label>
-    </StackLayout>
-</FlexBox>
+<AbsoluteLayout height="100%" width="100%">
+    <GridLayout top="0" width="100%" height="100%">
+        <FlexBox>
+            <StackLayout class="p-20">
+                <Label text="Welcome {{user}}" class="h1 text-center" textWrap="true" (tap)="alertPopUp()"></Label>
+            </StackLayout>
+        </FlexBox>     
+    </GridLayout>
+        
+
+    <GridLayout #navbar id="navbar" width="100%" rows="auto, 35" columns="80, *, 80" top="0" left="0">
+        <StackLayout orientation="horizontal" row="1" (tap)="goback()" marginLeft="5">
+            <Button text="&#xf053;" (tap)="goback()" class="fa back_icon"></Button>
+            <Button (tap)="goback()" text="Back" class="back_btn_text"></Button>
+        </StackLayout>
+        <Label style="text-align: center; font-weight: bold;" row="1" text="Orders" verticalAlignment="middle" col="1"></Label>
+    </GridLayout>
+</AbsoluteLayout>

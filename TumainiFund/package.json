@@ -31,6 +31,7 @@
     "@angular/platform-browser": "~7.1.0",
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
+    "@types/jquery": "^3.3.29",
     "core-js": "^2.5.4",
     "kinvey-angular2-sdk": "3.12.3",
     "kinvey-nativescript-sdk": "^3.12.3",

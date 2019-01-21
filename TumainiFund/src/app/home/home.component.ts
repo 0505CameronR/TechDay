@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'ns-home',
@@ -12,4 +12,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+
 }

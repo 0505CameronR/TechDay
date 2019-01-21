@@ -370,7 +370,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ActionBar class=\"action-bar\">\n    <NavigationButton visibility=\"collapsed\"></NavigationButton>\n    <!-- <StackLayout orientation=\"horizontal\"> -->\n        <Image src=\"res://homeLogo\" class=\"action-image\"></Image>\n    <!-- </StackLayout> -->\n</ActionBar>\n<FlexBox>\n    <StackLayout class=\"p-20\">\n        <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\"></Label>\n    </StackLayout>\n</FlexBox>"
+module.exports = "<AbsoluteLayout height=\"100%\" width=\"100%\">\n    <GridLayout top=\"0\" width=\"100%\" height=\"100%\">\n        <FlexBox>\n            <StackLayout class=\"p-20\">\n                <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n        </FlexBox>     \n    </GridLayout>\n        \n\n    <GridLayout #navbar id=\"navbar\" width=\"100%\" rows=\"auto, 35\" columns=\"80, *, 80\" top=\"0\" left=\"0\">\n        <StackLayout orientation=\"horizontal\" row=\"1\" (tap)=\"goback()\" marginLeft=\"5\">\n            <Button text=\"&#xf053;\" (tap)=\"goback()\" class=\"fa back_icon\"></Button>\n            <Button (tap)=\"goback()\" text=\"Back\" class=\"back_btn_text\"></Button>\n        </StackLayout>\n        <Label style=\"text-align: center; font-weight: bold;\" row=\"1\" text=\"Orders\" verticalAlignment=\"middle\" col=\"1\"></Label>\n    </GridLayout>\n</AbsoluteLayout>"
 
 /***/ }),
 
@@ -383,6 +383,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -394,23 +396,42 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(page) {
         this.activeUser = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.getActiveUser();
+        page.actionBarHidden = true;
         this.user = this.activeUser.username;
     }
-    HomeComponent.prototype.ngOnInit = function () { };
+    HomeComponent.prototype.ngOnInit = function () {
+        // if (isIOS) helpers.blurNav(this.navbar.nativeElement);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("navbar"),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+    ], HomeComponent.prototype, "navbar", void 0);
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'ns-home',
             template: __webpack_require__("./app/home/home.component.html"),
             styles: [__webpack_require__("./app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["Page"]])
     ], HomeComponent);
     return HomeComponent;
 }());
 
+// export function blurNav(navbar) {
+//   let navBounds = navbar.ios.bounds;
+//   var navEffectView = UIVisualEffectView.alloc().initWithEffect(UIBlurEffect.effectWithStyle(UIBlurEffectStyleLight));
+//   navEffectView.frame = {
+//       origin: { x: navBounds.origin.x, y: navBounds.origin.y - 20 },
+//       size: { width: navBounds.size.width, height: navBounds.size.height + 20 }
+//   };
+//   navEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//   navbar.ios.addSubview(navEffectView);
+//   navbar.ios.sendSubviewToBack(navEffectView);
+// }
 
 
 /***/ }),
