@@ -1,7 +1,7 @@
 {
   "name": "TumainiFund",
   "nativescript": {
-    "id": "org.nativescript.TumainiFundDev2",
+    "id": "org.nativescript.TumainiFund",
     "tns-ios": {
       "version": "5.1.0"
     },
@@ -64,8 +64,11 @@
     "nativescript-dev-typescript": "~0.7.0",
     "nativescript-dev-webpack": "^0.18.0",
     "protractor": "^5.4.2",
+    "tns-platform-declarations": "^5.1.2",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~3.1.1"
-  }
+  },
+  "author": "Cameron Riou",
+  "description": "Tumaini Fund App"
 }

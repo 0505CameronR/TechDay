@@ -282,6 +282,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./app/sign-in/sign-in.component.ts");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _shared_header_header_component_tns__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./app/shared/header/header.component.tns.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -296,12 +297,11 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__["Kinvey"].init({
     appKey: 'kid_S1kLDRkz4',
     appSecret: '8e61bc7074b744d7995c2c51042c9890'
 });
-// Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 // import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 var AppModule = /** @class */ (function () {
@@ -313,6 +313,7 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
                 _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_6__["SignInComponent"],
+                _shared_header_header_component_tns__WEBPACK_IMPORTED_MODULE_8__["HeaderComponent"],
             ],
             imports: [
                 nativescript_angular_nativescript_module__WEBPACK_IMPORTED_MODULE_1__["NativeScriptModule"],
@@ -363,14 +364,14 @@ var routes = [
 /***/ "./app/home/home.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    color: white;\n    margin: 10;\n    font-size: 22;\n    border-color: #2b3c6a;\n    background-color: #3B5997;\n}\nActionBar {\n    background-color: #82CC33;\n    /* #A8F259 */\n}\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}"
+module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    color: white;\n    margin: 10;\n    font-size: 22;\n    border-color: #2b3c6a;\n    background-color: #3B5997;\n}"
 
 /***/ }),
 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<AbsoluteLayout height=\"100%\" width=\"100%\">\n    <GridLayout top=\"0\" width=\"100%\" height=\"100%\">\n        <FlexBox>\n            <StackLayout class=\"p-20\">\n                <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n        </FlexBox>     \n    </GridLayout>\n        \n\n    <GridLayout #navbar id=\"navbar\" width=\"100%\" rows=\"auto, 35\" columns=\"80, *, 80\" top=\"0\" left=\"0\">\n        <StackLayout orientation=\"horizontal\" row=\"1\" (tap)=\"goback()\" marginLeft=\"5\">\n            <Button text=\"&#xf053;\" (tap)=\"goback()\" class=\"fa back_icon\"></Button>\n            <Button (tap)=\"goback()\" text=\"Back\" class=\"back_btn_text\"></Button>\n        </StackLayout>\n        <Label style=\"text-align: center; font-weight: bold;\" row=\"1\" text=\"Orders\" verticalAlignment=\"middle\" col=\"1\"></Label>\n    </GridLayout>\n</AbsoluteLayout>"
+module.exports = "<GridLayout rows=\"auto, *\" columns=\"*\">\n    <ns-header></ns-header>\n    <ScrollView row=\"1\" col=\"0\">\n        <StackLayout>\n            <StackLayout class=\"p-20\">\n                <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n            <StackLayout class=\"p-20\">\n                <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n            <StackLayout class=\"p-20\">\n                <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n            <StackLayout class=\"p-20\">\n                <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n        </StackLayout>\n    </ScrollView>\n</GridLayout>"
 
 /***/ }),
 
@@ -383,8 +384,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
-/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent() {
+        this.activeUser = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.getActiveUser();
+        this.user = this.activeUser.username;
+    }
+    HomeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ns-home',
+            template: __webpack_require__("./app/home/home.component.html"),
+            styles: [__webpack_require__("./app/home/home.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HomeComponent);
+    return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/shared/header/header.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "#actionBar {\n    background-color: #82CC33;\n    /* #A8F259 */\n}\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}"
+
+/***/ }),
+
+/***/ "./app/shared/header/header.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<GridLayout row=\"0\" rows=\"*\" columns=\"60,10,*,10,30\" id=\"actionBar\" orientation=\"horizontal\" class=\"action-bar p-10\">\n    <Image col=\"0\" height=\"30\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"goHome($event)\"></Image>\n    <SearchBar col=\"2\" hint=\"Search Results\" #searchBar (loaded)=\"searchBarLoaded($event)\"></SearchBar>\n    <Image col=\"4\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\"></Image>\n</GridLayout>"
+
+/***/ }),
+
+/***/ "./app/shared/header/header.component.tns.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/tns-core-modules/platform/platform.js");
+/* harmony import */ var tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -397,41 +453,44 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent(page) {
-        this.activeUser = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.getActiveUser();
+
+var HeaderComponent = /** @class */ (function () {
+    function HeaderComponent(page, router) {
+        this.router = router;
         page.actionBarHidden = true;
-        this.user = this.activeUser.username;
     }
-    HomeComponent.prototype.ngOnInit = function () {
-        // if (isIOS) helpers.blurNav(this.navbar.nativeElement);
+    HeaderComponent.prototype.searchBarLoaded = function (args) {
+        var searchBar = args.object;
+        if (tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_2__["isIOS"]) {
+            var nativeSearchBar = searchBar.nativeView;
+            nativeSearchBar.searchBarStyle = UISearchBarStyle.Prominent;
+            nativeSearchBar.backgroundImage = UIImage.new();
+        }
+    };
+    HeaderComponent.prototype.goHome = function (args) {
+        if (this.router.url != "/home") {
+            this.router.navigate(["/home"]);
+        }
+        else {
+            console.dir(this.router.url);
+        }
     };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("navbar"),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("searchBar"),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
-    ], HomeComponent.prototype, "navbar", void 0);
-    HomeComponent = __decorate([
+    ], HeaderComponent.prototype, "searchBar", void 0);
+    HeaderComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'ns-home',
-            template: __webpack_require__("./app/home/home.component.html"),
-            styles: [__webpack_require__("./app/home/home.component.css")]
+            selector: 'ns-header',
+            template: __webpack_require__("./app/shared/header/header.component.html"),
+            styles: [__webpack_require__("./app/shared/header/header.component.css")]
         }),
-        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["Page"]])
-    ], HomeComponent);
-    return HomeComponent;
+        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_1__["Page"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+    ], HeaderComponent);
+    return HeaderComponent;
 }());
 
-// export function blurNav(navbar) {
-//   let navBounds = navbar.ios.bounds;
-//   var navEffectView = UIVisualEffectView.alloc().initWithEffect(UIBlurEffect.effectWithStyle(UIBlurEffectStyleLight));
-//   navEffectView.frame = {
-//       origin: { x: navBounds.origin.x, y: navBounds.origin.y - 20 },
-//       size: { width: navBounds.size.width, height: navBounds.size.height + 20 }
-//   };
-//   navEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//   navbar.ios.addSubview(navEffectView);
-//   navbar.ios.sendSubviewToBack(navEffectView);
-// }
 
 
 /***/ }),
@@ -705,6 +764,20 @@ Object(nativescript_angular_platform__WEBPACK_IMPORTED_MODULE_0__["platformNativ
 /***/ (function(module) {
 
 module.exports = {"android":{"v8Flags":"--expose_gc"},"main":"main.js","name":"migration-ng","version":"4.1.0"};
+
+/***/ }),
+
+/***/ "nativescript-sqlite-commercial":
+/***/ (function(module, exports) {
+
+module.exports = require("nativescript-sqlite-commercial");
+
+/***/ }),
+
+/***/ "nativescript-sqlite-encrypted":
+/***/ (function(module, exports) {
+
+module.exports = require("nativescript-sqlite-encrypted");
 
 /***/ })
 
