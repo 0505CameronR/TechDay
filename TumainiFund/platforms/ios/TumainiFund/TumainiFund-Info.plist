@@ -41,7 +41,6 @@
       <string>UIInterfaceOrientationLandscapeLeft</string>
       <string>UIInterfaceOrientationLandscapeRight</string>
       <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationPortraitUpsideDown</string>
     </array>
     <key>CFBundleIdentifier</key>
     <string>org.nativescript.TumainiFund</string>

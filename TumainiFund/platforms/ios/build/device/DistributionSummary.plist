@@ -137,6 +137,56 @@
 						<string>Unknown</string>
 					</dict>
 					<key>name</key>
+					<string>TNSCore.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>KY496XS6J2</string>
+						<key>name</key>
+						<string>Cameron Riou</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string></string>
+						<key>dateExpires</key>
+						<string></string>
+						<key>type</key>
+						<string>Unknown</string>
+					</dict>
+					<key>name</key>
+					<string>TNSSideDrawer.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>KY496XS6J2</string>
+						<key>name</key>
+						<string>Cameron Riou</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>armv7</string>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string></string>
+						<key>dateExpires</key>
+						<string></string>
+						<key>type</key>
+						<string>Unknown</string>
+					</dict>
+					<key>name</key>
 					<string>TNSWidgets.framework</string>
 					<key>team</key>
 					<dict>

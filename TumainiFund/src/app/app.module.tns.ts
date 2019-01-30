@@ -9,6 +9,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 
 import { Kinvey } from 'kinvey-nativescript-sdk';
 import { HeaderComponent } from './shared/header/header.component.tns';
+import { MenuComponent } from './shared/menu/menu.component.tns';
 
 Kinvey.init({
   appKey: 'kid_S1kLDRkz4',
@@ -25,6 +26,7 @@ Kinvey.init({
     HomeComponent,
     SignInComponent,
     HeaderComponent,
+    MenuComponent,
   ],
   imports: [
     NativeScriptModule,

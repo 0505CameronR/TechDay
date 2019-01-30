@@ -283,12 +283,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _shared_header_header_component_tns__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./app/shared/header/header.component.tns.ts");
+/* harmony import */ var _shared_menu_menu_component_tns__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./app/shared/menu/menu.component.tns.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -314,6 +316,7 @@ var AppModule = /** @class */ (function () {
                 _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
                 _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_6__["SignInComponent"],
                 _shared_header_header_component_tns__WEBPACK_IMPORTED_MODULE_8__["HeaderComponent"],
+                _shared_menu_menu_component_tns__WEBPACK_IMPORTED_MODULE_9__["MenuComponent"],
             ],
             imports: [
                 nativescript_angular_nativescript_module__WEBPACK_IMPORTED_MODULE_1__["NativeScriptModule"],
@@ -364,14 +367,14 @@ var routes = [
 /***/ "./app/home/home.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    color: white;\n    margin: 10;\n    font-size: 22;\n    border-color: #2b3c6a;\n    background-color: #3B5997;\n}"
+module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:90;\n    height:90;\n    margin: 5;\n}\n\n.page {\n    background-color: #A8F259;\n}"
 
 /***/ }),
 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<GridLayout rows=\"auto, *\" columns=\"*\">\n    <ns-header></ns-header>\n    <ScrollView row=\"1\" col=\"0\">\n        <StackLayout>\n            <StackLayout class=\"p-20\">\n                <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n            <StackLayout class=\"p-20\">\n                <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n            <StackLayout class=\"p-20\">\n                <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n            <StackLayout class=\"p-20\">\n                <Label text=\"Welcome {{user}}\" class=\"h1 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n        </StackLayout>\n    </ScrollView>\n</GridLayout>"
+module.exports = "<GridLayout rows=\"auto, *\" columns=\"*\" class=\"page\">\n    <ns-header></ns-header>\n    <ns-menu></ns-menu>\n    <ScrollView row=\"1\" col=\"0\">\n        <StackLayout>\n            <StackLayout class=\"p-20 btn-img\" (tap)=\"alertPopUp()\">\n                <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\" (tap)=\"alertPopUp()\"></Image>\n                <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n            <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"alertPopUp()\">\n                <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </FlexboxLayout>\n            <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"alertPopUp()\">\n                <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </FlexboxLayout>\n            <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n                <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"signOut($event)\"></Label>\n            </FlexboxLayout>\n        </StackLayout>\n    </ScrollView>\n</GridLayout>"
 
 /***/ }),
 
@@ -384,6 +387,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -395,12 +399,27 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(user) {
-        this.user = user;
-        this.user = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.getActiveUser().username;
+    function HomeComponent(router) {
+        this.router = router;
+        this.activeUser = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.getActiveUser();
+        this.user = this.activeUser.username;
+        this.userWelcomeText = "Welcome:\n" + this.user;
+        this.allocatedSchoolText = "Allocated Schools";
+        this.allocatedChildrenText = "Allocated Children";
+        this.signOutText = "Sign Out";
     }
-    HomeComponent.prototype.ngOnInit = function () {
+    HomeComponent.prototype.signOut = function (args) {
+        var _this = this;
+        var promise = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.logout()
+            .then(function () {
+            _this.router.navigate(["/sign-in"]);
+        }).catch(function (error) {
+            _this.feedback.error({
+                message: "Unfortunately we could not sign out: " + _this.user,
+            });
+        });
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -408,7 +427,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__("./app/home/home.component.html"),
             styles: [__webpack_require__("./app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [String])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -420,14 +439,14 @@ var HomeComponent = /** @class */ (function () {
 /***/ "./app/shared/header/header.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#actionBar {\n    background-color: #82CC33;\n    /* #A8F259 */\n}\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}"
+module.exports = "#actionBar {\n    background-color: #82CC33;\n    /* #A8F259 */\n    /* background-color: #A8F259 */\n}\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}"
 
 /***/ }),
 
 /***/ "./app/shared/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<GridLayout row=\"0\" rows=\"*\" columns=\"60,10,*,10,30\" id=\"actionBar\" orientation=\"horizontal\" class=\"action-bar p-10\">\n    <Image col=\"0\" height=\"30\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"goHome($event)\"></Image>\n    <SearchBar col=\"2\" hint=\"Search Results\" #searchBar (loaded)=\"searchBarLoaded($event)\"></SearchBar>\n    <Image col=\"4\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\"></Image>\n</GridLayout>"
+module.exports = "<GridLayout row=\"0\" rows=\"*\" columns=\"90,*,10,30\" id=\"actionBar\" orientation=\"horizontal\" class=\"action-bar p-10\">\n    <Image col=\"0\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"goHome($event)\"></Image>\n    <SearchBar col=\"1\" hint=\"Search Results\" #searchBar (loaded)=\"searchBarLoaded($event)\"></SearchBar>\n    <Image col=\"3\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\"></Image>\n</GridLayout>"
 
 /***/ }),
 
@@ -491,6 +510,86 @@ var HeaderComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], HeaderComponent);
     return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/shared/menu/menu.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "#actionBar {\n    background-color: #82CC33;\n    /* #A8F259 */\n    /* background-color: #A8F259 */\n}\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}"
+
+/***/ }),
+
+/***/ "./app/shared/menu/menu.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<RadSideDrawer tkExampleTitle tkToggleNavButton>\n    <StackLayout tkDrawerContent class=\"sideStackLayout\">\n        <StackLayout class=\"sideTitleStackLayout\">\n            <Label text=\"Navigation Menu\"></Label>\n        </StackLayout>\n        <ScrollView>\n            <StackLayout class=\"sideStackLayout\">\n                <Label text=\"Primary\" class=\"sideLabel sideLightGrayLabel\"></Label>\n                <Label text=\"Social\" class=\"sideLabel\"></Label>\n                <Label text=\"Promotions\" class=\"sideLabel\"></Label>\n                <Label text=\"Labels\" class=\"sideLabel sideLightGrayLabel\"></Label>\n                <Label text=\"Important\" class=\"sideLabel\"></Label>\n                <Label text=\"Starred\" class=\"sideLabel\"></Label>\n                <Label text=\"Sent Mail\" class=\"sideLabel\"></Label>\n                <Label text=\"Drafts\" class=\"sideLabel\"></Label>\n                <Label text=\"Close Drawer\" color=\"lightgray\" padding=\"10\" style=\"horizontal-align: center\" (tap)=\"onCloseDrawerTap()\"></Label>\n            </StackLayout>\n        </ScrollView>\n    </StackLayout>\n</RadSideDrawer>"
+
+/***/ }),
+
+/***/ "./app/shared/menu/menu.component.tns.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuComponent", function() { return MenuComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/nativescript-ui-sidedrawer/angular/side-drawer-directives.js");
+/* harmony import */ var nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MenuComponent = /** @class */ (function () {
+    function MenuComponent(_changeDetectionRef) {
+        this._changeDetectionRef = _changeDetectionRef;
+    }
+    MenuComponent.prototype.ngAfterViewInit = function () {
+        this.drawer = this.drawerComponent.sideDrawer;
+        this._changeDetectionRef.detectChanges();
+    };
+    MenuComponent.prototype.ngOnInit = function () {
+        this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
+    };
+    Object.defineProperty(MenuComponent.prototype, "mainContentText", {
+        get: function () {
+            return this._mainContentText;
+        },
+        set: function (value) {
+            this._mainContentText = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    MenuComponent.prototype.openDrawer = function () {
+        this.drawer.showDrawer();
+    };
+    MenuComponent.prototype.onCloseDrawerTap = function () {
+        this.drawer.closeDrawer();
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__["RadSideDrawerComponent"]),
+        __metadata("design:type", nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__["RadSideDrawerComponent"])
+    ], MenuComponent.prototype, "drawerComponent", void 0);
+    MenuComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ns-menu',
+            template: __webpack_require__("./app/shared/menu/menu.component.html"),
+            styles: [__webpack_require__("./app/shared/menu/menu.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
+    ], MenuComponent);
+    return MenuComponent;
 }());
 
 
@@ -585,7 +684,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled 
 /***/ "./app/sign-in/sign-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto,auto\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://homeLogo\" stretch=\"none\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\"\n            [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\"\n            returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\"\n            class=\"btn btn-primary btn-rounded-lg btn-active\" clearHistory=\"true\"></Button>\n            <Button row=\"4\" [isEnabled]=\"!processing\" (tap)=\"touchID()\" [text]=\"bioType\" [visibility]=\"bioOn\"></Button>\n        <ActivityIndicator rowSpan=\"5\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
+module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto,auto\" columns=\"*\" width=\"90%\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://homeLogo\" stretch=\"aspectFit\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\" returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\" class=\"btn btn-primary btn-rounded-lg btn-active\" clearHistory=\"true\"></Button>\n        <Button row=\"4\" [isEnabled]=\"!processing\" (tap)=\"touchID()\" [text]=\"bioType\" [visibility]=\"bioOn\"></Button>\n        <ActivityIndicator rowSpan=\"5\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
 
 /***/ }),
 
@@ -625,18 +724,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var SignInComponent = /** @class */ (function () {
-    function SignInComponent(user, feedback, fingerprintAuth, router, page, userService) {
+    function SignInComponent(user, router, userService, page) {
         var _this = this;
         this.user = user;
-        this.feedback = feedback;
-        this.fingerprintAuth = fingerprintAuth;
         this.router = router;
-        this.page = page;
         this.userService = userService;
-        this.bioOn = "hidden";
+        this.page = page;
         this.isLoggingIn = true;
         this.processing = false;
         this.bioType = null;
+        this.bioOn = "hidden";
         this.page.actionBarHidden = true;
         this.user = new _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]();
         this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"]();
@@ -727,11 +824,9 @@ var SignInComponent = /** @class */ (function () {
             styles: [__webpack_require__("./app/sign-in/sign-in.component.css")]
         }),
         __metadata("design:paramtypes", [_shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"],
-            nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"],
-            nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_7__["FingerprintAuth"],
             _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__["Page"],
-            _shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
+            _shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+            tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__["Page"]])
     ], SignInComponent);
     return SignInComponent;
 }());
