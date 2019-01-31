@@ -374,7 +374,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<GridLayout rows=\"auto, *\" columns=\"*\" class=\"page\">\n    <ns-header></ns-header>\n    <ns-menu></ns-menu>\n    <ScrollView row=\"1\" col=\"0\">\n        <StackLayout>\n            <StackLayout class=\"p-20 btn-img\" (tap)=\"alertPopUp()\">\n                <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\" (tap)=\"alertPopUp()\"></Image>\n                <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n            <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"alertPopUp()\">\n                <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </FlexboxLayout>\n            <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"alertPopUp()\">\n                <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </FlexboxLayout>\n            <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n                <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"signOut($event)\"></Label>\n            </FlexboxLayout>\n        </StackLayout>\n    </ScrollView>\n</GridLayout>"
+module.exports = "<GridLayout rows=\"auto, *\" columns=\"*\" class=\"page\">\n    <ns-header></ns-header>\n    <ScrollView row=\"1\" col=\"0\">\n        <StackLayout>\n            <StackLayout class=\"p-20 btn-img\" (tap)=\"alertPopUp()\">\n                <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\" (tap)=\"alertPopUp()\"></Image>\n                <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </StackLayout>\n            <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"alertPopUp()\">\n                <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </FlexboxLayout>\n            <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"alertPopUp()\">\n                <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"alertPopUp()\"></Label>\n            </FlexboxLayout>\n            <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n                <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\" (tap)=\"signOut($event)\"></Label>\n            </FlexboxLayout>\n        </StackLayout>\n    </ScrollView>\n</GridLayout>"
 
 /***/ }),
 
@@ -519,7 +519,7 @@ var HeaderComponent = /** @class */ (function () {
 /***/ "./app/shared/menu/menu.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "#actionBar {\n    background-color: #82CC33;\n    /* #A8F259 */\n    /* background-color: #A8F259 */\n}\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}"
+module.exports = "button {\n    font-size: 15;\n    horizontal-align: center;\n}\n\n.drawerContentText {\n    font-size: 13;\n    padding: 10;\n}\n\n.drawerContentButton {\n    margin: 10;\n    horizontal-align: left;\n}\n\n.sideStackLayout {\n    background-color: gray;\n}\n\n.sideTitleStackLayout {\n    height: 56;\n    text-align: center;\n    vertical-align: center;\n}\n\n.sideLabel {\n    padding: 10;\n}\n\n.sideLightGrayLabel {\n    background-color: lightgray;\n}"
 
 /***/ }),
 
@@ -551,16 +551,18 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var MenuComponent = /** @class */ (function () {
-    function MenuComponent(_changeDetectionRef) {
-        this._changeDetectionRef = _changeDetectionRef;
+    function MenuComponent() {
     }
+    ;
     MenuComponent.prototype.ngAfterViewInit = function () {
         this.drawer = this.drawerComponent.sideDrawer;
         this._changeDetectionRef.detectChanges();
     };
+    ;
     MenuComponent.prototype.ngOnInit = function () {
         this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
     };
+    ;
     Object.defineProperty(MenuComponent.prototype, "mainContentText", {
         get: function () {
             return this._mainContentText;
@@ -571,12 +573,16 @@ var MenuComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    ;
+    ;
     MenuComponent.prototype.openDrawer = function () {
         this.drawer.showDrawer();
     };
+    ;
     MenuComponent.prototype.onCloseDrawerTap = function () {
         this.drawer.closeDrawer();
     };
+    ;
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__["RadSideDrawerComponent"]),
         __metadata("design:type", nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__["RadSideDrawerComponent"])
@@ -587,7 +593,7 @@ var MenuComponent = /** @class */ (function () {
             template: __webpack_require__("./app/shared/menu/menu.component.html"),
             styles: [__webpack_require__("./app/shared/menu/menu.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
+        __metadata("design:paramtypes", [])
     ], MenuComponent);
     return MenuComponent;
 }());

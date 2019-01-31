@@ -223,14 +223,14 @@ var AppRoutingModule = /** @class */ (function () {
 /***/ "./app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "button {\n    font-size: 15;\n    horizontal-align: center;\n}\n\n.drawerContentText {\n    font-size: 13;\n    padding: 10;\n}\n\n.drawerContentButton {\n    margin: 10;\n    horizontal-align: left;\n}\n\n.sideStackLayout {\n    background-color: gray;\n}\n\n.sideTitleStackLayout {\n    height: 56;\n    text-align: center;\n    vertical-align: center;\n}\n\n.sideLabel {\n    padding: 10;\n}\n\n.sideLightGrayLabel {\n    background-color: lightgray;\n}"
 
 /***/ }),
 
 /***/ "./app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "  <page-router-outlet></page-router-outlet>"
+module.exports = "<!-- <StackLayout>\n<RadSideDrawer>\n    <GridLayout tkDrawerContent rows=\"auto, *\" class=\"root-drawer-content\">\n        <StackLayout>\n            <Label [text]=\"currentExample.title\" class=\"h1 text-center\"></Label>\n        </StackLayout>\n        <ListView id=\"root-drawer-list\" row=\"1\" [items]=\"currentExample.subItems\" (itemTap)=\"onNavigationItemTap($event)\"\n            class=\"root-drawer-content\">\n            <ng-template let-item=\"item\">\n                <StackLayout id=\"item-container\" class=\"root-item-stack-layout sidedrawer-list-item\">\n                     <Label [text]=\"item.title\" textWrap=\"true\"></Label> \n                    <StackLayout height=\"1\" class=\"root-drawer-content\"></StackLayout>\n                    <Label text=\"hi\"></Label>\n                </StackLayout>\n            </ng-template>\n        </ListView>\n    </GridLayout> -->\n\n    <page-router-outlet tkMainContent></page-router-outlet>\n<!-- </RadSideDrawer>\n</StackLayout> -->"
 
 /***/ }),
 
@@ -241,22 +241,63 @@ module.exports = "  <page-router-outlet></page-router-outlet>"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var tns_core_modules_application__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/tns-core-modules/application/application.js");
+/* harmony import */ var tns_core_modules_application__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_application__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+// import { ExampleItem } from "./exampleItem";
+// import { ExampleItemService } from "./exampleItemService.service";
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    // private _currentExample: ExampleItem;
+    function AppComponent(_router) {
+        this._router = _router;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        // this._currentExample = this._exampleItemsService.getParentExampleItem(0);
+    };
+    // public get currentExample(): ExampleItem {
+    //   return this._currentExample;
+    // }
+    // public set currentExample(value: ExampleItem) {
+    //   this._currentExample = value;
+    // }
+    AppComponent.prototype.onNavigationItemTap = function (args) {
+        // const itemIndex = args.index;
+        // const tappedItem = this._currentExample.subItems[itemIndex];
+        var sideDrawer = tns_core_modules_application__WEBPACK_IMPORTED_MODULE_1__["getRootView"]();
+        // if (args.object.id === "root-drawer-list") {
+        //   // deselect all items
+        //   args.object.eachChildView(childView => {
+        //     this._toggleItemSelected(childView.getViewById("item-container"), false);
+        //   });
+        // select tapped item
+        // this._toggleItemSelected(args.view.getViewById("item-container"), true);
+        // }
+        sideDrawer.closeDrawer();
+        // if (tappedItem.subItems.length === 0) {
+        //   this._router.navigateByUrl(tappedItem.path);
+        // } else {
+        //   this._router.navigate(['/examples-depth-2', this._currentExample.title, tappedItem.title]);
+        // }
+    };
     AppComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-root',
             template: __webpack_require__("./app/app.component.html"),
             styles: [__webpack_require__("./app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -283,14 +324,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _shared_header_header_component_tns__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./app/shared/header/header.component.tns.ts");
-/* harmony import */ var _shared_menu_menu_component_tns__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./app/shared/menu/menu.component.tns.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -316,7 +355,6 @@ var AppModule = /** @class */ (function () {
                 _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
                 _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_6__["SignInComponent"],
                 _shared_header_header_component_tns__WEBPACK_IMPORTED_MODULE_8__["HeaderComponent"],
-                _shared_menu_menu_component_tns__WEBPACK_IMPORTED_MODULE_9__["MenuComponent"],
             ],
             imports: [
                 nativescript_angular_nativescript_module__WEBPACK_IMPORTED_MODULE_1__["NativeScriptModule"],
@@ -510,66 +548,6 @@ var HeaderComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], HeaderComponent);
     return HeaderComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/shared/menu/menu.component.css":
-/***/ (function(module, exports) {
-
-module.exports = "button {\n    font-size: 15;\n    horizontal-align: center;\n}\n\n.drawerContentText {\n    font-size: 13;\n    padding: 10;\n}\n\n.drawerContentButton {\n    margin: 10;\n    horizontal-align: left;\n}\n\n.sideStackLayout {\n    background-color: gray;\n}\n\n.sideTitleStackLayout {\n    height: 56;\n    text-align: center;\n    vertical-align: center;\n}\n\n.sideLabel {\n    padding: 10;\n}\n\n.sideLightGrayLabel {\n    background-color: lightgray;\n}"
-
-/***/ }),
-
-/***/ "./app/shared/menu/menu.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<RadSideDrawer tkExampleTitle tkToggleNavButton>\n    <StackLayout tkDrawerContent class=\"sideStackLayout\">\n        <StackLayout class=\"sideTitleStackLayout\">\n            <Label text=\"Navigation Menu\"></Label>\n        </StackLayout>\n        <ScrollView>\n            <StackLayout class=\"sideStackLayout\">\n                <Label text=\"Primary\" class=\"sideLabel sideLightGrayLabel\"></Label>\n                <Label text=\"Social\" class=\"sideLabel\"></Label>\n                <Label text=\"Promotions\" class=\"sideLabel\"></Label>\n                <Label text=\"Labels\" class=\"sideLabel sideLightGrayLabel\"></Label>\n                <Label text=\"Important\" class=\"sideLabel\"></Label>\n                <Label text=\"Starred\" class=\"sideLabel\"></Label>\n                <Label text=\"Sent Mail\" class=\"sideLabel\"></Label>\n                <Label text=\"Drafts\" class=\"sideLabel\"></Label>\n                <Label text=\"Close Drawer\" color=\"lightgray\" padding=\"10\" style=\"horizontal-align: center\" (tap)=\"onCloseDrawerTap()\"></Label>\n            </StackLayout>\n        </ScrollView>\n    </StackLayout>\n</RadSideDrawer>"
-
-/***/ }),
-
-/***/ "./app/shared/menu/menu.component.tns.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuComponent", function() { return MenuComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (undefined && undefined.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var MenuComponent = /** @class */ (function () {
-    // private _mainContentText: string;
-    function MenuComponent() {
-        // private _changeDetectionRef: ChangeDetectorRef
-    }
-    // private drawer: RadSideDrawer;
-    // @ViewChild(RadSideDrawerComponent) public drawerComponent: RadSideDrawerComponent;
-    MenuComponent.prototype.ngAfterViewInit = function () {
-        // this.drawer = this.drawerComponent.sideDrawer;
-        // this._changeDetectionRef.detectChanges();
-    };
-    MenuComponent.prototype.ngOnInit = function () {
-        // this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
-    };
-    MenuComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'ns-menu',
-            template: __webpack_require__("./app/shared/menu/menu.component.html"),
-            styles: [__webpack_require__("./app/shared/menu/menu.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], MenuComponent);
-    return MenuComponent;
 }());
 
 
