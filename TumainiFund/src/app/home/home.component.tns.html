@@ -1,20 +1,17 @@
-<GridLayout rows="auto, *" columns="*" class="page">
-    <ns-header></ns-header>
-    <ScrollView row="1" col="0">
-        <StackLayout>
-            <StackLayout class="p-20 btn-img" (tap)="alertPopUp()">
-                <Image src="res://userImg" stretch="aspectFit" class="logo" (tap)="alertPopUp()"></Image>
-                <Label text="{{userWelcomeText}}" class="h2 text-center" textWrap="true" (tap)="alertPopUp()"></Label>
-            </StackLayout>
-            <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="alertPopUp()">
-                <Label text="{{allocatedSchoolText}}" class="h2 text-center" textWrap="true" (tap)="alertPopUp()"></Label>
-            </FlexboxLayout>
-            <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="alertPopUp()">
-                <Label text="{{allocatedChildrenText}}" class="h2 text-center" textWrap="true" (tap)="alertPopUp()"></Label>
-            </FlexboxLayout>
-            <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="signOut($event)">
-                <Label text="{{signOutText}}" class="h2 text-center" textWrap="true" (tap)="signOut($event)"></Label>
-            </FlexboxLayout>
+<ScrollView class="page">
+    <StackLayout>
+        <StackLayout class="p-20 btn-img" (tap)="alertPopUp()">
+            <Image src="res://userImg" stretch="aspectFit" class="logo" (tap)="alertPopUp()"></Image>
+            <Label text="{{userWelcomeText}}" class="h2 text-center" textWrap="true" (tap)="alertPopUp()"></Label>
         </StackLayout>
-    </ScrollView>
-</GridLayout>
+        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="alertPopUp()">
+            <Label text="{{allocatedSchoolText}}" class="h2 text-center" textWrap="true" (tap)="alertPopUp()"></Label>
+        </FlexboxLayout>
+        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="alertPopUp()">
+            <Label text="{{allocatedChildrenText}}" class="h2 text-center" textWrap="true" (tap)="alertPopUp()"></Label>
+        </FlexboxLayout>
+        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="signOut($event)">
+            <Label text="{{signOutText}}" class="h2 text-center" textWrap="true" (tap)="signOut($event)"></Label>
+        </FlexboxLayout>
+    </StackLayout>
+</ScrollView>

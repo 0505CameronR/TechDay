@@ -1,59 +1,102 @@
-import { Component, ViewChild, OnInit, AfterViewInit, ChangeDetectorRef } from "@angular/core";
-import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import * as app from "tns-core-modules/application";
-// import { ExampleItem } from "./exampleItem";
-// import { ExampleItemService } from "./exampleItemService.service";
-import { Router } from '@angular/router';
-import { View } from "tns-core-modules/ui/frame";
-
+import { Component, OnInit, ChangeDetectorRef, AfterViewInit, ViewChild, ElementRef } from "@angular/core";
+import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
+import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
+import { SearchBar } from "tns-core-modules/ui/search-bar";
+import { DockLayout } from "tns-core-modules/ui/layouts/dock-layout"
+import { isIOS, isAndroid, EventData } from "tns-core-modules/ui/page/page";
+import { Router } from "@angular/router";
+import { screen } from "tns-core-modules/platform";
+declare var UISearchBarStyle: any;
+declare var UIImage: any;
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
-  // private _currentExample: ExampleItem;
+export class AppComponent implements OnInit, AfterViewInit {
+    @ViewChild("Menu") public menu: DockLayout;
 
-  constructor(private _router: Router, /*private _exampleItemsService: ExampleItemService*/) { }
+    private _mainContentText: string;
+    public menuSize: number;
 
-  ngOnInit() {
-    // this._currentExample = this._exampleItemsService.getParentExampleItem(0);
-  }
+    constructor(
+        private _changeDetectionRef: ChangeDetectorRef,
+        private router: Router,
+    ) {
+    }
 
-  // public get currentExample(): ExampleItem {
-  //   return this._currentExample;
-  // }
+    @ViewChild("radSideDrawer") private drawerComponent: RadSideDrawerComponent;
+    public drawer: RadSideDrawer;
 
-  // public set currentExample(value: ExampleItem) {
-  //   this._currentExample = value;
-  // }
+    ngAfterViewInit() {
+        this.drawer = this.drawerComponent.sideDrawer;
+        this._changeDetectionRef.detectChanges();
 
-  public onNavigationItemTap(args: any) {
-    // const itemIndex = args.index;
-    // const tappedItem = this._currentExample.subItems[itemIndex];
-    const sideDrawer = <RadSideDrawer>app.getRootView();
+        if (isIOS) {
+            // This disables the swipe gesture to open menu
+            this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
 
-    // if (args.object.id === "root-drawer-list") {
-    //   // deselect all items
-    //   args.object.eachChildView(childView => {
-    //     this._toggleItemSelected(childView.getViewById("item-container"), false);
-    //   });
+            // You can set other properties the same way, to style your RadSideDrawer for iOS. 
+            // Such as:
+            // ios.defaultSideDrawer.style.dimOpacity;
+            // ios.defaultSideDrawer.style.shadowOpacity; 
+            // ios.defaultSideDrawer.style.shadowRadius;
+            // ios.defaultSideDrawer.transitionDuration;
+        }
+    }
 
-    // select tapped item
-    // this._toggleItemSelected(args.view.getViewById("item-container"), true);
-    // }
+    onLoaded() {
+        if (isAndroid) {
+            // This disables the swipe gesture to open menu, by setting the treshhold to '0'
+            this.drawer.android.setTouchTargetThreshold(0);
+        }
+    }
 
-    sideDrawer.closeDrawer();
-    // if (tappedItem.subItems.length === 0) {
-    //   this._router.navigateByUrl(tappedItem.path);
-    // } else {
-    //   this._router.navigate(['/examples-depth-2', this._currentExample.title, tappedItem.title]);
-    // }
-  }
+    ngOnInit() {
+        this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
+        this.menuSize = screen.mainScreen.heightDIPs;
+    }
 
-  // private _toggleItemSelected(view: View, isSelected: boolean): any {
-  //   // using css styles from theme
-  //   view.className = isSelected ? "sidedrawer-list-item active" : "sidedrawer-list-item";
-  // }
+    get mainContentText() {
+        return this._mainContentText;
+    }
+
+    set mainContentText(value: string) {
+        this._mainContentText = value;
+    }
+
+    public openDrawer() {
+        this.drawer.toggleDrawerState();
+    }
+
+    public onCloseDrawerTap() {
+        this.drawer.closeDrawer();
+    }
+
+    @ViewChild("searchBar") searchBar: ElementRef;
+
+    public searchBarLoaded(args) {
+        let searchBar = <SearchBar>args.object
+        if (isIOS) {
+            var nativeSearchBar = searchBar.nativeView;
+            nativeSearchBar.searchBarStyle = UISearchBarStyle.Prominent;
+            nativeSearchBar.backgroundImage = UIImage.new();
+        }
+    }
+    public goHome(args: EventData) {
+        if (this.router.url != "/home") {
+            this.router.navigate(["/home"])
+        } else {
+            console.dir(this.router.url)
+        }
+    }
+
+    public isSignIn() {
+        if (this.router.url == "/sign-in") {
+            return "collapsed";
+        } else {
+            return "visible";
+        }
+    }
 }

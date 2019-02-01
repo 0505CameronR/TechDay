@@ -6,7 +6,7 @@ import { Page } from 'tns-core-modules/ui/page';
 import { User } from '../shared/user/user.model';
 import { UserService } from '../shared/user/user.service';
 
-import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
+import { Feedback } from "nativescript-feedback";
 import { Kinvey } from 'kinvey-nativescript-sdk';
 
 import { FingerprintAuth, BiometricIDAvailableResult } from "nativescript-fingerprint-auth";
@@ -20,7 +20,7 @@ import { FingerprintAuth, BiometricIDAvailableResult } from "nativescript-finger
 })
 
 export class SignInComponent implements OnInit {
-	@ViewChild("password") password: ElementRef;
+	@ViewChild("password") static password: ElementRef;
 	feedback: Feedback;
 	isLoggingIn = true;
 	processing = false;
@@ -34,9 +34,7 @@ export class SignInComponent implements OnInit {
 		private user: User,
 		private router: Router,
 		private userService: UserService,
-		private page: Page,
 	) {
-		this.page.actionBarHidden = true;
 		this.user = new User();
 		this.feedback = new Feedback();
 		this.fingerprintAuth = new FingerprintAuth();
@@ -44,7 +42,7 @@ export class SignInComponent implements OnInit {
 			this.bioValues = result;
 		})
 	};
-
+	
 	ngOnInit() {
 		if (this.bioValues.face) {
 			this.bioType = "Use Face ID";
@@ -52,27 +50,18 @@ export class SignInComponent implements OnInit {
 			this.bioType = "Use Touch ID";
 		}
 		if (Kinvey.User.getActiveUser()) {
-			console.log("Auto Sign In");
+			console.log(`Auto Sign In: ${this.bioType}`);
 			Kinvey.User.getActiveUser().me();
 			this.user.username = Kinvey.User.getActiveUser().username;
 			this.bioOn = "visible";
 		};
 	};
 
-	login() {
-		this.userService.login(this.user)
-			.then(() => {
-				this.processing = false;
-				this.router.navigate(["/home"])
-			})
-			.catch(() => {
-				this.processing = false;
-				this.feedback.error({
-					message: `Unfortunately we could not find your account: ${this.user.username}`
-				});
-			});
+	public switchToPass(args: EventData) {
+		SignInComponent.password.nativeElement.focus();
 	}
-	submit(args: EventData) {
+
+	public submit(args: EventData) {
 		this.processing = true;
 		if (!this.user.username && this.user.password) {
 			this.feedback.error({
@@ -93,10 +82,22 @@ export class SignInComponent implements OnInit {
 			this.login();
 		}
 	}
-	switchToPass(args: EventData) {
-		this.password.nativeElement.focus();
+
+	private login() {
+		this.userService.login(this.user)
+			.then(() => {
+				this.processing = false;
+				this.router.navigate(["/home"])
+			})
+			.catch(() => {
+				this.processing = false;
+				this.feedback.error({
+					message: `Unfortunately we could not find your account: ${this.user.username}`
+				});
+			});
 	}
-	touchID() {
+
+	public touchID() {
 		this.fingerprintAuth.verifyFingerprint(
 			{
 				title: 'Authenticate', // optional title (used only on Android)
@@ -108,4 +109,5 @@ export class SignInComponent implements OnInit {
 				this.router.navigate(["/home"])
 			})
 	}
+
 }

@@ -1,21 +1,28 @@
-<!-- <StackLayout>
-<RadSideDrawer>
-    <GridLayout tkDrawerContent rows="auto, *" class="root-drawer-content">
-        <StackLayout>
-            <Label [text]="currentExample.title" class="h1 text-center"></Label>
-        </StackLayout>
-        <ListView id="root-drawer-list" row="1" [items]="currentExample.subItems" (itemTap)="onNavigationItemTap($event)"
-            class="root-drawer-content">
-            <ng-template let-item="item">
-                <StackLayout id="item-container" class="root-item-stack-layout sidedrawer-list-item">
-                     <Label [text]="item.title" textWrap="true"></Label> 
-                    <StackLayout height="1" class="root-drawer-content"></StackLayout>
-                    <Label text="hi"></Label>
+<StackLayout>
+    <DockLayout #Menu dock="top" [visibility]="isSignIn()">
+        <GridLayout rows="auto" columns="90,*,10,30" id="actionBar" class="action-bar p-10">
+            <Image col="0" height="60" src="res://homeLogo" stretch="aspectFit" (tap)="goHome($event)"></Image>
+            <SearchBar col="1" hint="Search Results" #searchBar (loaded)="searchBarLoaded($event)"></SearchBar>
+            <Image col="3" height="30" src="res://menuIcon" stretch="aspectFit" (tap)="openDrawer()"></Image>
+        </GridLayout>
+    </DockLayout>
+    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)="onLoaded()" drawerLocation="Top" drawerTransition="RevealTransition" [drawerContentSize]="menuSize">
+        <StackLayout tkDrawerContent class="sideStackLayout">
+            <ScrollView>
+                <StackLayout class="sideStackLayout">
+                    <Label text="Primary" class="sideLabel"></Label>
+                    <Label text="Social" class="sideLabel"></Label>
+                    <Label text="Promotions" class="sideLabel"></Label>
+                    <Label text="Labels" class="sideLabel"></Label>
+                    <Label text="Important" class="sideLabel"></Label>
+                    <Label text="Starred" class="sideLabel"></Label>
+                    <Label text="Sent Mail" class="sideLabel"></Label>
+                    <Label text="Drafts" class="sideLabel"></Label>
                 </StackLayout>
-            </ng-template>
-        </ListView>
-    </GridLayout> -->
-
-    <page-router-outlet tkMainContent></page-router-outlet>
-<!-- </RadSideDrawer>
-</StackLayout> -->
+            </ScrollView>
+        </StackLayout>
+        <StackLayout tkMainContent>
+            <page-router-outlet></page-router-outlet>
+        </StackLayout>
+    </RadSideDrawer>
+</StackLayout>
