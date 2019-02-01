@@ -2,7 +2,7 @@
     <DockLayout #Menu dock="top" [visibility]="isSignIn()">
         <GridLayout rows="auto" columns="90,*,10,30" id="actionBar" class="action-bar p-10">
             <Image col="0" height="60" src="res://homeLogo" stretch="aspectFit" (tap)="goHome($event)"></Image>
-            <SearchBar col="1" hint="Search Results" #searchBar (loaded)="searchBarLoaded($event)"></SearchBar>
+            <SearchBar col="1" hint="Search Results" #searchBar (loaded)="searchBarLoaded($event)" (tap)="searchBarFocus($event)"></SearchBar>
             <Image col="3" height="30" src="res://menuIcon" stretch="aspectFit" (tap)="openDrawer()"></Image>
         </GridLayout>
     </DockLayout>

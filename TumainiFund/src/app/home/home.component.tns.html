@@ -1,17 +1,17 @@
 <ScrollView class="page">
     <StackLayout>
         <StackLayout class="p-20 btn-img" (tap)="alertPopUp()">
-            <Image src="res://userImg" stretch="aspectFit" class="logo" (tap)="alertPopUp()"></Image>
-            <Label text="{{userWelcomeText}}" class="h2 text-center" textWrap="true" (tap)="alertPopUp()"></Label>
+            <Image src="res://userImg" stretch="aspectFit" class="logo"></Image>
+            <Label text="{{userWelcomeText}}" class="h2 text-center" textWrap="true"></Label>
         </StackLayout>
-        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="alertPopUp()">
-            <Label text="{{allocatedSchoolText}}" class="h2 text-center" textWrap="true" (tap)="alertPopUp()"></Label>
+        <FlexboxLayout class="p-20 btn-img flex-btn" ><!--(tap)="alertPopUp()">-->
+            <Label text="{{allocatedSchoolText}}" class="h2 text-center" textWrap="true"></Label>
         </FlexboxLayout>
-        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="alertPopUp()">
-            <Label text="{{allocatedChildrenText}}" class="h2 text-center" textWrap="true" (tap)="alertPopUp()"></Label>
+        <FlexboxLayout class="p-20 btn-img flex-btn"> <!--(tap)="alertPopUp()">-->
+            <Label text="{{allocatedChildrenText}}" class="h2 text-center" textWrap="true"></Label>
         </FlexboxLayout>
         <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="signOut($event)">
-            <Label text="{{signOutText}}" class="h2 text-center" textWrap="true" (tap)="signOut($event)"></Label>
+            <Label text="{{signOutText}}" class="h2 text-center" textWrap="true"></Label>
         </FlexboxLayout>
     </StackLayout>
 </ScrollView>

@@ -34,6 +34,7 @@ export class SignInComponent implements OnInit {
 		private user: User,
 		private router: Router,
 		private userService: UserService,
+		private page: Page,
 	) {
 		this.user = new User();
 		this.feedback = new Feedback();
@@ -41,6 +42,7 @@ export class SignInComponent implements OnInit {
 		this.fingerprintAuth.available().then((result: BiometricIDAvailableResult) => {
 			this.bioValues = result;
 		})
+		this.page.actionBarHidden = true;
 	};
 	
 	ngOnInit() {

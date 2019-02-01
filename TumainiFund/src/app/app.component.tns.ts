@@ -3,9 +3,10 @@ import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import { SearchBar } from "tns-core-modules/ui/search-bar";
 import { DockLayout } from "tns-core-modules/ui/layouts/dock-layout"
-import { isIOS, isAndroid, EventData } from "tns-core-modules/ui/page/page";
+import { isIOS, isAndroid, EventData, Page, View, backgroundSpanUnderStatusBarProperty } from "tns-core-modules/ui/page/page";
 import { Router } from "@angular/router";
 import { screen } from "tns-core-modules/platform";
+import * as gestures from "tns-core-modules/ui/gestures";
 declare var UISearchBarStyle: any;
 declare var UIImage: any;
 @Component({
@@ -16,23 +17,36 @@ declare var UIImage: any;
 
 export class AppComponent implements OnInit, AfterViewInit {
     @ViewChild("Menu") public menu: DockLayout;
+    @ViewChild("searchBar") searchBar: SearchBar;
+    @ViewChild("radSideDrawer") private drawerComponent: RadSideDrawerComponent;
 
     private _mainContentText: string;
+
     public menuSize: number;
+    public drawer: RadSideDrawer;
 
     constructor(
+        public page: Page,
         private _changeDetectionRef: ChangeDetectorRef,
         private router: Router,
     ) {
     }
 
-    @ViewChild("radSideDrawer") private drawerComponent: RadSideDrawerComponent;
-    public drawer: RadSideDrawer;
+    ngOnInit() {
+        this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
+        this.menuSize = screen.mainScreen.heightDIPs;
+    }
+
+    onLoaded() {
+        if (isAndroid) {
+            // This disables the swipe gesture to open menu, by setting the treshhold to '0'
+            this.drawer.android.setTouchTargetThreshold(0);
+        }
+    }
 
     ngAfterViewInit() {
         this.drawer = this.drawerComponent.sideDrawer;
         this._changeDetectionRef.detectChanges();
-
         if (isIOS) {
             // This disables the swipe gesture to open menu
             this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
@@ -44,18 +58,6 @@ export class AppComponent implements OnInit, AfterViewInit {
             // ios.defaultSideDrawer.style.shadowRadius;
             // ios.defaultSideDrawer.transitionDuration;
         }
-    }
-
-    onLoaded() {
-        if (isAndroid) {
-            // This disables the swipe gesture to open menu, by setting the treshhold to '0'
-            this.drawer.android.setTouchTargetThreshold(0);
-        }
-    }
-
-    ngOnInit() {
-        this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
-        this.menuSize = screen.mainScreen.heightDIPs;
     }
 
     get mainContentText() {
@@ -74,8 +76,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.drawer.closeDrawer();
     }
 
-    @ViewChild("searchBar") searchBar: ElementRef;
-
     public searchBarLoaded(args) {
         let searchBar = <SearchBar>args.object
         if (isIOS) {
@@ -83,7 +83,14 @@ export class AppComponent implements OnInit, AfterViewInit {
             nativeSearchBar.searchBarStyle = UISearchBarStyle.Prominent;
             nativeSearchBar.backgroundImage = UIImage.new();
         }
+        if (args.object.android) {
+            setTimeout(() => {
+                args.object.dismissSoftInput();
+                args.object.android.clearFocus();
+            }, 0);
+        }
     }
+    
     public goHome(args: EventData) {
         if (this.router.url != "/home") {
             this.router.navigate(["/home"])
@@ -99,4 +106,9 @@ export class AppComponent implements OnInit, AfterViewInit {
             return "visible";
         }
     }
+
+    public searchBarFocus(args: EventData) {
+        console.log("Search Bar Focused")
+    }
+
 }

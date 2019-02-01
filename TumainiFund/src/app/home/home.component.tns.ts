@@ -17,22 +17,17 @@ export class HomeComponent {
     private activeUser: Kinvey.User = Kinvey.User.getActiveUser();;
     public user: String = this.activeUser.username;
     private feedback: Feedback;
-    private router: Router;
     public userWelcomeText: String = `Welcome:\n${this.user}`;
     
     constructor(private page: Page,
+        private router: Router,
         ) {
             this.page.actionBarHidden = true;
         }
 
     public signOut(args: EventData) {
-        const promise = Kinvey.User.logout()
-            .then(() => {
-                this.router.navigate(["/sign-in"])
-            }).catch((error: Kinvey.BaseError) => {
-                this.feedback.error({
-                    message: `Unfortunately we could not sign out: ${this.user}`,
-                });
-            });
+        console.log("Sign Out")
+        Kinvey.User.logout().then(() =>
+        this.router.navigate(["/sign-in"]))
     }
 }
