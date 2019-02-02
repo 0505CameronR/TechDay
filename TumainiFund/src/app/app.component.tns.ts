@@ -17,9 +17,7 @@ declare var UIImage: any;
 
 export class AppComponent implements OnInit, AfterViewInit {
     @ViewChild("radSideDrawer") private drawerComponent: RadSideDrawerComponent;
-
     private _mainContentText: string;
-
     public drawer: RadSideDrawer;
 
     constructor(

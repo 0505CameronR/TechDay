@@ -1,13 +1,13 @@
 <ScrollView class="page">
     <StackLayout>
-        <StackLayout class="p-20 btn-img"> <!--(tap)="alertPopUp()">-->
+        <StackLayout class="p-20 btn-img">
             <Image src="res://userImg" stretch="aspectFit" class="logo"></Image>
             <Label text="{{userWelcomeText}}" class="h2 text-center" textWrap="true"></Label>
         </StackLayout>
-        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigateFromHome('/schools')"><!--(tap)="alertPopUp()">-->
+        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigateFromHome('/schools')">
             <Label text="{{allocatedSchoolText}}" class="h2 text-center" textWrap="true"></Label>
         </FlexboxLayout>
-        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigateFromHome('/supported-children')"> <!--(tap)="alertPopUp()">-->
+        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigateFromHome('/supported-children')">
             <Label text="{{allocatedChildrenText}}" class="h2 text-center" textWrap="true"></Label>
         </FlexboxLayout>
         <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="signOut($event)">

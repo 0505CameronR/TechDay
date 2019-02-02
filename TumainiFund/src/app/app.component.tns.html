@@ -2,7 +2,6 @@
     <DockLayout #Menu [visibility]="isSignIn()">
         <GridLayout dock="top" rows="auto" columns="*,3*,*" id="actionBar" class="action-bar p-10">
             <Image col="1" height="60" src="res://homeLogo" stretch="aspectFit" (tap)="goHome($event)"></Image>
-            <!-- <SearchBar col="1" hint="Search Results" #searchBar (loaded)="searchBarLoaded($event)" (tap)="searchBarFocus($event)"></SearchBar> -->
             <Image col="2" height="30" src="res://menuIcon" stretch="aspectFit" (tap)="toggleDrawer()"></Image>
         </GridLayout>
     </DockLayout>
@@ -38,7 +37,7 @@
             </DockLayout>
         </StackLayout>
         <StackLayout tkMainContent>
-            <page-router-outlet (loaded)="menuResize()"></page-router-outlet>
+            <page-router-outlet></page-router-outlet>
         </StackLayout>
     </RadSideDrawer>
 </StackLayout>
