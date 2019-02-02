@@ -7,20 +7,20 @@
 		<key>ApplicationPath</key>
 		<string>Applications/TumainiFund.app</string>
 		<key>CFBundleIdentifier</key>
-		<string>org.nativescript.TumainiFundDev2</string>
+		<string>org.nativescript.TumainiFund</string>
 		<key>CFBundleShortVersionString</key>
 		<string>1.0</string>
 		<key>CFBundleVersion</key>
 		<string>1.0</string>
 		<key>SigningIdentity</key>
-		<string>iPhone Developer: camlriou@gmail.com (QWDH2GE6LJ)</string>
+		<string>iPhone Developer: camlriou@outlook.com (3QMXF22T94)</string>
 		<key>Team</key>
-		<string>FQ4MRV6S87</string>
+		<string>KY496XS6J2</string>
 	</dict>
 	<key>ArchiveVersion</key>
 	<integer>2</integer>
 	<key>CreationDate</key>
-	<date>2019-01-20T19:09:59Z</date>
+	<date>2019-02-02T03:14:06Z</date>
 	<key>Name</key>
 	<string>TumainiFund</string>
 	<key>SchemeName</key>

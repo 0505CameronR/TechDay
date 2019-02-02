@@ -41,10 +41,9 @@
       <string>UIInterfaceOrientationLandscapeLeft</string>
       <string>UIInterfaceOrientationLandscapeRight</string>
       <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationPortraitUpsideDown</string>
     </array>
     <key>CFBundleIdentifier</key>
-    <string>org.nativescript.TumainiFundDev2</string>
+    <string>org.nativescript.TumainiFund</string>
     <key>CFBundleURLTypes</key>
     <array>
       <dict>
@@ -52,7 +51,7 @@
         <string>Editor</string>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>orgnativescriptTumainiFundDev2</string>
+          <string>orgnativescriptTumainiFund</string>
         </array>
       </dict>
     </array>

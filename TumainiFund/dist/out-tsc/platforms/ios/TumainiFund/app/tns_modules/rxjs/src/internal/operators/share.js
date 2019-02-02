@@ -1,0 +1,25 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var multicast_1 = require("./multicast");
+var refCount_1 = require("./refCount");
+var Subject_1 = require("../Subject");
+function shareSubjectFactory() {
+    return new Subject_1.Subject();
+}
+/**
+ * Returns a new Observable that multicasts (shares) the original Observable. As long as there is at least one
+ * Subscriber this Observable will be subscribed and emitting data. When all subscribers have unsubscribed it will
+ * unsubscribe from the source Observable. Because the Observable is multicasting it makes the stream `hot`.
+ * This is an alias for `multicast(() => new Subject()), refCount()`.
+ *
+ * ![](share.png)
+ *
+ * @return {Observable<T>} An Observable that upon connection causes the source Observable to emit items to its Observers.
+ * @method share
+ * @owner Observable
+ */
+function share() {
+    return function (source) { return refCount_1.refCount()(multicast_1.multicast(shareSubjectFactory)(source)); };
+}
+exports.share = share;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2hhcmUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9wbGF0Zm9ybXMvaW9zL1R1bWFpbmlGdW5kL2FwcC90bnNfbW9kdWxlcy9yeGpzL3NyYy9pbnRlcm5hbC9vcGVyYXRvcnMvc2hhcmUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSx5Q0FBd0M7QUFDeEMsdUNBQXNDO0FBQ3RDLHNDQUFxQztBQUlyQyxTQUFTLG1CQUFtQjtJQUMxQixPQUFPLElBQUksaUJBQU8sRUFBRSxDQUFDO0FBQ3ZCLENBQUM7QUFFRDs7Ozs7Ozs7Ozs7R0FXRztBQUNILFNBQWdCLEtBQUs7SUFDbkIsT0FBTyxVQUFDLE1BQXFCLElBQUssT0FBQSxtQkFBUSxFQUFFLENBQUMscUJBQVMsQ0FBQyxtQkFBbUIsQ0FBQyxDQUFDLE1BQU0sQ0FBQyxDQUFrQixFQUFuRSxDQUFtRSxDQUFDO0FBQ3hHLENBQUM7QUFGRCxzQkFFQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IE9ic2VydmFibGUgfSBmcm9tICcuLi9PYnNlcnZhYmxlJztcbmltcG9ydCB7IG11bHRpY2FzdCB9IGZyb20gJy4vbXVsdGljYXN0JztcbmltcG9ydCB7IHJlZkNvdW50IH0gZnJvbSAnLi9yZWZDb3VudCc7XG5pbXBvcnQgeyBTdWJqZWN0IH0gZnJvbSAnLi4vU3ViamVjdCc7XG5cbmltcG9ydCB7IE1vbm9UeXBlT3BlcmF0b3JGdW5jdGlvbiB9IGZyb20gJy4uL3R5cGVzJztcblxuZnVuY3Rpb24gc2hhcmVTdWJqZWN0RmFjdG9yeSgpIHtcbiAgcmV0dXJuIG5ldyBTdWJqZWN0KCk7XG59XG5cbi8qKlxuICogUmV0dXJucyBhIG5ldyBPYnNlcnZhYmxlIHRoYXQgbXVsdGljYXN0cyAoc2hhcmVzKSB0aGUgb3JpZ2luYWwgT2JzZXJ2YWJsZS4gQXMgbG9uZyBhcyB0aGVyZSBpcyBhdCBsZWFzdCBvbmVcbiAqIFN1YnNjcmliZXIgdGhpcyBPYnNlcnZhYmxlIHdpbGwgYmUgc3Vic2NyaWJlZCBhbmQgZW1pdHRpbmcgZGF0YS4gV2hlbiBhbGwgc3Vic2NyaWJlcnMgaGF2ZSB1bnN1YnNjcmliZWQgaXQgd2lsbFxuICogdW5zdWJzY3JpYmUgZnJvbSB0aGUgc291cmNlIE9ic2VydmFibGUuIEJlY2F1c2UgdGhlIE9ic2VydmFibGUgaXMgbXVsdGljYXN0aW5nIGl0IG1ha2VzIHRoZSBzdHJlYW0gYGhvdGAuXG4gKiBUaGlzIGlzIGFuIGFsaWFzIGZvciBgbXVsdGljYXN0KCgpID0+IG5ldyBTdWJqZWN0KCkpLCByZWZDb3VudCgpYC5cbiAqXG4gKiAhW10oc2hhcmUucG5nKVxuICpcbiAqIEByZXR1cm4ge09ic2VydmFibGU8VD59IEFuIE9ic2VydmFibGUgdGhhdCB1cG9uIGNvbm5lY3Rpb24gY2F1c2VzIHRoZSBzb3VyY2UgT2JzZXJ2YWJsZSB0byBlbWl0IGl0ZW1zIHRvIGl0cyBPYnNlcnZlcnMuXG4gKiBAbWV0aG9kIHNoYXJlXG4gKiBAb3duZXIgT2JzZXJ2YWJsZVxuICovXG5leHBvcnQgZnVuY3Rpb24gc2hhcmU8VD4oKTogTW9ub1R5cGVPcGVyYXRvckZ1bmN0aW9uPFQ+IHtcbiAgcmV0dXJuIChzb3VyY2U6IE9ic2VydmFibGU8VD4pID0+IHJlZkNvdW50KCkobXVsdGljYXN0KHNoYXJlU3ViamVjdEZhY3RvcnkpKHNvdXJjZSkpIGFzIE9ic2VydmFibGU8VD47XG59XG4iXX0=

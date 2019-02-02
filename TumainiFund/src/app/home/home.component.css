@@ -2,18 +2,25 @@
 .btn-img{
     border-radius: 5;
     border-width: 1;
-    color: white;
     margin: 10;
-    font-size: 22;
-    border-color: #2b3c6a;
-    background-color: #3B5997;
-}
-ActionBar {
+    color: black;
+    border-color: #A8F259;
     background-color: #82CC33;
-    /* #A8F259 */
+    text-align: center;
 }
-.action-image {
-    height: 30;
-    vertical-align: center;
-    horizontal-align: center;
+
+.flex-btn {
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    border-radius:100%;
+    width:90;
+    height:90;
+    margin: 5;
+}
+
+.page {
+    background-color: #A8F259;
 }
