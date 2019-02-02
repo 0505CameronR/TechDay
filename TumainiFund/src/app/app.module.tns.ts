@@ -10,6 +10,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { Kinvey } from 'kinvey-nativescript-sdk';
 import { Feedback } from 'nativescript-feedback';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
+import { AppHeader } from './shared/actionbar/actionbar.model';
 
 Kinvey.init({
 	appKey: 'kid_S1kLDRkz4',
@@ -32,7 +33,7 @@ Kinvey.init({
 		NativeScriptFormsModule,
 		NativeScriptUISideDrawerModule,
 	],
-	providers: [],
+	providers: [AppHeader],
 	bootstrap: [AppComponent],
 	schemas: [NO_ERRORS_SCHEMA]
 })

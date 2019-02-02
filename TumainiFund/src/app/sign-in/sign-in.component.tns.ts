@@ -20,7 +20,7 @@ import { FingerprintAuth, BiometricIDAvailableResult } from "nativescript-finger
 })
 
 export class SignInComponent implements OnInit {
-	@ViewChild("password") static password: ElementRef;
+	@ViewChild("password") private password: ElementRef;
 	feedback: Feedback;
 	isLoggingIn = true;
 	processing = false;
@@ -43,6 +43,7 @@ export class SignInComponent implements OnInit {
 			this.bioValues = result;
 		})
 		this.page.actionBarHidden = true;
+		this.page.enableSwipeBackNavigation = false;
 	};
 	
 	ngOnInit() {
@@ -60,7 +61,7 @@ export class SignInComponent implements OnInit {
 	};
 
 	public switchToPass(args: EventData) {
-		SignInComponent.password.nativeElement.focus();
+		this.password.nativeElement.focus();
 	}
 
 	public submit(args: EventData) {

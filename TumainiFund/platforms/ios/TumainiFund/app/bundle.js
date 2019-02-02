@@ -230,7 +230,7 @@ module.exports = "button {\n    font-size: 15;\n    horizontal-align: center;\n}
 /***/ "./app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<StackLayout>\n    <DockLayout #Menu dock=\"top\" [visibility]=\"isSignIn()\">\n        <GridLayout rows=\"auto\" columns=\"90,*,10,30\" id=\"actionBar\" class=\"action-bar p-10\">\n            <Image col=\"0\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"goHome($event)\"></Image>\n            <SearchBar col=\"1\" hint=\"Search Results\" #searchBar (loaded)=\"searchBarLoaded($event)\" (tap)=\"searchBarFocus($event)\"></SearchBar>\n            <Image col=\"3\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\" (tap)=\"openDrawer()\"></Image>\n        </GridLayout>\n    </DockLayout>\n    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)=\"onLoaded()\" drawerLocation=\"Top\" drawerTransition=\"RevealTransition\" [drawerContentSize]=\"menuSize\">\n        <StackLayout tkDrawerContent class=\"sideStackLayout\">\n            <ScrollView>\n                <StackLayout class=\"sideStackLayout\">\n                    <Label text=\"Primary\" class=\"sideLabel\"></Label>\n                    <Label text=\"Social\" class=\"sideLabel\"></Label>\n                    <Label text=\"Promotions\" class=\"sideLabel\"></Label>\n                    <Label text=\"Labels\" class=\"sideLabel\"></Label>\n                    <Label text=\"Important\" class=\"sideLabel\"></Label>\n                    <Label text=\"Starred\" class=\"sideLabel\"></Label>\n                    <Label text=\"Sent Mail\" class=\"sideLabel\"></Label>\n                    <Label text=\"Drafts\" class=\"sideLabel\"></Label>\n                </StackLayout>\n            </ScrollView>\n        </StackLayout>\n        <StackLayout tkMainContent>\n            <page-router-outlet></page-router-outlet>\n        </StackLayout>\n    </RadSideDrawer>\n</StackLayout>"
+module.exports = "<StackLayout>\n    <DockLayout #Menu dock=\"top\" [visibility]=\"isSignIn()\">\n        <GridLayout rows=\"auto\" columns=\"*,3*,*\" id=\"actionBar\" class=\"action-bar p-10\">\n            <Image col=\"1\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"goHome($event)\"></Image>\n            <!-- <SearchBar col=\"1\" hint=\"Search Results\" #searchBar (loaded)=\"searchBarLoaded($event)\" (tap)=\"searchBarFocus($event)\"></SearchBar> -->\n            <Image col=\"2\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\" (tap)=\"openDrawer()\"></Image>\n        </GridLayout>\n    </DockLayout>\n    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)=\"onLoaded()\" drawerLocation=\"Top\" drawerTransition=\"RevealTransition\" [drawerContentSize]=\"menuSize\">\n        <StackLayout tkDrawerContent class=\"sideStackLayout\">\n            <ScrollView>\n                <StackLayout class=\"sideStackLayout\">\n                    <Label text=\"Primary\" class=\"sideLabel\"></Label>\n                    <Label text=\"Social\" class=\"sideLabel\"></Label>\n                    <Label text=\"Promotions\" class=\"sideLabel\"></Label>\n                    <Label text=\"Labels\" class=\"sideLabel\"></Label>\n                    <Label text=\"Important\" class=\"sideLabel\"></Label>\n                    <Label text=\"Starred\" class=\"sideLabel\"></Label>\n                    <Label text=\"Sent Mail\" class=\"sideLabel\"></Label>\n                    <Label text=\"Drafts\" class=\"sideLabel\"></Label>\n                </StackLayout>\n            </ScrollView>\n        </StackLayout>\n        <StackLayout tkMainContent>\n            <page-router-outlet></page-router-outlet>\n        </StackLayout>\n    </RadSideDrawer>\n</StackLayout>"
 
 /***/ }),
 
@@ -243,15 +243,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/nativescript-ui-sidedrawer/angular/side-drawer-directives.js");
 /* harmony import */ var nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var tns_core_modules_ui_search_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/tns-core-modules/ui/search-bar/search-bar.js");
-/* harmony import */ var tns_core_modules_ui_search_bar__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_search_bar__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var tns_core_modules_ui_layouts_dock_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/tns-core-modules/ui/layouts/dock-layout/dock-layout.js");
-/* harmony import */ var tns_core_modules_ui_layouts_dock_layout__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_layouts_dock_layout__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
-/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("../node_modules/tns-core-modules/platform/platform.js");
-/* harmony import */ var tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("../node_modules/tns-core-modules/platform/platform.js");
+/* harmony import */ var tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_4__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -266,20 +262,22 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
-
 var AppComponent = /** @class */ (function () {
-    function AppComponent(page, _changeDetectionRef, router) {
+    // public searchBarKey: String = "Cancel";
+    function AppComponent(
+    // public headerGrid: AppHeader,
+    page, _changeDetectionRef, router) {
         this.page = page;
         this._changeDetectionRef = _changeDetectionRef;
         this.router = router;
+        // this.headerGrid = new AppHeader()
     }
     AppComponent.prototype.ngOnInit = function () {
         this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
-        this.menuSize = tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_6__["screen"].mainScreen.heightDIPs;
+        this.menuSize = tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_4__["screen"].mainScreen.heightDIPs;
     };
     AppComponent.prototype.onLoaded = function () {
-        if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__["isAndroid"]) {
+        if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["isAndroid"]) {
             // This disables the swipe gesture to open menu, by setting the treshhold to '0'
             this.drawer.android.setTouchTargetThreshold(0);
         }
@@ -287,7 +285,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.ngAfterViewInit = function () {
         this.drawer = this.drawerComponent.sideDrawer;
         this._changeDetectionRef.detectChanges();
-        if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__["isIOS"]) {
+        if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["isIOS"]) {
             // This disables the swipe gesture to open menu
             this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
             // You can set other properties the same way, to style your RadSideDrawer for iOS. 
@@ -314,20 +312,20 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.onCloseDrawerTap = function () {
         this.drawer.closeDrawer();
     };
-    AppComponent.prototype.searchBarLoaded = function (args) {
-        var searchBar = args.object;
-        if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__["isIOS"]) {
-            var nativeSearchBar = searchBar.nativeView;
-            nativeSearchBar.searchBarStyle = UISearchBarStyle.Prominent;
-            nativeSearchBar.backgroundImage = UIImage.new();
-        }
-        if (args.object.android) {
-            setTimeout(function () {
-                args.object.dismissSoftInput();
-                args.object.android.clearFocus();
-            }, 0);
-        }
-    };
+    // public searchBarLoaded(args) {
+    //     let searchBar = <SearchBar>args.object
+    //     if (isIOS) {
+    //         var nativeSearchBar = searchBar.nativeView;
+    //         nativeSearchBar.searchBarStyle = UISearchBarStyle.Prominent;
+    //         nativeSearchBar.backgroundImage = UIImage.new();
+    //     }
+    //     if (args.object.android) {
+    //         setTimeout(() => {
+    //             args.object.android.dismissSoftInput();
+    //             args.object.android.clearFocus();
+    //         }, 0);
+    //     }
+    // }
     AppComponent.prototype.goHome = function (args) {
         if (this.router.url != "/home") {
             this.router.navigate(["/home"]);
@@ -344,17 +342,6 @@ var AppComponent = /** @class */ (function () {
             return "visible";
         }
     };
-    AppComponent.prototype.searchBarFocus = function (args) {
-        console.log("Search Bar Focused");
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("Menu"),
-        __metadata("design:type", tns_core_modules_ui_layouts_dock_layout__WEBPACK_IMPORTED_MODULE_3__["DockLayout"])
-    ], AppComponent.prototype, "menu", void 0);
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("searchBar"),
-        __metadata("design:type", tns_core_modules_ui_search_bar__WEBPACK_IMPORTED_MODULE_2__["SearchBar"])
-    ], AppComponent.prototype, "searchBar", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("radSideDrawer"),
         __metadata("design:type", nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__["RadSideDrawerComponent"])
@@ -365,9 +352,9 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__("./app/app.component.html"),
             styles: [__webpack_require__("./app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__["Page"],
+        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["Page"],
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -395,12 +382,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("../node_modules/nativescript-ui-sidedrawer/angular/side-drawer-directives.js");
 /* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _shared_actionbar_actionbar_model__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./app/shared/actionbar/actionbar.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -432,7 +421,7 @@ var AppModule = /** @class */ (function () {
                 nativescript_angular_forms__WEBPACK_IMPORTED_MODULE_2__["NativeScriptFormsModule"],
                 nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8__["NativeScriptUISideDrawerModule"],
             ],
-            providers: [],
+            providers: [_shared_actionbar_actionbar_model__WEBPACK_IMPORTED_MODULE_9__["AppHeader"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NO_ERRORS_SCHEMA"]]
         })
@@ -483,7 +472,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\" (tap)=\"alertPopUp()\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" ><!--(tap)=\"alertPopUp()\">-->\n            <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\"> <!--(tap)=\"alertPopUp()\">-->\n            <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
+module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\"> <!--(tap)=\"alertPopUp()\">-->\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" ><!--(tap)=\"alertPopUp()\">-->\n            <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\"> <!--(tap)=\"alertPopUp()\">-->\n            <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
 
 /***/ }),
 
@@ -523,6 +512,7 @@ var HomeComponent = /** @class */ (function () {
         this.user = this.activeUser.username;
         this.userWelcomeText = "Welcome:\n" + this.user;
         this.page.actionBarHidden = true;
+        this.page.enableSwipeBackNavigation = false;
     }
     ;
     HomeComponent.prototype.signOut = function (args) {
@@ -542,6 +532,43 @@ var HomeComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], HomeComponent);
     return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/shared/actionbar/actionbar.model.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppHeader", function() { return AppHeader; });
+var AppHeader = /** @class */ (function () {
+    function AppHeader() {
+        this.gridColDef = "90,*,10,30";
+        this.logoShowDef = "visible";
+        this.menuShowDef = "visible";
+        this.searchColDef = "1";
+        this.logoShow = this.logoShowDef;
+        this.menuShow = this.menuShowDef;
+        this.gridCol = this.gridColDef;
+        this.searchCol = this.searchColDef;
+    }
+    AppHeader.prototype.reset = function () {
+        this.logoShow = this.logoShowDef;
+        this.menuShow = this.menuShowDef;
+        this.gridCol = this.gridColDef;
+        this.searchCol = this.searchColDef;
+    };
+    AppHeader.prototype.searchBarFocus = function () {
+        console.log("Search Bar Focused");
+        this.gridCol = "*";
+        this.searchCol = "0";
+        this.logoShow = "hidden";
+        this.menuShow = "hidden";
+    };
+    return AppHeader;
 }());
 
 
@@ -681,8 +708,8 @@ var SignInComponent = /** @class */ (function () {
             _this.bioValues = result;
         });
         this.page.actionBarHidden = true;
+        this.page.enableSwipeBackNavigation = false;
     }
-    SignInComponent_1 = SignInComponent;
     ;
     SignInComponent.prototype.ngOnInit = function () {
         if (this.bioValues.face) {
@@ -701,7 +728,7 @@ var SignInComponent = /** @class */ (function () {
     };
     ;
     SignInComponent.prototype.switchToPass = function (args) {
-        SignInComponent_1.password.nativeElement.focus();
+        this.password.nativeElement.focus();
     };
     SignInComponent.prototype.submit = function (args) {
         this.processing = true;
@@ -753,12 +780,11 @@ var SignInComponent = /** @class */ (function () {
             _this.router.navigate(["/home"]);
         });
     };
-    var SignInComponent_1;
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("password"),
         __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
-    ], SignInComponent, "password", void 0);
-    SignInComponent = SignInComponent_1 = __decorate([
+    ], SignInComponent.prototype, "password", void 0);
+    SignInComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-sign-in',
             template: __webpack_require__("./app/sign-in/sign-in.component.html"),

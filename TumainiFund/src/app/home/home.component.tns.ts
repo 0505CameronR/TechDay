@@ -23,6 +23,7 @@ export class HomeComponent {
         private router: Router,
         ) {
             this.page.actionBarHidden = true;
+            this.page.enableSwipeBackNavigation = false;
         }
 
     public signOut(args: EventData) {
