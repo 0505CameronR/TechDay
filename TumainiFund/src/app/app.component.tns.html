@@ -1,28 +1,44 @@
 <StackLayout>
-    <DockLayout #Menu dock="top" [visibility]="isSignIn()">
-        <GridLayout rows="auto" columns="*,3*,*" id="actionBar" class="action-bar p-10">
+    <DockLayout #Menu [visibility]="isSignIn()">
+        <GridLayout dock="top" rows="auto" columns="*,3*,*" id="actionBar" class="action-bar p-10">
             <Image col="1" height="60" src="res://homeLogo" stretch="aspectFit" (tap)="goHome($event)"></Image>
             <!-- <SearchBar col="1" hint="Search Results" #searchBar (loaded)="searchBarLoaded($event)" (tap)="searchBarFocus($event)"></SearchBar> -->
-            <Image col="2" height="30" src="res://menuIcon" stretch="aspectFit" (tap)="openDrawer()"></Image>
+            <Image col="2" height="30" src="res://menuIcon" stretch="aspectFit" (tap)="toggleDrawer()"></Image>
         </GridLayout>
     </DockLayout>
-    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)="onLoaded()" drawerLocation="Top" drawerTransition="RevealTransition" [drawerContentSize]="menuSize">
+    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)="onLoaded()" drawerLocation="Top"
+        drawerTransition="RevealTransition" drawerContentSize="470">
         <StackLayout tkDrawerContent class="sideStackLayout">
-            <ScrollView>
-                <StackLayout class="sideStackLayout">
-                    <Label text="Primary" class="sideLabel"></Label>
-                    <Label text="Social" class="sideLabel"></Label>
-                    <Label text="Promotions" class="sideLabel"></Label>
-                    <Label text="Labels" class="sideLabel"></Label>
-                    <Label text="Important" class="sideLabel"></Label>
-                    <Label text="Starred" class="sideLabel"></Label>
-                    <Label text="Sent Mail" class="sideLabel"></Label>
-                    <Label text="Drafts" class="sideLabel"></Label>
-                </StackLayout>
-            </ScrollView>
+            <DockLayout>
+                <FlexboxLayout dock="bottom" class="footer">
+                    <Image src="res://close_drawer" (tap)="closeDrawer()" width="64" height="64"></Image>
+                </FlexboxLayout>
+                <ScrollView>
+                    <StackLayout>
+                        <FlexboxLayout class="p-20 btn-img flex-btn">
+                            <Label text="Supported Children" class="sideLabel h2 text-center" textWrap="true"></Label>
+                        </FlexboxLayout>
+                        <FlexboxLayout class="p-20 btn-img flex-btn">
+                            <Label text="Heads of Family" class="sideLabel h2 text-center" textWrap="true"></Label>
+                        </FlexboxLayout>
+                        <FlexboxLayout class="p-20 btn-img flex-btn">
+                            <Label text="Sponsors" class="sideLabel h2 text-center" textWrap="true"></Label>
+                        </FlexboxLayout>
+                        <FlexboxLayout class="p-20 btn-img flex-btn">
+                            <Label text="Schools" class="sideLabel h2 text-center" textWrap="true"></Label>
+                        </FlexboxLayout>
+                        <FlexboxLayout class="p-20 btn-img flex-btn">
+                            <Label text="Parish Workers" class="sideLabel h2 text-center" textWrap="true"></Label>
+                        </FlexboxLayout>
+                        <FlexboxLayout class="p-20 btn-img flex-btn">
+                            <Label text="Assigned Offices" class="sideLabel h2 text-center" textWrap="true"></Label>
+                        </FlexboxLayout>
+                    </StackLayout>
+                </ScrollView>
+            </DockLayout>
         </StackLayout>
         <StackLayout tkMainContent>
-            <page-router-outlet></page-router-outlet>
+            <page-router-outlet (loaded)="menuResize()"></page-router-outlet>
         </StackLayout>
     </RadSideDrawer>
 </StackLayout>

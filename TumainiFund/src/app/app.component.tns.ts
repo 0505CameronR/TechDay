@@ -1,14 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef, AfterViewInit, ViewChild, ElementRef } from "@angular/core";
 import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
-// import { SearchBar } from "tns-core-modules/ui/search-bar";
 import { DockLayout } from "tns-core-modules/ui/layouts/dock-layout"
 import { isIOS, isAndroid, EventData, Page, View, backgroundSpanUnderStatusBarProperty } from "tns-core-modules/ui/page/page";
 import { Router } from "@angular/router";
-import { screen } from "tns-core-modules/platform";
-import * as gestures from "tns-core-modules/ui/gestures";
-import { GridLayout, ItemSpec } from "tns-core-modules/ui/layouts/grid-layout";
-import { AppHeader } from "./shared/actionbar/actionbar.model"
 
 declare var UISearchBarStyle: any;
 declare var UIImage: any;
@@ -19,49 +14,34 @@ declare var UIImage: any;
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
-    // @ViewChild(SearchBar) public searchBar: SearchBar;
     @ViewChild("radSideDrawer") private drawerComponent: RadSideDrawerComponent;
 
     private _mainContentText: string;
 
-    public menuSize: number;
     public drawer: RadSideDrawer;
-    // public searchBarKey: String = "Cancel";
 
     constructor(
-        // public headerGrid: AppHeader,
         public page: Page,
         private _changeDetectionRef: ChangeDetectorRef,
         private router: Router,
     ) {
-        // this.headerGrid = new AppHeader()
     }
 
     ngOnInit() {
-        this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
-        this.menuSize = screen.mainScreen.heightDIPs;
+        this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";    
     }
-
+    
     onLoaded() {
         if (isAndroid) {
-            // This disables the swipe gesture to open menu, by setting the treshhold to '0'
             this.drawer.android.setTouchTargetThreshold(0);
         }
     }
-
+    
     ngAfterViewInit() {
         this.drawer = this.drawerComponent.sideDrawer;
         this._changeDetectionRef.detectChanges();
         if (isIOS) {
-            // This disables the swipe gesture to open menu
             this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
-
-            // You can set other properties the same way, to style your RadSideDrawer for iOS. 
-            // Such as:
-            // ios.defaultSideDrawer.style.dimOpacity;
-            // ios.defaultSideDrawer.style.shadowOpacity; 
-            // ios.defaultSideDrawer.style.shadowRadius;
-            // ios.defaultSideDrawer.transitionDuration;
         }
     }
 
@@ -73,28 +53,17 @@ export class AppComponent implements OnInit, AfterViewInit {
         this._mainContentText = value;
     }
 
-    public openDrawer() {
+    public toggleDrawer() {
         this.drawer.toggleDrawerState();
     }
 
-    public onCloseDrawerTap() {
-        this.drawer.closeDrawer();
+    public openDrawer() {
+        this.drawer.showDrawer();
     }
 
-    // public searchBarLoaded(args) {
-    //     let searchBar = <SearchBar>args.object
-    //     if (isIOS) {
-    //         var nativeSearchBar = searchBar.nativeView;
-    //         nativeSearchBar.searchBarStyle = UISearchBarStyle.Prominent;
-    //         nativeSearchBar.backgroundImage = UIImage.new();
-    //     }
-    //     if (args.object.android) {
-    //         setTimeout(() => {
-    //             args.object.android.dismissSoftInput();
-    //             args.object.android.clearFocus();
-    //         }, 0);
-    //     }
-    // }
+    public closeDrawer() {
+        this.drawer.closeDrawer();
+    }
 
     public goHome(args: EventData) {
         if (this.router.url != "/home") {
@@ -111,8 +80,4 @@ export class AppComponent implements OnInit, AfterViewInit {
             return "visible";
         }
     }
-
-    // public searchBarChange() {
-    //     if(this.searchBar)
-    // }
 }

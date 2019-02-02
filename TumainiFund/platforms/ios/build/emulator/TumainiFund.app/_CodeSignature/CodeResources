@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>@1xclose_drawer.png</key>
+		<data>
+		pU/r13S4hH0snOMk8HCZAduXgmE=
+		</data>
 		<key>@1xhomeLogo.png</key>
 		<data>
 		tnFn24PKCmqCMBUsJseQ7AGvG+E=
@@ -12,6 +16,10 @@
 		<data>
 		9vuG16CUlFo5I2yr4z2owrTF4vI=
 		</data>
+		<key>@2xclose_drawer.png</key>
+		<data>
+		tkDFbU2OflW8lh1dJvwStoyZklA=
+		</data>
 		<key>@2xhomeLogo.png</key>
 		<data>
 		+AW3RtwVEvv/dGIbU6DLJkIzR70=
@@ -19,6 +27,10 @@
 		<key>@2xuserImg.png</key>
 		<data>
 		uizGj21oCJ2RcNWWylltkorVPKM=
+		</data>
+		<key>@3xclose_drawer.png</key>
+		<data>
+		NDgwBoD3lBdZFzy5esNc0aG0Va0=
 		</data>
 		<key>@3xhomeLogo.png</key>
 		<data>
@@ -86,11 +98,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		i4PEQ7LFxuC2juSv3PtdKwWgbPc=
+		IMbIdkMmhavuZBaer5P9TCPzFuw=
 		</data>
 		<key>Frameworks/IQKeyboardManager.framework/IQKeyboardManager</key>
 		<data>
-		wl1hcebRuiPuE2e+gyUdDPf53TU=
+		nASAFcFgiSZ2JU0HQpUmnitnWk4=
 		</data>
 		<key>Frameworks/IQKeyboardManager.framework/IQKeyboardManager.bundle/IQButtonBarArrowDown@2x.png</key>
 		<data>
@@ -134,7 +146,7 @@
 		</data>
 		<key>Frameworks/ISMessages.framework/ISMessages</key>
 		<data>
-		wWClUiTTwpw0sIvuswjfUm11EME=
+		MEa+ZgKJ0DeAT4onNt/pJz7ifR0=
 		</data>
 		<key>Frameworks/ISMessages.framework/ISMessages.bundle/Info.plist</key>
 		<data>
@@ -214,7 +226,7 @@
 		</data>
 		<key>Frameworks/SAMKeychain.framework/SAMKeychain</key>
 		<data>
-		pY5+yY+c5SsDKX90wW7g+KGH3f0=
+		ZO8yBsMNQKvSJvKgDHHwj97on8Y=
 		</data>
 		<key>Frameworks/SAMKeychain.framework/SAMKeychain.bundle/en.lproj/SAMKeychain.strings</key>
 		<dict>
@@ -347,7 +359,7 @@
 		</data>
 		<key>LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		2R2tLH6L9Dz+rJ7c+jIlntykT4Y=
+		f9WAgrT2mYzTsyvGKbEjVm4RLt4=
 		</data>
 		<key>LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -355,7 +367,7 @@
 		</data>
 		<key>LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		XB9S47WBmtTadxQ8T+znon60bHo=
+		IIusxvgnw9Yg3CSRaxgcHUzCpKo=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -367,7 +379,7 @@
 		</data>
 		<key>app/bundle.js</key>
 		<data>
-		qprSjByjIwxcu5nYqVt3hF+G1CU=
+		2Wc+4pZNAk17rQhfNRJftfLl314=
 		</data>
 		<key>app/package.json</key>
 		<data>
@@ -384,6 +396,10 @@
 		<key>build.xcconfig</key>
 		<data>
 		h4FVyzZYvbOHUk4JSBdRezcvSEI=
+		</data>
+		<key>close_drawer.png</key>
+		<data>
+		pU/r13S4hH0snOMk8HCZAduXgmE=
 		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<dict>
@@ -409,6 +425,17 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>@1xclose_drawer.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pU/r13S4hH0snOMk8HCZAduXgmE=
+			</data>
+			<key>hash2</key>
+			<data>
+			ynDqi9Ut2Y1fySXacceFlYlmYIQCfT6tPZpPgEGxyoU=
+			</data>
+		</dict>
 		<key>@1xhomeLogo.png</key>
 		<dict>
 			<key>hash</key>
@@ -431,6 +458,17 @@
 			+JXWqDE19vhBhFhE/yINbmXu+OU3cSw4aEq2jltOyfQ=
 			</data>
 		</dict>
+		<key>@2xclose_drawer.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tkDFbU2OflW8lh1dJvwStoyZklA=
+			</data>
+			<key>hash2</key>
+			<data>
+			+SIVZuZkipztIWz+18A9eUvKn/gNooSn/m2wIUd0Gwc=
+			</data>
+		</dict>
 		<key>@2xhomeLogo.png</key>
 		<dict>
 			<key>hash</key>
@@ -451,6 +489,17 @@
 			<key>hash2</key>
 			<data>
 			NLFv5Cj64b2nti3ZLFJGzDD9baBFr6/sLIhIbADIv1c=
+			</data>
+		</dict>
+		<key>@3xclose_drawer.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NDgwBoD3lBdZFzy5esNc0aG0Va0=
+			</data>
+			<key>hash2</key>
+			<data>
+			1HLVCV9Ybl3vvEsVEtZrXikBTbFAbEbC4gSXQiG/mFs=
 			</data>
 		</dict>
 		<key>@3xhomeLogo.png</key>
@@ -633,22 +682,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			i4PEQ7LFxuC2juSv3PtdKwWgbPc=
+			IMbIdkMmhavuZBaer5P9TCPzFuw=
 			</data>
 			<key>hash2</key>
 			<data>
-			4QB0PEKDfILXcD8OS5iQ6bgRtOA1W22gVMX7zrtkOuI=
+			Sgzf0vpZtw37T3ANL5S30GWDzK/2ORc5M2YwASQdEaM=
 			</data>
 		</dict>
 		<key>Frameworks/IQKeyboardManager.framework/IQKeyboardManager</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wl1hcebRuiPuE2e+gyUdDPf53TU=
+			nASAFcFgiSZ2JU0HQpUmnitnWk4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z50pEE0hrIYr9rure+kOtiz1CTFBHuwMbuSAekU7xJw=
+			44eAYCYQ4OqfWA8C1oKOGcsGhBXVXPzNGowWL53rPqc=
 			</data>
 		</dict>
 		<key>Frameworks/IQKeyboardManager.framework/IQKeyboardManager.bundle/IQButtonBarArrowDown@2x.png</key>
@@ -765,11 +814,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wWClUiTTwpw0sIvuswjfUm11EME=
+			MEa+ZgKJ0DeAT4onNt/pJz7ifR0=
 			</data>
 			<key>hash2</key>
 			<data>
-			5Z7XBfS64HhHf99etGv6G8A3tcGbBinG2p4ymVU4zT0=
+			pIVh57W6RIccqcZrhb0w8tqEB1FgJAybm4FEC3C29Rk=
 			</data>
 		</dict>
 		<key>Frameworks/ISMessages.framework/ISMessages.bundle/Info.plist</key>
@@ -985,11 +1034,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pY5+yY+c5SsDKX90wW7g+KGH3f0=
+			ZO8yBsMNQKvSJvKgDHHwj97on8Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			iViuC77PGLSiOuPR+r/6wgxmSW5R5pJ0yuJ9NgtG77M=
+			YxohlRzVxE4P30cUQ4T9i5OcjB/RF9T7FDfafZHE0cQ=
 			</data>
 		</dict>
 		<key>Frameworks/SAMKeychain.framework/SAMKeychain.bundle/en.lproj/SAMKeychain.strings</key>
@@ -1328,11 +1377,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2R2tLH6L9Dz+rJ7c+jIlntykT4Y=
+			f9WAgrT2mYzTsyvGKbEjVm4RLt4=
 			</data>
 			<key>hash2</key>
 			<data>
-			d3kJVfLqAL8CAvTXsncZqqeqNijvah9ZVH86k6nGXRs=
+			/JHVm5aRmYU55tqDbidh/DAimxwfbYtxLpjuBuZLpSA=
 			</data>
 		</dict>
 		<key>LaunchScreen.storyboardc/Info.plist</key>
@@ -1350,11 +1399,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XB9S47WBmtTadxQ8T+znon60bHo=
+			IIusxvgnw9Yg3CSRaxgcHUzCpKo=
 			</data>
 			<key>hash2</key>
 			<data>
-			AyAGZtYzq7oJVHkGrS1vVSKc/hMuSjEA9XslwrKw5Xs=
+			XnhLmGVvmANhJ/qqZsz91QajK5jDFHsqih7OE1BXjbQ=
 			</data>
 		</dict>
 		<key>app/assets/images/logo.png</key>
@@ -1372,11 +1421,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qprSjByjIwxcu5nYqVt3hF+G1CU=
+			2Wc+4pZNAk17rQhfNRJftfLl314=
 			</data>
 			<key>hash2</key>
 			<data>
-			a2duLR/4xoo4LjrUEgX9tntPCE1iJ0lxhBMGaQCGmwk=
+			5hOMapXUCghsfIO0NKhM4v/ZxABnA8Ei1AFvv8gdN1o=
 			</data>
 		</dict>
 		<key>app/package.json</key>
@@ -1421,6 +1470,17 @@
 			<key>hash2</key>
 			<data>
 			uajNYkcxpZg70X7mygBoT5/7Q720MaMSTqGeUQiPijE=
+			</data>
+		</dict>
+		<key>close_drawer.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pU/r13S4hH0snOMk8HCZAduXgmE=
+			</data>
+			<key>hash2</key>
+			<data>
+			ynDqi9Ut2Y1fySXacceFlYlmYIQCfT6tPZpPgEGxyoU=
 			</data>
 		</dict>
 		<key>en.lproj/InfoPlist.strings</key>
