@@ -4,6 +4,8 @@ import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import { DockLayout } from "tns-core-modules/ui/layouts/dock-layout"
 import { isIOS, isAndroid, EventData, Page, View, backgroundSpanUnderStatusBarProperty } from "tns-core-modules/ui/page/page";
 import { Router } from "@angular/router";
+import { routes } from "./app.routes";
+import { Feedback } from "nativescript-feedback";
 
 declare var UISearchBarStyle: any;
 declare var UIImage: any;
@@ -22,9 +24,11 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     constructor(
         public page: Page,
+        private feedback: Feedback,
         private _changeDetectionRef: ChangeDetectorRef,
         private router: Router,
     ) {
+        this.feedback = new Feedback();
     }
 
     ngOnInit() {
@@ -69,7 +73,9 @@ export class AppComponent implements OnInit, AfterViewInit {
         if (this.router.url != "/home") {
             this.router.navigate(["/home"])
         } else {
-            console.dir(this.router.url)
+            this.feedback.info({
+                message: "You're Already Home"
+            })
         }
     }
 
@@ -78,6 +84,16 @@ export class AppComponent implements OnInit, AfterViewInit {
             return "collapsed";
         } else {
             return "visible";
+        }
+    }
+
+    public navigateFromHome(destination){
+        if(destination in routes){
+            this.router.navigate([destination])
+        } else {
+            this.feedback.warning({
+                message: `The Feature ${destination.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")} Hasn't Been Implemented Yet`
+            })
         }
     }
 }
