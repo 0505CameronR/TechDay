@@ -1,7 +1,7 @@
 <StackLayout>
     <DockLayout #Menu [visibility]="isSignIn()">
         <GridLayout dock="top" rows="auto" columns="*,3*,*" id="actionBar" class="action-bar p-10">
-            <Image col="1" height="60" src="res://homeLogo" stretch="aspectFit" (tap)="goHome($event)"></Image>
+            <Image col="1" height="60" src="res://homeLogo" stretch="aspectFit" (tap)="navigate('/home')"></Image>
             <Image col="2" height="30" src="res://menuIcon" stretch="aspectFit" (tap)="toggleDrawer()"></Image>
         </GridLayout>
     </DockLayout>
@@ -14,22 +14,22 @@
                 </FlexboxLayout>
                 <ScrollView>
                     <StackLayout>
-                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigateFromHome('/supported-children')">
+                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigate('/supported-children')">
                             <Label text="Supported Children" class="sideLabel h2 text-center" textWrap="true"></Label>
                         </FlexboxLayout>
-                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigateFromHome('/heads-of-family')">
+                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigate('/heads-of-family')">
                             <Label text="Heads of Family" class="sideLabel h2 text-center" textWrap="true"></Label>
                         </FlexboxLayout>
-                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigateFromHome('/sponsors')">
+                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigate('/sponsors')">
                             <Label text="Sponsors" class="sideLabel h2 text-center" textWrap="true"></Label>
                         </FlexboxLayout>
-                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigateFromHome('/schools')">
+                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigate('/schools')">
                             <Label text="Schools" class="sideLabel h2 text-center" textWrap="true"></Label>
                         </FlexboxLayout>
-                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigateFromHome('/parish-workers')">
+                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigate('/parish-workers')">
                             <Label text="Parish Workers" class="sideLabel h2 text-center" textWrap="true"></Label>
                         </FlexboxLayout>
-                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigateFromHome('/assigned-offices')">
+                        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigate('/assigned-offices')">
                             <Label text="Assigned Offices" class="sideLabel h2 text-center" textWrap="true"></Label>
                         </FlexboxLayout>
                     </StackLayout>

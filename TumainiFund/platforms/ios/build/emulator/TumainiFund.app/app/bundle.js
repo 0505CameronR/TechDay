@@ -223,14 +223,14 @@ var AppRoutingModule = /** @class */ (function () {
 /***/ "./app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "button {\n    font-size: 15;\n    horizontal-align: center;\n}\n\n.drawerContentText {\n    font-size: 13;\n    padding: 10;\n}\n\n.drawerContentButton {\n    margin: 10;\n    horizontal-align: center;\n}\n\n.sideStackLayout {\n    background-color: #A8F259;\n}\n\n.sideLabel {\n    padding: 10;\n    text-align: center;\n}\n\n#actionBar {\n    background-color: #82CC33;\n    /* #A8F259 */\n    /* background-color: #A8F259 */\n}\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}"
+module.exports = "button {\n    font-size: 15;\n    horizontal-align: center;\n}\n\n.drawerContentText {\n    font-size: 13;\n    padding: 10;\n}\n\n.drawerContentButton {\n    margin: 10;\n    horizontal-align: center;\n}\n\n.sideStackLayout {\n    background-color: #A8F259;\n}\n\n.sideLabel {\n    padding: 10;\n    text-align: center;\n}\n\n.footer {\n    border-color: black;\n    border-width: 1 0 0 0;\n    vertical-align: center;\n    width: 100%;\n    justify-content: center;\n    display: flex;\n    align-items: center;\n    box-pack: center;\n    justify-content: center;\n    overflow: hidden;\n    margin: auto;\n    height: 80;\n}\n\n#actionBar {\n    background-color: #82CC33;\n    border-color: black;\n    border-width: 0 0 1 0;\n    /* #A8F259 */\n    /* background-color: #A8F259 */\n}\n\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}\n\n.btn-img {\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}"
 
 /***/ }),
 
 /***/ "./app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<StackLayout>\n    <DockLayout #Menu dock=\"top\" [visibility]=\"isSignIn()\">\n        <GridLayout rows=\"auto\" columns=\"*,3*,*\" id=\"actionBar\" class=\"action-bar p-10\">\n            <Image col=\"1\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"goHome($event)\"></Image>\n            <!-- <SearchBar col=\"1\" hint=\"Search Results\" #searchBar (loaded)=\"searchBarLoaded($event)\" (tap)=\"searchBarFocus($event)\"></SearchBar> -->\n            <Image col=\"2\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\" (tap)=\"toggleDrawer()\"></Image>\n        </GridLayout>\n    </DockLayout>\n    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)=\"onLoaded()\" drawerLocation=\"Top\" drawerTransition=\"RevealTransition\" [drawerContentSize]=\"menuSize\">\n        <StackLayout tkDrawerContent class=\"sideStackLayout\">\n            <ScrollView>\n                <StackLayout class=\"sideStackLayout\">\n                    <Label text=\"Supported Children\" class=\"sideLabel\"></Label>\n                    <Label text=\"Heads of Family\" class=\"sideLabel\"></Label>\n                    <Label text=\"Sponsors\" class=\"sideLabel\"></Label>\n                    <Label text=\"Schools\" class=\"sideLabel\"></Label>\n                    <Label text=\"Parish Workers\" class=\"sideLabel\"></Label>\n                    <Label text=\"Assigned Offices\" class=\"sideLabel\"></Label>\n                    <Image src=\"res://close_drawer\" (tap)=\"closeDrawer()\" width=\"32\" height=\"32\"></Image>\n                </StackLayout>\n            </ScrollView>\n        </StackLayout>\n        <StackLayout tkMainContent>\n            <page-router-outlet></page-router-outlet>\n        </StackLayout>\n    </RadSideDrawer>\n</StackLayout>"
+module.exports = "<StackLayout>\n    <DockLayout #Menu [visibility]=\"isSignIn()\">\n        <GridLayout dock=\"top\" rows=\"auto\" columns=\"*,3*,*\" id=\"actionBar\" class=\"action-bar p-10\">\n            <Image col=\"1\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"goHome($event)\"></Image>\n            <Image col=\"2\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\" (tap)=\"toggleDrawer()\"></Image>\n        </GridLayout>\n    </DockLayout>\n    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)=\"onLoaded()\" drawerLocation=\"Top\"\n        drawerTransition=\"RevealTransition\" drawerContentSize=\"470\">\n        <StackLayout tkDrawerContent class=\"sideStackLayout\">\n            <DockLayout>\n                <FlexboxLayout dock=\"bottom\" class=\"footer\">\n                    <Image src=\"res://close_drawer\" (tap)=\"closeDrawer()\" width=\"64\" height=\"64\"></Image>\n                </FlexboxLayout>\n                <ScrollView>\n                    <StackLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/supported-children')\">\n                            <Label text=\"Supported Children\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/heads-of-family')\">\n                            <Label text=\"Heads of Family\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/sponsors')\">\n                            <Label text=\"Sponsors\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/schools')\">\n                            <Label text=\"Schools\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/parish-workers')\">\n                            <Label text=\"Parish Workers\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/assigned-offices')\">\n                            <Label text=\"Assigned Offices\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                    </StackLayout>\n                </ScrollView>\n            </DockLayout>\n        </StackLayout>\n        <StackLayout tkMainContent>\n            <page-router-outlet></page-router-outlet>\n        </StackLayout>\n    </RadSideDrawer>\n</StackLayout>"
 
 /***/ }),
 
@@ -246,8 +246,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
 /* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("../node_modules/tns-core-modules/platform/platform.js");
-/* harmony import */ var tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/app.routes.ts");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -262,23 +263,20 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AppComponent = /** @class */ (function () {
-    // public searchBarKey: String = "Cancel";
-    function AppComponent(
-    // public headerGrid: AppHeader,
-    page, _changeDetectionRef, router) {
+    function AppComponent(page, feedback, _changeDetectionRef, router) {
         this.page = page;
+        this.feedback = feedback;
         this._changeDetectionRef = _changeDetectionRef;
         this.router = router;
-        // this.headerGrid = new AppHeader()
+        this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"]();
     }
     AppComponent.prototype.ngOnInit = function () {
         this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
-        this.menuSize = tns_core_modules_platform__WEBPACK_IMPORTED_MODULE_4__["screen"].mainScreen.heightDIPs;
     };
     AppComponent.prototype.onLoaded = function () {
         if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["isAndroid"]) {
-            // This disables the swipe gesture to open menu, by setting the treshhold to '0'
             this.drawer.android.setTouchTargetThreshold(0);
         }
     };
@@ -286,14 +284,7 @@ var AppComponent = /** @class */ (function () {
         this.drawer = this.drawerComponent.sideDrawer;
         this._changeDetectionRef.detectChanges();
         if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["isIOS"]) {
-            // This disables the swipe gesture to open menu
             this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
-            // You can set other properties the same way, to style your RadSideDrawer for iOS. 
-            // Such as:
-            // ios.defaultSideDrawer.style.dimOpacity;
-            // ios.defaultSideDrawer.style.shadowOpacity; 
-            // ios.defaultSideDrawer.style.shadowRadius;
-            // ios.defaultSideDrawer.transitionDuration;
         }
     };
     Object.defineProperty(AppComponent.prototype, "mainContentText", {
@@ -315,26 +306,14 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.closeDrawer = function () {
         this.drawer.closeDrawer();
     };
-    // public searchBarLoaded(args) {
-    //     let searchBar = <SearchBar>args.object
-    //     if (isIOS) {
-    //         var nativeSearchBar = searchBar.nativeView;
-    //         nativeSearchBar.searchBarStyle = UISearchBarStyle.Prominent;
-    //         nativeSearchBar.backgroundImage = UIImage.new();
-    //     }
-    //     if (args.object.android) {
-    //         setTimeout(() => {
-    //             args.object.android.dismissSoftInput();
-    //             args.object.android.clearFocus();
-    //         }, 0);
-    //     }
-    // }
     AppComponent.prototype.goHome = function (args) {
         if (this.router.url != "/home") {
             this.router.navigate(["/home"]);
         }
         else {
-            console.dir(this.router.url);
+            this.feedback.info({
+                message: "You're Already Home"
+            });
         }
     };
     AppComponent.prototype.isSignIn = function () {
@@ -343,6 +322,16 @@ var AppComponent = /** @class */ (function () {
         }
         else {
             return "visible";
+        }
+    };
+    AppComponent.prototype.navigateFromHome = function (destination) {
+        if (destination in _app_routes__WEBPACK_IMPORTED_MODULE_4__["routes"]) {
+            this.router.navigate([destination]);
+        }
+        else {
+            this.feedback.warning({
+                message: "The Feature " + destination.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") + " Hasn't Been Implemented Yet"
+            });
         }
     };
     __decorate([
@@ -356,6 +345,7 @@ var AppComponent = /** @class */ (function () {
             styles: [__webpack_require__("./app/app.component.css")]
         }),
         __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["Page"],
+            nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"],
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], AppComponent);
@@ -383,9 +373,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./app/sign-in/sign-in.component.ts");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("../node_modules/nativescript-ui-sidedrawer/angular/side-drawer-directives.js");
-/* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _shared_actionbar_actionbar_model__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./app/shared/actionbar/actionbar.model.ts");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("../node_modules/nativescript-ui-sidedrawer/angular/side-drawer-directives.js");
+/* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -422,9 +413,9 @@ var AppModule = /** @class */ (function () {
                 nativescript_angular_nativescript_module__WEBPACK_IMPORTED_MODULE_1__["NativeScriptModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                 nativescript_angular_forms__WEBPACK_IMPORTED_MODULE_2__["NativeScriptFormsModule"],
-                nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8__["NativeScriptUISideDrawerModule"],
+                nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__["NativeScriptUISideDrawerModule"],
             ],
-            providers: [_shared_actionbar_actionbar_model__WEBPACK_IMPORTED_MODULE_9__["AppHeader"]],
+            providers: [nativescript_feedback__WEBPACK_IMPORTED_MODULE_8__["Feedback"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NO_ERRORS_SCHEMA"]]
         })
@@ -475,7 +466,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\"> <!--(tap)=\"alertPopUp()\">-->\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" ><!--(tap)=\"alertPopUp()\">-->\n            <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\"> <!--(tap)=\"alertPopUp()\">-->\n            <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
+module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/schools')\">\n            <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/supported-children')\">\n            <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
 
 /***/ }),
 
@@ -489,8 +480,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
-/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./app/app.routes.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -504,10 +498,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(page, router) {
+    function HomeComponent(page, router, feedback) {
         this.page = page;
         this.router = router;
+        this.feedback = feedback;
         this.allocatedSchoolText = "Allocated Schools";
         this.allocatedChildrenText = "Allocated Children";
         this.signOutText = "Sign Out";
@@ -516,6 +513,7 @@ var HomeComponent = /** @class */ (function () {
         this.userWelcomeText = "Welcome:\n" + this.user;
         this.page.actionBarHidden = true;
         this.page.enableSwipeBackNavigation = false;
+        this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__["Feedback"]();
     }
     ;
     HomeComponent.prototype.signOut = function (args) {
@@ -525,53 +523,27 @@ var HomeComponent = /** @class */ (function () {
             return _this.router.navigate(["/sign-in"]);
         });
     };
+    HomeComponent.prototype.navigateFromHome = function (destination) {
+        if (destination in _app_routes__WEBPACK_IMPORTED_MODULE_5__["routes"]) {
+            this.router.navigate([destination]);
+        }
+        else {
+            this.feedback.warning({
+                message: "The Feature " + destination.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") + " Hasn't Been Implemented Yet"
+            });
+        }
+    };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'ns-home',
             template: __webpack_require__("./app/home/home.component.html"),
             styles: [__webpack_require__("./app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["Page"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__["Page"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__["Feedback"]])
     ], HomeComponent);
     return HomeComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/shared/actionbar/actionbar.model.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppHeader", function() { return AppHeader; });
-var AppHeader = /** @class */ (function () {
-    function AppHeader() {
-        this.gridColDef = "90,*,10,30";
-        this.logoShowDef = "visible";
-        this.menuShowDef = "visible";
-        this.searchColDef = "1";
-        this.logoShow = this.logoShowDef;
-        this.menuShow = this.menuShowDef;
-        this.gridCol = this.gridColDef;
-        this.searchCol = this.searchColDef;
-    }
-    AppHeader.prototype.reset = function () {
-        this.logoShow = this.logoShowDef;
-        this.menuShow = this.menuShowDef;
-        this.gridCol = this.gridColDef;
-        this.searchCol = this.searchColDef;
-    };
-    AppHeader.prototype.searchBarFocus = function () {
-        console.log("Search Bar Focused");
-        this.gridCol = "*";
-        this.searchCol = "0";
-        this.logoShow = "hidden";
-        this.menuShow = "hidden";
-    };
-    return AppHeader;
 }());
 
 

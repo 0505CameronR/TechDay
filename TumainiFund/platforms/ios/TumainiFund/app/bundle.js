@@ -230,7 +230,7 @@ module.exports = "button {\n    font-size: 15;\n    horizontal-align: center;\n}
 /***/ "./app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<StackLayout>\n    <DockLayout #Menu [visibility]=\"isSignIn()\">\n        <GridLayout dock=\"top\" rows=\"auto\" columns=\"*,3*,*\" id=\"actionBar\" class=\"action-bar p-10\">\n            <Image col=\"1\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"goHome($event)\"></Image>\n            <Image col=\"2\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\" (tap)=\"toggleDrawer()\"></Image>\n        </GridLayout>\n    </DockLayout>\n    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)=\"onLoaded()\" drawerLocation=\"Top\"\n        drawerTransition=\"RevealTransition\" drawerContentSize=\"470\">\n        <StackLayout tkDrawerContent class=\"sideStackLayout\">\n            <DockLayout>\n                <FlexboxLayout dock=\"bottom\" class=\"footer\">\n                    <Image src=\"res://close_drawer\" (tap)=\"closeDrawer()\" width=\"64\" height=\"64\"></Image>\n                </FlexboxLayout>\n                <ScrollView>\n                    <StackLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/supported-children')\">\n                            <Label text=\"Supported Children\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/heads-of-family')\">\n                            <Label text=\"Heads of Family\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/sponsors')\">\n                            <Label text=\"Sponsors\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/schools')\">\n                            <Label text=\"Schools\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/parish-workers')\">\n                            <Label text=\"Parish Workers\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/assigned-offices')\">\n                            <Label text=\"Assigned Offices\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                    </StackLayout>\n                </ScrollView>\n            </DockLayout>\n        </StackLayout>\n        <StackLayout tkMainContent>\n            <page-router-outlet></page-router-outlet>\n        </StackLayout>\n    </RadSideDrawer>\n</StackLayout>"
+module.exports = "<StackLayout>\n    <DockLayout #Menu [visibility]=\"isSignIn()\">\n        <GridLayout dock=\"top\" rows=\"auto\" columns=\"*,3*,*\" id=\"actionBar\" class=\"action-bar p-10\">\n            <Image col=\"1\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"navigate('/home')\"></Image>\n            <Image col=\"2\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\" (tap)=\"toggleDrawer()\"></Image>\n        </GridLayout>\n    </DockLayout>\n    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)=\"onLoaded()\" drawerLocation=\"Top\"\n        drawerTransition=\"RevealTransition\" drawerContentSize=\"470\">\n        <StackLayout tkDrawerContent class=\"sideStackLayout\">\n            <DockLayout>\n                <FlexboxLayout dock=\"bottom\" class=\"footer\">\n                    <Image src=\"res://close_drawer\" (tap)=\"closeDrawer()\" width=\"64\" height=\"64\"></Image>\n                </FlexboxLayout>\n                <ScrollView>\n                    <StackLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/supported-children')\">\n                            <Label text=\"Supported Children\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/heads-of-family')\">\n                            <Label text=\"Heads of Family\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/sponsors')\">\n                            <Label text=\"Sponsors\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n                            <Label text=\"Schools\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/parish-workers')\">\n                            <Label text=\"Parish Workers\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/assigned-offices')\">\n                            <Label text=\"Assigned Offices\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                    </StackLayout>\n                </ScrollView>\n            </DockLayout>\n        </StackLayout>\n        <StackLayout tkMainContent>\n            <page-router-outlet></page-router-outlet>\n        </StackLayout>\n    </RadSideDrawer>\n</StackLayout>"
 
 /***/ }),
 
@@ -306,16 +306,6 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.closeDrawer = function () {
         this.drawer.closeDrawer();
     };
-    AppComponent.prototype.goHome = function (args) {
-        if (this.router.url != "/home") {
-            this.router.navigate(["/home"]);
-        }
-        else {
-            this.feedback.info({
-                message: "You're Already Home"
-            });
-        }
-    };
     AppComponent.prototype.isSignIn = function () {
         if (this.router.url == "/sign-in") {
             return "collapsed";
@@ -324,13 +314,29 @@ var AppComponent = /** @class */ (function () {
             return "visible";
         }
     };
-    AppComponent.prototype.navigateFromHome = function (destination) {
-        if (destination in _app_routes__WEBPACK_IMPORTED_MODULE_4__["routes"]) {
-            this.router.navigate([destination]);
+    AppComponent.prototype.navigate = function (destination) {
+        destination = destination.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "");
+        var current = this.router.url.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "");
+        var flag = false;
+        for (var curRoute in _app_routes__WEBPACK_IMPORTED_MODULE_4__["routes"]) {
+            if (destination == _app_routes__WEBPACK_IMPORTED_MODULE_4__["routes"][curRoute].path) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
+            if (current == destination) {
+                this.feedback.info({
+                    message: "You're Already At: " + destination
+                });
+            }
+            else {
+                this.router.navigate([destination]);
+            }
         }
         else {
             this.feedback.warning({
-                message: "The Feature " + destination.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") + " Hasn't Been Implemented Yet"
+                message: "The Feature " + destination + " Hasn't Been Implemented Yet"
             });
         }
     };
@@ -415,7 +421,9 @@ var AppModule = /** @class */ (function () {
                 nativescript_angular_forms__WEBPACK_IMPORTED_MODULE_2__["NativeScriptFormsModule"],
                 nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__["NativeScriptUISideDrawerModule"],
             ],
-            providers: [nativescript_feedback__WEBPACK_IMPORTED_MODULE_8__["Feedback"]],
+            providers: [
+                nativescript_feedback__WEBPACK_IMPORTED_MODULE_8__["Feedback"],
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NO_ERRORS_SCHEMA"]]
         })
@@ -466,7 +474,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/schools')\">\n            <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigateFromHome('/supported-children')\">\n            <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
+module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n            <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/supported-children')\">\n            <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
 
 /***/ }),
 
@@ -518,18 +526,36 @@ var HomeComponent = /** @class */ (function () {
     ;
     HomeComponent.prototype.signOut = function (args) {
         var _this = this;
-        console.log("Sign Out");
-        kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.logout().then(function () {
-            return _this.router.navigate(["/sign-in"]);
+        this.feedback.info({
+            message: "Signing Out User: " + this.user
         });
+        kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.logout().then(function () { return (_this.feedback.success({
+            message: _this.user + " Signed Out"
+        }),
+            _this.router.navigate(["/sign-in"])); });
     };
-    HomeComponent.prototype.navigateFromHome = function (destination) {
-        if (destination in _app_routes__WEBPACK_IMPORTED_MODULE_5__["routes"]) {
-            this.router.navigate([destination]);
+    HomeComponent.prototype.navigate = function (destination) {
+        destination = destination.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "");
+        var flag = false;
+        for (var curRoute in _app_routes__WEBPACK_IMPORTED_MODULE_5__["routes"]) {
+            if (destination == _app_routes__WEBPACK_IMPORTED_MODULE_5__["routes"][curRoute].path) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
+            if (this.router.url == destination) {
+                this.feedback.info({
+                    message: "You're Already At: " + destination
+                });
+            }
+            else {
+                this.router.navigate([destination]);
+            }
         }
         else {
             this.feedback.warning({
-                message: "The Feature " + destination.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") + " Hasn't Been Implemented Yet"
+                message: "The Feature " + destination + " Hasn't Been Implemented Yet"
             });
         }
     };
@@ -726,6 +752,9 @@ var SignInComponent = /** @class */ (function () {
             this.processing = false;
         }
         else {
+            this.feedback.info({
+                message: "Signing In User: " + this.user.username
+            });
             this.login();
         }
     };
@@ -734,12 +763,15 @@ var SignInComponent = /** @class */ (function () {
         this.userService.login(this.user)
             .then(function () {
             _this.processing = false;
+            _this.feedback.success({
+                message: "Signed In User: " + _this.user.username
+            });
             _this.router.navigate(["/home"]);
         })
             .catch(function () {
             _this.processing = false;
             _this.feedback.error({
-                message: "Unfortunately we could not find your account: " + _this.user.username
+                message: "Unfortunately we could not sign in to the account: " + _this.user.username
             });
         });
     };

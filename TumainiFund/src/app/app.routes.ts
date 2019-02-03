@@ -17,4 +17,40 @@ export const routes: Routes = [
       path: 'sign-in',
       component: SignInComponent,
   },
+  /*
+  {
+      path: 'supported-children',
+      component: SupportedChildrenComponent,
+  }
+  */
+ /*
+  {
+      path: 'heads-of-family',
+      component: HeadsOfFamilyComponent,
+  }
+  */
+ /*
+  {
+      path: 'sponsors',
+      component: SponsorsComponent,
+  }
+  */
+ /*
+  {
+      path: 'schools',
+      component: SchoolsComponent,
+  }
+  */
+ /*
+  {
+      path: 'parish-workers',
+      component: ParishWorkersComponent,
+  }
+  */
+ /*
+  {
+      path: 'assigned-offices',
+      component: AssignedOfficesComponent,
+  }
+  */
 ];

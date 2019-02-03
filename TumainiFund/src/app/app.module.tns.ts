@@ -32,7 +32,9 @@ Kinvey.init({
 		NativeScriptFormsModule,
 		NativeScriptUISideDrawerModule,
 	],
-	providers: [Feedback],
+	providers: [
+		Feedback,
+	],
 	bootstrap: [AppComponent],
 	schemas: [NO_ERRORS_SCHEMA]
 })

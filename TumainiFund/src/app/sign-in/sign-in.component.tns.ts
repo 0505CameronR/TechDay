@@ -82,6 +82,9 @@ export class SignInComponent implements OnInit {
 			});
 			this.processing = false;
 		} else {
+			this.feedback.info({
+				message: `Signing In User: ${this.user.username}`
+			})
 			this.login();
 		}
 	}
@@ -90,12 +93,15 @@ export class SignInComponent implements OnInit {
 		this.userService.login(this.user)
 			.then(() => {
 				this.processing = false;
+				this.feedback.success({
+					message: `Signed In User: ${this.user.username}`
+				})
 				this.router.navigate(["/home"])
 			})
 			.catch(() => {
 				this.processing = false;
 				this.feedback.error({
-					message: `Unfortunately we could not find your account: ${this.user.username}`
+					message: `Unfortunately we could not sign in to the account: ${this.user.username}`
 				});
 			});
 	}

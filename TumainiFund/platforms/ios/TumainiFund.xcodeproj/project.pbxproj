@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1051B8F5E02247978FC494AC /* NativeScriptEmbedder.m in Sources */ = {isa = PBXBuildFile; fileRef = 422EFF4A588D4922A74A4ED3 /* NativeScriptEmbedder.m */; };
 		5F117BCE389F4FE9BE0929D6 /* homeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76129769C0854084BB64FD71 /* homeLogo.png */; };

@@ -3,7 +3,7 @@ import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import { DockLayout } from "tns-core-modules/ui/layouts/dock-layout"
 import { isIOS, isAndroid, EventData, Page, View, backgroundSpanUnderStatusBarProperty } from "tns-core-modules/ui/page/page";
-import { Router } from "@angular/router";
+import { Router, Route, Routes } from "@angular/router";
 import { routes } from "./app.routes";
 import { Feedback } from "nativescript-feedback";
 
@@ -30,15 +30,15 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";    
+        this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
     }
-    
+
     onLoaded() {
         if (isAndroid) {
             this.drawer.android.setTouchTargetThreshold(0);
         }
     }
-    
+
     ngAfterViewInit() {
         this.drawer = this.drawerComponent.sideDrawer;
         this._changeDetectionRef.detectChanges();
@@ -67,16 +67,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.drawer.closeDrawer();
     }
 
-    public goHome(args: EventData) {
-        if (this.router.url != "/home") {
-            this.router.navigate(["/home"])
-        } else {
-            this.feedback.info({
-                message: "You're Already Home"
-            })
-        }
-    }
-
     public isSignIn() {
         if (this.router.url == "/sign-in") {
             return "collapsed";
@@ -85,12 +75,27 @@ export class AppComponent implements OnInit, AfterViewInit {
         }
     }
 
-    public navigateFromHome(destination){
-        if(destination in routes){
-            this.router.navigate([destination])
+    public navigate(destination) {
+        destination = destination.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "")
+        let current= this.router.url.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "")
+        let flag:Boolean = false;
+        for(let curRoute in routes){
+            if(destination == routes[curRoute].path){
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
+            if (current == destination) {
+                this.feedback.info({
+                    message: `You're Already At: ${destination}`
+                })
+            } else {
+                this.router.navigate([destination])
+            }
         } else {
             this.feedback.warning({
-                message: `The Feature ${destination.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")} Hasn't Been Implemented Yet`
+                message: `The Feature ${destination} Hasn't Been Implemented Yet`
             })
         }
     }
