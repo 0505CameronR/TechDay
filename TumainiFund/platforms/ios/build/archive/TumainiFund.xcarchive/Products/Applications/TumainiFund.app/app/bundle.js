@@ -223,14 +223,14 @@ var AppRoutingModule = /** @class */ (function () {
 /***/ "./app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "button {\n    font-size: 15;\n    horizontal-align: center;\n}\n\n.drawerContentText {\n    font-size: 13;\n    padding: 10;\n}\n\n.drawerContentButton {\n    margin: 10;\n    horizontal-align: center;\n}\n\n.sideStackLayout {\n    background-color: #A8F259;\n}\n\n.sideLabel {\n    padding: 10;\n    text-align: center;\n}\n\n#actionBar {\n    background-color: #82CC33;\n    /* #A8F259 */\n    /* background-color: #A8F259 */\n}\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}"
+module.exports = "button {\n    font-size: 15;\n    horizontal-align: center;\n}\n\n.drawerContentText {\n    font-size: 13;\n    padding: 10;\n}\n\n.drawerContentButton {\n    margin: 10;\n    horizontal-align: center;\n}\n\n.sideStackLayout {\n    background-color: #A8F259;\n}\n\n.sideLabel {\n    padding: 10;\n    text-align: center;\n}\n\n.footer {\n    border-color: black;\n    border-width: 1 0 0 0;\n    vertical-align: center;\n    width: 100%;\n    justify-content: center;\n    display: flex;\n    align-items: center;\n    box-pack: center;\n    justify-content: center;\n    overflow: hidden;\n    margin: auto;\n    height: 80;\n}\n\n#actionBar {\n    background-color: #82CC33;\n    border-color: black;\n    border-width: 0 0 1 0;\n    /* #A8F259 */\n    /* background-color: #A8F259 */\n}\n\n.action-image {\n    height: 30;\n    vertical-align: center;\n    horizontal-align: center;\n}\n\n.btn-img {\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}"
 
 /***/ }),
 
 /***/ "./app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<StackLayout>\n    <DockLayout #Menu dock=\"top\" [visibility]=\"isSignIn()\">\n        <GridLayout rows=\"auto\" columns=\"*,3*,*\" id=\"actionBar\" class=\"action-bar p-10\">\n            <Image col=\"1\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"goHome($event)\"></Image>\n            <!-- <SearchBar col=\"1\" hint=\"Search Results\" #searchBar (loaded)=\"searchBarLoaded($event)\" (tap)=\"searchBarFocus($event)\"></SearchBar> -->\n            <Image col=\"2\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\" (tap)=\"toggleDrawer()\"></Image>\n        </GridLayout>\n    </DockLayout>\n    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)=\"onLoaded()\" drawerLocation=\"Top\"\n        drawerTransition=\"RevealTransition\" [drawerContentSize]=\"menuSize\">\n        <StackLayout tkDrawerContent class=\"sideStackLayout\">\n            <ScrollView>\n                <StackLayout class=\"sideStackLayout\">\n                    <FlexboxLayout class=\"p-20 btn-img flex-btn\">\n                        \n                        <Label text=\"Supported Children\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                    </FlexboxLayout>\n                    <FlexboxLayout class=\"p-20 btn-img flex-btn\">\n                        \n                        <Label text=\"Heads of Family\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                    </FlexboxLayout>\n                    <FlexboxLayout class=\"p-20 btn-img flex-btn\">\n                        \n                        <Label text=\"Sponsors\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                    </FlexboxLayout>\n                    <FlexboxLayout class=\"p-20 btn-img flex-btn\">\n                        \n                        <Label text=\"Schools\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                    </FlexboxLayout>\n                    <FlexboxLayout class=\"p-20 btn-img flex-btn\">\n                        \n                        <Label text=\"Parish Workers\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                    </FlexboxLayout>\n                    <FlexboxLayout class=\"p-20 btn-img flex-btn\">\n                        \n                        <Label text=\"Assigned Offices\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                    </FlexboxLayout>\n                    <Image src=\"res://close_drawer\" (tap)=\"closeDrawer()\" width=\"32\" height=\"32\"></Image>\n                </StackLayout>\n            </ScrollView>\n        </StackLayout>\n        <StackLayout tkMainContent>\n            <page-router-outlet></page-router-outlet>\n        </StackLayout>\n    </RadSideDrawer>\n</StackLayout>"
+module.exports = "<StackLayout>\n    <DockLayout #Menu [visibility]=\"isSignIn()\">\n        <GridLayout dock=\"top\" rows=\"auto\" columns=\"*,3*,*\" id=\"actionBar\" class=\"action-bar p-10\">\n            <StackLayout col=\"0\" orientation=\"horizontal\" [visibility]=\"isBackActive()\">\n                <Label text=\"< Back\" (tap)=\"back()\"></Label>\n            </StackLayout>\n            <Image col=\"1\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"navigate('/home')\"></Image>\n            <Image col=\"2\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\" (tap)=\"toggleDrawer()\"></Image>\n        </GridLayout>\n    </DockLayout>\n    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)=\"onLoaded()\" drawerLocation=\"Top\"\n        drawerTransition=\"RevealTransition\" drawerContentSize=\"470\">\n        <StackLayout tkDrawerContent class=\"sideStackLayout\">\n            <DockLayout>\n                <FlexboxLayout dock=\"bottom\" class=\"footer\">\n                    <Image src=\"res://close_drawer\" (tap)=\"closeDrawer()\" width=\"64\" height=\"64\"></Image>\n                </FlexboxLayout>\n                <ScrollView>\n                    <StackLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/supported-children')\">\n                            <Label text=\"Supported Children\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/heads-of-family')\">\n                            <Label text=\"Heads of Family\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/sponsors')\">\n                            <Label text=\"Sponsors\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n                            <Label text=\"Schools\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/parish-workers')\">\n                            <Label text=\"Parish Workers\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/assigned-offices')\">\n                            <Label text=\"Assigned Offices\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                    </StackLayout>\n                </ScrollView>\n            </DockLayout>\n        </StackLayout>\n        <StackLayout tkMainContent>\n            <page-router-outlet></page-router-outlet>\n        </StackLayout>\n    </RadSideDrawer>\n</StackLayout>"
 
 /***/ }),
 
@@ -246,6 +246,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
 /* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/app.routes.ts");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("../node_modules/@angular/common/fesm5/common.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -259,24 +263,23 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
 var AppComponent = /** @class */ (function () {
-    // public searchBarKey: String = "Cancel";
-    function AppComponent(
-    // public headerGrid: AppHeader,
-    page, _changeDetectionRef, router) {
+    function AppComponent(page, feedback, _changeDetectionRef, router, location) {
         this.page = page;
+        this.feedback = feedback;
         this._changeDetectionRef = _changeDetectionRef;
         this.router = router;
-        // this.headerGrid = new AppHeader()
+        this.location = location;
+        this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"]();
     }
     AppComponent.prototype.ngOnInit = function () {
         this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
-        this.page.on('navigatedTo', function (data) {
-        });
     };
     AppComponent.prototype.onLoaded = function () {
         if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["isAndroid"]) {
-            // This disables the swipe gesture to open menu, by setting the treshhold to '0'
             this.drawer.android.setTouchTargetThreshold(0);
         }
     };
@@ -284,14 +287,7 @@ var AppComponent = /** @class */ (function () {
         this.drawer = this.drawerComponent.sideDrawer;
         this._changeDetectionRef.detectChanges();
         if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["isIOS"]) {
-            // This disables the swipe gesture to open menu
             this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
-            // You can set other properties the same way, to style your RadSideDrawer for iOS. 
-            // Such as:
-            // ios.defaultSideDrawer.style.dimOpacity;
-            // ios.defaultSideDrawer.style.shadowOpacity; 
-            // ios.defaultSideDrawer.style.shadowRadius;
-            // ios.defaultSideDrawer.transitionDuration;
         }
     };
     Object.defineProperty(AppComponent.prototype, "mainContentText", {
@@ -313,28 +309,6 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.closeDrawer = function () {
         this.drawer.closeDrawer();
     };
-    // public searchBarLoaded(args) {
-    //     let searchBar = <SearchBar>args.object
-    //     if (isIOS) {
-    //         var nativeSearchBar = searchBar.nativeView;
-    //         nativeSearchBar.searchBarStyle = UISearchBarStyle.Prominent;
-    //         nativeSearchBar.backgroundImage = UIImage.new();
-    //     }
-    //     if (args.object.android) {
-    //         setTimeout(() => {
-    //             args.object.android.dismissSoftInput();
-    //             args.object.android.clearFocus();
-    //         }, 0);
-    //     }
-    // }
-    AppComponent.prototype.goHome = function (args) {
-        if (this.router.url != "/home") {
-            this.router.navigate(["/home"]);
-        }
-        else {
-            console.dir(this.router.url);
-        }
-    };
     AppComponent.prototype.isSignIn = function () {
         if (this.router.url == "/sign-in") {
             return "collapsed";
@@ -343,10 +317,45 @@ var AppComponent = /** @class */ (function () {
             return "visible";
         }
     };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("Menu"),
-        __metadata("design:type", Object)
-    ], AppComponent.prototype, "actionBar", void 0);
+    AppComponent.prototype.isBackActive = function () {
+        if (this.router.url == "/home") {
+            return "collapsed";
+        }
+        else {
+            return "visible";
+        }
+    };
+    AppComponent.prototype.back = function () {
+        this.closeDrawer();
+        this.location.back();
+    };
+    AppComponent.prototype.navigate = function (destination) {
+        destination = destination.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "");
+        var current = this.router.url.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "");
+        var flag = false;
+        for (var curRoute in _app_routes__WEBPACK_IMPORTED_MODULE_4__["routes"]) {
+            if (destination == _app_routes__WEBPACK_IMPORTED_MODULE_4__["routes"][curRoute].path) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
+            if (current == destination) {
+                this.feedback.info({
+                    message: "You're Already At: " + destination
+                });
+            }
+            else {
+                this.closeDrawer();
+                this.router.navigate([destination]);
+            }
+        }
+        else {
+            this.feedback.warning({
+                message: "The Feature " + destination + " Hasn't Been Implemented Yet"
+            });
+        }
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("radSideDrawer"),
         __metadata("design:type", nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__["RadSideDrawerComponent"])
@@ -358,8 +367,10 @@ var AppComponent = /** @class */ (function () {
             styles: [__webpack_require__("./app/app.component.css")]
         }),
         __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["Page"],
+            nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"],
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _angular_common__WEBPACK_IMPORTED_MODULE_6__["Location"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -385,15 +396,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./app/sign-in/sign-in.component.ts");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("../node_modules/nativescript-ui-sidedrawer/angular/side-drawer-directives.js");
-/* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _shared_actionbar_actionbar_model__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./app/shared/actionbar/actionbar.model.ts");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("../node_modules/nativescript-ui-sidedrawer/angular/side-drawer-directives.js");
+/* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./app/supported-children/supported-children.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -419,14 +433,17 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
                 _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_6__["SignInComponent"],
+                _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_10__["SupportedChildrenComponent"],
             ],
             imports: [
                 nativescript_angular_nativescript_module__WEBPACK_IMPORTED_MODULE_1__["NativeScriptModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                 nativescript_angular_forms__WEBPACK_IMPORTED_MODULE_2__["NativeScriptFormsModule"],
-                nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_8__["NativeScriptUISideDrawerModule"],
+                nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__["NativeScriptUISideDrawerModule"],
             ],
-            providers: [_shared_actionbar_actionbar_model__WEBPACK_IMPORTED_MODULE_9__["AppHeader"]],
+            providers: [
+                nativescript_feedback__WEBPACK_IMPORTED_MODULE_8__["Feedback"],
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
             schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NO_ERRORS_SCHEMA"]]
         })
@@ -446,6 +463,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./app/home/home.component.ts");
 /* harmony import */ var _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./app/sign-in/sign-in.component.ts");
+/* harmony import */ var _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./app/supported-children/supported-children.component.ts");
+
 
 
 var routes = [
@@ -462,6 +481,40 @@ var routes = [
         path: 'sign-in',
         component: _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_1__["SignInComponent"],
     },
+    {
+        path: 'supported-children',
+        component: _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_2__["SupportedChildrenComponent"],
+    }
+    /*
+     {
+         path: 'heads-of-family',
+         component: HeadsOfFamilyComponent,
+     }
+     */
+    /*
+     {
+         path: 'sponsors',
+         component: SponsorsComponent,
+     }
+     */
+    /*
+     {
+         path: 'schools',
+         component: SchoolsComponent,
+     }
+     */
+    /*
+     {
+         path: 'parish-workers',
+         component: ParishWorkersComponent,
+     }
+     */
+    /*
+     {
+         path: 'assigned-offices',
+         component: AssignedOfficesComponent,
+     }
+     */
 ];
 
 
@@ -477,7 +530,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\"> <!--(tap)=\"alertPopUp()\">-->\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" ><!--(tap)=\"alertPopUp()\">-->\n            <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\"> <!--(tap)=\"alertPopUp()\">-->\n            <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
+module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n            <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/supported-children')\">\n            <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
 
 /***/ }),
 
@@ -491,8 +544,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
 /* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
-/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./app/app.routes.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -506,10 +562,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(page, router) {
+    function HomeComponent(page, router, feedback) {
         this.page = page;
         this.router = router;
+        this.feedback = feedback;
         this.allocatedSchoolText = "Allocated Schools";
         this.allocatedChildrenText = "Allocated Children";
         this.signOutText = "Sign Out";
@@ -518,14 +577,43 @@ var HomeComponent = /** @class */ (function () {
         this.userWelcomeText = "Welcome:\n" + this.user;
         this.page.actionBarHidden = true;
         this.page.enableSwipeBackNavigation = false;
+        this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__["Feedback"]();
     }
     ;
     HomeComponent.prototype.signOut = function (args) {
         var _this = this;
-        console.log("Sign Out");
-        kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.logout().then(function () {
-            return _this.router.navigate(["/sign-in"]);
+        this.feedback.info({
+            message: "Signing Out User: " + this.user
         });
+        kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.logout().then(function () { return (_this.feedback.success({
+            message: _this.user + " Signed Out"
+        }),
+            _this.router.navigate(["/sign-in"])); });
+    };
+    HomeComponent.prototype.navigate = function (destination) {
+        destination = destination.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "");
+        var flag = false;
+        for (var curRoute in _app_routes__WEBPACK_IMPORTED_MODULE_5__["routes"]) {
+            if (destination == _app_routes__WEBPACK_IMPORTED_MODULE_5__["routes"][curRoute].path) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag) {
+            if (this.router.url == destination) {
+                this.feedback.info({
+                    message: "You're Already At: " + destination
+                });
+            }
+            else {
+                this.router.navigate([destination]);
+            }
+        }
+        else {
+            this.feedback.warning({
+                message: "The Feature " + destination + " Hasn't Been Implemented Yet"
+            });
+        }
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -533,47 +621,11 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__("./app/home/home.component.html"),
             styles: [__webpack_require__("./app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["Page"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__["Page"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__["Feedback"]])
     ], HomeComponent);
     return HomeComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/shared/actionbar/actionbar.model.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppHeader", function() { return AppHeader; });
-var AppHeader = /** @class */ (function () {
-    function AppHeader() {
-        this.gridColDef = "90,*,10,30";
-        this.logoShowDef = "visible";
-        this.menuShowDef = "visible";
-        this.searchColDef = "1";
-        this.logoShow = this.logoShowDef;
-        this.menuShow = this.menuShowDef;
-        this.gridCol = this.gridColDef;
-        this.searchCol = this.searchColDef;
-    }
-    AppHeader.prototype.reset = function () {
-        this.logoShow = this.logoShowDef;
-        this.menuShow = this.menuShowDef;
-        this.gridCol = this.gridColDef;
-        this.searchCol = this.searchColDef;
-    };
-    AppHeader.prototype.searchBarFocus = function () {
-        console.log("Search Bar Focused");
-        this.gridCol = "*";
-        this.searchCol = "0";
-        this.logoShow = "hidden";
-        this.menuShow = "hidden";
-    };
-    return AppHeader;
 }());
 
 
@@ -756,6 +808,9 @@ var SignInComponent = /** @class */ (function () {
             this.processing = false;
         }
         else {
+            this.feedback.info({
+                message: "Signing In User: " + this.user.username
+            });
             this.login();
         }
     };
@@ -764,12 +819,15 @@ var SignInComponent = /** @class */ (function () {
         this.userService.login(this.user)
             .then(function () {
             _this.processing = false;
+            _this.feedback.success({
+                message: "Signed In User: " + _this.user.username
+            });
             _this.router.navigate(["/home"]);
         })
             .catch(function () {
             _this.processing = false;
             _this.feedback.error({
-                message: "Unfortunately we could not find your account: " + _this.user.username
+                message: "Unfortunately we could not sign in to the account: " + _this.user.username
             });
         });
     };
@@ -802,6 +860,108 @@ var SignInComponent = /** @class */ (function () {
             tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__["Page"]])
     ], SignInComponent);
     return SignInComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/supported-children/supported-children.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n\topacity: 0.5;\n}\n\n:disabled> :disabled {\n\topacity: 1;\n}\n\nFlexboxLayout {\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-size: cover;\n\tbackground-color: #82CC33;\n}\n\nGridLayout {\n\twidth: 300;\n\tpadding: 10 16;\n}\n\nButton, TextField {\n\tmargin: 10 0;\n}\n\n.btn-primary {\n\tmargin-left: 0;\n\tmargin-right: 0;\n}\n\nTextField {\n\tplaceholder-color: #C4AFB4;\n\tcolor: black;\n}\n\n.input, .btn-primary {\n\tbackground-color: white;\n\tcolor: black;\n}\n\n.web-form {\n\tdisplay: flex;\n\talign-items: center;\n\theight: 100vh;\n\tmargin: auto;\n\twidth: auto;\n\tmax-width: 90%;\n}\n\n.web-form-contents {\n\twidth: fit-content;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin: auto;\n}\n\nbutton {\n\tfont-size: 15;\n\thorizontal-align: center;\n}\n\n.drawerContentText {\n\tfont-size: 13;\n\tpadding: 10;\n}\n\n.drawerContentButton {\n\tmargin: 10;\n\thorizontal-align: center;\n}\n\n.sideStackLayout {\n\tbackground-color: #A8F259;\n}\n\n.sideLabel {\n\tpadding: 10;\n\ttext-align: center;\n}\n\n.footer {\n\tborder-color: black;\n\tborder-width: 1 0 0 0;\n\tvertical-align: center;\n\twidth: 100%;\n\tjustify-content: center;\n\tdisplay: flex;\n\talign-items: center;\n\tbox-pack: center;\n\tjustify-content: center;\n\toverflow: hidden;\n\tmargin: auto;\n\theight: 80;\n}\n\n#actionBar {\n\tbackground-color: #82CC33;\n\tborder-color: black;\n\tborder-width: 0 0 1 0;\n\t/* #A8F259 */\n\t/* background-color: #A8F259 */\n}\n\n.action-image {\n\theight: 30;\n\tvertical-align: center;\n\thorizontal-align: center;\n}\n\n.btn-img {\n\tborder-radius: 5;\n\tborder-width: 1;\n\tmargin: 10;\n\tcolor: black;\n\tborder-color: #A8F259;\n\tbackground-color: #82CC33;\n\ttext-align: center;\n}\n\n.flex-btn {\n\talign-items: center;\n\tjustify-content: center;\n}\n\n/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:45;\n    height:45;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.txt-left {\n\ttext-align: left;\n}"
+
+/***/ }),
+
+/***/ "./app/supported-children/supported-children.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n            <Label text=\"Hello?\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n            <!-- <SearchBar></SearchBar> -->\n        </FlexboxLayout>\n        \n        <GridLayout *ngFor=\"let i of supportedChildren\" rows=\"auto,auto,auto\" columns=\"*,auto,auto,auto,*\" class=\"p-20 btn-img flex-btn\">\n            <Image row=\"0\" col=\"0\" rowSpan=\"3\" src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label row=\"0\" col=\"4\" [text]=\"i.id\" class=\"p-6\"></Label>\n            <Image row=\"0\" col=\"4\" rowSpan=\"3\" src=\"res://rightArrow\"></Image>\n            <Label row=\"1\" col=\"1\" colSpan=\"2\" text=\"{{i.first_name}} {{i.last_name}}\" class=\"p-10\"></Label>\n            <Label row=\"1\" col=\"3\" text=\"|  {{ i.age}}\" class=\"p-10\"></Label>\n            <Label row=\"2\" col=\"1\" colSpan=\"2\" [text]=\"i.last_field\" class=\"p-10\"></Label>\n        </GridLayout>\n    </StackLayout>\n</ScrollView>"
+
+/***/ }),
+
+/***/ "./app/supported-children/supported-children.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupportedChildrenComponent", function() { return SupportedChildrenComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var SupportedChildrenComponent = /** @class */ (function () {
+    function SupportedChildrenComponent(page, router, feedback) {
+        this.page = page;
+        this.router = router;
+        this.feedback = feedback;
+        this.supportedChildren = [
+            {
+                id: 0,
+                first_name: "test 1",
+                last_name: "test 1",
+                age: 1,
+                last_field: "unknown",
+            },
+            {
+                id: 1,
+                first_name: "test 2",
+                last_name: "test 2",
+                age: 2,
+                last_field: "unknown",
+            },
+            {
+                id: 2,
+                first_name: "test 3",
+                last_name: "test 3",
+                age: 3,
+                last_field: "unknown",
+            },
+            {
+                id: 3,
+                first_name: "test 4",
+                last_name: "test 4",
+                age: 4,
+                last_field: "unknown",
+            },
+            {
+                id: 4,
+                first_name: "test 5",
+                last_name: "test 5",
+                age: 5,
+                last_field: "unknown",
+            },
+        ];
+        this.page.actionBarHidden = true;
+    }
+    SupportedChildrenComponent.prototype.ngOnInit = function () {
+    };
+    SupportedChildrenComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-supported-children',
+            template: __webpack_require__("./app/supported-children/supported-children.component.html"),
+            styles: [__webpack_require__("./app/supported-children/supported-children.component.css")]
+        }),
+        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["Page"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            nativescript_feedback__WEBPACK_IMPORTED_MODULE_1__["Feedback"]])
+    ], SupportedChildrenComponent);
+    return SupportedChildrenComponent;
 }());
 
 

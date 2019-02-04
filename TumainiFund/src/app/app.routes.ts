@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { SupportedChildrenComponent } from './supported-children/supported-children.component';
 
 export const routes: Routes = [
   {
@@ -17,12 +18,10 @@ export const routes: Routes = [
       path: 'sign-in',
       component: SignInComponent,
   },
-  /*
   {
       path: 'supported-children',
       component: SupportedChildrenComponent,
   }
-  */
  /*
   {
       path: 'heads-of-family',

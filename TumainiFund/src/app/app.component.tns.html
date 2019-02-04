@@ -1,6 +1,9 @@
 <StackLayout>
     <DockLayout #Menu [visibility]="isSignIn()">
         <GridLayout dock="top" rows="auto" columns="*,3*,*" id="actionBar" class="action-bar p-10">
+            <StackLayout col="0" orientation="horizontal" [visibility]="isBackActive()">
+                <Label text="< Back" (tap)="back()"></Label>
+            </StackLayout>
             <Image col="1" height="60" src="res://homeLogo" stretch="aspectFit" (tap)="navigate('/home')"></Image>
             <Image col="2" height="30" src="res://menuIcon" stretch="aspectFit" (tap)="toggleDrawer()"></Image>
         </GridLayout>

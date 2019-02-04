@@ -6,6 +6,7 @@ import { isIOS, isAndroid, EventData, Page, View, backgroundSpanUnderStatusBarPr
 import { Router, Route, Routes } from "@angular/router";
 import { routes } from "./app.routes";
 import { Feedback } from "nativescript-feedback";
+import { Location } from '@angular/common';
 
 declare var UISearchBarStyle: any;
 declare var UIImage: any;
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         private feedback: Feedback,
         private _changeDetectionRef: ChangeDetectorRef,
         private router: Router,
+        private location: Location,
     ) {
         this.feedback = new Feedback();
     }
@@ -75,6 +77,19 @@ export class AppComponent implements OnInit, AfterViewInit {
         }
     }
 
+    public isBackActive() {
+        if (this.router.url == "/home") {
+            return "collapsed";
+        } else {
+            return "visible";
+        }
+    }
+
+    public back() {
+        this.closeDrawer();
+        this.location.back()
+    }
+
     public navigate(destination) {
         destination = destination.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "")
         let current= this.router.url.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "")
@@ -91,7 +106,8 @@ export class AppComponent implements OnInit, AfterViewInit {
                     message: `You're Already At: ${destination}`
                 })
             } else {
-                this.router.navigate([destination])
+                this.closeDrawer();
+                this.router.navigate([destination]);
             }
         } else {
             this.feedback.warning({

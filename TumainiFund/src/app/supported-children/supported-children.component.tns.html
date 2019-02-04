@@ -1,0 +1,17 @@
+<ScrollView class="page">
+    <StackLayout>
+        <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigate('/schools')">
+            <Label text="Hello?" class="h2 text-center" textWrap="true"></Label>
+            <!-- <SearchBar></SearchBar> -->
+        </FlexboxLayout>
+        
+        <GridLayout *ngFor="let i of supportedChildren" rows="auto,auto,auto" columns="*,auto,auto,auto,*" class="p-20 btn-img flex-btn">
+            <Image row="0" col="0" rowSpan="3" src="res://userImg" stretch="aspectFit" class="logo"></Image>
+            <Label row="0" col="4" [text]="i.id" class="p-6"></Label>
+            <Image row="0" col="4" rowSpan="3" src="res://rightArrow"></Image>
+            <Label row="1" col="1" colSpan="2" text="{{i.first_name}} {{i.last_name}}" class="p-10"></Label>
+            <Label row="1" col="3" text="|  {{ i.age}}" class="p-10"></Label>
+            <Label row="2" col="1" colSpan="2" [text]="i.last_field" class="p-10"></Label>
+        </GridLayout>
+    </StackLayout>
+</ScrollView>
