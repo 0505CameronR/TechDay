@@ -56,3 +56,46 @@ TextField {
   align-items: center;
   margin: auto;
 }
+
+.SILogo{
+  padding-left: 50%;
+  padding-top: 5%;
+  margin-left: -225px;
+}
+
+.LogIn{
+  padding-left: 50%;
+  margin-left: -86.5px;
+}
+
+.SIBut{
+  margin-top: 20px;
+  margin-left: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-width: 0.5px;
+  border-color: #00000061;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.SIBut:hover{
+  background-color: #F7DB07;
+  color: #707070;
+}
+
+form{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+body{
+  background-color: #82CC33;
+}
+
+input{
+  padding: 5px;
+  border-radius: 20px;
+}
+
+p{
+  margin-bottom: 5px;
+}
+
