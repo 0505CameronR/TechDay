@@ -110,11 +110,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		hjMqc2DNHMuV7ZP38RbsTSyCZJ8=
+		JORWbzLryeD2CPkwfYgkfdiaAFg=
 		</data>
 		<key>Frameworks/IQKeyboardManager.framework/IQKeyboardManager</key>
 		<data>
-		v/8+SsCk2jY3xTu7C9AwFuiLK1A=
+		gtpevCdb5B2KYJvL+QwFVZZu4Nc=
 		</data>
 		<key>Frameworks/IQKeyboardManager.framework/IQKeyboardManager.bundle/IQButtonBarArrowDown@2x.png</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>Frameworks/ISMessages.framework/ISMessages</key>
 		<data>
-		XwAZcrTGyWi/iRuqhqwKgiiNyGk=
+		VMv4ZlWQlt49rHo6q0a2H62IDMQ=
 		</data>
 		<key>Frameworks/ISMessages.framework/ISMessages.bundle/Info.plist</key>
 		<data>
@@ -226,7 +226,7 @@
 		</data>
 		<key>Frameworks/NativeScript.framework/NativeScript</key>
 		<data>
-		uPFovHZ4sEHD+jjk9YSczJv2b6I=
+		s3csp0YGBGoI+GqErlTCYfeBu4c=
 		</data>
 		<key>Frameworks/NativeScript.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -238,7 +238,7 @@
 		</data>
 		<key>Frameworks/SAMKeychain.framework/SAMKeychain</key>
 		<data>
-		JFC23OFvgGjL6syYZsPspflIE08=
+		FMF1NcZ5vkWb//v6iC9EDjBp1bw=
 		</data>
 		<key>Frameworks/SAMKeychain.framework/SAMKeychain.bundle/en.lproj/SAMKeychain.strings</key>
 		<dict>
@@ -259,7 +259,7 @@
 		</data>
 		<key>Frameworks/TNSCore.framework/TNSCore</key>
 		<data>
-		9H12G0d53CfJQXd5zE1QiBTxiNQ=
+		ma7Q6YUSzlYvXO7NnacK0dX0Z5A=
 		</data>
 		<key>Frameworks/TNSCore.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -271,7 +271,7 @@
 		</data>
 		<key>Frameworks/TNSSideDrawer.framework/TNSSideDrawer</key>
 		<data>
-		LurUVl2mWVtxdFeLg02Zonbgd78=
+		lKYFue6sBJIK0FWSgVsPnn2AvGo=
 		</data>
 		<key>Frameworks/TNSSideDrawer.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -283,7 +283,7 @@
 		</data>
 		<key>Frameworks/TNSWidgets.framework/TNSWidgets</key>
 		<data>
-		KiXXTseBAnWPSig9YXo2sOR1dLU=
+		74yweBABKDQjlnTHG63RIehawzQ=
 		</data>
 		<key>Frameworks/TNSWidgets.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -299,7 +299,7 @@
 		</data>
 		<key>Frameworks/sqlitewrapper.framework/sqlitewrapper</key>
 		<data>
-		973gImuMCYxWSEmfwno7L0Uf3gY=
+		9I5KI183YXRwVoy8yTDr43R0Cw8=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -371,7 +371,7 @@
 		</data>
 		<key>LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		YeKQv0GLKu2rKzTJmD4kdzTPMYo=
+		UK7BXMBtgrSbzMoKrDG1lOb/kdc=
 		</data>
 		<key>LaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -379,7 +379,7 @@
 		</data>
 		<key>LaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		qpXkM9COxHmoFxJfUEqQMyqonsU=
+		fHsSPYRhvr9Bik+iKLfXKI/dW8I=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -735,22 +735,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hjMqc2DNHMuV7ZP38RbsTSyCZJ8=
+			JORWbzLryeD2CPkwfYgkfdiaAFg=
 			</data>
 			<key>hash2</key>
 			<data>
-			ylPzPC4t4fVNp1JVCAftSxTkpeKUFHfm7HFSGHuAp4k=
+			9LGPdwQHUbYRr82dv+/4Ut1/yTms3iQKP4Uy+HAbR9Y=
 			</data>
 		</dict>
 		<key>Frameworks/IQKeyboardManager.framework/IQKeyboardManager</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			v/8+SsCk2jY3xTu7C9AwFuiLK1A=
+			gtpevCdb5B2KYJvL+QwFVZZu4Nc=
 			</data>
 			<key>hash2</key>
 			<data>
-			gSn/Sh/09MczAFPhsMVrctINaJZ1cpL1wffDU/nBcR8=
+			ZAzBeKAjg9af0IO5be9B2wTbQY+flRQrzE3Td4DnBBg=
 			</data>
 		</dict>
 		<key>Frameworks/IQKeyboardManager.framework/IQKeyboardManager.bundle/IQButtonBarArrowDown@2x.png</key>
@@ -867,11 +867,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XwAZcrTGyWi/iRuqhqwKgiiNyGk=
+			VMv4ZlWQlt49rHo6q0a2H62IDMQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			i2IouAI/TFQNiKrzNSpQFzPMpQ9ubNmyQNmigRhHnL8=
+			8Iu+hNp7PlR03EqacYzjS9GzZ69nMDmwsPLzAp0XkAo=
 			</data>
 		</dict>
 		<key>Frameworks/ISMessages.framework/ISMessages.bundle/Info.plist</key>
@@ -1054,11 +1054,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uPFovHZ4sEHD+jjk9YSczJv2b6I=
+			s3csp0YGBGoI+GqErlTCYfeBu4c=
 			</data>
 			<key>hash2</key>
 			<data>
-			IjYckpCDmQL7KONFKTD1bHMYPYyGbUXgwVlYaDzC2QQ=
+			WXhmL483jWF7qKWxa2NQB0DH9YbdzvN8GLe1eTStkRo=
 			</data>
 		</dict>
 		<key>Frameworks/NativeScript.framework/_CodeSignature/CodeResources</key>
@@ -1087,11 +1087,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JFC23OFvgGjL6syYZsPspflIE08=
+			FMF1NcZ5vkWb//v6iC9EDjBp1bw=
 			</data>
 			<key>hash2</key>
 			<data>
-			v5xZTlZXWz5akIUqQwtBZhaEujzJVMmQFRLv48gCM3Y=
+			LXyCuNEO/7h0YrJADTdrLi1ylUQfmoVE90REc1l5yKI=
 			</data>
 		</dict>
 		<key>Frameworks/SAMKeychain.framework/SAMKeychain.bundle/en.lproj/SAMKeychain.strings</key>
@@ -1133,11 +1133,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9H12G0d53CfJQXd5zE1QiBTxiNQ=
+			ma7Q6YUSzlYvXO7NnacK0dX0Z5A=
 			</data>
 			<key>hash2</key>
 			<data>
-			dkTymGyATWxstk3ahwjwpENE4PychYkyZqLw5E4tHzc=
+			4Fy1kV5CZTpbs4JTpJdk7uQxClxQHy3ip9l1F8yi8Oc=
 			</data>
 		</dict>
 		<key>Frameworks/TNSCore.framework/_CodeSignature/CodeResources</key>
@@ -1166,11 +1166,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LurUVl2mWVtxdFeLg02Zonbgd78=
+			lKYFue6sBJIK0FWSgVsPnn2AvGo=
 			</data>
 			<key>hash2</key>
 			<data>
-			JlYsclPrlq+3+94K7saMkKfn+sSzcSJKdl+2bKs8N94=
+			1CLlkdMyaPggeS+iSgkoueotbqZJQL0mAbNelPaZsUM=
 			</data>
 		</dict>
 		<key>Frameworks/TNSSideDrawer.framework/_CodeSignature/CodeResources</key>
@@ -1199,11 +1199,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KiXXTseBAnWPSig9YXo2sOR1dLU=
+			74yweBABKDQjlnTHG63RIehawzQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			7NuZHEq5Jc5YurHvOgssOB/ZX00ZuFyDX22t2oWjGew=
+			I49G9166Ecuv+ZR3pe4fMclbBJUKtggvD5/FEbn8biQ=
 			</data>
 		</dict>
 		<key>Frameworks/TNSWidgets.framework/_CodeSignature/CodeResources</key>
@@ -1243,11 +1243,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			973gImuMCYxWSEmfwno7L0Uf3gY=
+			9I5KI183YXRwVoy8yTDr43R0Cw8=
 			</data>
 			<key>hash2</key>
 			<data>
-			TcLvKcsA9wyeUrlS0FX97qN6aZJPMXFRVtyROGmkKlY=
+			FINbVxmNRs5wVdAnrUQ41EvXJXTeRreWtSHgpwFaDlM=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -1430,11 +1430,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YeKQv0GLKu2rKzTJmD4kdzTPMYo=
+			UK7BXMBtgrSbzMoKrDG1lOb/kdc=
 			</data>
 			<key>hash2</key>
 			<data>
-			9lRnQIBM9K67B8ziANXj+4eeweeKqGksHkWVQPXb7TI=
+			lxCd94mS+BHdNrlI/05EYjaIL7AonmyX+7qo5FFz3A0=
 			</data>
 		</dict>
 		<key>LaunchScreen.storyboardc/Info.plist</key>
@@ -1452,11 +1452,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qpXkM9COxHmoFxJfUEqQMyqonsU=
+			fHsSPYRhvr9Bik+iKLfXKI/dW8I=
 			</data>
 			<key>hash2</key>
 			<data>
-			V30AKRh+OTrAq0hFjYaIS6J0Bf4knTeBuAHNt3O4OHg=
+			I9w1188+GuZbV7m+ppy76gt5gUTi3sKOtLpuywBlb60=
 			</data>
 		</dict>
 		<key>app/assets/images/logo.png</key>
