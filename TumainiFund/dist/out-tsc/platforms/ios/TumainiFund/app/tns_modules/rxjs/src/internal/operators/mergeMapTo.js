@@ -1,0 +1,53 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var mergeMap_1 = require("./mergeMap");
+/* tslint:enable:max-line-length */
+/**
+ * Projects each source value to the same Observable which is merged multiple
+ * times in the output Observable.
+ *
+ * <span class="informal">It's like {@link mergeMap}, but maps each value always
+ * to the same inner Observable.</span>
+ *
+ * ![](mergeMapTo.png)
+ *
+ * Maps each source value to the given Observable `innerObservable` regardless
+ * of the source value, and then merges those resulting Observables into one
+ * single Observable, which is the output Observable.
+ *
+ * ## Example
+ * For each click event, start an interval Observable ticking every 1 second
+ * ```javascript
+ * const clicks = fromEvent(document, 'click');
+ * const result = clicks.pipe(mergeMapTo(interval(1000)));
+ * result.subscribe(x => console.log(x));
+ * ```
+ *
+ * @see {@link concatMapTo}
+ * @see {@link merge}
+ * @see {@link mergeAll}
+ * @see {@link mergeMap}
+ * @see {@link mergeScan}
+ * @see {@link switchMapTo}
+ *
+ * @param {ObservableInput} innerObservable An Observable to replace each value from
+ * the source Observable.
+ * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
+ * Observables being subscribed to concurrently.
+ * @return {Observable} An Observable that emits items from the given
+ * `innerObservable`
+ * @method mergeMapTo
+ * @owner Observable
+ */
+function mergeMapTo(innerObservable, resultSelector, concurrent) {
+    if (concurrent === void 0) { concurrent = Number.POSITIVE_INFINITY; }
+    if (typeof resultSelector === 'function') {
+        return mergeMap_1.mergeMap(function () { return innerObservable; }, resultSelector, concurrent);
+    }
+    if (typeof resultSelector === 'number') {
+        concurrent = resultSelector;
+    }
+    return mergeMap_1.mergeMap(function () { return innerObservable; }, concurrent);
+}
+exports.mergeMapTo = mergeMapTo;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWVyZ2VNYXBUby5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL3BsYXRmb3Jtcy9pb3MvVHVtYWluaUZ1bmQvYXBwL3Ruc19tb2R1bGVzL3J4anMvc3JjL2ludGVybmFsL29wZXJhdG9ycy9tZXJnZU1hcFRvLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBRUEsdUNBQXNDO0FBT3RDLG1DQUFtQztBQUVuQzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBb0NHO0FBQ0gsU0FBZ0IsVUFBVSxDQUN4QixlQUFtQyxFQUNuQyxjQUF1RyxFQUN2RyxVQUE2QztJQUE3QywyQkFBQSxFQUFBLGFBQXFCLE1BQU0sQ0FBQyxpQkFBaUI7SUFFN0MsSUFBSSxPQUFPLGNBQWMsS0FBSyxVQUFVLEVBQUU7UUFDeEMsT0FBTyxtQkFBUSxDQUFDLGNBQU0sT0FBQSxlQUFlLEVBQWYsQ0FBZSxFQUFFLGNBQWMsRUFBRSxVQUFVLENBQUMsQ0FBQztLQUNwRTtJQUNELElBQUksT0FBTyxjQUFjLEtBQUssUUFBUSxFQUFFO1FBQ3RDLFVBQVUsR0FBRyxjQUFjLENBQUM7S0FDN0I7SUFDRCxPQUFPLG1CQUFRLENBQUMsY0FBTSxPQUFBLGVBQWUsRUFBZixDQUFlLEVBQUUsVUFBVSxDQUFDLENBQUM7QUFDckQsQ0FBQztBQVpELGdDQVlDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgT2JzZXJ2YWJsZSB9IGZyb20gJy4uL09ic2VydmFibGUnO1xuaW1wb3J0IHsgT3BlcmF0b3JGdW5jdGlvbiB9IGZyb20gJy4uLy4uL2ludGVybmFsL3R5cGVzJztcbmltcG9ydCB7IG1lcmdlTWFwIH0gZnJvbSAnLi9tZXJnZU1hcCc7XG5pbXBvcnQgeyBPYnNlcnZhYmxlSW5wdXQgfSBmcm9tICcuLi90eXBlcyc7XG5cbi8qIHRzbGludDpkaXNhYmxlOm1heC1saW5lLWxlbmd0aCAqL1xuZXhwb3J0IGZ1bmN0aW9uIG1lcmdlTWFwVG88VD4oaW5uZXJPYnNlcnZhYmxlOiBPYnNlcnZhYmxlSW5wdXQ8VD4sIGNvbmN1cnJlbnQ/OiBudW1iZXIpOiBPcGVyYXRvckZ1bmN0aW9uPGFueSwgVD47XG4vKiogQGRlcHJlY2F0ZWQgKi9cbmV4cG9ydCBmdW5jdGlvbiBtZXJnZU1hcFRvPFQsIEksIFI+KGlubmVyT2JzZXJ2YWJsZTogT2JzZXJ2YWJsZUlucHV0PEk+LCByZXN1bHRTZWxlY3RvcjogKG91dGVyVmFsdWU6IFQsIGlubmVyVmFsdWU6IEksIG91dGVySW5kZXg6IG51bWJlciwgaW5uZXJJbmRleDogbnVtYmVyKSA9PiBSLCBjb25jdXJyZW50PzogbnVtYmVyKTogT3BlcmF0b3JGdW5jdGlvbjxULCBSPjtcbi8qIHRzbGludDplbmFibGU6bWF4LWxpbmUtbGVuZ3RoICovXG5cbi8qKlxuICogUHJvamVjdHMgZWFjaCBzb3VyY2UgdmFsdWUgdG8gdGhlIHNhbWUgT2JzZXJ2YWJsZSB3aGljaCBpcyBtZXJnZWQgbXVsdGlwbGVcbiAqIHRpbWVzIGluIHRoZSBvdXRwdXQgT2JzZXJ2YWJsZS5cbiAqXG4gKiA8c3BhbiBjbGFzcz1cImluZm9ybWFsXCI+SXQncyBsaWtlIHtAbGluayBtZXJnZU1hcH0sIGJ1dCBtYXBzIGVhY2ggdmFsdWUgYWx3YXlzXG4gKiB0byB0aGUgc2FtZSBpbm5lciBPYnNlcnZhYmxlLjwvc3Bhbj5cbiAqXG4gKiAhW10obWVyZ2VNYXBUby5wbmcpXG4gKlxuICogTWFwcyBlYWNoIHNvdXJjZSB2YWx1ZSB0byB0aGUgZ2l2ZW4gT2JzZXJ2YWJsZSBgaW5uZXJPYnNlcnZhYmxlYCByZWdhcmRsZXNzXG4gKiBvZiB0aGUgc291cmNlIHZhbHVlLCBhbmQgdGhlbiBtZXJnZXMgdGhvc2UgcmVzdWx0aW5nIE9ic2VydmFibGVzIGludG8gb25lXG4gKiBzaW5nbGUgT2JzZXJ2YWJsZSwgd2hpY2ggaXMgdGhlIG91dHB1dCBPYnNlcnZhYmxlLlxuICpcbiAqICMjIEV4YW1wbGVcbiAqIEZvciBlYWNoIGNsaWNrIGV2ZW50LCBzdGFydCBhbiBpbnRlcnZhbCBPYnNlcnZhYmxlIHRpY2tpbmcgZXZlcnkgMSBzZWNvbmRcbiAqIGBgYGphdmFzY3JpcHRcbiAqIGNvbnN0IGNsaWNrcyA9IGZyb21FdmVudChkb2N1bWVudCwgJ2NsaWNrJyk7XG4gKiBjb25zdCByZXN1bHQgPSBjbGlja3MucGlwZShtZXJnZU1hcFRvKGludGVydmFsKDEwMDApKSk7XG4gKiByZXN1bHQuc3Vic2NyaWJlKHggPT4gY29uc29sZS5sb2coeCkpO1xuICogYGBgXG4gKlxuICogQHNlZSB7QGxpbmsgY29uY2F0TWFwVG99XG4gKiBAc2VlIHtAbGluayBtZXJnZX1cbiAqIEBzZWUge0BsaW5rIG1lcmdlQWxsfVxuICogQHNlZSB7QGxpbmsgbWVyZ2VNYXB9XG4gKiBAc2VlIHtAbGluayBtZXJnZVNjYW59XG4gKiBAc2VlIHtAbGluayBzd2l0Y2hNYXBUb31cbiAqXG4gKiBAcGFyYW0ge09ic2VydmFibGVJbnB1dH0gaW5uZXJPYnNlcnZhYmxlIEFuIE9ic2VydmFibGUgdG8gcmVwbGFjZSBlYWNoIHZhbHVlIGZyb21cbiAqIHRoZSBzb3VyY2UgT2JzZXJ2YWJsZS5cbiAqIEBwYXJhbSB7bnVtYmVyfSBbY29uY3VycmVudD1OdW1iZXIuUE9TSVRJVkVfSU5GSU5JVFldIE1heGltdW0gbnVtYmVyIG9mIGlucHV0XG4gKiBPYnNlcnZhYmxlcyBiZWluZyBzdWJzY3JpYmVkIHRvIGNvbmN1cnJlbnRseS5cbiAqIEByZXR1cm4ge09ic2VydmFibGV9IEFuIE9ic2VydmFibGUgdGhhdCBlbWl0cyBpdGVtcyBmcm9tIHRoZSBnaXZlblxuICogYGlubmVyT2JzZXJ2YWJsZWBcbiAqIEBtZXRob2QgbWVyZ2VNYXBUb1xuICogQG93bmVyIE9ic2VydmFibGVcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIG1lcmdlTWFwVG88VCwgSSwgUj4oXG4gIGlubmVyT2JzZXJ2YWJsZTogT2JzZXJ2YWJsZUlucHV0PEk+LFxuICByZXN1bHRTZWxlY3Rvcj86ICgob3V0ZXJWYWx1ZTogVCwgaW5uZXJWYWx1ZTogSSwgb3V0ZXJJbmRleDogbnVtYmVyLCBpbm5lckluZGV4OiBudW1iZXIpID0+IFIpIHwgbnVtYmVyLFxuICBjb25jdXJyZW50OiBudW1iZXIgPSBOdW1iZXIuUE9TSVRJVkVfSU5GSU5JVFlcbik6IE9wZXJhdG9yRnVuY3Rpb248VCwgSXxSPiB7XG4gIGlmICh0eXBlb2YgcmVzdWx0U2VsZWN0b3IgPT09ICdmdW5jdGlvbicpIHtcbiAgICByZXR1cm4gbWVyZ2VNYXAoKCkgPT4gaW5uZXJPYnNlcnZhYmxlLCByZXN1bHRTZWxlY3RvciwgY29uY3VycmVudCk7XG4gIH1cbiAgaWYgKHR5cGVvZiByZXN1bHRTZWxlY3RvciA9PT0gJ251bWJlcicpIHtcbiAgICBjb25jdXJyZW50ID0gcmVzdWx0U2VsZWN0b3I7XG4gIH1cbiAgcmV0dXJuIG1lcmdlTWFwKCgpID0+IGlubmVyT2JzZXJ2YWJsZSwgY29uY3VycmVudCk7XG59XG4iXX0=

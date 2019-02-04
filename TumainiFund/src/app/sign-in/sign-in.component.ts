@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
   isLoggingIn = true;
 
   public constructor(
-    private user: User,
+    public user: User,
     private router: Router,
     private userService: UserService,
     private elementRef: ElementRef,
