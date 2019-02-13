@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		096B0137E3B54F7EB04CE7DD /* @2xuserImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFF3F1C4E574B51A4145AAA /* @2xuserImg.png */; };
 		0AE591DB17994743A720094B /* TNSSideDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C22ADCC8F8243219F0C2E4D /* TNSSideDrawer.framework */; };

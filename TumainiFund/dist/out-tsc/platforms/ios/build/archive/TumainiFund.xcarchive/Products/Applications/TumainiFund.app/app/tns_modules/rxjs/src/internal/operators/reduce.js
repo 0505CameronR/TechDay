@@ -1,0 +1,72 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var scan_1 = require("./scan");
+var takeLast_1 = require("./takeLast");
+var defaultIfEmpty_1 = require("./defaultIfEmpty");
+var pipe_1 = require("../util/pipe");
+/* tslint:enable:max-line-length */
+/**
+ * Applies an accumulator function over the source Observable, and returns the
+ * accumulated result when the source completes, given an optional seed value.
+ *
+ * <span class="informal">Combines together all values emitted on the source,
+ * using an accumulator function that knows how to join a new source value into
+ * the accumulation from the past.</span>
+ *
+ * ![](reduce.png)
+ *
+ * Like
+ * [Array.prototype.reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce),
+ * `reduce` applies an `accumulator` function against an accumulation and each
+ * value of the source Observable (from the past) to reduce it to a single
+ * value, emitted on the output Observable. Note that `reduce` will only emit
+ * one value, only when the source Observable completes. It is equivalent to
+ * applying operator {@link scan} followed by operator {@link last}.
+ *
+ * Returns an Observable that applies a specified `accumulator` function to each
+ * item emitted by the source Observable. If a `seed` value is specified, then
+ * that value will be used as the initial value for the accumulator. If no seed
+ * value is specified, the first item of the source is used as the seed.
+ *
+ * ## Example
+ * Count the number of click events that happened in 5 seconds
+ * ```javascript
+ * const clicksInFiveSeconds = fromEvent(document, 'click').pipe(
+ *   takeUntil(interval(5000)),
+ * );
+ * const ones = clicksInFiveSeconds.pipe(mapTo(1));
+ * const seed = 0;
+ * const count = ones.reduce((acc, one) => acc + one, seed);
+ * count.subscribe(x => console.log(x));
+ * ```
+ *
+ * @see {@link count}
+ * @see {@link expand}
+ * @see {@link mergeScan}
+ * @see {@link scan}
+ *
+ * @param {function(acc: R, value: T, index: number): R} accumulator The accumulator function
+ * called on each source value.
+ * @param {R} [seed] The initial accumulation value.
+ * @return {Observable<R>} An Observable that emits a single value that is the
+ * result of accumulating the values emitted by the source Observable.
+ * @method reduce
+ * @owner Observable
+ */
+function reduce(accumulator, seed) {
+    // providing a seed of `undefined` *should* be valid and trigger
+    // hasSeed! so don't use `seed !== undefined` checks!
+    // For this reason, we have to check it here at the original call site
+    // otherwise inside Operator/Subscriber we won't know if `undefined`
+    // means they didn't provide anything or if they literally provided `undefined`
+    if (arguments.length >= 2) {
+        return function reduceOperatorFunctionWithSeed(source) {
+            return pipe_1.pipe(scan_1.scan(accumulator, seed), takeLast_1.takeLast(1), defaultIfEmpty_1.defaultIfEmpty(seed))(source);
+        };
+    }
+    return function reduceOperatorFunction(source) {
+        return pipe_1.pipe(scan_1.scan(function (acc, value, index) { return accumulator(acc, value, index + 1); }), takeLast_1.takeLast(1))(source);
+    };
+}
+exports.reduce = reduce;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVkdWNlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGxhdGZvcm1zL2lvcy9idWlsZC9hcmNoaXZlL1R1bWFpbmlGdW5kLnhjYXJjaGl2ZS9Qcm9kdWN0cy9BcHBsaWNhdGlvbnMvVHVtYWluaUZ1bmQuYXBwL2FwcC90bnNfbW9kdWxlcy9yeGpzL3NyYy9pbnRlcm5hbC9vcGVyYXRvcnMvcmVkdWNlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsK0JBQThCO0FBQzlCLHVDQUFzQztBQUN0QyxtREFBa0Q7QUFFbEQscUNBQW9DO0FBTXBDLG1DQUFtQztBQUVuQzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7R0ErQ0c7QUFDSCxTQUFnQixNQUFNLENBQU8sV0FBb0QsRUFBRSxJQUFRO0lBQ3pGLGdFQUFnRTtJQUNoRSxxREFBcUQ7SUFDckQsc0VBQXNFO0lBQ3RFLG9FQUFvRTtJQUNwRSwrRUFBK0U7SUFDL0UsSUFBSSxTQUFTLENBQUMsTUFBTSxJQUFJLENBQUMsRUFBRTtRQUN6QixPQUFPLFNBQVMsOEJBQThCLENBQUMsTUFBcUI7WUFDbEUsT0FBTyxXQUFJLENBQUMsV0FBSSxDQUFDLFdBQVcsRUFBRSxJQUFJLENBQUMsRUFBRSxtQkFBUSxDQUFDLENBQUMsQ0FBQyxFQUFFLCtCQUFjLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUMsQ0FBQztRQUNsRixDQUFDLENBQUM7S0FDSDtJQUNELE9BQU8sU0FBUyxzQkFBc0IsQ0FBQyxNQUFxQjtRQUMxRCxPQUFPLFdBQUksQ0FDVCxXQUFJLENBQUMsVUFBQyxHQUFNLEVBQUUsS0FBUSxFQUFFLEtBQWEsSUFBUSxPQUFBLFdBQVcsQ0FBQyxHQUFHLEVBQUUsS0FBSyxFQUFFLEtBQUssR0FBRyxDQUFDLENBQUMsRUFBbEMsQ0FBa0MsQ0FBQyxFQUNoRixtQkFBUSxDQUFDLENBQUMsQ0FBQyxDQUNaLENBQUMsTUFBTSxDQUFDLENBQUM7SUFDWixDQUFDLENBQUM7QUFDSixDQUFDO0FBakJELHdCQWlCQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IE9ic2VydmFibGUgfSBmcm9tICcuLi9PYnNlcnZhYmxlJztcbmltcG9ydCB7IHNjYW4gfSBmcm9tICcuL3NjYW4nO1xuaW1wb3J0IHsgdGFrZUxhc3QgfSBmcm9tICcuL3Rha2VMYXN0JztcbmltcG9ydCB7IGRlZmF1bHRJZkVtcHR5IH0gZnJvbSAnLi9kZWZhdWx0SWZFbXB0eSc7XG5pbXBvcnQgeyBPcGVyYXRvckZ1bmN0aW9uLCBNb25vVHlwZU9wZXJhdG9yRnVuY3Rpb24gfSBmcm9tICcuLi90eXBlcyc7XG5pbXBvcnQgeyBwaXBlIH0gZnJvbSAnLi4vdXRpbC9waXBlJztcblxuLyogdHNsaW50OmRpc2FibGU6bWF4LWxpbmUtbGVuZ3RoICovXG5leHBvcnQgZnVuY3Rpb24gcmVkdWNlPFQ+KGFjY3VtdWxhdG9yOiAoYWNjOiBULCB2YWx1ZTogVCwgaW5kZXg6IG51bWJlcikgPT4gVCwgc2VlZD86IFQpOiBNb25vVHlwZU9wZXJhdG9yRnVuY3Rpb248VD47XG5leHBvcnQgZnVuY3Rpb24gcmVkdWNlPFQ+KGFjY3VtdWxhdG9yOiAoYWNjOiBUW10sIHZhbHVlOiBULCBpbmRleDogbnVtYmVyKSA9PiBUW10sIHNlZWQ6IFRbXSk6IE9wZXJhdG9yRnVuY3Rpb248VCwgVFtdPjtcbmV4cG9ydCBmdW5jdGlvbiByZWR1Y2U8VCwgUj4oYWNjdW11bGF0b3I6IChhY2M6IFIsIHZhbHVlOiBULCBpbmRleDogbnVtYmVyKSA9PiBSLCBzZWVkPzogUik6IE9wZXJhdG9yRnVuY3Rpb248VCwgUj47XG4vKiB0c2xpbnQ6ZW5hYmxlOm1heC1saW5lLWxlbmd0aCAqL1xuXG4vKipcbiAqIEFwcGxpZXMgYW4gYWNjdW11bGF0b3IgZnVuY3Rpb24gb3ZlciB0aGUgc291cmNlIE9ic2VydmFibGUsIGFuZCByZXR1cm5zIHRoZVxuICogYWNjdW11bGF0ZWQgcmVzdWx0IHdoZW4gdGhlIHNvdXJjZSBjb21wbGV0ZXMsIGdpdmVuIGFuIG9wdGlvbmFsIHNlZWQgdmFsdWUuXG4gKlxuICogPHNwYW4gY2xhc3M9XCJpbmZvcm1hbFwiPkNvbWJpbmVzIHRvZ2V0aGVyIGFsbCB2YWx1ZXMgZW1pdHRlZCBvbiB0aGUgc291cmNlLFxuICogdXNpbmcgYW4gYWNjdW11bGF0b3IgZnVuY3Rpb24gdGhhdCBrbm93cyBob3cgdG8gam9pbiBhIG5ldyBzb3VyY2UgdmFsdWUgaW50b1xuICogdGhlIGFjY3VtdWxhdGlvbiBmcm9tIHRoZSBwYXN0Ljwvc3Bhbj5cbiAqXG4gKiAhW10ocmVkdWNlLnBuZylcbiAqXG4gKiBMaWtlXG4gKiBbQXJyYXkucHJvdG90eXBlLnJlZHVjZSgpXShodHRwczovL2RldmVsb3Blci5tb3ppbGxhLm9yZy9lbi1VUy9kb2NzL1dlYi9KYXZhU2NyaXB0L1JlZmVyZW5jZS9HbG9iYWxfT2JqZWN0cy9BcnJheS9yZWR1Y2UpLFxuICogYHJlZHVjZWAgYXBwbGllcyBhbiBgYWNjdW11bGF0b3JgIGZ1bmN0aW9uIGFnYWluc3QgYW4gYWNjdW11bGF0aW9uIGFuZCBlYWNoXG4gKiB2YWx1ZSBvZiB0aGUgc291cmNlIE9ic2VydmFibGUgKGZyb20gdGhlIHBhc3QpIHRvIHJlZHVjZSBpdCB0byBhIHNpbmdsZVxuICogdmFsdWUsIGVtaXR0ZWQgb24gdGhlIG91dHB1dCBPYnNlcnZhYmxlLiBOb3RlIHRoYXQgYHJlZHVjZWAgd2lsbCBvbmx5IGVtaXRcbiAqIG9uZSB2YWx1ZSwgb25seSB3aGVuIHRoZSBzb3VyY2UgT2JzZXJ2YWJsZSBjb21wbGV0ZXMuIEl0IGlzIGVxdWl2YWxlbnQgdG9cbiAqIGFwcGx5aW5nIG9wZXJhdG9yIHtAbGluayBzY2FufSBmb2xsb3dlZCBieSBvcGVyYXRvciB7QGxpbmsgbGFzdH0uXG4gKlxuICogUmV0dXJucyBhbiBPYnNlcnZhYmxlIHRoYXQgYXBwbGllcyBhIHNwZWNpZmllZCBgYWNjdW11bGF0b3JgIGZ1bmN0aW9uIHRvIGVhY2hcbiAqIGl0ZW0gZW1pdHRlZCBieSB0aGUgc291cmNlIE9ic2VydmFibGUuIElmIGEgYHNlZWRgIHZhbHVlIGlzIHNwZWNpZmllZCwgdGhlblxuICogdGhhdCB2YWx1ZSB3aWxsIGJlIHVzZWQgYXMgdGhlIGluaXRpYWwgdmFsdWUgZm9yIHRoZSBhY2N1bXVsYXRvci4gSWYgbm8gc2VlZFxuICogdmFsdWUgaXMgc3BlY2lmaWVkLCB0aGUgZmlyc3QgaXRlbSBvZiB0aGUgc291cmNlIGlzIHVzZWQgYXMgdGhlIHNlZWQuXG4gKlxuICogIyMgRXhhbXBsZVxuICogQ291bnQgdGhlIG51bWJlciBvZiBjbGljayBldmVudHMgdGhhdCBoYXBwZW5lZCBpbiA1IHNlY29uZHNcbiAqIGBgYGphdmFzY3JpcHRcbiAqIGNvbnN0IGNsaWNrc0luRml2ZVNlY29uZHMgPSBmcm9tRXZlbnQoZG9jdW1lbnQsICdjbGljaycpLnBpcGUoXG4gKiAgIHRha2VVbnRpbChpbnRlcnZhbCg1MDAwKSksXG4gKiApO1xuICogY29uc3Qgb25lcyA9IGNsaWNrc0luRml2ZVNlY29uZHMucGlwZShtYXBUbygxKSk7XG4gKiBjb25zdCBzZWVkID0gMDtcbiAqIGNvbnN0IGNvdW50ID0gb25lcy5yZWR1Y2UoKGFjYywgb25lKSA9PiBhY2MgKyBvbmUsIHNlZWQpO1xuICogY291bnQuc3Vic2NyaWJlKHggPT4gY29uc29sZS5sb2coeCkpO1xuICogYGBgXG4gKlxuICogQHNlZSB7QGxpbmsgY291bnR9XG4gKiBAc2VlIHtAbGluayBleHBhbmR9XG4gKiBAc2VlIHtAbGluayBtZXJnZVNjYW59XG4gKiBAc2VlIHtAbGluayBzY2FufVxuICpcbiAqIEBwYXJhbSB7ZnVuY3Rpb24oYWNjOiBSLCB2YWx1ZTogVCwgaW5kZXg6IG51bWJlcik6IFJ9IGFjY3VtdWxhdG9yIFRoZSBhY2N1bXVsYXRvciBmdW5jdGlvblxuICogY2FsbGVkIG9uIGVhY2ggc291cmNlIHZhbHVlLlxuICogQHBhcmFtIHtSfSBbc2VlZF0gVGhlIGluaXRpYWwgYWNjdW11bGF0aW9uIHZhbHVlLlxuICogQHJldHVybiB7T2JzZXJ2YWJsZTxSPn0gQW4gT2JzZXJ2YWJsZSB0aGF0IGVtaXRzIGEgc2luZ2xlIHZhbHVlIHRoYXQgaXMgdGhlXG4gKiByZXN1bHQgb2YgYWNjdW11bGF0aW5nIHRoZSB2YWx1ZXMgZW1pdHRlZCBieSB0aGUgc291cmNlIE9ic2VydmFibGUuXG4gKiBAbWV0aG9kIHJlZHVjZVxuICogQG93bmVyIE9ic2VydmFibGVcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIHJlZHVjZTxULCBSPihhY2N1bXVsYXRvcjogKGFjYzogUiwgdmFsdWU6IFQsIGluZGV4PzogbnVtYmVyKSA9PiBSLCBzZWVkPzogUik6IE9wZXJhdG9yRnVuY3Rpb248VCwgUj4ge1xuICAvLyBwcm92aWRpbmcgYSBzZWVkIG9mIGB1bmRlZmluZWRgICpzaG91bGQqIGJlIHZhbGlkIGFuZCB0cmlnZ2VyXG4gIC8vIGhhc1NlZWQhIHNvIGRvbid0IHVzZSBgc2VlZCAhPT0gdW5kZWZpbmVkYCBjaGVja3MhXG4gIC8vIEZvciB0aGlzIHJlYXNvbiwgd2UgaGF2ZSB0byBjaGVjayBpdCBoZXJlIGF0IHRoZSBvcmlnaW5hbCBjYWxsIHNpdGVcbiAgLy8gb3RoZXJ3aXNlIGluc2lkZSBPcGVyYXRvci9TdWJzY3JpYmVyIHdlIHdvbid0IGtub3cgaWYgYHVuZGVmaW5lZGBcbiAgLy8gbWVhbnMgdGhleSBkaWRuJ3QgcHJvdmlkZSBhbnl0aGluZyBvciBpZiB0aGV5IGxpdGVyYWxseSBwcm92aWRlZCBgdW5kZWZpbmVkYFxuICBpZiAoYXJndW1lbnRzLmxlbmd0aCA+PSAyKSB7XG4gICAgcmV0dXJuIGZ1bmN0aW9uIHJlZHVjZU9wZXJhdG9yRnVuY3Rpb25XaXRoU2VlZChzb3VyY2U6IE9ic2VydmFibGU8VD4pOiBPYnNlcnZhYmxlPFI+IHtcbiAgICAgIHJldHVybiBwaXBlKHNjYW4oYWNjdW11bGF0b3IsIHNlZWQpLCB0YWtlTGFzdCgxKSwgZGVmYXVsdElmRW1wdHkoc2VlZCkpKHNvdXJjZSk7XG4gICAgfTtcbiAgfVxuICByZXR1cm4gZnVuY3Rpb24gcmVkdWNlT3BlcmF0b3JGdW5jdGlvbihzb3VyY2U6IE9ic2VydmFibGU8VD4pOiBPYnNlcnZhYmxlPFI+IHtcbiAgICByZXR1cm4gcGlwZShcbiAgICAgIHNjYW4oKGFjYzogUiwgdmFsdWU6IFQsIGluZGV4OiBudW1iZXIpOiBSID0+IGFjY3VtdWxhdG9yKGFjYywgdmFsdWUsIGluZGV4ICsgMSkpLFxuICAgICAgdGFrZUxhc3QoMSksXG4gICAgKShzb3VyY2UpO1xuICB9O1xufVxuIl19

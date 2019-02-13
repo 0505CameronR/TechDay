@@ -2,16 +2,16 @@
     <StackLayout>
         <StackLayout class="p-20 btn-img">
             <Image src="res://userImg" stretch="aspectFit" class="logo"></Image>
-            <Label text="{{userWelcomeText}}" class="h2 text-center" textWrap="true"></Label>
+            <Label [text]="homeWelcome" class="h2 text-center" textWrap="true"></Label>
         </StackLayout>
         <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigate('/schools')">
-            <Label text="{{allocatedSchoolText}}" class="h2 text-center" textWrap="true"></Label>
+            <Label [text]="Text.homeAllocatedSchool" class="h2 text-center" textWrap="true"></Label>
         </FlexboxLayout>
         <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigate('/supported-children')">
-            <Label text="{{allocatedChildrenText}}" class="h2 text-center" textWrap="true"></Label>
+            <Label [text]="Text.homeAllocatedChildren" class="h2 text-center" textWrap="true"></Label>
         </FlexboxLayout>
         <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="signOut($event)">
-            <Label text="{{signOutText}}" class="h2 text-center" textWrap="true"></Label>
+            <Label [text]="Text.homeSignOut" class="h2 text-center" textWrap="true"></Label>
         </FlexboxLayout>
     </StackLayout>
 </ScrollView>

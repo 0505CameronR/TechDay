@@ -1,9 +1,9 @@
 <FlexboxLayout>
     <GridLayout [isEnabled]="!processing" rows="auto,auto,auto,auto,auto" columns="*" width="90%" class="form">
         <Image [isEnabled]="!processing" row="0" src="res://homeLogo" stretch="aspectFit"></Image>
-        <TextField row="1" [isEnabled]="!processing" returnKeyType="next" id="username" hint="Username" class="input input-rounded input-border" [(ngModel)]="user.username" autocorrect="false" autocapitalizationType="none" (returnPress)="switchToPass($event)"></TextField>
-        <TextField row="2" [isEnabled]="!processing" #password hint="Password" secure="true" class="input input-rounded input-border" [(ngModel)]="user.password" autocorrect="false" autocapitalizationType="none" (returnPress)="submit($event)" returnKeyType="done"></TextField>
-        <Button row="3" [isEnabled]="!processing" [text]="isLoggingIn ? 'Sign In' : 'Sign Up'" (tap)="submit($event)" class="btn btn-primary btn-rounded-lg btn-active" clearHistory="true"></Button>
+        <TextField row="1" [isEnabled]="!processing" returnKeyType="next" id="username" [hint]="Text.signInUsernameHint" class="input input-rounded input-border" [(ngModel)]="user.username" autocorrect="false" autocapitalizationType="none" (returnPress)="switchToPass($event)"></TextField>
+        <TextField row="2" [isEnabled]="!processing" #password [hint]="Text.signInPasswordHint" secure="true" class="input input-rounded input-border" [(ngModel)]="user.password" autocorrect="false" autocapitalizationType="none" (returnPress)="submit($event)" returnKeyType="done"></TextField>
+        <Button row="3" [isEnabled]="!processing" [text]="isLoggingIn ? Text.signInSignInButton : Text.signInSignUpButton" (tap)="submit($event)" class="btn btn-primary btn-rounded-lg btn-active" clearHistory="true"></Button>
         <Button row="4" [isEnabled]="!processing" (tap)="touchID()" [text]="bioType" [visibility]="bioOn"></Button>
         <ActivityIndicator rowSpan="5" [busy]="processing"></ActivityIndicator>
     </GridLayout>

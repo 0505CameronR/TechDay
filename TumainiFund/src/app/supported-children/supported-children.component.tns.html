@@ -1,17 +1,17 @@
 <ScrollView class="page">
     <StackLayout>
         <FlexboxLayout class="p-20 btn-img flex-btn" (tap)="navigate('/schools')">
-            <Label text="Hello?" class="h2 text-center" textWrap="true"></Label>
+            <Label [text]="Text.supportedChildrenTitle" class="h2 text-center" textWrap="true"></Label>
             <!-- <SearchBar></SearchBar> -->
         </FlexboxLayout>
         
-        <GridLayout *ngFor="let i of supportedChildren" rows="auto,auto,auto" columns="*,auto,auto,auto,*" class="p-20 btn-img flex-btn">
-            <Image row="0" col="0" rowSpan="3" src="res://userImg" stretch="aspectFit" class="logo"></Image>
+        <GridLayout *ngFor="let i of supportedChildren" rows="*,2*,*" columns="*,auto,auto,auto,*" class="p-20 btn-img flex-btn">
             <Label row="0" col="4" [text]="i.id" class="p-6"></Label>
-            <Image row="0" col="4" rowSpan="3" src="res://rightArrow"></Image>
+            <Image row="1" col="0" src="res://userImg" stretch="aspectFit" class="logo"></Image>
+            <Image row="1" col="4" src="res://rightArrow" (tap)="viewChild(i.id)"></Image>
             <Label row="1" col="1" colSpan="2" text="{{i.first_name}} {{i.last_name}}" class="p-10"></Label>
             <Label row="1" col="3" text="|  {{ i.age}}" class="p-10"></Label>
-            <Label row="2" col="1" colSpan="2" [text]="i.last_field" class="p-10"></Label>
+            <Label row="2" col="1" colSpan="2" [text]="i.school.school" class="p-10"></Label>
         </GridLayout>
     </StackLayout>
 </ScrollView>

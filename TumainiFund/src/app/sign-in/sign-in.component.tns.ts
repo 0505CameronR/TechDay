@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { EventData } from 'tns-core-modules/ui/page/page';
 import { Page } from 'tns-core-modules/ui/page';
 
+import { Text } from '../shared/text';
 import { User } from '../shared/user/user.model';
 import { UserService } from '../shared/user/user.service';
 
@@ -28,7 +29,7 @@ export class SignInComponent implements OnInit {
 	bioOn = "hidden";
 	private bioValues;
 	private fingerprintAuth: FingerprintAuth;
-
+	public Text = Text;
 
 	public constructor(
 		private user: User,
@@ -48,12 +49,11 @@ export class SignInComponent implements OnInit {
 	
 	ngOnInit() {
 		if (this.bioValues.face) {
-			this.bioType = "Use Face ID";
+			this.bioType = this.Text.signInBioFaceButton;
 		} else if (this.bioValues.touch) {
-			this.bioType = "Use Touch ID";
+			this.bioType = this.Text.signInBioFingerButton;
 		}
 		if (Kinvey.User.getActiveUser()) {
-			console.log(`Auto Sign In: ${this.bioType}`);
 			Kinvey.User.getActiveUser().me();
 			this.user.username = Kinvey.User.getActiveUser().username;
 			this.bioOn = "visible";
@@ -68,22 +68,22 @@ export class SignInComponent implements OnInit {
 		this.processing = true;
 		if (!this.user.username && this.user.password) {
 			this.feedback.error({
-				message: "Please Provide Username"
+				message: this.Text.feedbackMissingUsername
 			});
 			this.processing = false;
 		} else if (this.user.username && !this.user.password) {
 			this.feedback.error({
-				message: "Please Provide Password"
+				message: this.Text.feedbackMissingPassword
 			});
 			this.processing = false;
 		} else if (!this.user.username && !this.user.password) {
 			this.feedback.error({
-				message: "Please Provide Both a Username and a Password"
+				message: this.Text.feedbackMissingUsernamePassword
 			});
 			this.processing = false;
 		} else {
 			this.feedback.info({
-				message: `Signing In User: ${this.user.username}`
+				message: `${this.Text.feedbackSigningIn} ${this.user.username}`
 			})
 			this.login();
 		}
@@ -94,14 +94,14 @@ export class SignInComponent implements OnInit {
 			.then(() => {
 				this.processing = false;
 				this.feedback.success({
-					message: `Signed In User: ${this.user.username}`
+					message: `${this.Text.feedbackSignedIn} ${this.user.username}`
 				})
 				this.router.navigate(["/home"])
 			})
 			.catch(() => {
 				this.processing = false;
 				this.feedback.error({
-					message: `Unfortunately we could not sign in to the account: ${this.user.username}`
+					message: `${this.Text.feedbackSignInError} ${this.user.username}`
 				});
 			});
 	}
@@ -109,8 +109,8 @@ export class SignInComponent implements OnInit {
 	public touchID() {
 		this.fingerprintAuth.verifyFingerprint(
 			{
-				title: 'Authenticate', // optional title (used only on Android)
-				message: `Sign Into User '${this.user.username}'`,
+				title: this.Text.bioTitle, // optional title (used only on Android)
+				message: `${this.Text.bioMessage} '${this.user.username}'`,
 				authenticationValidityDuration: 10, // optional (used on Android, default 5)
 				useCustomAndroidUI: false // set to true to use a different authentication screen (see below)
 			})

@@ -1,0 +1,63 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var EmptyError_1 = require("../util/EmptyError");
+var filter_1 = require("./filter");
+var take_1 = require("./take");
+var defaultIfEmpty_1 = require("./defaultIfEmpty");
+var throwIfEmpty_1 = require("./throwIfEmpty");
+var identity_1 = require("../util/identity");
+/* tslint:enable:max-line-length */
+/**
+ * Emits only the first value (or the first value that meets some condition)
+ * emitted by the source Observable.
+ *
+ * <span class="informal">Emits only the first value. Or emits only the first
+ * value that passes some test.</span>
+ *
+ * ![](first.png)
+ *
+ * If called with no arguments, `first` emits the first value of the source
+ * Observable, then completes. If called with a `predicate` function, `first`
+ * emits the first value of the source that matches the specified condition. It
+ * may also take a deprecated `resultSelector` function to produce the output
+ * value from the input value, and a `defaultValue` to emit in case the source
+ * completes before it is able to emit a valid value. Throws an error if
+ * `defaultValue` was not provided and a matching element is not found.
+ *
+ * ## Examples
+ * Emit only the first click that happens on the DOM
+ * ```javascript
+ * const clicks = fromEvent(document, 'click');
+ * const result = clicks.pipe(first());
+ * result.subscribe(x => console.log(x));
+ * ```
+ *
+ * Emits the first click that happens on a DIV
+ * ```javascript
+ * const clicks = fromEvent(document, 'click');
+ * const result = clicks.pipe(first(ev => ev.target.tagName === 'DIV'));
+ * result.subscribe(x => console.log(x));
+ * ```
+ *
+ * @see {@link filter}
+ * @see {@link find}
+ * @see {@link take}
+ *
+ * @throws {EmptyError} Delivers an EmptyError to the Observer's `error`
+ * callback if the Observable completes before any `next` notification was sent.
+ *
+ * @param {function(value: T, index: number, source: Observable<T>): boolean} [predicate]
+ * An optional function called with each item to test for condition matching.
+ * @param {R} [defaultValue] The default value emitted in case no valid value
+ * was found on the source.
+ * @return {Observable<T|R>} An Observable of the first item that matches the
+ * condition.
+ * @method first
+ * @owner Observable
+ */
+function first(predicate, defaultValue) {
+    var hasDefaultValue = arguments.length >= 2;
+    return function (source) { return source.pipe(predicate ? filter_1.filter(function (v, i) { return predicate(v, i, source); }) : identity_1.identity, take_1.take(1), hasDefaultValue ? defaultIfEmpty_1.defaultIfEmpty(defaultValue) : throwIfEmpty_1.throwIfEmpty(function () { return new EmptyError_1.EmptyError(); })); };
+}
+exports.first = first;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZmlyc3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9wbGF0Zm9ybXMvaW9zL2J1aWxkL2FyY2hpdmUvVHVtYWluaUZ1bmQueGNhcmNoaXZlL1Byb2R1Y3RzL0FwcGxpY2F0aW9ucy9UdW1haW5pRnVuZC5hcHAvYXBwL3Ruc19tb2R1bGVzL3J4anMvc3JjL2ludGVybmFsL29wZXJhdG9ycy9maXJzdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUdBLGlEQUFnRDtBQUVoRCxtQ0FBa0M7QUFDbEMsK0JBQThCO0FBQzlCLG1EQUFrRDtBQUNsRCwrQ0FBOEM7QUFDOUMsNkNBQTRDO0FBZTVDLG1DQUFtQztBQUVuQzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7R0ErQ0c7QUFDSCxTQUFnQixLQUFLLENBQ25CLFNBQWdGLEVBQ2hGLFlBQWdCO0lBRWhCLElBQU0sZUFBZSxHQUFHLFNBQVMsQ0FBQyxNQUFNLElBQUksQ0FBQyxDQUFDO0lBQzlDLE9BQU8sVUFBQyxNQUFxQixJQUFLLE9BQUEsTUFBTSxDQUFDLElBQUksQ0FDM0MsU0FBUyxDQUFDLENBQUMsQ0FBQyxlQUFNLENBQUMsVUFBQyxDQUFDLEVBQUUsQ0FBQyxJQUFLLE9BQUEsU0FBUyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsTUFBTSxDQUFDLEVBQXZCLENBQXVCLENBQUMsQ0FBQyxDQUFDLENBQUMsbUJBQVEsRUFDaEUsV0FBSSxDQUFDLENBQUMsQ0FBQyxFQUNQLGVBQWUsQ0FBQyxDQUFDLENBQUMsK0JBQWMsQ0FBUSxZQUFZLENBQUMsQ0FBQyxDQUFDLENBQUMsMkJBQVksQ0FBQyxjQUFNLE9BQUEsSUFBSSx1QkFBVSxFQUFFLEVBQWhCLENBQWdCLENBQUMsQ0FDN0YsRUFKaUMsQ0FJakMsQ0FBQztBQUNKLENBQUM7QUFWRCxzQkFVQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IE9ic2VydmFibGUgfSBmcm9tICcuLi9PYnNlcnZhYmxlJztcbmltcG9ydCB7IE9wZXJhdG9yIH0gZnJvbSAnLi4vT3BlcmF0b3InO1xuaW1wb3J0IHsgU3Vic2NyaWJlciB9IGZyb20gJy4uL1N1YnNjcmliZXInO1xuaW1wb3J0IHsgRW1wdHlFcnJvciB9IGZyb20gJy4uL3V0aWwvRW1wdHlFcnJvcic7XG5pbXBvcnQgeyBPcGVyYXRvckZ1bmN0aW9uIH0gZnJvbSAnLi4vLi4vaW50ZXJuYWwvdHlwZXMnO1xuaW1wb3J0IHsgZmlsdGVyIH0gZnJvbSAnLi9maWx0ZXInO1xuaW1wb3J0IHsgdGFrZSB9IGZyb20gJy4vdGFrZSc7XG5pbXBvcnQgeyBkZWZhdWx0SWZFbXB0eSB9IGZyb20gJy4vZGVmYXVsdElmRW1wdHknO1xuaW1wb3J0IHsgdGhyb3dJZkVtcHR5IH0gZnJvbSAnLi90aHJvd0lmRW1wdHknO1xuaW1wb3J0IHsgaWRlbnRpdHkgfSBmcm9tICcuLi91dGlsL2lkZW50aXR5JztcblxuLyogdHNsaW50OmRpc2FibGU6bWF4LWxpbmUtbGVuZ3RoICovXG5leHBvcnQgZnVuY3Rpb24gZmlyc3Q8VCwgRCA9IFQ+KFxuICBwcmVkaWNhdGU/OiBudWxsLFxuICBkZWZhdWx0VmFsdWU/OiBEXG4pOiBPcGVyYXRvckZ1bmN0aW9uPFQsIFQgfCBEPjtcbmV4cG9ydCBmdW5jdGlvbiBmaXJzdDxULCBTIGV4dGVuZHMgVD4oXG4gIHByZWRpY2F0ZTogKHZhbHVlOiBULCBpbmRleDogbnVtYmVyLCBzb3VyY2U6IE9ic2VydmFibGU8VD4pID0+IHZhbHVlIGlzIFMsXG4gIGRlZmF1bHRWYWx1ZT86IFNcbik6IE9wZXJhdG9yRnVuY3Rpb248VCwgUz47XG5leHBvcnQgZnVuY3Rpb24gZmlyc3Q8VCwgRCA9IFQ+KFxuICBwcmVkaWNhdGU6ICh2YWx1ZTogVCwgaW5kZXg6IG51bWJlciwgc291cmNlOiBPYnNlcnZhYmxlPFQ+KSA9PiBib29sZWFuLFxuICBkZWZhdWx0VmFsdWU/OiBEXG4pOiBPcGVyYXRvckZ1bmN0aW9uPFQsIFQgfCBEPjtcbi8qIHRzbGludDplbmFibGU6bWF4LWxpbmUtbGVuZ3RoICovXG5cbi8qKlxuICogRW1pdHMgb25seSB0aGUgZmlyc3QgdmFsdWUgKG9yIHRoZSBmaXJzdCB2YWx1ZSB0aGF0IG1lZXRzIHNvbWUgY29uZGl0aW9uKVxuICogZW1pdHRlZCBieSB0aGUgc291cmNlIE9ic2VydmFibGUuXG4gKlxuICogPHNwYW4gY2xhc3M9XCJpbmZvcm1hbFwiPkVtaXRzIG9ubHkgdGhlIGZpcnN0IHZhbHVlLiBPciBlbWl0cyBvbmx5IHRoZSBmaXJzdFxuICogdmFsdWUgdGhhdCBwYXNzZXMgc29tZSB0ZXN0Ljwvc3Bhbj5cbiAqXG4gKiAhW10oZmlyc3QucG5nKVxuICpcbiAqIElmIGNhbGxlZCB3aXRoIG5vIGFyZ3VtZW50cywgYGZpcnN0YCBlbWl0cyB0aGUgZmlyc3QgdmFsdWUgb2YgdGhlIHNvdXJjZVxuICogT2JzZXJ2YWJsZSwgdGhlbiBjb21wbGV0ZXMuIElmIGNhbGxlZCB3aXRoIGEgYHByZWRpY2F0ZWAgZnVuY3Rpb24sIGBmaXJzdGBcbiAqIGVtaXRzIHRoZSBmaXJzdCB2YWx1ZSBvZiB0aGUgc291cmNlIHRoYXQgbWF0Y2hlcyB0aGUgc3BlY2lmaWVkIGNvbmRpdGlvbi4gSXRcbiAqIG1heSBhbHNvIHRha2UgYSBkZXByZWNhdGVkIGByZXN1bHRTZWxlY3RvcmAgZnVuY3Rpb24gdG8gcHJvZHVjZSB0aGUgb3V0cHV0XG4gKiB2YWx1ZSBmcm9tIHRoZSBpbnB1dCB2YWx1ZSwgYW5kIGEgYGRlZmF1bHRWYWx1ZWAgdG8gZW1pdCBpbiBjYXNlIHRoZSBzb3VyY2VcbiAqIGNvbXBsZXRlcyBiZWZvcmUgaXQgaXMgYWJsZSB0byBlbWl0IGEgdmFsaWQgdmFsdWUuIFRocm93cyBhbiBlcnJvciBpZlxuICogYGRlZmF1bHRWYWx1ZWAgd2FzIG5vdCBwcm92aWRlZCBhbmQgYSBtYXRjaGluZyBlbGVtZW50IGlzIG5vdCBmb3VuZC5cbiAqXG4gKiAjIyBFeGFtcGxlc1xuICogRW1pdCBvbmx5IHRoZSBmaXJzdCBjbGljayB0aGF0IGhhcHBlbnMgb24gdGhlIERPTVxuICogYGBgamF2YXNjcmlwdFxuICogY29uc3QgY2xpY2tzID0gZnJvbUV2ZW50KGRvY3VtZW50LCAnY2xpY2snKTtcbiAqIGNvbnN0IHJlc3VsdCA9IGNsaWNrcy5waXBlKGZpcnN0KCkpO1xuICogcmVzdWx0LnN1YnNjcmliZSh4ID0+IGNvbnNvbGUubG9nKHgpKTtcbiAqIGBgYFxuICpcbiAqIEVtaXRzIHRoZSBmaXJzdCBjbGljayB0aGF0IGhhcHBlbnMgb24gYSBESVZcbiAqIGBgYGphdmFzY3JpcHRcbiAqIGNvbnN0IGNsaWNrcyA9IGZyb21FdmVudChkb2N1bWVudCwgJ2NsaWNrJyk7XG4gKiBjb25zdCByZXN1bHQgPSBjbGlja3MucGlwZShmaXJzdChldiA9PiBldi50YXJnZXQudGFnTmFtZSA9PT0gJ0RJVicpKTtcbiAqIHJlc3VsdC5zdWJzY3JpYmUoeCA9PiBjb25zb2xlLmxvZyh4KSk7XG4gKiBgYGBcbiAqXG4gKiBAc2VlIHtAbGluayBmaWx0ZXJ9XG4gKiBAc2VlIHtAbGluayBmaW5kfVxuICogQHNlZSB7QGxpbmsgdGFrZX1cbiAqXG4gKiBAdGhyb3dzIHtFbXB0eUVycm9yfSBEZWxpdmVycyBhbiBFbXB0eUVycm9yIHRvIHRoZSBPYnNlcnZlcidzIGBlcnJvcmBcbiAqIGNhbGxiYWNrIGlmIHRoZSBPYnNlcnZhYmxlIGNvbXBsZXRlcyBiZWZvcmUgYW55IGBuZXh0YCBub3RpZmljYXRpb24gd2FzIHNlbnQuXG4gKlxuICogQHBhcmFtIHtmdW5jdGlvbih2YWx1ZTogVCwgaW5kZXg6IG51bWJlciwgc291cmNlOiBPYnNlcnZhYmxlPFQ+KTogYm9vbGVhbn0gW3ByZWRpY2F0ZV1cbiAqIEFuIG9wdGlvbmFsIGZ1bmN0aW9uIGNhbGxlZCB3aXRoIGVhY2ggaXRlbSB0byB0ZXN0IGZvciBjb25kaXRpb24gbWF0Y2hpbmcuXG4gKiBAcGFyYW0ge1J9IFtkZWZhdWx0VmFsdWVdIFRoZSBkZWZhdWx0IHZhbHVlIGVtaXR0ZWQgaW4gY2FzZSBubyB2YWxpZCB2YWx1ZVxuICogd2FzIGZvdW5kIG9uIHRoZSBzb3VyY2UuXG4gKiBAcmV0dXJuIHtPYnNlcnZhYmxlPFR8Uj59IEFuIE9ic2VydmFibGUgb2YgdGhlIGZpcnN0IGl0ZW0gdGhhdCBtYXRjaGVzIHRoZVxuICogY29uZGl0aW9uLlxuICogQG1ldGhvZCBmaXJzdFxuICogQG93bmVyIE9ic2VydmFibGVcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGZpcnN0PFQsIEQ+KFxuICBwcmVkaWNhdGU/OiAoKHZhbHVlOiBULCBpbmRleDogbnVtYmVyLCBzb3VyY2U6IE9ic2VydmFibGU8VD4pID0+IGJvb2xlYW4pIHwgbnVsbCxcbiAgZGVmYXVsdFZhbHVlPzogRFxuKTogT3BlcmF0b3JGdW5jdGlvbjxULCBUIHwgRD4ge1xuICBjb25zdCBoYXNEZWZhdWx0VmFsdWUgPSBhcmd1bWVudHMubGVuZ3RoID49IDI7XG4gIHJldHVybiAoc291cmNlOiBPYnNlcnZhYmxlPFQ+KSA9PiBzb3VyY2UucGlwZShcbiAgICBwcmVkaWNhdGUgPyBmaWx0ZXIoKHYsIGkpID0+IHByZWRpY2F0ZSh2LCBpLCBzb3VyY2UpKSA6IGlkZW50aXR5LFxuICAgIHRha2UoMSksXG4gICAgaGFzRGVmYXVsdFZhbHVlID8gZGVmYXVsdElmRW1wdHk8VCB8IEQ+KGRlZmF1bHRWYWx1ZSkgOiB0aHJvd0lmRW1wdHkoKCkgPT4gbmV3IEVtcHR5RXJyb3IoKSksXG4gICk7XG59XG4iXX0=

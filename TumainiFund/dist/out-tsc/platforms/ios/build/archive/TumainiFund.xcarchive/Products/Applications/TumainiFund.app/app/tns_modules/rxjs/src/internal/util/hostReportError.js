@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Throws an error on another job so that it's picked up by the runtime's
+ * uncaught error handling mechanism.
+ * @param err the error to throw
+ */
+function hostReportError(err) {
+    setTimeout(function () { throw err; });
+}
+exports.hostReportError = hostReportError;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaG9zdFJlcG9ydEVycm9yLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGxhdGZvcm1zL2lvcy9idWlsZC9hcmNoaXZlL1R1bWFpbmlGdW5kLnhjYXJjaGl2ZS9Qcm9kdWN0cy9BcHBsaWNhdGlvbnMvVHVtYWluaUZ1bmQuYXBwL2FwcC90bnNfbW9kdWxlcy9yeGpzL3NyYy9pbnRlcm5hbC91dGlsL2hvc3RSZXBvcnRFcnJvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBOzs7O0dBSUc7QUFDSCxTQUFnQixlQUFlLENBQUMsR0FBUTtJQUN0QyxVQUFVLENBQUMsY0FBUSxNQUFNLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO0FBQ25DLENBQUM7QUFGRCwwQ0FFQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogVGhyb3dzIGFuIGVycm9yIG9uIGFub3RoZXIgam9iIHNvIHRoYXQgaXQncyBwaWNrZWQgdXAgYnkgdGhlIHJ1bnRpbWUnc1xuICogdW5jYXVnaHQgZXJyb3IgaGFuZGxpbmcgbWVjaGFuaXNtLlxuICogQHBhcmFtIGVyciB0aGUgZXJyb3IgdG8gdGhyb3dcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGhvc3RSZXBvcnRFcnJvcihlcnI6IGFueSkge1xuICBzZXRUaW1lb3V0KCgpID0+IHsgdGhyb3cgZXJyOyB9KTtcbn0iXX0=

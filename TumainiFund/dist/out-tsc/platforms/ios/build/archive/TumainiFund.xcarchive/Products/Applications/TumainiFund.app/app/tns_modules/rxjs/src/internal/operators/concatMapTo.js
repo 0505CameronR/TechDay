@@ -1,0 +1,62 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var concatMap_1 = require("./concatMap");
+/* tslint:enable:max-line-length */
+/**
+ * Projects each source value to the same Observable which is merged multiple
+ * times in a serialized fashion on the output Observable.
+ *
+ * <span class="informal">It's like {@link concatMap}, but maps each value
+ * always to the same inner Observable.</span>
+ *
+ * ![](concatMapTo.png)
+ *
+ * Maps each source value to the given Observable `innerObservable` regardless
+ * of the source value, and then flattens those resulting Observables into one
+ * single Observable, which is the output Observable. Each new `innerObservable`
+ * instance emitted on the output Observable is concatenated with the previous
+ * `innerObservable` instance.
+ *
+ * __Warning:__ if source values arrive endlessly and faster than their
+ * corresponding inner Observables can complete, it will result in memory issues
+ * as inner Observables amass in an unbounded buffer waiting for their turn to
+ * be subscribed to.
+ *
+ * Note: `concatMapTo` is equivalent to `mergeMapTo` with concurrency parameter
+ * set to `1`.
+ *
+ * ## Example
+ * For each click event, tick every second from 0 to 3, with no concurrency
+ * ```javascript
+ * const clicks = fromEvent(document, 'click');
+ * const result = clicks.pipe(
+ *   concatMapTo(interval(1000).pipe(take(4))),
+ * );
+ * result.subscribe(x => console.log(x));
+ *
+ * // Results in the following:
+ * // (results are not concurrent)
+ * // For every click on the "document" it will emit values 0 to 3 spaced
+ * // on a 1000ms interval
+ * // one click = 1000ms-> 0 -1000ms-> 1 -1000ms-> 2 -1000ms-> 3
+ * ```
+ *
+ * @see {@link concat}
+ * @see {@link concatAll}
+ * @see {@link concatMap}
+ * @see {@link mergeMapTo}
+ * @see {@link switchMapTo}
+ *
+ * @param {ObservableInput} innerObservable An Observable to replace each value from
+ * the source Observable.
+ * @return {Observable} An observable of values merged together by joining the
+ * passed observable with itself, one after the other, for each value emitted
+ * from the source.
+ * @method concatMapTo
+ * @owner Observable
+ */
+function concatMapTo(innerObservable, resultSelector) {
+    return concatMap_1.concatMap(function () { return innerObservable; }, resultSelector);
+}
+exports.concatMapTo = concatMapTo;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29uY2F0TWFwVG8uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9wbGF0Zm9ybXMvaW9zL2J1aWxkL2FyY2hpdmUvVHVtYWluaUZ1bmQueGNhcmNoaXZlL1Byb2R1Y3RzL0FwcGxpY2F0aW9ucy9UdW1haW5pRnVuZC5hcHAvYXBwL3Ruc19tb2R1bGVzL3J4anMvc3JjL2ludGVybmFsL29wZXJhdG9ycy9jb25jYXRNYXBUby50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLHlDQUF3QztBQVN4QyxtQ0FBbUM7QUFFbkM7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7R0FvREc7QUFDSCxTQUFnQixXQUFXLENBQ3pCLGVBQW1DLEVBQ25DLGNBQTRGO0lBRTVGLE9BQU8scUJBQVMsQ0FBQyxjQUFNLE9BQUEsZUFBZSxFQUFmLENBQWUsRUFBRSxjQUFjLENBQUMsQ0FBQztBQUMxRCxDQUFDO0FBTEQsa0NBS0MiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjb25jYXRNYXAgfSBmcm9tICcuL2NvbmNhdE1hcCc7XG5pbXBvcnQgeyBPYnNlcnZhYmxlSW5wdXQsIE9wZXJhdG9yRnVuY3Rpb24gfSBmcm9tICcuLi90eXBlcyc7XG5cbi8qIHRzbGludDpkaXNhYmxlOm1heC1saW5lLWxlbmd0aCAqL1xuZXhwb3J0IGZ1bmN0aW9uIGNvbmNhdE1hcFRvPFQ+KG9ic2VydmFibGU6IE9ic2VydmFibGVJbnB1dDxUPik6IE9wZXJhdG9yRnVuY3Rpb248YW55LCBUPjtcbi8qKiBAZGVwcmVjYXRlZCAqL1xuZXhwb3J0IGZ1bmN0aW9uIGNvbmNhdE1hcFRvPFQ+KG9ic2VydmFibGU6IE9ic2VydmFibGVJbnB1dDxUPiwgcmVzdWx0U2VsZWN0b3I6IHVuZGVmaW5lZCk6IE9wZXJhdG9yRnVuY3Rpb248YW55LCBUPjtcbi8qKiBAZGVwcmVjYXRlZCAqL1xuZXhwb3J0IGZ1bmN0aW9uIGNvbmNhdE1hcFRvPFQsIEksIFI+KG9ic2VydmFibGU6IE9ic2VydmFibGVJbnB1dDxJPiwgcmVzdWx0U2VsZWN0b3I6IChvdXRlclZhbHVlOiBULCBpbm5lclZhbHVlOiBJLCBvdXRlckluZGV4OiBudW1iZXIsIGlubmVySW5kZXg6IG51bWJlcikgPT4gUik6IE9wZXJhdG9yRnVuY3Rpb248VCwgUj47XG4vKiB0c2xpbnQ6ZW5hYmxlOm1heC1saW5lLWxlbmd0aCAqL1xuXG4vKipcbiAqIFByb2plY3RzIGVhY2ggc291cmNlIHZhbHVlIHRvIHRoZSBzYW1lIE9ic2VydmFibGUgd2hpY2ggaXMgbWVyZ2VkIG11bHRpcGxlXG4gKiB0aW1lcyBpbiBhIHNlcmlhbGl6ZWQgZmFzaGlvbiBvbiB0aGUgb3V0cHV0IE9ic2VydmFibGUuXG4gKlxuICogPHNwYW4gY2xhc3M9XCJpbmZvcm1hbFwiPkl0J3MgbGlrZSB7QGxpbmsgY29uY2F0TWFwfSwgYnV0IG1hcHMgZWFjaCB2YWx1ZVxuICogYWx3YXlzIHRvIHRoZSBzYW1lIGlubmVyIE9ic2VydmFibGUuPC9zcGFuPlxuICpcbiAqICFbXShjb25jYXRNYXBUby5wbmcpXG4gKlxuICogTWFwcyBlYWNoIHNvdXJjZSB2YWx1ZSB0byB0aGUgZ2l2ZW4gT2JzZXJ2YWJsZSBgaW5uZXJPYnNlcnZhYmxlYCByZWdhcmRsZXNzXG4gKiBvZiB0aGUgc291cmNlIHZhbHVlLCBhbmQgdGhlbiBmbGF0dGVucyB0aG9zZSByZXN1bHRpbmcgT2JzZXJ2YWJsZXMgaW50byBvbmVcbiAqIHNpbmdsZSBPYnNlcnZhYmxlLCB3aGljaCBpcyB0aGUgb3V0cHV0IE9ic2VydmFibGUuIEVhY2ggbmV3IGBpbm5lck9ic2VydmFibGVgXG4gKiBpbnN0YW5jZSBlbWl0dGVkIG9uIHRoZSBvdXRwdXQgT2JzZXJ2YWJsZSBpcyBjb25jYXRlbmF0ZWQgd2l0aCB0aGUgcHJldmlvdXNcbiAqIGBpbm5lck9ic2VydmFibGVgIGluc3RhbmNlLlxuICpcbiAqIF9fV2FybmluZzpfXyBpZiBzb3VyY2UgdmFsdWVzIGFycml2ZSBlbmRsZXNzbHkgYW5kIGZhc3RlciB0aGFuIHRoZWlyXG4gKiBjb3JyZXNwb25kaW5nIGlubmVyIE9ic2VydmFibGVzIGNhbiBjb21wbGV0ZSwgaXQgd2lsbCByZXN1bHQgaW4gbWVtb3J5IGlzc3Vlc1xuICogYXMgaW5uZXIgT2JzZXJ2YWJsZXMgYW1hc3MgaW4gYW4gdW5ib3VuZGVkIGJ1ZmZlciB3YWl0aW5nIGZvciB0aGVpciB0dXJuIHRvXG4gKiBiZSBzdWJzY3JpYmVkIHRvLlxuICpcbiAqIE5vdGU6IGBjb25jYXRNYXBUb2AgaXMgZXF1aXZhbGVudCB0byBgbWVyZ2VNYXBUb2Agd2l0aCBjb25jdXJyZW5jeSBwYXJhbWV0ZXJcbiAqIHNldCB0byBgMWAuXG4gKlxuICogIyMgRXhhbXBsZVxuICogRm9yIGVhY2ggY2xpY2sgZXZlbnQsIHRpY2sgZXZlcnkgc2Vjb25kIGZyb20gMCB0byAzLCB3aXRoIG5vIGNvbmN1cnJlbmN5XG4gKiBgYGBqYXZhc2NyaXB0XG4gKiBjb25zdCBjbGlja3MgPSBmcm9tRXZlbnQoZG9jdW1lbnQsICdjbGljaycpO1xuICogY29uc3QgcmVzdWx0ID0gY2xpY2tzLnBpcGUoXG4gKiAgIGNvbmNhdE1hcFRvKGludGVydmFsKDEwMDApLnBpcGUodGFrZSg0KSkpLFxuICogKTtcbiAqIHJlc3VsdC5zdWJzY3JpYmUoeCA9PiBjb25zb2xlLmxvZyh4KSk7XG4gKlxuICogLy8gUmVzdWx0cyBpbiB0aGUgZm9sbG93aW5nOlxuICogLy8gKHJlc3VsdHMgYXJlIG5vdCBjb25jdXJyZW50KVxuICogLy8gRm9yIGV2ZXJ5IGNsaWNrIG9uIHRoZSBcImRvY3VtZW50XCIgaXQgd2lsbCBlbWl0IHZhbHVlcyAwIHRvIDMgc3BhY2VkXG4gKiAvLyBvbiBhIDEwMDBtcyBpbnRlcnZhbFxuICogLy8gb25lIGNsaWNrID0gMTAwMG1zLT4gMCAtMTAwMG1zLT4gMSAtMTAwMG1zLT4gMiAtMTAwMG1zLT4gM1xuICogYGBgXG4gKlxuICogQHNlZSB7QGxpbmsgY29uY2F0fVxuICogQHNlZSB7QGxpbmsgY29uY2F0QWxsfVxuICogQHNlZSB7QGxpbmsgY29uY2F0TWFwfVxuICogQHNlZSB7QGxpbmsgbWVyZ2VNYXBUb31cbiAqIEBzZWUge0BsaW5rIHN3aXRjaE1hcFRvfVxuICpcbiAqIEBwYXJhbSB7T2JzZXJ2YWJsZUlucHV0fSBpbm5lck9ic2VydmFibGUgQW4gT2JzZXJ2YWJsZSB0byByZXBsYWNlIGVhY2ggdmFsdWUgZnJvbVxuICogdGhlIHNvdXJjZSBPYnNlcnZhYmxlLlxuICogQHJldHVybiB7T2JzZXJ2YWJsZX0gQW4gb2JzZXJ2YWJsZSBvZiB2YWx1ZXMgbWVyZ2VkIHRvZ2V0aGVyIGJ5IGpvaW5pbmcgdGhlXG4gKiBwYXNzZWQgb2JzZXJ2YWJsZSB3aXRoIGl0c2VsZiwgb25lIGFmdGVyIHRoZSBvdGhlciwgZm9yIGVhY2ggdmFsdWUgZW1pdHRlZFxuICogZnJvbSB0aGUgc291cmNlLlxuICogQG1ldGhvZCBjb25jYXRNYXBUb1xuICogQG93bmVyIE9ic2VydmFibGVcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGNvbmNhdE1hcFRvPFQsIEksIFI+KFxuICBpbm5lck9ic2VydmFibGU6IE9ic2VydmFibGVJbnB1dDxJPixcbiAgcmVzdWx0U2VsZWN0b3I/OiAob3V0ZXJWYWx1ZTogVCwgaW5uZXJWYWx1ZTogSSwgb3V0ZXJJbmRleDogbnVtYmVyLCBpbm5lckluZGV4OiBudW1iZXIpID0+IFJcbik6IE9wZXJhdG9yRnVuY3Rpb248VCwgUj4ge1xuICByZXR1cm4gY29uY2F0TWFwKCgpID0+IGlubmVyT2JzZXJ2YWJsZSwgcmVzdWx0U2VsZWN0b3IpO1xufVxuIl19

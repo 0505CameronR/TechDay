@@ -1,0 +1,30 @@
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+Zone.__load_patch('electron', function (global, Zone, api) {
+    function patchArguments(target, name, source) {
+        return api.patchMethod(target, name, function (delegate) { return function (self, args) {
+            return delegate && delegate.apply(self, api.bindArguments(args, source));
+        }; });
+    }
+    var _a = require('electron'), desktopCapturer = _a.desktopCapturer, shell = _a.shell, CallbacksRegistry = _a.CallbacksRegistry;
+    // patch api in renderer process directly
+    // desktopCapturer
+    if (desktopCapturer) {
+        patchArguments(desktopCapturer, 'getSources', 'electron.desktopCapturer.getSources');
+    }
+    // shell
+    if (shell) {
+        patchArguments(shell, 'openExternal', 'electron.shell.openExternal');
+    }
+    // patch api in main process through CallbackRegistry
+    if (!CallbacksRegistry) {
+        return;
+    }
+    patchArguments(CallbacksRegistry.prototype, 'add', 'CallbackRegistry.add');
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZWxlY3Ryb24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9wbGF0Zm9ybXMvaW9zL2J1aWxkL2FyY2hpdmUvVHVtYWluaUZ1bmQueGNhcmNoaXZlL1Byb2R1Y3RzL0FwcGxpY2F0aW9ucy9UdW1haW5pRnVuZC5hcHAvYXBwL3Ruc19tb2R1bGVzL3pvbmUuanMvbGliL2V4dHJhL2VsZWN0cm9uLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUNILElBQUksQ0FBQyxZQUFZLENBQUMsVUFBVSxFQUFFLFVBQUMsTUFBVyxFQUFFLElBQWMsRUFBRSxHQUFpQjtJQUMzRSxTQUFTLGNBQWMsQ0FBQyxNQUFXLEVBQUUsSUFBWSxFQUFFLE1BQWM7UUFDL0QsT0FBTyxHQUFHLENBQUMsV0FBVyxDQUFDLE1BQU0sRUFBRSxJQUFJLEVBQUUsVUFBQyxRQUFrQixJQUFLLE9BQUEsVUFBQyxJQUFTLEVBQUUsSUFBVztZQUNsRixPQUFPLFFBQVEsSUFBSSxRQUFRLENBQUMsS0FBSyxDQUFDLElBQUksRUFBRSxHQUFHLENBQUMsYUFBYSxDQUFDLElBQUksRUFBRSxNQUFNLENBQUMsQ0FBQyxDQUFDO1FBQzNFLENBQUMsRUFGNEQsQ0FFNUQsQ0FBQyxDQUFDO0lBQ0wsQ0FBQztJQUNLLElBQUEsd0JBQWlFLEVBQWhFLG9DQUFlLEVBQUUsZ0JBQUssRUFBRSx3Q0FBd0MsQ0FBQztJQUN4RSx5Q0FBeUM7SUFDekMsa0JBQWtCO0lBQ2xCLElBQUksZUFBZSxFQUFFO1FBQ25CLGNBQWMsQ0FBQyxlQUFlLEVBQUUsWUFBWSxFQUFFLHFDQUFxQyxDQUFDLENBQUM7S0FDdEY7SUFDRCxRQUFRO0lBQ1IsSUFBSSxLQUFLLEVBQUU7UUFDVCxjQUFjLENBQUMsS0FBSyxFQUFFLGNBQWMsRUFBRSw2QkFBNkIsQ0FBQyxDQUFDO0tBQ3RFO0lBRUQscURBQXFEO0lBQ3JELElBQUksQ0FBQyxpQkFBaUIsRUFBRTtRQUN0QixPQUFPO0tBQ1I7SUFFRCxjQUFjLENBQUMsaUJBQWlCLENBQUMsU0FBUyxFQUFFLEtBQUssRUFBRSxzQkFBc0IsQ0FBQyxDQUFDO0FBQzdFLENBQUMsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBAbGljZW5zZVxuICogQ29weXJpZ2h0IEdvb2dsZSBJbmMuIEFsbCBSaWdodHMgUmVzZXJ2ZWQuXG4gKlxuICogVXNlIG9mIHRoaXMgc291cmNlIGNvZGUgaXMgZ292ZXJuZWQgYnkgYW4gTUlULXN0eWxlIGxpY2Vuc2UgdGhhdCBjYW4gYmVcbiAqIGZvdW5kIGluIHRoZSBMSUNFTlNFIGZpbGUgYXQgaHR0cHM6Ly9hbmd1bGFyLmlvL2xpY2Vuc2VcbiAqL1xuWm9uZS5fX2xvYWRfcGF0Y2goJ2VsZWN0cm9uJywgKGdsb2JhbDogYW55LCBab25lOiBab25lVHlwZSwgYXBpOiBfWm9uZVByaXZhdGUpID0+IHtcbiAgZnVuY3Rpb24gcGF0Y2hBcmd1bWVudHModGFyZ2V0OiBhbnksIG5hbWU6IHN0cmluZywgc291cmNlOiBzdHJpbmcpOiBGdW5jdGlvbnxudWxsIHtcbiAgICByZXR1cm4gYXBpLnBhdGNoTWV0aG9kKHRhcmdldCwgbmFtZSwgKGRlbGVnYXRlOiBGdW5jdGlvbikgPT4gKHNlbGY6IGFueSwgYXJnczogYW55W10pID0+IHtcbiAgICAgIHJldHVybiBkZWxlZ2F0ZSAmJiBkZWxlZ2F0ZS5hcHBseShzZWxmLCBhcGkuYmluZEFyZ3VtZW50cyhhcmdzLCBzb3VyY2UpKTtcbiAgICB9KTtcbiAgfVxuICBjb25zdCB7ZGVza3RvcENhcHR1cmVyLCBzaGVsbCwgQ2FsbGJhY2tzUmVnaXN0cnl9ID0gcmVxdWlyZSgnZWxlY3Ryb24nKTtcbiAgLy8gcGF0Y2ggYXBpIGluIHJlbmRlcmVyIHByb2Nlc3MgZGlyZWN0bHlcbiAgLy8gZGVza3RvcENhcHR1cmVyXG4gIGlmIChkZXNrdG9wQ2FwdHVyZXIpIHtcbiAgICBwYXRjaEFyZ3VtZW50cyhkZXNrdG9wQ2FwdHVyZXIsICdnZXRTb3VyY2VzJywgJ2VsZWN0cm9uLmRlc2t0b3BDYXB0dXJlci5nZXRTb3VyY2VzJyk7XG4gIH1cbiAgLy8gc2hlbGxcbiAgaWYgKHNoZWxsKSB7XG4gICAgcGF0Y2hBcmd1bWVudHMoc2hlbGwsICdvcGVuRXh0ZXJuYWwnLCAnZWxlY3Ryb24uc2hlbGwub3BlbkV4dGVybmFsJyk7XG4gIH1cblxuICAvLyBwYXRjaCBhcGkgaW4gbWFpbiBwcm9jZXNzIHRocm91Z2ggQ2FsbGJhY2tSZWdpc3RyeVxuICBpZiAoIUNhbGxiYWNrc1JlZ2lzdHJ5KSB7XG4gICAgcmV0dXJuO1xuICB9XG5cbiAgcGF0Y2hBcmd1bWVudHMoQ2FsbGJhY2tzUmVnaXN0cnkucHJvdG90eXBlLCAnYWRkJywgJ0NhbGxiYWNrUmVnaXN0cnkuYWRkJyk7XG59KTtcbiJdfQ==

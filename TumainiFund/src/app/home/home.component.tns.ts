@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Feedback } from 'nativescript-feedback';
 import { EventData, Page } from 'tns-core-modules/ui/page/page';
 import { routes } from "../app.routes";
+import { Text } from "../shared/text";
 
 @Component({
     selector: 'ns-home',
@@ -12,12 +13,10 @@ import { routes } from "../app.routes";
     moduleId: module.id,
 })
 export class HomeComponent {
-    public allocatedSchoolText: String = `Allocated Schools`;
-    public allocatedChildrenText: String = `Allocated Children`;
-    public signOutText: String = `Sign Out`;
     private activeUser: Kinvey.User = Kinvey.User.getActiveUser();;
     public user: String = this.activeUser.username;
-    public userWelcomeText: String = `Welcome:\n${this.user}`;
+    public Text = Text;
+    public homeWelcome;
 
     constructor(private page: Page,
         private router: Router,
@@ -26,15 +25,16 @@ export class HomeComponent {
         this.page.actionBarHidden = true;
         this.page.enableSwipeBackNavigation = false;
         this.feedback = new Feedback();
+        this.homeWelcome = `${this.Text.homeWelcome}${this.user}`
     }
 
     public signOut(args: EventData) {
         this.feedback.info({
-            message: `Signing Out User: ${this.user}`
+            message: `${this.Text.feedbackSigningIn} ${this.user}`
         })
         Kinvey.User.logout().then(() => (
             this.feedback.success({
-                message: `${this.user} Signed Out`
+                message: `${this.user} ${this.Text.feedbackSignedOut}`
             }),
             this.router.navigate(["/sign-in"])))
     }
@@ -51,14 +51,14 @@ export class HomeComponent {
         if (flag) {
             if (this.router.url == destination) {
                 this.feedback.info({
-                    message: `You're Already At: ${destination}`
+                    message: `${this.Text.feedbackSameLocation} ${destination}`
                 })
             } else {
                 this.router.navigate([destination])
             }
         } else {
             this.feedback.warning({
-                message: `The Feature ${destination} Hasn't Been Implemented Yet`
+                message: `${this.Text.feedbackNotImplemented_1} ${destination} ${this.Text.feedbackNotImplemented_2}`
             })
         }
     }

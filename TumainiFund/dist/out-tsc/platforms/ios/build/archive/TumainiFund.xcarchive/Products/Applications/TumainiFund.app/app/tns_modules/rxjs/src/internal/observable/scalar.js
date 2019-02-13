@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Observable_1 = require("../Observable");
+function scalar(value) {
+    var result = new Observable_1.Observable(function (subscriber) {
+        subscriber.next(value);
+        subscriber.complete();
+    });
+    result._isScalar = true;
+    result.value = value;
+    return result;
+}
+exports.scalar = scalar;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2NhbGFyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vcGxhdGZvcm1zL2lvcy9idWlsZC9hcmNoaXZlL1R1bWFpbmlGdW5kLnhjYXJjaGl2ZS9Qcm9kdWN0cy9BcHBsaWNhdGlvbnMvVHVtYWluaUZ1bmQuYXBwL2FwcC90bnNfbW9kdWxlcy9yeGpzL3NyYy9pbnRlcm5hbC9vYnNlcnZhYmxlL3NjYWxhci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDRDQUEyQztBQUUzQyxTQUFnQixNQUFNLENBQUksS0FBUTtJQUNoQyxJQUFNLE1BQU0sR0FBRyxJQUFJLHVCQUFVLENBQUksVUFBQSxVQUFVO1FBQ3pDLFVBQVUsQ0FBQyxJQUFJLENBQUMsS0FBSyxDQUFDLENBQUM7UUFDdkIsVUFBVSxDQUFDLFFBQVEsRUFBRSxDQUFDO0lBQ3hCLENBQUMsQ0FBQyxDQUFDO0lBQ0gsTUFBTSxDQUFDLFNBQVMsR0FBRyxJQUFJLENBQUM7SUFDdkIsTUFBYyxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7SUFDOUIsT0FBTyxNQUFNLENBQUM7QUFDaEIsQ0FBQztBQVJELHdCQVFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgT2JzZXJ2YWJsZSB9IGZyb20gJy4uL09ic2VydmFibGUnO1xuXG5leHBvcnQgZnVuY3Rpb24gc2NhbGFyPFQ+KHZhbHVlOiBUKSB7XG4gIGNvbnN0IHJlc3VsdCA9IG5ldyBPYnNlcnZhYmxlPFQ+KHN1YnNjcmliZXIgPT4ge1xuICAgIHN1YnNjcmliZXIubmV4dCh2YWx1ZSk7XG4gICAgc3Vic2NyaWJlci5jb21wbGV0ZSgpO1xuICB9KTtcbiAgcmVzdWx0Ll9pc1NjYWxhciA9IHRydWU7XG4gIChyZXN1bHQgYXMgYW55KS52YWx1ZSA9IHZhbHVlO1xuICByZXR1cm4gcmVzdWx0O1xufVxuIl19

@@ -11,6 +11,10 @@ import { Kinvey } from 'kinvey-nativescript-sdk';
 import { Feedback } from 'nativescript-feedback';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular/side-drawer-directives';
 import { SupportedChildrenComponent } from './supported-children/supported-children.component';
+import { SupportedChildrenService } from './shared/supported-children/supported-children.service';
+import { SupportedChildComponent } from './supported-child/supported-child.component';
+import { UserService } from './shared/user/user.service';
+
 
 Kinvey.init({
 	appKey: 'kid_S1kLDRkz4',
@@ -27,6 +31,7 @@ Kinvey.init({
 		HomeComponent,
 		SignInComponent,
 		SupportedChildrenComponent,
+		SupportedChildComponent,
 	],
 	imports: [
 		NativeScriptModule,
@@ -36,8 +41,11 @@ Kinvey.init({
 	],
 	providers: [
 		Feedback,
+		SupportedChildrenService,
+		UserService
 	],
 	bootstrap: [AppComponent],
 	schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
+

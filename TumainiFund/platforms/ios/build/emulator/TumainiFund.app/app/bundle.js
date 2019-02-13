@@ -204,17 +204,14 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-var AppRoutingModule = /** @class */ (function () {
-    function AppRoutingModule() {
-    }
-    AppRoutingModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [nativescript_angular_router__WEBPACK_IMPORTED_MODULE_1__["NativeScriptRouterModule"].forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_2__["routes"])],
-            exports: [nativescript_angular_router__WEBPACK_IMPORTED_MODULE_1__["NativeScriptRouterModule"]]
-        })
-    ], AppRoutingModule);
-    return AppRoutingModule;
-}());
+let AppRoutingModule = class AppRoutingModule {
+};
+AppRoutingModule = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+        imports: [nativescript_angular_router__WEBPACK_IMPORTED_MODULE_1__["NativeScriptRouterModule"].forRoot(_app_routes__WEBPACK_IMPORTED_MODULE_2__["routes"])],
+        exports: [nativescript_angular_router__WEBPACK_IMPORTED_MODULE_1__["NativeScriptRouterModule"]]
+    })
+], AppRoutingModule);
 
 
 
@@ -266,8 +263,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var AppComponent = /** @class */ (function () {
-    function AppComponent(page, feedback, _changeDetectionRef, router, location) {
+let AppComponent = class AppComponent {
+    constructor(page, feedback, _changeDetectionRef, router, location) {
         this.page = page;
         this.feedback = feedback;
         this._changeDetectionRef = _changeDetectionRef;
@@ -275,65 +272,61 @@ var AppComponent = /** @class */ (function () {
         this.location = location;
         this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"]();
     }
-    AppComponent.prototype.ngOnInit = function () {
+    ngOnInit() {
         this.mainContentText = "SideDrawer for NativeScript can be easily setup in the HTML definition of your page by defining tkDrawerContent and tkMainContent. The component has a default transition and position and also exposes notifications related to changes in its state. Swipe from left to open side drawer.";
-    };
-    AppComponent.prototype.onLoaded = function () {
+    }
+    onLoaded() {
         if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["isAndroid"]) {
             this.drawer.android.setTouchTargetThreshold(0);
         }
-    };
-    AppComponent.prototype.ngAfterViewInit = function () {
+    }
+    ngAfterViewInit() {
         this.drawer = this.drawerComponent.sideDrawer;
         this._changeDetectionRef.detectChanges();
         if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["isIOS"]) {
             this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
         }
-    };
-    Object.defineProperty(AppComponent.prototype, "mainContentText", {
-        get: function () {
-            return this._mainContentText;
-        },
-        set: function (value) {
-            this._mainContentText = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    AppComponent.prototype.toggleDrawer = function () {
+    }
+    get mainContentText() {
+        return this._mainContentText;
+    }
+    set mainContentText(value) {
+        this._mainContentText = value;
+    }
+    toggleDrawer() {
         this.drawer.toggleDrawerState();
-    };
-    AppComponent.prototype.openDrawer = function () {
+    }
+    openDrawer() {
         this.drawer.showDrawer();
-    };
-    AppComponent.prototype.closeDrawer = function () {
+    }
+    closeDrawer() {
         this.drawer.closeDrawer();
-    };
-    AppComponent.prototype.isSignIn = function () {
+    }
+    isSignIn() {
         if (this.router.url == "/sign-in") {
             return "collapsed";
         }
         else {
             return "visible";
         }
-    };
-    AppComponent.prototype.isBackActive = function () {
+    }
+    isBackActive() {
         if (this.router.url == "/home") {
             return "collapsed";
         }
         else {
             return "visible";
         }
-    };
-    AppComponent.prototype.back = function () {
-        this.location.back();
+    }
+    back() {
         this.closeDrawer();
-    };
-    AppComponent.prototype.navigate = function (destination) {
+        this.location.back();
+    }
+    navigate(destination) {
         destination = destination.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "");
-        var current = this.router.url.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "");
-        var flag = false;
-        for (var curRoute in _app_routes__WEBPACK_IMPORTED_MODULE_4__["routes"]) {
+        let current = this.router.url.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "");
+        let flag = false;
+        for (let curRoute in _app_routes__WEBPACK_IMPORTED_MODULE_4__["routes"]) {
             if (destination == _app_routes__WEBPACK_IMPORTED_MODULE_4__["routes"][curRoute].path) {
                 flag = true;
                 break;
@@ -342,38 +335,37 @@ var AppComponent = /** @class */ (function () {
         if (flag) {
             if (current == destination) {
                 this.feedback.info({
-                    message: "You're Already At: " + destination
+                    message: `You're Already At: ${destination}`
                 });
             }
             else {
-                this.router.navigate([destination]);
                 this.closeDrawer();
+                this.router.navigate([destination]);
             }
         }
         else {
             this.feedback.warning({
-                message: "The Feature " + destination + " Hasn't Been Implemented Yet"
+                message: `The Feature ${destination} Hasn't Been Implemented Yet`
             });
         }
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("radSideDrawer"),
-        __metadata("design:type", nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__["RadSideDrawerComponent"])
-    ], AppComponent.prototype, "drawerComponent", void 0);
-    AppComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-root',
-            template: __webpack_require__("./app/app.component.html"),
-            styles: [__webpack_require__("./app/app.component.css")]
-        }),
-        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["Page"],
-            nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-            _angular_common__WEBPACK_IMPORTED_MODULE_6__["Location"]])
-    ], AppComponent);
-    return AppComponent;
-}());
+    }
+};
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("radSideDrawer"),
+    __metadata("design:type", nativescript_ui_sidedrawer_angular__WEBPACK_IMPORTED_MODULE_1__["RadSideDrawerComponent"])
+], AppComponent.prototype, "drawerComponent", void 0);
+AppComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-root',
+        template: __webpack_require__("./app/app.component.html"),
+        styles: [__webpack_require__("./app/app.component.css")]
+    }),
+    __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["Page"],
+        nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        _angular_common__WEBPACK_IMPORTED_MODULE_6__["Location"]])
+], AppComponent);
 
 
 
@@ -401,6 +393,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("../node_modules/nativescript-ui-sidedrawer/angular/side-drawer-directives.js");
 /* harmony import */ var nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./app/supported-children/supported-children.component.ts");
+/* harmony import */ var _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./app/shared/supported-children/supported-children.service.ts");
+/* harmony import */ var _supported_child_supported_child_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("./app/supported-child/supported-child.component.ts");
+/* harmony import */ var _shared_user_user_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("./app/shared/user/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -418,38 +413,41 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
 kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__["Kinvey"].init({
     appKey: 'kid_S1kLDRkz4',
     appSecret: '8e61bc7074b744d7995c2c51042c9890'
 });
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 // import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
-var AppModule = /** @class */ (function () {
-    function AppModule() {
-    }
-    AppModule = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
-                _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_6__["SignInComponent"],
-                _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_10__["SupportedChildrenComponent"],
-            ],
-            imports: [
-                nativescript_angular_nativescript_module__WEBPACK_IMPORTED_MODULE_1__["NativeScriptModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
-                nativescript_angular_forms__WEBPACK_IMPORTED_MODULE_2__["NativeScriptFormsModule"],
-                nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__["NativeScriptUISideDrawerModule"],
-            ],
-            providers: [
-                nativescript_feedback__WEBPACK_IMPORTED_MODULE_8__["Feedback"],
-            ],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
-            schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NO_ERRORS_SCHEMA"]]
-        })
-    ], AppModule);
-    return AppModule;
-}());
+let AppModule = class AppModule {
+};
+AppModule = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+        declarations: [
+            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+            _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
+            _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_6__["SignInComponent"],
+            _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_10__["SupportedChildrenComponent"],
+            _supported_child_supported_child_component__WEBPACK_IMPORTED_MODULE_12__["SupportedChildComponent"],
+        ],
+        imports: [
+            nativescript_angular_nativescript_module__WEBPACK_IMPORTED_MODULE_1__["NativeScriptModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+            nativescript_angular_forms__WEBPACK_IMPORTED_MODULE_2__["NativeScriptFormsModule"],
+            nativescript_ui_sidedrawer_angular_side_drawer_directives__WEBPACK_IMPORTED_MODULE_9__["NativeScriptUISideDrawerModule"],
+        ],
+        providers: [
+            nativescript_feedback__WEBPACK_IMPORTED_MODULE_8__["Feedback"],
+            _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_11__["SupportedChildrenService"],
+            _shared_user_user_service__WEBPACK_IMPORTED_MODULE_13__["UserService"]
+        ],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]],
+        schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["NO_ERRORS_SCHEMA"]]
+    })
+], AppModule);
 
 
 
@@ -464,10 +462,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./app/home/home.component.ts");
 /* harmony import */ var _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./app/sign-in/sign-in.component.ts");
 /* harmony import */ var _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./app/supported-children/supported-children.component.ts");
+/* harmony import */ var _supported_child_supported_child_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./app/supported-child/supported-child.component.ts");
 
 
 
-var routes = [
+
+const routes = [
     {
         path: '',
         redirectTo: '/sign-in',
@@ -484,6 +484,10 @@ var routes = [
     {
         path: 'supported-children',
         component: _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_2__["SupportedChildrenComponent"],
+    },
+    {
+        path: 'supported-child/:child',
+        component: _supported_child_supported_child_component__WEBPACK_IMPORTED_MODULE_3__["SupportedChildComponent"],
     }
     /*
      {
@@ -523,14 +527,14 @@ var routes = [
 /***/ "./app/home/home.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:90;\n    height:90;\n    margin: 5;\n}\n\n.page {\n    background-color: #A8F259;\n}"
+module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:90;\n    height:90;\n    margin: 5;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.homecont{\n    margin-left:167px;\n    padding:1px 16px;\n    height:1000px;\n    }\n\nul {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    width: 173px;\n    background-color: #707070;\n    position: fixed;\n    height: 100%;\n    overflow: auto;\n  }\n  \nli a {\n    display: block;\n    color: white;\n    padding: 8px 16px;\n    text-decoration: none;\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  }\n  \nli a.active {\n    background-color: #4CAF50;\n    color: white;\n  }\n  \nli a:hover:not(.active) {\n    background-color: #F7DB07;\n    color: #707070;\n  }\n\n  body{\n    background-color: #82CC33;\n  }\n\n  .topnav .search-container {\n    \n  }\n  \n  .topnav input[type=text] {\n    padding: 6px;\n    margin-top: 8px;\n    font-size: 17px;\n    border: none;\n  }\n  \n  .topnav .search-container button {\n    float: right;\n    padding: 6px 10px;\n    margin-top: 8px;\n    margin-right: 16px;\n    background: #ddd;\n    font-size: 17px;\n    border: none;\n    cursor: pointer;\n  }\n  \n  .topnav .search-container button:hover {\n    background: #ccc;\n  }\n"
 
 /***/ }),
 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label text=\"{{userWelcomeText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n            <Label text=\"{{allocatedSchoolText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/supported-children')\">\n            <Label text=\"{{allocatedChildrenText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label text=\"{{signOutText}}\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
+module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label [text]=\"homeWelcome\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n            <Label [text]=\"Text.homeAllocatedSchool\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/supported-children')\">\n            <Label [text]=\"Text.homeAllocatedChildren\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label [text]=\"Text.homeSignOut\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
 
 /***/ }),
 
@@ -549,6 +553,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
 /* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _app_routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./app/app.routes.ts");
+/* harmony import */ var _shared_text__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./app/shared/text.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -564,36 +569,34 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent(page, router, feedback) {
+
+let HomeComponent = class HomeComponent {
+    constructor(page, router, feedback) {
         this.page = page;
         this.router = router;
         this.feedback = feedback;
-        this.allocatedSchoolText = "Allocated Schools";
-        this.allocatedChildrenText = "Allocated Children";
-        this.signOutText = "Sign Out";
         this.activeUser = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.getActiveUser();
         this.user = this.activeUser.username;
-        this.userWelcomeText = "Welcome:\n" + this.user;
+        this.Text = _shared_text__WEBPACK_IMPORTED_MODULE_6__["Text"];
         this.page.actionBarHidden = true;
         this.page.enableSwipeBackNavigation = false;
         this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__["Feedback"]();
+        this.homeWelcome = `${this.Text.homeWelcome}${this.user}`;
     }
     ;
-    HomeComponent.prototype.signOut = function (args) {
-        var _this = this;
+    signOut(args) {
         this.feedback.info({
-            message: "Signing Out User: " + this.user
+            message: `${this.Text.feedbackSigningIn} ${this.user}`
         });
-        kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.logout().then(function () { return (_this.feedback.success({
-            message: _this.user + " Signed Out"
+        kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.logout().then(() => (this.feedback.success({
+            message: `${this.user} ${this.Text.feedbackSignedOut}`
         }),
-            _this.router.navigate(["/sign-in"])); });
-    };
-    HomeComponent.prototype.navigate = function (destination) {
+            this.router.navigate(["/sign-in"])));
+    }
+    navigate(destination) {
         destination = destination.replace(/[.,\/#!$%\^&\*;:{}=_`~()]/g, "");
-        var flag = false;
-        for (var curRoute in _app_routes__WEBPACK_IMPORTED_MODULE_5__["routes"]) {
+        let flag = false;
+        for (let curRoute in _app_routes__WEBPACK_IMPORTED_MODULE_5__["routes"]) {
             if (destination == _app_routes__WEBPACK_IMPORTED_MODULE_5__["routes"][curRoute].path) {
                 flag = true;
                 break;
@@ -602,7 +605,7 @@ var HomeComponent = /** @class */ (function () {
         if (flag) {
             if (this.router.url == destination) {
                 this.feedback.info({
-                    message: "You're Already At: " + destination
+                    message: `${this.Text.feedbackSameLocation} ${destination}`
                 });
             }
             else {
@@ -611,23 +614,277 @@ var HomeComponent = /** @class */ (function () {
         }
         else {
             this.feedback.warning({
-                message: "The Feature " + destination + " Hasn't Been Implemented Yet"
+                message: `${this.Text.feedbackNotImplemented_1} ${destination} ${this.Text.feedbackNotImplemented_2}`
             });
         }
-    };
-    HomeComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'ns-home',
-            template: __webpack_require__("./app/home/home.component.html"),
-            styles: [__webpack_require__("./app/home/home.component.css")]
-        }),
-        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__["Page"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__["Feedback"]])
-    ], HomeComponent);
-    return HomeComponent;
-}());
+    }
+};
+HomeComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'ns-home',
+        template: __webpack_require__("./app/home/home.component.html"),
+        styles: [__webpack_require__("./app/home/home.component.css")]
+    }),
+    __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_4__["Page"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        nativescript_feedback__WEBPACK_IMPORTED_MODULE_3__["Feedback"]])
+], HomeComponent);
 
+
+
+/***/ }),
+
+/***/ "./app/shared/supported-children/supported-children.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupportedChildrenService", function() { return SupportedChildrenService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+let SupportedChildrenService = class SupportedChildrenService {
+    constructor() {
+        this.defaultSupportedChildren = [
+            {
+                id: 0,
+                first_name: "test 1",
+                last_name: "test 1",
+                age: 1,
+                date_of_birth: {
+                    day: 22,
+                    month: 0o7,
+                    year: 2001,
+                },
+                gender: "Male",
+                school: {
+                    school: "school",
+                    level: "education high",
+                    books: "No",
+                },
+                head_of_family: {
+                    hof: "person",
+                    relation: "nephew",
+                },
+                personal_status: "Single",
+                future_educational_goals: "orem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis Nostrud",
+                hygiene_kits: "Yes",
+                medical_support: "Yes",
+                transport_to_clinic: "Yes",
+            },
+            {
+                id: 1,
+                first_name: "test 2",
+                last_name: "test 2",
+                age: 2,
+                date_of_birth: {
+                    day: 22,
+                    month: 0o7,
+                    year: 2001,
+                },
+                gender: "Male",
+                school: {
+                    school: "school",
+                    level: "education high",
+                    books: "No",
+                },
+                head_of_family: {
+                    hof: "person",
+                    relation: "nephew",
+                },
+                personal_status: "Single",
+                future_educational_goals: "orem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis Nostrud",
+                hygiene_kits: "Yes",
+                medical_support: "Yes",
+                transport_to_clinic: "Yes",
+            },
+            {
+                id: 2,
+                first_name: "test 3",
+                last_name: "test 3",
+                age: 3,
+                date_of_birth: {
+                    day: 22,
+                    month: 0o7,
+                    year: 2001,
+                },
+                gender: "Male",
+                school: {
+                    school: "school",
+                    level: "education high",
+                    books: "No",
+                },
+                head_of_family: {
+                    hof: "person",
+                    relation: "nephew",
+                },
+                personal_status: "Single",
+                future_educational_goals: "orem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis Nostrud",
+                hygiene_kits: "Yes",
+                medical_support: "Yes",
+                transport_to_clinic: "Yes",
+            },
+            {
+                id: 3,
+                first_name: "test 4",
+                last_name: "test 4",
+                age: 4,
+                date_of_birth: {
+                    day: 22,
+                    month: 0o7,
+                    year: 2001,
+                },
+                gender: "Male",
+                school: {
+                    school: "school",
+                    level: "education high",
+                    books: "No",
+                },
+                head_of_family: {
+                    hof: "person",
+                    relation: "nephew",
+                },
+                personal_status: "Single",
+                future_educational_goals: "orem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis Nostrud",
+                hygiene_kits: "Yes",
+                medical_support: "Yes",
+                transport_to_clinic: "Yes",
+            },
+            {
+                id: 4,
+                first_name: "test 5",
+                last_name: "test 5",
+                age: 5,
+                date_of_birth: {
+                    day: 22,
+                    month: 0o7,
+                    year: 2001,
+                },
+                gender: "Male",
+                school: {
+                    school: "school",
+                    level: "education high",
+                    books: "No",
+                },
+                head_of_family: {
+                    hof: "person",
+                    relation: "nephew",
+                },
+                personal_status: "Single",
+                future_educational_goals: "orem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis Nostrud",
+                hygiene_kits: "Yes",
+                medical_support: "Yes",
+                transport_to_clinic: "Yes",
+            },
+        ];
+    }
+};
+SupportedChildrenService = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+    __metadata("design:paramtypes", [])
+], SupportedChildrenService);
+
+
+
+/***/ }),
+
+/***/ "./app/shared/text.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Text", function() { return Text; });
+const Text = {
+    /**
+     * Feedback Text
+     */
+    feedbackMissingUsername: "Please Provide Username",
+    feedbackMissingPassword: "Please Provide Password",
+    feedbackMissingUsernamePassword: "Please Provide Both a Username and a Password",
+    feedbackSigningIn: "Signing In User:",
+    feedbackSignedIn: "Signed In User:",
+    feedbackSignInError: "Unfortunately we could not sign in to the account:",
+    feedbackSigningOut: "Signing Out User:",
+    feedbackSignedOut: "Signed Out",
+    feedbackSameLocation: "You're Already At:",
+    feedbackNotImplemented_1: "The Feature",
+    feedbackNotImplemented_2: "Hasn't Been Implemented Yet",
+    /**
+     * Bio Authentication
+     */
+    bioTitle: "Authenticate",
+    bioMessage: "Sign Into User",
+    /**
+     * Header Text
+     */
+    headerBack: "< Back",
+    /**
+     * Dropdown Text
+     */
+    headerSupportedChildren: "Supported Children",
+    headerHeadsFamily: "Heads of Family",
+    headerSponsors: "Sponsors",
+    headerSchools: "Schools",
+    headerWorkers: "Parish Workers",
+    headerOffices: "Assigned Offices",
+    /**
+     * Sign In Text
+     * Default Text
+     * Stays Static
+     */
+    signInUsernameHint: "Username",
+    signInPasswordHint: "Password",
+    signInSignInButton: "Sign In",
+    signInSignUpButton: "Sign Up",
+    signInBioFaceButton: "Use Face ID",
+    signInBioFingerButton: "Use Touch ID",
+    /**
+     * Home Text
+     * Default Text
+     * Some Will Be Changed On Sign In
+     */
+    homeWelcome: "Welcome:\n",
+    homeAllocatedSchool: "Allocated Schools",
+    homeAllocatedChildren: "Allocated Children",
+    homeSignOut: "Sign Out",
+    /**
+     * Supported Children Text
+     */
+    supportedChildrenTitle: "Supported Children",
+    /**
+     * Supported Child Text
+     */
+    supportedChildID: "ID:",
+    supportedChildAge: "Age:",
+    supportedChildSubTitle: "Details",
+    supportedChildHeadingFirstName: "First Name",
+    supportedChildHeadingFamilyName: "Family Name",
+    supportedChildHeadingDateBirth: "Date of Birth",
+    supportedChildHeadingGender: "Gender",
+    supportedChildHeadingSchool: "School",
+    supportedChildHeadingSchoolLevel: "School Level",
+    supportedChildHeadingSchoolBooks: "School Books",
+    supportedChildHeadingHeadFamily: "Head of Family",
+    supportedChildHeadingRelationHeadFamily: "Relation to Head of Family",
+    supportedChildHeadingPersonalStatus: "Personal Status",
+    supportedChildHeadingGoals: "Future Educational Goals",
+    supportedChildHeadingHygieneKits: "Hygiene Kits",
+    supportedChildHeadingMedicalSupport: "Medical Support",
+    supportedChildHeadingTransportToClinics: "Transport to Clinic",
+    /**
+     * Generic Text
+     */
+    genericEditButton: "Edit",
+    genericDoneButton: "Done",
+};
 
 
 /***/ }),
@@ -638,12 +895,8 @@ var HomeComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
-var User = /** @class */ (function () {
-    function User() {
-    }
-    return User;
-}());
-
+class User {
+}
 
 
 /***/ }),
@@ -668,31 +921,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-var UserService = /** @class */ (function () {
-    function UserService() {
-    }
-    UserService.prototype.login = function (user) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
+let UserService = class UserService {
+    constructor() { }
+    login(user) {
+        return new Promise((resolve, reject) => {
             kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.logout()
-                .then(function () {
+                .then(() => {
                 kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_1__["Kinvey"].User.login(user.username, user.password)
                     .then(resolve)
-                    .catch(function (error) { _this.handleErrors(error); reject(); });
+                    .catch((error) => { this.handleErrors(error); reject(); });
             })
-                .catch(function (error) { _this.handleErrors(error); reject(); });
+                .catch((error) => { this.handleErrors(error); reject(); });
         });
-    };
-    UserService.prototype.handleErrors = function (error) {
+    }
+    handleErrors(error) {
         console.error(error.message);
         return error.message;
-    };
-    UserService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [])
-    ], UserService);
-    return UserService;
-}());
+    }
+};
+UserService = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+    __metadata("design:paramtypes", [])
+], UserService);
 
 
 
@@ -701,14 +951,14 @@ var UserService = /** @class */ (function () {
 /***/ "./app/sign-in/sign-in.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n  opacity: 0.5;\n}\n\n:disabled> :disabled {\n  opacity: 1;\n}\n\nFlexboxLayout {\n  justify-content: center;\n  align-items: center;\n  background-size: cover;\n  background-color: #82CC33;\n}\n\nGridLayout {\n  width: 300;\n  padding: 10 16;\n}\n\nButton, TextField {\n  margin: 10 0;\n}\n\n.btn-primary {\n  margin-left: 0;\n  margin-right: 0;\n}\n\nTextField {\n  placeholder-color: #C4AFB4;\n  color: black;\n}\n\n.input, .btn-primary {\n  background-color: white;\n  color: black;\n}\n\n.web-form {\n  display: flex;\n  align-items: center;\n  height: 100vh;\n  margin: auto;\n  width: auto;\n  max-width: 90%;\n}\n\n.web-form-contents {\n  width: fit-content;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  margin: auto;\n}"
+module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n  opacity: 0.5;\n}\n\n:disabled> :disabled {\n  opacity: 1;\n}\n\nFlexboxLayout {\n  justify-content: center;\n  align-items: center;\n  background-size: cover;\n  background-color: #82CC33;\n}\n\nGridLayout {\n  width: 300;\n  padding: 10 16;\n}\n\nButton, TextField {\n  margin: 10 0;\n}\n\n.btn-primary {\n  margin-left: 0;\n  margin-right: 0;\n}\n\nTextField {\n  placeholder-color: #C4AFB4;\n  color: black;\n}\n\n.input, .btn-primary {\n  background-color: white;\n  color: black;\n}\n\n.web-form {\n  display: flex;\n  align-items: center;\n  height: 100vh;\n  margin: auto;\n  width: auto;\n  max-width: 90%;\n}\n\n.web-form-contents {\n  width: fit-content;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  margin: auto;\n}\n\n.SILogo{\n  padding-left: 50%;\n  padding-top: 5%;\n  margin-left: -225px;\n}\n\n.LogIn{\n  padding-left: 50%;\n  margin-left: -86.5px;\n}\n\n.SIBut{\n  margin-top: 20px;\n  margin-left: 50px;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  border-width: 0.5px;\n  border-color: #00000061;\n  padding-left: 20px;\n  padding-right: 20px;\n}\n.SIBut:hover{\n  background-color: #F7DB07;\n  color: #707070;\n}\n\nform{\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif\n}\n\nbody{\n  background-color: #82CC33;\n}\n\ninput{\n  padding: 5px;\n  border-radius: 20px;\n}\n\np{\n  margin-bottom: 5px;\n}\n\n"
 
 /***/ }),
 
 /***/ "./app/sign-in/sign-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto,auto\" columns=\"*\" width=\"90%\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://homeLogo\" stretch=\"aspectFit\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" hint=\"Username\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password hint=\"Password\" secure=\"true\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\" returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? 'Sign In' : 'Sign Up'\" (tap)=\"submit($event)\" class=\"btn btn-primary btn-rounded-lg btn-active\" clearHistory=\"true\"></Button>\n        <Button row=\"4\" [isEnabled]=\"!processing\" (tap)=\"touchID()\" [text]=\"bioType\" [visibility]=\"bioOn\"></Button>\n        <ActivityIndicator rowSpan=\"5\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
+module.exports = "<FlexboxLayout>\n    <GridLayout [isEnabled]=\"!processing\" rows=\"auto,auto,auto,auto,auto\" columns=\"*\" width=\"90%\" class=\"form\">\n        <Image [isEnabled]=\"!processing\" row=\"0\" src=\"res://homeLogo\" stretch=\"aspectFit\"></Image>\n        <TextField row=\"1\" [isEnabled]=\"!processing\" returnKeyType=\"next\" id=\"username\" [hint]=\"Text.signInUsernameHint\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.username\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"switchToPass($event)\"></TextField>\n        <TextField row=\"2\" [isEnabled]=\"!processing\" #password [hint]=\"Text.signInPasswordHint\" secure=\"true\" class=\"input input-rounded input-border\" [(ngModel)]=\"user.password\" autocorrect=\"false\" autocapitalizationType=\"none\" (returnPress)=\"submit($event)\" returnKeyType=\"done\"></TextField>\n        <Button row=\"3\" [isEnabled]=\"!processing\" [text]=\"isLoggingIn ? Text.signInSignInButton : Text.signInSignUpButton\" (tap)=\"submit($event)\" class=\"btn btn-primary btn-rounded-lg btn-active\" clearHistory=\"true\"></Button>\n        <Button row=\"4\" [isEnabled]=\"!processing\" (tap)=\"touchID()\" [text]=\"bioType\" [visibility]=\"bioOn\"></Button>\n        <ActivityIndicator rowSpan=\"5\" [busy]=\"processing\"></ActivityIndicator>\n    </GridLayout>\n</FlexboxLayout>"
 
 /***/ }),
 
@@ -722,14 +972,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
 /* harmony import */ var tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./app/shared/user/user.model.ts");
-/* harmony import */ var _shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/shared/user/user.service.ts");
-/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
-/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
-/* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("../node_modules/nativescript-fingerprint-auth/fingerprint-auth.js");
-/* harmony import */ var nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _shared_text__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./app/shared/text.ts");
+/* harmony import */ var _shared_user_user_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/shared/user/user.model.ts");
+/* harmony import */ var _shared_user_user_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./app/shared/user/user.service.ts");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("../node_modules/kinvey-nativescript-sdk/kinvey-nativescript-sdk.js");
+/* harmony import */ var kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("../node_modules/nativescript-fingerprint-auth/fingerprint-auth.js");
+/* harmony import */ var nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_8__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -747,9 +998,9 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var SignInComponent = /** @class */ (function () {
-    function SignInComponent(user, router, userService, page) {
-        var _this = this;
+
+let SignInComponent = class SignInComponent {
+    constructor(user, router, userService, page) {
         this.user = user;
         this.router = router;
         this.userService = userService;
@@ -758,109 +1009,267 @@ var SignInComponent = /** @class */ (function () {
         this.processing = false;
         this.bioType = null;
         this.bioOn = "hidden";
-        this.user = new _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]();
-        this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__["Feedback"]();
-        this.fingerprintAuth = new nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_7__["FingerprintAuth"]();
-        this.fingerprintAuth.available().then(function (result) {
-            _this.bioValues = result;
+        this.Text = _shared_text__WEBPACK_IMPORTED_MODULE_3__["Text"];
+        this.user = new _shared_user_user_model__WEBPACK_IMPORTED_MODULE_4__["User"]();
+        this.feedback = new nativescript_feedback__WEBPACK_IMPORTED_MODULE_6__["Feedback"]();
+        this.fingerprintAuth = new nativescript_fingerprint_auth__WEBPACK_IMPORTED_MODULE_8__["FingerprintAuth"]();
+        this.fingerprintAuth.available().then((result) => {
+            this.bioValues = result;
         });
         this.page.actionBarHidden = true;
         this.page.enableSwipeBackNavigation = false;
     }
     ;
-    SignInComponent.prototype.ngOnInit = function () {
+    ngOnInit() {
         if (this.bioValues.face) {
-            this.bioType = "Use Face ID";
+            this.bioType = this.Text.signInBioFaceButton;
         }
         else if (this.bioValues.touch) {
-            this.bioType = "Use Touch ID";
+            this.bioType = this.Text.signInBioFingerButton;
         }
-        if (kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6__["Kinvey"].User.getActiveUser()) {
-            console.log("Auto Sign In: " + this.bioType);
-            kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6__["Kinvey"].User.getActiveUser().me();
-            this.user.username = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_6__["Kinvey"].User.getActiveUser().username;
+        if (kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__["Kinvey"].User.getActiveUser()) {
+            kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__["Kinvey"].User.getActiveUser().me();
+            this.user.username = kinvey_nativescript_sdk__WEBPACK_IMPORTED_MODULE_7__["Kinvey"].User.getActiveUser().username;
             this.bioOn = "visible";
         }
         ;
-    };
+    }
     ;
-    SignInComponent.prototype.switchToPass = function (args) {
+    switchToPass(args) {
         this.password.nativeElement.focus();
-    };
-    SignInComponent.prototype.submit = function (args) {
+    }
+    submit(args) {
         this.processing = true;
         if (!this.user.username && this.user.password) {
             this.feedback.error({
-                message: "Please Provide Username"
+                message: this.Text.feedbackMissingUsername
             });
             this.processing = false;
         }
         else if (this.user.username && !this.user.password) {
             this.feedback.error({
-                message: "Please Provide Password"
+                message: this.Text.feedbackMissingPassword
             });
             this.processing = false;
         }
         else if (!this.user.username && !this.user.password) {
             this.feedback.error({
-                message: "Please Provide Both a Username and a Password"
+                message: this.Text.feedbackMissingUsernamePassword
             });
             this.processing = false;
         }
         else {
             this.feedback.info({
-                message: "Signing In User: " + this.user.username
+                message: `${this.Text.feedbackSigningIn} ${this.user.username}`
             });
             this.login();
         }
-    };
-    SignInComponent.prototype.login = function () {
-        var _this = this;
+    }
+    login() {
         this.userService.login(this.user)
-            .then(function () {
-            _this.processing = false;
-            _this.feedback.success({
-                message: "Signed In User: " + _this.user.username
+            .then(() => {
+            this.processing = false;
+            this.feedback.success({
+                message: `${this.Text.feedbackSignedIn} ${this.user.username}`
             });
-            _this.router.navigate(["/home"]);
+            this.router.navigate(["/home"]);
         })
-            .catch(function () {
-            _this.processing = false;
-            _this.feedback.error({
-                message: "Unfortunately we could not sign in to the account: " + _this.user.username
+            .catch(() => {
+            this.processing = false;
+            this.feedback.error({
+                message: `${this.Text.feedbackSignInError} ${this.user.username}`
             });
         });
-    };
-    SignInComponent.prototype.touchID = function () {
-        var _this = this;
+    }
+    touchID() {
         this.fingerprintAuth.verifyFingerprint({
-            title: 'Authenticate',
-            message: "Sign Into User '" + this.user.username + "'",
+            title: this.Text.bioTitle,
+            message: `${this.Text.bioMessage} '${this.user.username}'`,
             authenticationValidityDuration: 10,
             useCustomAndroidUI: false // set to true to use a different authentication screen (see below)
         })
-            .then(function () {
-            _this.router.navigate(["/home"]);
+            .then(() => {
+            this.router.navigate(["/home"]);
         });
-    };
-    __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("password"),
-        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
-    ], SignInComponent.prototype, "password", void 0);
-    SignInComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-sign-in',
-            template: __webpack_require__("./app/sign-in/sign-in.component.html"),
-            providers: [_shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"], _shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"]],
-            styles: [__webpack_require__("./app/sign-in/sign-in.component.css")]
-        }),
-        __metadata("design:paramtypes", [_shared_user_user_model__WEBPACK_IMPORTED_MODULE_3__["User"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
-            _shared_user_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-            tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__["Page"]])
-    ], SignInComponent);
-    return SignInComponent;
-}());
+    }
+};
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("password"),
+    __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"])
+], SignInComponent.prototype, "password", void 0);
+SignInComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-sign-in',
+        template: __webpack_require__("./app/sign-in/sign-in.component.html"),
+        providers: [_shared_user_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"], _shared_user_user_model__WEBPACK_IMPORTED_MODULE_4__["User"]],
+        styles: [__webpack_require__("./app/sign-in/sign-in.component.css")]
+    }),
+    __metadata("design:paramtypes", [_shared_user_user_model__WEBPACK_IMPORTED_MODULE_4__["User"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+        _shared_user_user_service__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+        tns_core_modules_ui_page__WEBPACK_IMPORTED_MODULE_2__["Page"]])
+], SignInComponent);
+
+
+
+/***/ }),
+
+/***/ "./app/supported-child/supported-child.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n\topacity: 0.5;\n}\n\n:disabled> :disabled {\n\topacity: 1;\n}\n\nFlexboxLayout {\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-size: cover;\n\tbackground-color: #82CC33;\n}\n\nGridLayout {\n\twidth: 300;\n\tpadding: 10 16;\n}\n\nButton, Label {\n\tmargin: 10 0;\n}\n\n.btn-primary {\n\tmargin-left: 0;\n\tmargin-right: 0;\n}\n\nTextField {\n\tplaceholder-color: #C4AFB4;\n\tcolor: black;\n}\n\n.input, .btn-primary {\n\tbackground-color: white;\n\tcolor: black;\n}\n\n.web-form {\n\tdisplay: flex;\n\talign-items: center;\n\theight: 100vh;\n\tmargin: auto;\n\twidth: auto;\n\tmax-width: 90%;\n}\n\n.web-form-contents {\n\twidth: fit-content;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin: auto;\n}\n\nbutton {\n\tfont-size: 15;\n\thorizontal-align: center;\n}\n\n.drawerContentText {\n\tfont-size: 13;\n\tpadding: 10;\n}\n\n.drawerContentButton {\n\tmargin: 10;\n\thorizontal-align: center;\n}\n\n.sideStackLayout {\n\tbackground-color: #A8F259;\n}\n\n.sideLabel {\n\tpadding: 10;\n\ttext-align: center;\n}\n\n.footer {\n\tborder-color: black;\n\tborder-width: 1 0 0 0;\n\tvertical-align: center;\n\twidth: 100%;\n\tjustify-content: center;\n\tdisplay: flex;\n\talign-items: center;\n\tbox-pack: center;\n\tjustify-content: center;\n\toverflow: hidden;\n\tmargin: auto;\n\theight: 80;\n}\n\n#actionBar {\n\tbackground-color: #82CC33;\n\tborder-color: black;\n\tborder-width: 0 0 1 0;\n\t/* #A8F259 */\n\t/* background-color: #A8F259 */\n}\n\n.action-image {\n\theight: 30;\n\tvertical-align: center;\n\thorizontal-align: center;\n}\n\n.btn-img {\n\tborder-radius: 5;\n\tborder-width: 1;\n\tmargin: 10;\n\tcolor: black;\n\tborder-color: #A8F259;\n\tbackground-color: #82CC33;\n\ttext-align: center;\n}\n\n.flex-btn {\n\talign-items: center;\n\tjustify-content: center;\n}\n\n/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:45;\n    height:45;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.txt-left {\n\ttext-align: left;\n}"
+
+/***/ }),
+
+/***/ "./app/supported-child/supported-child.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ScrollView>\n    <StackLayout>\n        <StackLayout orientation=\"horizontal\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label text=\"ID: {{target.id}}\" class=\"p-6\"></Label>\n            <Label text=\"Age: {{target.age}}\" class=\"p-10\"></Label>\n        </StackLayout>\n        <StackLayout class=\"form\">\n            <StackLayout></StackLayout>\n            <Label text=\"Details\" class=\"h1\"></Label>\n    \n            <Label class=\"label font-weight-bold m-b-5\" text=\"First Name\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <TextField #FirstName [text]=\"target.first_name\" class=\"input input-border\"></TextField>\n                <Button .editButton [text]=\"Text.genericEditButton\" (tap)=\"none\"></Button>\n            </StackLayout>\n    \n            <Label class=\"label font-weight-bold m-b-5\" text=\"Family Name\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <TextField #FamilyName [text]=\"target.last_name\" class=\"input input-border\"></TextField>\n                <Button .editButton [text]=\"Text.genericEditButton\" (tap)=\"none\"></Button>\n            </StackLayout>\n    \n            <Label class=\"label font-weight-bold m-b-5\" text=\"Date of Birth\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <Label #DateOfBirth visibility=\"visible\" text=\"{{target.date_of_birth.day}}/{{target.date_of_birth.month}}/{{target.date_of_birth.year}}\" class=\"input input-border\"></Label>\n                <Button #DateButton .editButton [text]=\"Text.genericEditButton\" (tap)=\"datePickerSwitch('DateOfBirthPicker', 'DateButton')\"></Button>\n            </StackLayout>\n            <DatePicker #DatePicker id='DateOfBirthPicker' visibility=\"collapsed\" [year]=\"target.date_of_birth.year\" [month]=\"target.date_of_birth.month\" [day]=\"target.date_of_birth.day\"></DatePicker>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"Gender\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <Label #Gender visibility=\"visible\" [text]=\"target.gender\" class=\"input input-border\"></Label>\n                <Button #GenderButton .editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('GenderPicker', 'GenderButton')\"></Button>\n            </StackLayout>\n            <ListPicker #ListPicker id='GenderPicker' visibility=\"collapsed\" [picked]=\"target.gender\" [items]=\"gender\"></ListPicker>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"School\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <Label #School [text]=\"target.school.school\" class=\"input input-border\"></Label>\n                <Button #SchoolButton .editButton [text]=\"Text.genericEditButton\" (tap)=\"none\"></Button>\n            </StackLayout>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"School Level\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <Label #SchoolLevel visibility=\"visible\" [text]=\"target.school.level\" class=\"input input-border\"></Label>\n                <Button #SchoolLevelButton .editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('SchoolLevelPicker', 'SchoolLevelButton')\"></Button>\n            </StackLayout>\n            <ListPicker id='SchoolLevelPicker' #ListPicker visibility=\"collapsed\" [picked]=\"target.school.level\" [items]=\"school.level\"></ListPicker>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"School Books\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <Label #SchoolBooks visibility=\"visible\" [text]=\"target.school.books\" class=\"input input-border\"></Label>\n                <Button #SchoolBooksButton .editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('SchoolBooksPicker', 'SchoolBooksButton')\"></Button>\n            </StackLayout>\n            <ListPicker id='SchoolBooksPicker' #ListPicker visibility=\"collapsed\" [picked]=\"target.school.books\" [items]=\"school.books\"></ListPicker>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"Head of Family\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <TextField #HeadOfFamily [text]=\"target.head_of_family.hof\" class=\"input input-border\"></TextField>\n                <Button .editButton [text]=\"Text.genericEditButton\" (tap)=\"none\"></Button>\n            </StackLayout>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"Relation to Head of Family\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <TextField #RelationToHOF [text]=\"target.head_of_family.relation\" class=\"input input-border\"></TextField>\n                <Button .editButton [text]=\"Text.genericEditButton\" (tap)=\"none\"></Button>\n            </StackLayout>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"Personal Status\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <Label #PersonalStatus visibility=\"visible\" [text]=\"target.personal_status\" class=\"input input-border\"></Label>\n                <Button .editButton #PersonalButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('PersonalStatusPicker', 'PersonalButton')\"></Button>\n            </StackLayout>\n            <ListPicker id='PersonalStatusPicker' #ListPicker visibility=\"collapsed\" [picked]=\"target.personal_status\" [items]=\"personal_status\"></ListPicker>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"Future Educational Goals\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <TextView #FutureEducationalGoals [text]=\"target.future_educational_goals\" class=\"input input-border\"></TextView>\n                <Button .editButton [text]=\"Text.genericEditButton\" (tap)=\"none\"></Button>\n            </StackLayout>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"Hygiene Kits\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <Label #HygieneKits visibility=\"visible\" [text]=\"target.hygiene_kits\" class=\"input input-border\"></Label>\n                <Button #HygieneButton .editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('HygieneKitsPicker', 'HygieneButton')\"></Button>\n            </StackLayout>\n            <ListPicker id='HygieneKitsPicker' #ListPicker visibility=\"collapsed\" [picked]=\"target.hygiene_kits\" [items]=\"hygiene_kits\"></ListPicker>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"Medical Support\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <Label #MedicalSupport visibility=\"visible\" [text]=\"target.medical_support\" class=\"input input-border\"></Label>\n                <Button #MedicalButton .editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('MedicalSupportPicker', 'MedicalButton')\"></Button>\n            </StackLayout>\n            <ListPicker id='MedicalSupportPicker' #ListPicker visibility=\"collapsed\" [picked]=\"target.medical_support\" [items]=\"medical_support\"></ListPicker>\n            \n            <Label class=\"label font-weight-bold m-b-5\" text=\"Transport to Clinic\"></Label>\n            <StackLayout orientation=\"horizontal\">\n                <Label #TransportToClinic visibility=\"visible\" [text]=\"target.transport_to_clinic\" class=\"input input-border\"></Label>\n                <Button #TransportButton .editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('TransportToClinicPicker', 'TransportButton')\"></Button>\n            </StackLayout>\n            <ListPicker id=\"TransportToClinicPicker\" #ListPicker visibility=\"collapsed\" [picked]=\"target.transport_to_clinic\" [items]=\"transport_to_clinic\"></ListPicker>\n        </StackLayout>\n    </StackLayout>\n</ScrollView>"
+
+/***/ }),
+
+/***/ "./app/supported-child/supported-child.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupportedChildComponent", function() { return SupportedChildComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./app/shared/supported-children/supported-children.service.ts");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _shared_text__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/shared/text.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+let SupportedChildComponent = class SupportedChildComponent {
+    constructor(route, page, view) {
+        this.route = route;
+        this.page = page;
+        this.view = view;
+        this.supportedChildren = new _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_2__["SupportedChildrenService"]().defaultSupportedChildren;
+        this.dataAvailable = false;
+        this.Text = _shared_text__WEBPACK_IMPORTED_MODULE_4__["Text"];
+        this.gender = ["Male", "Female", "Other"];
+        this.school = {
+            level: ["education high"],
+            books: ["Yes", "No"]
+        };
+        this.personal_status = ["Single"];
+        this.hygiene_kits = ["Yes", "No"];
+        this.medical_support = ["Yes", "No"];
+        this.transport_to_clinic = ["Yes", "No"];
+        this.page.actionBarHidden = true;
+    }
+    ngOnInit() {
+        this.targetId = this.route.snapshot.params['child'];
+        for (let i of this.supportedChildren) {
+            if (i.id == this.targetId) {
+                this.target = i;
+            }
+        }
+    }
+    /** TODO:
+     * Need to edit Button Text. Will Need Element Array of the Buttons. Change content of the Element with the same ID
+     * For listPickerSwitch
+     * For datePickerSwitch
+     */
+    listPickerSwitch(switchID, buttonID) {
+        /*let button = this.view.getViewById(buttonID)
+        this.listPickers.forEach((i) => {
+            if (i.nativeElement.id == switchID) {
+                if (i.nativeElement.visibility == "visible") {
+                    i.nativeElement.visibility = "collapsed"
+                    button.nativeView.text = "Edit"
+                } else {
+                    i.nativeElement.visibility = "visible"
+                    button.nativeView.text = "Done"
+                }
+            } else {
+                i.nativeElement.visibility = "collapsed";
+                //i.nativeElement.text = "Edit"
+            }
+        })*/
+        let button = this.view.getViewById(buttonID);
+        this.editButtons.forEach((i) => {
+            i.nativeElement.text = this.Text.genericEditButton;
+        });
+        this.datePickers.forEach((i) => {
+            if (i.nativeElement.id == switchID) { //Selects the correct date picker
+                if (i.nativeElement.visibility == "visible") { //If the picker is visible
+                    i.nativeElement.visibility = "collapsed";
+                    button.nativeView.text = this.Text.genericEditButton;
+                }
+                else {
+                    i.nativeElement.visibility = "visible";
+                    button.nativeView.text = this.Text.genericDoneButton;
+                }
+            }
+            else { //Hides all other Pickers
+                this.listPickers.forEach((i) => {
+                    i.nativeElement.visibility = "collapsed";
+                });
+            }
+        });
+    }
+    datePickerSwitch(switchID, buttonID) {
+        let button = this.view.getViewById(buttonID);
+        this.editButtons.forEach((i) => {
+            i.nativeElement.text = this.Text.genericEditButton;
+        });
+        this.datePickers.forEach((i) => {
+            if (i.nativeElement.id == switchID) { //Selects the correct date picker
+                if (i.nativeElement.visibility == "visible") { //If the picker is visible
+                    i.nativeElement.visibility = "collapsed";
+                    button.nativeView.text = this.Text.genericEditButton;
+                }
+                else {
+                    i.nativeElement.visibility = "visible";
+                    button.nativeView.text = this.Text.genericDoneButton;
+                }
+            }
+            else { //Hides all other Pickers
+                this.listPickers.forEach((i) => {
+                    i.nativeElement.visibility = "collapsed";
+                });
+            }
+        });
+    }
+};
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('ListPicker'),
+    __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+], SupportedChildComponent.prototype, "listPickers", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('DatePicker'),
+    __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+], SupportedChildComponent.prototype, "datePickers", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('editButton'),
+    __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+], SupportedChildComponent.prototype, "editButtons", void 0);
+SupportedChildComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-supported-child',
+        template: __webpack_require__("./app/supported-child/supported-child.component.html"),
+        styles: [__webpack_require__("./app/supported-child/supported-child.component.css")]
+    }),
+    __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+        tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["Page"],
+        tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["View"]])
+], SupportedChildComponent);
 
 
 
@@ -869,14 +1278,14 @@ var SignInComponent = /** @class */ (function () {
 /***/ "./app/supported-children/supported-children.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n\topacity: 0.5;\n}\n\n:disabled> :disabled {\n\topacity: 1;\n}\n\nFlexboxLayout {\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-size: cover;\n\tbackground-color: #82CC33;\n}\n\nGridLayout {\n\twidth: 300;\n\tpadding: 10 16;\n}\n\nButton, TextField {\n\tmargin: 10 0;\n}\n\n.btn-primary {\n\tmargin-left: 0;\n\tmargin-right: 0;\n}\n\nTextField {\n\tplaceholder-color: #C4AFB4;\n\tcolor: black;\n}\n\n.input, .btn-primary {\n\tbackground-color: white;\n\tcolor: black;\n}\n\n.web-form {\n\tdisplay: flex;\n\talign-items: center;\n\theight: 100vh;\n\tmargin: auto;\n\twidth: auto;\n\tmax-width: 90%;\n}\n\n.web-form-contents {\n\twidth: fit-content;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin: auto;\n}\n\nbutton {\n\tfont-size: 15;\n\thorizontal-align: center;\n}\n\n.drawerContentText {\n\tfont-size: 13;\n\tpadding: 10;\n}\n\n.drawerContentButton {\n\tmargin: 10;\n\thorizontal-align: center;\n}\n\n.sideStackLayout {\n\tbackground-color: #A8F259;\n}\n\n.sideLabel {\n\tpadding: 10;\n\ttext-align: center;\n}\n\n.footer {\n\tborder-color: black;\n\tborder-width: 1 0 0 0;\n\tvertical-align: center;\n\twidth: 100%;\n\tjustify-content: center;\n\tdisplay: flex;\n\talign-items: center;\n\tbox-pack: center;\n\tjustify-content: center;\n\toverflow: hidden;\n\tmargin: auto;\n\theight: 80;\n}\n\n#actionBar {\n\tbackground-color: #82CC33;\n\tborder-color: black;\n\tborder-width: 0 0 1 0;\n\t/* #A8F259 */\n\t/* background-color: #A8F259 */\n}\n\n.action-image {\n\theight: 30;\n\tvertical-align: center;\n\thorizontal-align: center;\n}\n\n.btn-img {\n\tborder-radius: 5;\n\tborder-width: 1;\n\tmargin: 10;\n\tcolor: black;\n\tborder-color: #A8F259;\n\tbackground-color: #82CC33;\n\ttext-align: center;\n}\n\n.flex-btn {\n\talign-items: center;\n\tjustify-content: center;\n}\n\n/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:90;\n    height:90;\n    margin: 5;\n}\n\n.page {\n    background-color: #A8F259;\n}"
+module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n\topacity: 0.5;\n}\n\n:disabled> :disabled {\n\topacity: 1;\n}\n\nFlexboxLayout {\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-size: cover;\n\tbackground-color: #82CC33;\n}\n\nGridLayout {\n\twidth: 300;\n\tpadding: 10 16;\n}\n\nButton, TextField {\n\tmargin: 10 0;\n}\n\n.btn-primary {\n\tmargin-left: 0;\n\tmargin-right: 0;\n}\n\nTextField {\n\tplaceholder-color: #C4AFB4;\n\tcolor: black;\n}\n\n.input, .btn-primary {\n\tbackground-color: white;\n\tcolor: black;\n}\n\n.web-form {\n\tdisplay: flex;\n\talign-items: center;\n\theight: 100vh;\n\tmargin: auto;\n\twidth: auto;\n\tmax-width: 90%;\n}\n\n.web-form-contents {\n\twidth: fit-content;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin: auto;\n}\n\nbutton {\n\tfont-size: 15;\n\thorizontal-align: center;\n}\n\n.drawerContentText {\n\tfont-size: 13;\n\tpadding: 10;\n}\n\n.drawerContentButton {\n\tmargin: 10;\n\thorizontal-align: center;\n}\n\n.sideStackLayout {\n\tbackground-color: #A8F259;\n}\n\n.sideLabel {\n\tpadding: 10;\n\ttext-align: center;\n}\n\n.footer {\n\tborder-color: black;\n\tborder-width: 1 0 0 0;\n\tvertical-align: center;\n\twidth: 100%;\n\tjustify-content: center;\n\tdisplay: flex;\n\talign-items: center;\n\tbox-pack: center;\n\tjustify-content: center;\n\toverflow: hidden;\n\tmargin: auto;\n\theight: 80;\n}\n\n#actionBar {\n\tbackground-color: #82CC33;\n\tborder-color: black;\n\tborder-width: 0 0 1 0;\n\t/* #A8F259 */\n\t/* background-color: #A8F259 */\n}\n\n.action-image {\n\theight: 30;\n\tvertical-align: center;\n\thorizontal-align: center;\n}\n\n.btn-img {\n\tborder-radius: 5;\n\tborder-width: 1;\n\tmargin: 10;\n\tcolor: black;\n\tborder-color: #A8F259;\n\tbackground-color: #82CC33;\n\ttext-align: center;\n}\n\n.flex-btn {\n\talign-items: center;\n\tjustify-content: center;\n}\n\n/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:45;\n    height:45;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.txt-left {\n\ttext-align: left;\n}"
 
 /***/ }),
 
 /***/ "./app/supported-children/supported-children.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n            <Label text=\"Hello?\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n            <!-- <SearchBar></SearchBar> -->\n        </FlexboxLayout>\n        \n        <GridLayout *ngFor=\"let i of [1,2,3,4,5]\" rows=\"auto,auto,auto\" columns=\"*,*,*,*,*\" class=\"p-20 btn-img flex-btn\">\n            <Image row=\"0\" col=\"0\" rowSpan=\"3\" src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label row=\"0\" col=\"1\" [text]=\"i\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n            <Image row=\"0\" col=\"4\" rowSpan=\"3\" src=\"res://rightArrow\"></Image>\n            <Label row=\"1\" col=\"1\" text=\"FNAME\"></Label>\n            <Label row=\"1\" col=\"2\" text=\"SNAME\"></Label>\n            <Label row=\"1\" col=\"3\" text=\"|  AGE\"></Label>\n            <Label row=\"2\" col=\"1\" text=\"forgotten field\"></Label>\n        </GridLayout>\n    </StackLayout>\n</ScrollView>"
+module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n            <Label [text]=\"Text.supportedChildrenTitle\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n            <!-- <SearchBar></SearchBar> -->\n        </FlexboxLayout>\n        \n        <GridLayout *ngFor=\"let i of supportedChildren\" rows=\"*,2*,*\" columns=\"*,auto,auto,auto,*\" class=\"p-20 btn-img flex-btn\">\n            <Label row=\"0\" col=\"4\" [text]=\"i.id\" class=\"p-6\"></Label>\n            <Image row=\"1\" col=\"0\" src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Image row=\"1\" col=\"4\" src=\"res://rightArrow\" (tap)=\"viewChild(i.id)\"></Image>\n            <Label row=\"1\" col=\"1\" colSpan=\"2\" text=\"{{i.first_name}} {{i.last_name}}\" class=\"p-10\"></Label>\n            <Label row=\"1\" col=\"3\" text=\"|  {{ i.age}}\" class=\"p-10\"></Label>\n            <Label row=\"2\" col=\"1\" colSpan=\"2\" [text]=\"i.school.school\" class=\"p-10\"></Label>\n        </GridLayout>\n    </StackLayout>\n</ScrollView>"
 
 /***/ }),
 
@@ -892,6 +1301,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
 /* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/shared/supported-children/supported-children.service.ts");
+/* harmony import */ var _shared_text__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./app/shared/text.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -905,27 +1316,33 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var SupportedChildrenComponent = /** @class */ (function () {
-    function SupportedChildrenComponent(page, router, feedback) {
+
+
+let SupportedChildrenComponent = class SupportedChildrenComponent {
+    constructor(page, router, feedback) {
         this.page = page;
         this.router = router;
         this.feedback = feedback;
+        this.supportedChildren = new _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_4__["SupportedChildrenService"]().defaultSupportedChildren;
+        this.Text = _shared_text__WEBPACK_IMPORTED_MODULE_5__["Text"];
         this.page.actionBarHidden = true;
     }
-    SupportedChildrenComponent.prototype.ngOnInit = function () {
-    };
-    SupportedChildrenComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-            selector: 'app-supported-children',
-            template: __webpack_require__("./app/supported-children/supported-children.component.html"),
-            styles: [__webpack_require__("./app/supported-children/supported-children.component.css")]
-        }),
-        __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["Page"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            nativescript_feedback__WEBPACK_IMPORTED_MODULE_1__["Feedback"]])
-    ], SupportedChildrenComponent);
-    return SupportedChildrenComponent;
-}());
+    ngOnInit() {
+    }
+    viewChild(target) {
+        this.router.navigate(['/supported-child/', target]);
+    }
+};
+SupportedChildrenComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-supported-children',
+        template: __webpack_require__("./app/supported-children/supported-children.component.html"),
+        styles: [__webpack_require__("./app/supported-children/supported-children.component.css")]
+    }),
+    __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["Page"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        nativescript_feedback__WEBPACK_IMPORTED_MODULE_1__["Feedback"]])
+], SupportedChildrenComponent);
 
 
 
