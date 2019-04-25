@@ -113,6 +113,7 @@ exports.Pink = "#FFC0CB";
 exports.Plum = "#DDA0DD";
 exports.PowderBlue = "#B0E0E6";
 exports.Purple = "#800080";
+exports.RebeccaPurple = "#663399";
 exports.Red = "#FF0000";
 exports.RosyBrown = "#BC8F8F";
 exports.RoyalBlue = "#4169E1";

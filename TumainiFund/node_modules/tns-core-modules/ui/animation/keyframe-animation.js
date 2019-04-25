@@ -198,7 +198,8 @@ var KeyframeAnimation = (function () {
                 animation = new animation_1.Animation([animationDef]);
                 this._nativeAnimations.push(animation);
             }
-            animation.play().then(function () {
+            var isLastIteration = iterations - 1 <= 0;
+            animation.play(isLastIteration).then(function () {
                 _this.animate(view, index + 1, iterations);
             }, function (error) {
                 trace_1.write(typeof error === "string" ? error : error.message, trace_1.categories.Animation, trace_1.messageType.warn);

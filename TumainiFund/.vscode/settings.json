@@ -4,5 +4,6 @@
     ],
     "editor.wordWrap": "off",
     "editor.wrappingIndent": "none",
-    "html.format.wrapLineLength": 0
+    "html.format.wrapLineLength": 0,
+    "git.ignoreLimitWarning": true
 }

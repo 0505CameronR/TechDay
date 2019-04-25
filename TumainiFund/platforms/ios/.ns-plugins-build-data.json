@@ -5,17 +5,17 @@
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/kinvey-nativescript-sdk/platforms/ios/Info.plist.mic": "06c4786a62b8e534feef7c6b4278c0ce0ee7080b"
 	},
 	"nativescript-feedback": {
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-feedback/platforms/ios/Podfile": "d084c9fa6a0ec72701ea6b77765e0de7121ab922"
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-feedback/platforms/ios/Podfile": "073780ae201df558486db27155278c3143a4cf0e"
 	},
 	"nativescript-fingerprint-auth": {
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-fingerprint-auth/platforms/ios/Info.plist": "d13847e11eb66efcc6a2a6fd27d5f920759d92b1"
 	},
 	"nativescript-iqkeyboardmanager": {
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-iqkeyboardmanager/platforms/ios/Podfile": "349e0dc7b66621aa38a644c86e5b4db7fd0326b4"
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-iqkeyboardmanager/platforms/ios/Podfile": "5092a1d2ce6bf004814ff8095d297bdcf7a410f7"
 	},
 	"nativescript-ui-sidedrawer": {
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/SideDrawerPush.h": "1f820a1575f887fecfe6f7725f6ccfadd38026db",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/SideDrawerFadeIn.h": "9b8be80788e5533a2c4e4a1b276d332dca3ee096",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/SideDrawerPush.h": "1f820a1575f887fecfe6f7725f6ccfadd38026db",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/SideDrawerReveal.h": "b32b2d5ae3f34b2fda95f1ccb5fba4899ee86db1",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/SideDrawerReverseSlideOut.h": "cff3d8a8b2da25ba83c85e075b814947f5a106a5",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/SideDrawerScaleDownPusher.h": "6d119315b12c10b09c5d23e8ede8a6204e062959",
@@ -23,27 +23,27 @@
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/SideDrawerScaleUp.h": "68a14f934bccd505abfe7e8454184f92ae637976",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/SideDrawerSlideInOnTop.h": "f07b99806f948550187084a76dadf783321c95dd",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawer.h": "83c5774102efadde7d6287a929c9233a6729812b",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerEdgePanRecognizer.h": "6dcb3b90508cb7c2a6fa82bef5f3f3066e44a459",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerHeader.h": "45c3f24b3e2648c1ef696e445140314f3e13b322",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerController.h": "ead97a0d8acebb64fcf47153b561aa422cff3bf0",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerEdgePanRecognizer.h": "6dcb3b90508cb7c2a6fa82bef5f3f3066e44a459",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerDefaultTheme.h": "371fa6f60e57613ecb59a4c3653dfcde28a67fe3",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerHeader.h": "45c3f24b3e2648c1ef696e445140314f3e13b322",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerItem.h": "a4278c63da0ebe9e3ce55fedec73de86bac65bf7",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerItemStyle.h": "ea99fc48ad64e2db2dfdbf83a6f5449f26099cc9",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerSection.h": "4379dbd9add98f83579ca69a5c269d0f2cadde5d",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerTableView.h": "23e2fb18020952d8383829fdd590e188b342ef4c",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerTransition.h": "d3d19bacfe52ef1b4a1d38239d5b0c37c6ebb0ed",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerStyle.h": "ba8016eccec158a1246ca253afb22c44da82df14",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerTableView.h": "23e2fb18020952d8383829fdd590e188b342ef4c",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerView.h": "836bfdcf00891bcffc3dab0bfb660bb432b402db",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Info.plist": "aad60a768a31513f729dda02dc62ae68c6b94ab0",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerTableViewCell.h": "475c7a913f909fa94903fb9ee051fe9062c24c4b",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerTransition.h": "d3d19bacfe52ef1b4a1d38239d5b0c37c6ebb0ed",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Info.plist": "b39a21f0e4e349810e81d7e09aa6d0adbe923fa0",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Modules/module.modulemap": "d598f2b29b6e21ec644826e722070de93942543f",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TNSSideDrawer.h": "9082991d7e6c9bffde45d871bbd45dcce38fd9b7",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/PrivateHeaders/SideDrawerReveal_Internal.h": "33b0486fde2ace38b04980443c4f4f48cdfaac4b",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/PrivateHeaders/TKSideDrawerItem_Internal.h": "97ea82ffd29f52e6b3ed11429c2fb7c2d466cd4a",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/PrivateHeaders/TKSideDrawerTransition_Internal.h": "87f14b6d7d0dab1e3d25fc131a3532f567aa340d",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TKSideDrawerTableViewCell.h": "475c7a913f909fa94903fb9ee051fe9062c24c4b",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/PrivateHeaders/TKSideDrawer_Internal.h": "03ad5627ccc226b0a44ef780d451d1532ea85d6f",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/Headers/TNSSideDrawer.h": "9082991d7e6c9bffde45d871bbd45dcce38fd9b7",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/typings/sidedrawer.d.ts": "cbd1b4ded5073aef3bcdefb7024f3a4d6669a763",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/TNSSideDrawer": "2439857003f4384c2496c2d21758064cc682c8c2"
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework/TNSSideDrawer": "d611fc719730466412b18b698a58440adc992967"
 	},
 	"tns-core-modules": {
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules/platforms/ios/src/NativeScriptEmbedder.h": "61d5332c711cc0ac62e0194e18077d2ff5293b11",
@@ -113,13 +113,13 @@
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-ui-core/platforms/ios/TNSCore.framework/TNSCore": "7e892620ed3f15f51cce3ca824ad750ee9ef4e0e"
 	},
 	"tns-core-modules-widgets": {
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/Headers/TNSWidgets.h": "f1435d046b4a9dd5d631db5ba5c9ddff04ee4bc3",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/Headers/TNSLabel.h": "c7c5788d3ea834d96cf8a137cbf0c4ea28fd7829",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/Headers/TNSProcess.h": "787f09c57ede174d6323990e6d6e9eaf134da6f0",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/Headers/UIImage+TNSBlocks.h": "3b31a5be818e25c142e99f98479c538632d350ae",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/Headers/TNSLabel.h": "c7c5788d3ea834d96cf8a137cbf0c4ea28fd7829",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/Headers/TNSWidgets.h": "f1435d046b4a9dd5d631db5ba5c9ddff04ee4bc3",
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/Info.plist": "19cd3faab8cc2d1419059d2904afd14b7560910a",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/Modules/module.modulemap": "00d2220e76eb098f1808eb4e9b5c43ad4cadf1da",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/Info.plist": "dc8fd3b747be7a8137d97e6942de2b2baede4ec1",
 		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/Headers/UIView+PassThroughParent.h": "cddc4157f40983b34fcb1d3846666b5ecc5b1ca5",
-		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/TNSWidgets": "e07d83706927157fd90a4dc72de65c86595bd0ab"
+		"/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework/TNSWidgets": "e9d74a8d7cb71c16d0799de83310f8b5a6c6a7e8"
 	}
 }

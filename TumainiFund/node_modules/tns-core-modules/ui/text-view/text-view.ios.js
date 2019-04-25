@@ -79,13 +79,23 @@ var UITextViewDelegateImpl = (function (_super) {
     UITextViewDelegateImpl.ObjCProtocols = [UITextViewDelegate];
     return UITextViewDelegateImpl;
 }(NSObject));
+var NoScrollAnimationUITextView = (function (_super) {
+    __extends(NoScrollAnimationUITextView, _super);
+    function NoScrollAnimationUITextView() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    NoScrollAnimationUITextView.prototype.setContentOffsetAnimated = function (contentOffset, animated) {
+        _super.prototype.setContentOffsetAnimated.call(this, contentOffset, false);
+    };
+    return NoScrollAnimationUITextView;
+}(UITextView));
 var TextView = (function (_super) {
     __extends(TextView, _super);
     function TextView() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     TextView.prototype.createNativeView = function () {
-        var textView = UITextView.new();
+        var textView = NoScrollAnimationUITextView.new();
         if (!textView.font) {
             textView.font = UIFont.systemFontOfSize(12);
         }

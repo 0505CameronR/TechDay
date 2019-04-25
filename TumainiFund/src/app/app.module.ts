@@ -10,6 +10,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { Kinvey } from 'kinvey-angular2-sdk';
 import { SupportedChildrenComponent } from './supported-children/supported-children.component';
 import { SupportedChildComponent } from './supported-child/supported-child.component';
+import { HeadsOfFamilyComponent } from './heads-of-family/heads-of-family.component';
+import { HeadOfFamilyComponent } from './head-of-family/head-of-family.component';
 
 Kinvey.init({
     appKey: 'kid_S1kLDRkz4',
@@ -23,6 +25,8 @@ Kinvey.init({
     SignInComponent,
     SupportedChildrenComponent,
     SupportedChildComponent,
+    HeadOfFamilyComponent,
+		HeadsOfFamilyComponent,
   ],
   imports: [
     BrowserModule,

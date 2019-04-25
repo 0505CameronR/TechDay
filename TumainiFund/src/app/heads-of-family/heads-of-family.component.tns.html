@@ -1,0 +1,17 @@
+<ScrollView class="page">
+    <StackLayout>
+        <FlexboxLayout class="p-20 btn-img flex-btn">
+            <Label text="Heads of Family" class="h2 text-center" textWrap="true"></Label>
+            <!-- <SearchBar></SearchBar> -->
+        </FlexboxLayout>
+
+        <GridLayout *ngFor="let i of supportedChildren" rows="*,2*,*" columns="*,auto,auto,auto,*" class="p-20 btn-img flex-btn">
+            <Label row="0" col="4" [text]="i.id" class="p-6"></Label>
+            <Image row="1" col="0" src="res://userImg" stretch="aspectFit" class="logo"></Image>
+            <Image row="1" col="4" src="res://rightArrow" (tap)="viewChild(i.id)"></Image>
+            <Label row="1" col="1" colSpan="2" text="{{i.first_name}} {{i.last_name}}" class="p-10"></Label>
+            <Label row="1" col="3" text="|  {{ i.age}}" class="p-10"></Label>
+            <Label row="2" col="1" colSpan="2" [text]="i.school.school" class="p-10"></Label>
+        </GridLayout>
+    </StackLayout>
+</ScrollView>

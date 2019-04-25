@@ -1,0 +1,156 @@
+/* Add mobile styles for the component here.  */
+
+:disabled {
+	opacity: 0.5;
+}
+
+:disabled> :disabled {
+	opacity: 1;
+}
+
+FlexboxLayout {
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
+	background-color: #82CC33;
+}
+
+GridLayout {
+	width: 300;
+	padding: 10 16;
+}
+
+Button, TextField {
+	margin: 10 0;
+}
+
+.btn-primary {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+TextField {
+	placeholder-color: #C4AFB4;
+	color: black;
+}
+
+.input, .btn-primary {
+	background-color: white;
+	color: black;
+}
+
+.web-form {
+	display: flex;
+	align-items: center;
+	height: 100vh;
+	margin: auto;
+	width: auto;
+	max-width: 90%;
+}
+
+.web-form-contents {
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+button {
+	font-size: 15;
+	horizontal-align: center;
+}
+
+.drawerContentText {
+	font-size: 13;
+	padding: 10;
+}
+
+.drawerContentButton {
+	margin: 10;
+	horizontal-align: center;
+}
+
+.sideStackLayout {
+	background-color: #A8F259;
+}
+
+.sideLabel {
+	padding: 10;
+	text-align: center;
+}
+
+.footer {
+	border-color: black;
+	border-width: 1 0 0 0;
+	vertical-align: center;
+	width: 100%;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	box-pack: center;
+	justify-content: center;
+	overflow: hidden;
+	margin: auto;
+	height: 80;
+}
+
+#actionBar {
+	background-color: #82CC33;
+	border-color: black;
+	border-width: 0 0 1 0;
+	/* #A8F259 */
+	/* background-color: #A8F259 */
+}
+
+.action-image {
+	height: 30;
+	vertical-align: center;
+	horizontal-align: center;
+}
+
+.btn-img {
+	border-radius: 5;
+	border-width: 1;
+	margin: 10;
+	color: black;
+	border-color: #A8F259;
+	background-color: #82CC33;
+	text-align: center;
+}
+
+.flex-btn {
+	align-items: center;
+	justify-content: center;
+}
+
+/* Add mobile styles for the component here.  */
+.btn-img{
+    border-radius: 5;
+    border-width: 1;
+    margin: 10;
+    color: black;
+    border-color: #A8F259;
+    background-color: #82CC33;
+    text-align: center;
+}
+
+.flex-btn {
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    border-radius:100%;
+    width:45;
+    height:45;
+}
+
+.page {
+    background-color: #A8F259;
+}
+
+.txt-left {
+	text-align: left;
+}

@@ -396,12 +396,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./app/shared/supported-children/supported-children.service.ts");
 /* harmony import */ var _supported_child_supported_child_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__("./app/supported-child/supported-child.component.ts");
 /* harmony import */ var _shared_user_user_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__("./app/shared/user/user.service.ts");
+/* harmony import */ var _head_of_family_head_of_family_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__("./app/head-of-family/head-of-family.component.ts");
+/* harmony import */ var _heads_of_family_heads_of_family_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__("./app/heads-of-family/heads-of-family.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -432,6 +436,8 @@ AppModule = __decorate([
             _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_6__["SignInComponent"],
             _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_10__["SupportedChildrenComponent"],
             _supported_child_supported_child_component__WEBPACK_IMPORTED_MODULE_12__["SupportedChildComponent"],
+            _head_of_family_head_of_family_component__WEBPACK_IMPORTED_MODULE_14__["HeadOfFamilyComponent"],
+            _heads_of_family_heads_of_family_component__WEBPACK_IMPORTED_MODULE_15__["HeadsOfFamilyComponent"]
         ],
         imports: [
             nativescript_angular_nativescript_module__WEBPACK_IMPORTED_MODULE_1__["NativeScriptModule"],
@@ -463,6 +469,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./app/sign-in/sign-in.component.ts");
 /* harmony import */ var _supported_children_supported_children_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./app/supported-children/supported-children.component.ts");
 /* harmony import */ var _supported_child_supported_child_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./app/supported-child/supported-child.component.ts");
+/* harmony import */ var _head_of_family_head_of_family_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/head-of-family/head-of-family.component.ts");
+/* harmony import */ var _heads_of_family_heads_of_family_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./app/heads-of-family/heads-of-family.component.ts");
+
+
 
 
 
@@ -488,13 +498,15 @@ const routes = [
     {
         path: 'supported-child/:child',
         component: _supported_child_supported_child_component__WEBPACK_IMPORTED_MODULE_3__["SupportedChildComponent"],
+    },
+    {
+        path: 'heads-of-family',
+        component: _heads_of_family_heads_of_family_component__WEBPACK_IMPORTED_MODULE_5__["HeadsOfFamilyComponent"],
+    },
+    {
+        path: 'head-of-family',
+        component: _head_of_family_head_of_family_component__WEBPACK_IMPORTED_MODULE_4__["HeadOfFamilyComponent"],
     }
-    /*
-     {
-         path: 'heads-of-family',
-         component: HeadsOfFamilyComponent,
-     }
-     */
     /*
      {
          path: 'sponsors',
@@ -520,6 +532,365 @@ const routes = [
      }
      */
 ];
+
+
+/***/ }),
+
+/***/ "./app/head-of-family/head-of-family.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n\topacity: 0.5;\n}\n\n:disabled> :disabled {\n\topacity: 1;\n}\n\nFlexboxLayout {\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-size: cover;\n\tbackground-color: #82CC33;\n}\n\nGridLayout {\n\twidth: 300;\n\tpadding: 10 16;\n}\n\n/* Button, Label {\n\tmargin: 10 0;\n}\n*/\n.btn-primary {\n\tmargin-right: 0;\n\tbackground-color: #82CC33;\n\tcolor: black;\n\t/* \n\theight: fit-content; */\n} \n\nTextField {\n\tplaceholder-color: #C4AFB4;\n\tcolor: black;\n}\n\n/* .input, .btn-primary {\n\tbackground-color: white;\n\tcolor: black;\n} */\n\n.web-form {\n\tdisplay: flex;\n\talign-items: center;\n\theight: 100vh;\n\tmargin: auto;\n\twidth: auto;\n\tmax-width: 100%;\n}\n\n.web-form-contents {\n\twidth: 100%;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin: auto;\n}\n\n/* button {\n\tfont-size: 15;\n\thorizontal-align: center;\n} */\n\n.drawerContentText {\n\tfont-size: 13;\n\tpadding: 10;\n}\n\n.drawerContentButton {\n\tmargin: 10;\n\thorizontal-align: center;\n}\n\n.sideStackLayout {\n\tbackground-color: #A8F259;\n}\n\n.sideLabel {\n\tpadding: 10;\n\ttext-align: center;\n}\n\n.footer {\n\tborder-color: black;\n\tborder-width: 1 0 0 0;\n\tvertical-align: center;\n\twidth: 100%;\n\tjustify-content: center;\n\tdisplay: flex;\n\talign-items: center;\n\tbox-pack: center;\n\tjustify-content: center;\n\toverflow: hidden;\n\tmargin: auto;\n\theight: 80;\n}\n\n#actionBar {\n\tbackground-color: #82CC33;\n\tborder-color: black;\n\tborder-width: 0 0 1 0;\n\t/* #A8F259 */\n\t/* background-color: #A8F259 */\n}\n\n.action-image {\n\theight: 30;\n\tvertical-align: center;\n\thorizontal-align: center;\n}\n\n.btn-img {\n\tborder-radius: 5;\n\tborder-width: 1;\n\tmargin: 10;\n\tcolor: black;\n\tborder-color: #A8F259;\n\tbackground-color: #82CC33;\n\ttext-align: center;\n}\n\n.flex-btn {\n\talign-items: center;\n\tjustify-content: center;\n}\n\n/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:45;\n    height:45;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.txt-left {\n\ttext-align: left;\n}\n\n.date-picker, .list-picker {\n\tbackground-color: lightgray\n}\n\n.hr-light {\n\tmargin-bottom: 20\n}"
+
+/***/ }),
+
+/***/ "./app/head-of-family/head-of-family.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ScrollView>\n    <GridLayout rows=\"auto, auto\" columns=\"*\">\n        <GridLayout columns=\"auto, *, auto, auto\" row=\"0\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\" col=\"0\"></Image>\n            <Label text=\"ID: {{target.id}}\" class=\"p-6\" col=\"2\"></Label>\n            <Label text=\"Age: {{target.age}}\" class=\"p-10\" col=\"3\"></Label>\n        </GridLayout>\n        <StackLayout class=\"form\" row=\"1\">\n\n            <Label text=\"Details\" class=\"h1\"></Label>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- First Name -->\n            <StackLayout>\n                <Label text=\"First Name\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"FirstNameLabel\" #labelField [text]=\"target.first_name\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField id=\"FirstNameEdit\" #textField [text]=\"target.first_name\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button id=\"FirstNameButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('FirstNameLabel','FirstNameEdit','FirstNameButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Family Name -->\n            <StackLayout>\n                <Label text=\"Family Name\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"FamilyNameLabel\" #labelField [text]=\"target.last_name\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField id=\"FamilyNameEdit\" #textField [text]=\"target.last_name\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button id=\"FamilyNameButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('FamilyNameLabel','FamilyNameEdit','FamilyNameButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Date of Birth -->\n            <StackLayout>\n                <Label text=\"Date of Birth\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"DateOfBirthLabel\" #labelField text=\"{{target.date_of_birth.day}}/{{target.date_of_birth.month}}/{{target.date_of_birth.year}}\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"DateOfBirthButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"datePickerButton('DateOfBirthLabel', 'DateOfBirthPicker', 'DateOfBirthButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <DatePicker id=\"DateOfBirthPicker\" #datePicker [year]=\"target.date_of_birth.year\" [month]=\"target.date_of_birth.month\" [day]=\"target.date_of_birth.day\" visibility=\"collapsed\" class=\"date-picker\"></DatePicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Gender -->\n            <StackLayout>\n                <Label text=\"Gender\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"GenderLabel\" #labelField [text]=\"target.gender\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"GenderButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('GenderLabel', 'GenderPicker', 'GenderButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"GenderPicker\" #listPicker [picked]=\"target.gender\" [items]=\"gender\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- School -->\n            <StackLayout>\n                <Label text=\"School\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"SchoolLabel\" #labelField [text]=\"target.school.school\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField id=\"SchoolEdit\" #textField [text]=\"target.school.school\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button id=\"SchoolButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('SchoolLabel','SchoolEdit','SchoolButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- School Level -->\n            <StackLayout>\n                <Label text=\"School Level\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"SchoolLevelLabel\" #labelField [text]=\"target.school.level\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"SchoolLevelButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('SchoolLevelLabel', 'SchoolLevelPicker', 'SchoolLevelButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"SchoolLevelPicker\" #listPicker [picked]=\"target.school.level\" [items]=\"school.level\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- School Books -->\n            <StackLayout>\n                <Label text=\"School Books\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"SchoolBooksLabel\" #labelField [text]=\"target.school.books\" class=\"input input-border labelField\" col=\"0\"></Label>\n                    <Button id=\"SchoolBooksButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('SchoolBooksLabel', 'SchoolBooksPicker', 'SchoolBooksButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"SchoolBooksPicker\" #listPicker [picked]=\"target.school.books\" [items]=\"school.books\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Head of Family -->\n            <!-- Need to change to relating to a head of family member -->\n            <StackLayout>\n                <Label text=\"Head of Family\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"HeadOfFamilyLabel\" #labelField [text]=\"target.head_of_family.hof\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField id=\"HeadOfFamilyEdit\" #textField [text]=\"target.head_of_family.hof\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button id=\"HeadOfFamilyButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('HeadOfFamilyLabel','HeadOfFamilyEdit','HeadOfFamilyButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Relation to Head of Family -->\n            <StackLayout>\n                <Label text=\"Relation to Head of Family\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"HeadOfFamilyRelationLabel\" #labelField [text]=\"target.head_of_family.relation\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField id=\"HeadOfFamilyRelationEdit\" #textField [text]=\"target.head_of_family.relation\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button id=\"HeadOfFamilyRelationButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('HeadOfFamilyRelationLabel','HeadOfFamilyRelationEdit','HeadOfFamilyRelationButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Personal Status -->\n            <StackLayout>\n                <Label text=\"Personal Status\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"PersonalStatusLabel\" #labelField [text]=\"target.personal_status\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"PersonalStatusButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('PersonalStatusLabel', 'PersonalStatusPicker', 'PersonalStatusButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"PersonalStatusPicker\" #listPicker [picked]=\"target.personal_status\" [items]=\"personal_status\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Future Educational Goals -->\n            <StackLayout>\n                <Label text=\"Future Educational Goals\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"EducationalGoalsLabel\" #labelField [text]=\"target.future_educational_goals\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextView id=\"EducationalGoalsEdit\" #textField [text]=\"target.future_educational_goals\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextView>\n                    <Button id=\"EducationalGoalsButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('EducationalGoalsLabel','EducationalGoalsEdit','EducationalGoalsButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Hygiene Kits -->\n            <StackLayout>\n                <Label text=\"Hygiene Kits\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"HygieneKitsLabel\" #labelField [text]=\"target.hygiene_kits\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"HygieneKitsButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('HygieneKitsLabel', 'HygieneKitsPicker', 'HygieneKitsButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"HygieneKitsPicker\" #listPicker [picked]=\"target.personal_status\" [items]=\"personal_status\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Medical Support -->\n            <StackLayout>\n                <Label text=\"Medical Support\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"MedicalSupportLabel\" #labelField [text]=\"target.medical_support\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"MedicalSupportButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('MedicalSupportLabel', 'MedicalSupportPicker', 'MedicalSupportButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"MedicalSupportPicker\" #listPicker [picked]=\"target.medical_support\" [items]=\"medical_support\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Transport to Clinic -->\n            <StackLayout>\n                <Label text=\"Transport To Clinic\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"TransportToClinicLabel\" #labelField [text]=\"target.transport_to_clinic\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"TransportToClinicButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('TransportToClinicLabel', 'TransportToClinicPicker', 'TransportToClinicButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"TransportToClinicPicker\" #listPicker [picked]=\"target.transport_to_clinic\" [items]=\"transport_to_clinic\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n        </StackLayout>\n    </GridLayout>\n</ScrollView>"
+
+/***/ }),
+
+/***/ "./app/head-of-family/head-of-family.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeadOfFamilyComponent", function() { return HeadOfFamilyComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./app/shared/supported-children/supported-children.service.ts");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _shared_text__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/shared/text.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var view = __webpack_require__("../node_modules/tns-core-modules/ui/core/view/view.js");
+let HeadOfFamilyComponent = class HeadOfFamilyComponent {
+    constructor(route, page, renderer) {
+        this.route = route;
+        this.page = page;
+        this.renderer = renderer;
+        this.supportedChildren = new _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_2__["SupportedChildrenService"]().defaultSupportedChildren;
+        this.dataAvailable = false;
+        this.Text = _shared_text__WEBPACK_IMPORTED_MODULE_4__["Text"];
+        this.gender = ["Male", "Female", "Other"];
+        this.school = {
+            level: ["education high"],
+            books: ["Yes", "No"]
+        };
+        this.personal_status = ["Single"];
+        this.hygiene_kits = ["Yes", "No"];
+        this.medical_support = ["Yes", "No"];
+        this.transport_to_clinic = ["Yes", "No"];
+        this.page.actionBarHidden = true;
+        this.textFieldButtonStatus = false;
+        this.listPickerButtonStatus = false;
+        this.datePickerButtonStatus = false;
+    }
+    ngOnInit() {
+        this.targetId = this.route.snapshot.params['child'];
+        for (let i of this.supportedChildren) {
+            if (i.id == this.targetId) {
+                this.target = i;
+            }
+        }
+    }
+    ngAfterViewInit() {
+        /*console.log("datePickers")
+        console.log(this.datePickers.toArray())
+        console.log("listPickers")
+        console.log(this.listPickers.toArray())
+        console.log("textFieldLabels")
+        console.log(this.textFieldLabels.toArray())
+        console.log("textFieldTextFields")
+        console.log(this.textFieldTextFields.toArray())
+        console.log("editButtons")
+        console.log(this.editButtons.toArray())*/
+    }
+    listPickerButton(labelID, pickerID, buttonID, status = this.listPickerButtonStatus) {
+        console.log(view.getViewByID(labelID).visibility);
+        view.getViewByID(labelID).visibility = "collapse";
+        console.log(view.getViewByID(labelID).visibility);
+        console.log(view.getViewByID(pickerID).visibility);
+        view.getViewByID(pickerID).visibility = "visible";
+        console.log(view.getViewByID(pickerID).visibility);
+        console.log(view.getViewByID(buttonID).text);
+        view.getViewByID(buttonID).text = this.Text.genericDoneButton;
+        console.log(view.getViewByID(buttonID).text);
+        /*//if (status) { // If Editing Is Active
+        this.textFieldLabels.forEach((i) => {
+            if (i.nativeElement.id == labelID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "visible"
+                console.log(i.nativeElement.visibility)
+            }
+        })
+        this.listPickers.forEach((i) => {
+            if (i.nativeElement.id == pickerID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "collapse"
+                console.log(i.nativeElement.visibility)
+            }
+        })
+        //console.log(buttonID)
+        this.editButtons.forEach((i) => {
+            if (i.nativeElement.id == buttonID) {
+                console.log(i.nativeElement.text)
+                this.renderer.setProperty(i.nativeElement.text, "text", this.Text.genericEditButton)
+                console.log(i.nativeElement.text)
+            }
+        })*/
+    } /*else { // If Editing Isn't Active
+            console.dir(this.textFieldLabels.toArray())
+            this.textFieldLabels.forEach((i) => {
+                if (i.nativeElement.id == labelID) {
+                    i.nativeElement.visibility = "collapse"
+                }
+            })
+            console.dir(this.listPickers.toArray())
+            this.listPickers.forEach((i) => {
+                if (i.nativeElement.id == pickerID) {
+                    i.nativeElement.visibility = "visible"
+                }
+            })
+            console.dir(this.editButtons.toArray())
+            this.editButtons.forEach((i) => {
+                if (i.nativeElement.id == buttonID) {
+                    i.nativeElement.Text = this.Text.genericDoneButton
+                }
+            })
+            this.listPickerButtonStatus = false
+        }
+    }*/
+    datePickerButton(labelID, pickerID, buttonID, status = this.datePickerButtonStatus) {
+        console.log(view.getViewByID(labelID).visibility);
+        view.getViewByID(labelID).visibility = "collapse";
+        console.log(view.getViewByID(labelID).visibility);
+        console.log(view.getViewByID(pickerID).visibility);
+        view.getViewByID(pickerID).visibility = "visible";
+        console.log(view.getViewByID(pickerID).visibility);
+        console.log(view.getViewByID(buttonID).text);
+        view.getViewByID(buttonID).text = this.Text.genericDoneButton;
+        console.log(view.getViewByID(buttonID).text);
+        //if (status) { // If Editing Is Active
+        /*this.textFieldLabels.forEach((i) => {
+            if (i.nativeElement.id == labelID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "visible"
+                console.log(i.nativeElement.visibility)
+                //console.log(i.nativeElement.text)
+            }
+        })
+        this.datePickers.forEach((i) => {
+            if (i.nativeElement.id == pickerID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "collapse"
+                console.log(i.nativeElement.visibility)
+            }
+        })
+        this.editButtons.forEach((i) => {
+            if (i.nativeElement.id == buttonID) {
+                console.log(i.nativeElement.text)
+                this.renderer.setProperty(i.nativeElement.text, "text", this.Text.genericEditButton)
+                console.log(i.nativeElement.text)
+                //console.log(i.nativeElement.text)
+            }
+        })*/
+    } /*else { // If Editing Isn't Active
+            console.dir(this.textFieldLabels.toArray())
+            this.textFieldLabels.forEach((i) => {
+                if (i.nativeElement.id == labelID) {
+                    i.nativeElement.visibility = "collapse"
+                }
+            })
+            console.dir(this.datePickers.toArray())
+            this.datePickers.forEach((i) => {
+                if (i.nativeElement.id == pickerID) {
+                    i.nativeElement.visibility = "visible"
+                }
+            })
+            console.dir(this.editButtons.toArray())
+            this.editButtons.forEach((i) => {
+                if (i.nativeElement.id == buttonID) {
+                    i.nativeElement.Text = this.Text.genericDoneButton
+                }
+            })
+            this.datePickerButtonStatus = false
+        }
+    }*/
+    textFieldButton(labelID, editID, buttonID, status = this.textFieldButtonStatus) {
+        console.log(view.getViewByID(labelID).visibility);
+        view.getViewByID(labelID).visibility = "collapse";
+        console.log(view.getViewByID(labelID).visibility);
+        console.log(view.getViewByID(editID).visibility);
+        view.getViewByID(editID).visibility = "visible";
+        console.log(view.getViewByID(editID).visibility);
+        console.log(view.getViewByID(buttonID).text);
+        view.getViewByID(buttonID).text = this.Text.genericDoneButton;
+        console.log(view.getViewByID(buttonID).text);
+        /*//if (status) { // If Editing Is Active
+        this.textFieldLabels.forEach((i) => {
+            if (i.nativeElement.id == labelID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "collapse"
+                console.log(i.nativeElement.visibility)
+                //console.log(i.nativeElement.text)
+            }
+        })
+        this.textFieldTextFields.forEach((i) => {
+            if (i.nativeElement.id == editID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "visible"
+                console.log(i.nativeElement.visibility)
+                //console.log(i.nativeElement.text)
+            }
+        })
+        this.editButtons.forEach((i) => {
+            if (i.nativeElement.id == buttonID) {
+                console.log(i.nativeElement.text)
+                this.renderer.setProperty(i.nativeElement.text, "innerHTML", this.Text.genericEditButton)
+                console.log(i.nativeElement.text)
+            }
+        })*/
+    } /*else { // If Editing Isn't Active
+            console.dir(this.textFieldLabels.toArray())
+            this.textFieldLabels.forEach((i) => {
+                if (i.nativeElement.id == labelID) {
+                    i.nativeElement.visibility = "collapse"
+                }
+            })
+            console.dir(this.textFieldTextFields.toArray())
+            this.textFieldTextFields.forEach((i) => {
+                if (i.nativeElement.id == editID) {
+                    i.nativeElement.visibility = "visible"
+                }
+            })
+            console.dir(this.editButtons.toArray())
+            this.editButtons.forEach((i) => {
+                if (i.nativeElement.id == buttonID) {
+                    i.nativeElement.Text = this.Text.genericDoneButton
+                }
+            })
+            this.textFieldButtonStatus = false
+        }
+    }*/
+};
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('datePicker'),
+    __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+], HeadOfFamilyComponent.prototype, "datePickers", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('listPicker'),
+    __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+], HeadOfFamilyComponent.prototype, "listPickers", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('labelField'),
+    __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+], HeadOfFamilyComponent.prototype, "textFieldLabels", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('textField'),
+    __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+], HeadOfFamilyComponent.prototype, "textFieldTextFields", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('editButton'),
+    __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+], HeadOfFamilyComponent.prototype, "editButtons", void 0);
+HeadOfFamilyComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-head-of-family',
+        template: __webpack_require__("./app/head-of-family/head-of-family.component.html"),
+        styles: [__webpack_require__("./app/head-of-family/head-of-family.component.css")]
+    }),
+    __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+        tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["Page"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]])
+], HeadOfFamilyComponent);
+
+
+
+/***/ }),
+
+/***/ "./app/heads-of-family/heads-of-family.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n\topacity: 0.5;\n}\n\n:disabled> :disabled {\n\topacity: 1;\n}\n\nFlexboxLayout {\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-size: cover;\n\tbackground-color: #82CC33;\n}\n\nGridLayout {\n\twidth: 300;\n\tpadding: 10 16;\n}\n\nButton, TextField {\n\tmargin: 10 0;\n}\n\n.btn-primary {\n\tmargin-left: 0;\n\tmargin-right: 0;\n}\n\nTextField {\n\tplaceholder-color: #C4AFB4;\n\tcolor: black;\n}\n\n.input, .btn-primary {\n\tbackground-color: white;\n\tcolor: black;\n}\n\n.web-form {\n\tdisplay: flex;\n\talign-items: center;\n\theight: 100vh;\n\tmargin: auto;\n\twidth: auto;\n\tmax-width: 90%;\n}\n\n.web-form-contents {\n\twidth: fit-content;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin: auto;\n}\n\nbutton {\n\tfont-size: 15;\n\thorizontal-align: center;\n}\n\n.drawerContentText {\n\tfont-size: 13;\n\tpadding: 10;\n}\n\n.drawerContentButton {\n\tmargin: 10;\n\thorizontal-align: center;\n}\n\n.sideStackLayout {\n\tbackground-color: #A8F259;\n}\n\n.sideLabel {\n\tpadding: 10;\n\ttext-align: center;\n}\n\n.footer {\n\tborder-color: black;\n\tborder-width: 1 0 0 0;\n\tvertical-align: center;\n\twidth: 100%;\n\tjustify-content: center;\n\tdisplay: flex;\n\talign-items: center;\n\tbox-pack: center;\n\tjustify-content: center;\n\toverflow: hidden;\n\tmargin: auto;\n\theight: 80;\n}\n\n#actionBar {\n\tbackground-color: #82CC33;\n\tborder-color: black;\n\tborder-width: 0 0 1 0;\n\t/* #A8F259 */\n\t/* background-color: #A8F259 */\n}\n\n.action-image {\n\theight: 30;\n\tvertical-align: center;\n\thorizontal-align: center;\n}\n\n.btn-img {\n\tborder-radius: 5;\n\tborder-width: 1;\n\tmargin: 10;\n\tcolor: black;\n\tborder-color: #A8F259;\n\tbackground-color: #82CC33;\n\ttext-align: center;\n}\n\n.flex-btn {\n\talign-items: center;\n\tjustify-content: center;\n}\n\n/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:45;\n    height:45;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.txt-left {\n\ttext-align: left;\n}"
+
+/***/ }),
+
+/***/ "./app/heads-of-family/heads-of-family.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\">\n            <Label text=\"Heads of Family\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n            <!-- <SearchBar></SearchBar> -->\n        </FlexboxLayout>\n\n        <GridLayout *ngFor=\"let i of supportedChildren\" rows=\"*,2*,*\" columns=\"*,auto,auto,auto,*\" class=\"p-20 btn-img flex-btn\">\n            <Label row=\"0\" col=\"4\" [text]=\"i.id\" class=\"p-6\"></Label>\n            <Image row=\"1\" col=\"0\" src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Image row=\"1\" col=\"4\" src=\"res://rightArrow\" (tap)=\"viewChild(i.id)\"></Image>\n            <Label row=\"1\" col=\"1\" colSpan=\"2\" text=\"{{i.first_name}} {{i.last_name}}\" class=\"p-10\"></Label>\n            <Label row=\"1\" col=\"3\" text=\"|  {{ i.age}}\" class=\"p-10\"></Label>\n            <Label row=\"2\" col=\"1\" colSpan=\"2\" [text]=\"i.school.school\" class=\"p-10\"></Label>\n        </GridLayout>\n    </StackLayout>\n</ScrollView>"
+
+/***/ }),
+
+/***/ "./app/heads-of-family/heads-of-family.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeadsOfFamilyComponent", function() { return HeadsOfFamilyComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
+/* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("../node_modules/tns-core-modules/ui/page/page.js");
+/* harmony import */ var tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./app/shared/supported-children/supported-children.service.ts");
+/* harmony import */ var _shared_text__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./app/shared/text.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+let HeadsOfFamilyComponent = class HeadsOfFamilyComponent {
+    constructor(page, router, feedback) {
+        this.page = page;
+        this.router = router;
+        this.feedback = feedback;
+        this.supportedChildren = new _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_4__["SupportedChildrenService"]().defaultSupportedChildren;
+        this.Text = _shared_text__WEBPACK_IMPORTED_MODULE_5__["Text"];
+        this.page.actionBarHidden = true;
+    }
+    ngOnInit() {
+    }
+    viewChild(target) {
+        this.router.navigate(['/supported-child/', target]);
+    }
+};
+HeadsOfFamilyComponent = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'app-heads-of-family',
+        template: __webpack_require__("./app/heads-of-family/heads-of-family.component.html"),
+        styles: [__webpack_require__("./app/heads-of-family/heads-of-family.component.css")]
+    }),
+    __metadata("design:paramtypes", [tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["Page"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        nativescript_feedback__WEBPACK_IMPORTED_MODULE_1__["Feedback"]])
+], HeadsOfFamilyComponent);
+
 
 
 /***/ }),
@@ -1117,14 +1488,14 @@ SignInComponent = __decorate([
 /***/ "./app/supported-child/supported-child.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n\topacity: 0.5;\n}\n\n:disabled> :disabled {\n\topacity: 1;\n}\n\nFlexboxLayout {\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-size: cover;\n\tbackground-color: #82CC33;\n}\n\nGridLayout {\n\twidth: 300;\n\tpadding: 10 16;\n}\n\n/* Button, Label {\n\tmargin: 10 0;\n}\n*/\n.btn-primary {\n\tmargin-right: 0;\n\tbackground-color: #82CC33;\n\tcolor: black;\n\theight: fit-content;\n} \n\nTextField {\n\tplaceholder-color: #C4AFB4;\n\tcolor: black;\n}\n\n/* .input, .btn-primary {\n\tbackground-color: white;\n\tcolor: black;\n} */\n\n.web-form {\n\tdisplay: flex;\n\talign-items: center;\n\theight: 100vh;\n\tmargin: auto;\n\twidth: auto;\n\tmax-width: 100%;\n}\n\n.web-form-contents {\n\twidth: 100%;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin: auto;\n}\n\n/* button {\n\tfont-size: 15;\n\thorizontal-align: center;\n} */\n\n.drawerContentText {\n\tfont-size: 13;\n\tpadding: 10;\n}\n\n.drawerContentButton {\n\tmargin: 10;\n\thorizontal-align: center;\n}\n\n.sideStackLayout {\n\tbackground-color: #A8F259;\n}\n\n.sideLabel {\n\tpadding: 10;\n\ttext-align: center;\n}\n\n.footer {\n\tborder-color: black;\n\tborder-width: 1 0 0 0;\n\tvertical-align: center;\n\twidth: 100%;\n\tjustify-content: center;\n\tdisplay: flex;\n\talign-items: center;\n\tbox-pack: center;\n\tjustify-content: center;\n\toverflow: hidden;\n\tmargin: auto;\n\theight: 80;\n}\n\n#actionBar {\n\tbackground-color: #82CC33;\n\tborder-color: black;\n\tborder-width: 0 0 1 0;\n\t/* #A8F259 */\n\t/* background-color: #A8F259 */\n}\n\n.action-image {\n\theight: 30;\n\tvertical-align: center;\n\thorizontal-align: center;\n}\n\n.btn-img {\n\tborder-radius: 5;\n\tborder-width: 1;\n\tmargin: 10;\n\tcolor: black;\n\tborder-color: #A8F259;\n\tbackground-color: #82CC33;\n\ttext-align: center;\n}\n\n.flex-btn {\n\talign-items: center;\n\tjustify-content: center;\n}\n\n/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:45;\n    height:45;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.txt-left {\n\ttext-align: left;\n}\n\n.date-picker, .list-picker {\n\tbackground-color: lightgray\n}"
+module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n\topacity: 0.5;\n}\n\n:disabled> :disabled {\n\topacity: 1;\n}\n\nFlexboxLayout {\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-size: cover;\n\tbackground-color: #82CC33;\n}\n\nGridLayout {\n\twidth: 300;\n\tpadding: 10 16;\n}\n\n/* Button, Label {\n\tmargin: 10 0;\n}\n*/\n.btn-primary {\n\tmargin-right: 0;\n\tbackground-color: #82CC33;\n\tcolor: black;\n\t/* \n\theight: fit-content; */\n} \n\nTextField {\n\tplaceholder-color: #C4AFB4;\n\tcolor: black;\n}\n\n/* .input, .btn-primary {\n\tbackground-color: white;\n\tcolor: black;\n} */\n\n.web-form {\n\tdisplay: flex;\n\talign-items: center;\n\theight: 100vh;\n\tmargin: auto;\n\twidth: auto;\n\tmax-width: 100%;\n}\n\n.web-form-contents {\n\twidth: 100%;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin: auto;\n}\n\n/* button {\n\tfont-size: 15;\n\thorizontal-align: center;\n} */\n\n.drawerContentText {\n\tfont-size: 13;\n\tpadding: 10;\n}\n\n.drawerContentButton {\n\tmargin: 10;\n\thorizontal-align: center;\n}\n\n.sideStackLayout {\n\tbackground-color: #A8F259;\n}\n\n.sideLabel {\n\tpadding: 10;\n\ttext-align: center;\n}\n\n.footer {\n\tborder-color: black;\n\tborder-width: 1 0 0 0;\n\tvertical-align: center;\n\twidth: 100%;\n\tjustify-content: center;\n\tdisplay: flex;\n\talign-items: center;\n\tbox-pack: center;\n\tjustify-content: center;\n\toverflow: hidden;\n\tmargin: auto;\n\theight: 80;\n}\n\n#actionBar {\n\tbackground-color: #82CC33;\n\tborder-color: black;\n\tborder-width: 0 0 1 0;\n\t/* #A8F259 */\n\t/* background-color: #A8F259 */\n}\n\n.action-image {\n\theight: 30;\n\tvertical-align: center;\n\thorizontal-align: center;\n}\n\n.btn-img {\n\tborder-radius: 5;\n\tborder-width: 1;\n\tmargin: 10;\n\tcolor: black;\n\tborder-color: #A8F259;\n\tbackground-color: #82CC33;\n\ttext-align: center;\n}\n\n.flex-btn {\n\talign-items: center;\n\tjustify-content: center;\n}\n\n/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:45;\n    height:45;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.txt-left {\n\ttext-align: left;\n}\n\n.date-picker, .list-picker {\n\tbackground-color: lightgray\n}\n\n.hr-light {\n\tmargin-bottom: 20\n}"
 
 /***/ }),
 
 /***/ "./app/supported-child/supported-child.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ScrollView>\n    <GridLayout rows=\"auto, auto\" columns=\"*\">\n        <GridLayout columns=\"auto, *, auto, auto\" row=\"0\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\" col=\"0\"></Image>\n            <Label text=\"ID: {{target.id}}\" class=\"p-6\" col=\"2\"></Label>\n            <Label text=\"Age: {{target.age}}\" class=\"p-10\" col=\"3\"></Label>\n        </GridLayout>\n        <StackLayout class=\"form\" row=\"1\">\n\n            <Label text=\"Details\" class=\"h1\"></Label>\n\n            <!-- First Name -->\n            <StackLayout>\n                <Label text=\"First Name\" class=\"label font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label #FirstNameLabel [text]=\"target.first_name\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField #FirstNameEdit [text]=\"target.first_name\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button #FirstNameButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('FirstNameLabel','FirstNameEdit','FirstNameButton')\" class=\"editButton btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <!-- Family Name -->\n            <StackLayout>\n                <Label text=\"Family Name\" class=\"label font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label #FamilyNameLabel [text]=\"target.last_name\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField #FamilyNameEdit [text]=\"target.last_name\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button #FamilyNameButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('FamilyNameLabel','FamilyNameEdit','FamilyNameButton')\" class=\"editButton btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <!-- Date of Birth -->\n            <StackLayout>\n                <Label text=\"Date of Birth\" class=\"label font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label #DateOfBirthLabel text=\"{{target.date_of_birth.day}}/{{target.date_of_birth.month}}/{{target.date_of_birth.year}}\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button #DateOfBirthButton [text]=\"Text.genericEditButton\" (tap)=\"datePickerButton('DateOfBirthLabel', 'DateOfBirthPicker', 'DateOfBirthButton')\" class=\"editButton btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout class=\"hr-light\">\n                    <DatePicker #DateOfBirthPicker [year]=\"target.date_of_birth.year\" [month]=\"target.date_of_birth.month\" [day]=\"target.date_of_birth.day\" visibility=\"collapsed\" class=\"date-picker\"></DatePicker>\n                </StackLayout>\n            </StackLayout>\n\n            <!-- Gender -->\n            <StackLayout>\n                <Label text=\"Gender\" class=\"label font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label #GenderLabel [text]=\"target.gender\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button #GenderButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('GenderLabel', 'GenderPicker', 'GenderButton')\" class=\"editButton btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout class=\"hr-light\">\n                    <ListPicker #GenderPicker [picked]=\"target.gender\" [items]=\"gender\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <!-- School -->\n            <StackLayout>\n                <Label text=\"School\" class=\"label font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label #SchoolLabel [text]=\"target.school.school\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField #SchoolEdit [text]=\"target.school.school\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button #SchoolButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('SchoolLabel','SchoolEdit','SchoolButton')\" class=\"editButton btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <!-- School Level -->\n            <StackLayout>\n                <Label text=\"School Level\" class=\"label font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label #SchoolLevelLabel [text]=\"target.school.level\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button #SchoolLevelButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('SchoolLevelLabel', 'SchoolLevelPicker', 'SchoolLevelButton')\" class=\"editButton btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout class=\"hr-light\">\n                    <ListPicker #SchoolLevelPicker [picked]=\"target.school.level\" [items]=\"school.level\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <!-- School Books -->\n            <StackLayout>\n                <Label text=\"School Books\" class=\"label font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label #SchoolBooksLabel [text]=\"target.school.books\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button #SchoolBooksButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('SchoolBooksLabel', 'SchoolBooksPicker', 'SchoolBooksButton')\" class=\"editButton btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout class=\"hr-light\">\n                    <ListPicker #SchoolBooksPicker [picked]=\"target.school.books\" [items]=\"school.books\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <!-- Head of Family -->\n            <!-- Need to change to relating to a head of family member -->\n            <StackLayout>\n                <Label text=\"Head of Family\" class=\"label font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label #HeadOfFamilyLabel [text]=\"target.head_of_family.hof\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField #HeadOfFamilyEdit [text]=\"target.head_of_family.hof\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button #HeadOfFamilyButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('HeadOfFamilyLabel','HeadOfFamilyEdit','HeadOfFamilyButton')\" class=\"editButton btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <!-- Relation to Head of Family -->\n            <StackLayout>\n                <Label text=\"Relation to Head of Family\" class=\"label font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label #HeadOfFamilyRelationLabel [text]=\"target.head_of_family.relation\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField #HeadOfFamilyRelationEdit [text]=\"target.head_of_family.relation\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button #HeadOfFamilyRelationButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('HeadOfFamilyRelationLabel','HeadOfFamilyRelationEdit','HeadOfFamilyRelationButton')\" class=\"editButton btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <!-- Personal Status -->\n            <!-- TODO: -->\n            <StackLayout>\n                    <Label text=\"Personal Status\" class=\"label font-weight-bold m-b-5\"></Label>\n                    <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                        <Label #PersonalStatusLabel [text]=\"target.personal_status\" class=\"input input-border\" col=\"0\"></Label>\n                        <Button #PersonalStatusButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('SchoolBooksLabel', 'SchoolBooksPicker', 'SchoolBooksButton')\" class=\"editButton btn btn-primary\" col=\"1\"></Button>\n                    </GridLayout>\n                    <StackLayout class=\"hr-light\">\n                        <ListPicker #SchoolBooksPicker [picked]=\"target.school.books\" [items]=\"school.books\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                    </StackLayout>\n                </StackLayout>\n\n            <Label class=\"label font-weight-bold m-b-5\" text=\"Personal Status\"></Label>\n            <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                <Label col=\"0\" #PersonalStatus visibility=\"visible\" [text]=\"target.personal_status\" class=\"input input-border\"></Label>\n                <Button col=\"1\" class=\"editButton btn btn-primary\" #PersonalButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('PersonalStatusPicker', 'PersonalButton')\"></Button>\n            </GridLayout>\n            <ListPicker class=\"list-picker\" id='PersonalStatusPicker' #ListPicker visibility=\"collapsed\" [picked]=\"target.personal_status\" [items]=\"personal_status\"></ListPicker>\n\n            <!-- Future Educational Goals -->\n            <Label class=\"label font-weight-bold m-b-5\" text=\"Future Educational Goals\"></Label>\n            <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                <TextView col=\"0\" #FutureEducationalGoals [text]=\"target.future_educational_goals\" class=\"input input-border\"></TextView>\n                <Button col=\"1\" class=\"editButton btn btn-primary\" [text]=\"Text.genericEditButton\" (tap)=\"none\"></Button>\n            </GridLayout>\n\n            <!-- Hygiene Kits -->\n            <Label class=\"label font-weight-bold m-b-5\" text=\"Hygiene Kits\"></Label>\n            <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                <Label col=\"0\" #HygieneKits visibility=\"visible\" [text]=\"target.hygiene_kits\" class=\"input input-border\"></Label>\n                <Button col=\"1\" #HygieneButton class=\"editButton btn btn-primary\" [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('HygieneKitsPicker', 'HygieneButton')\"></Button>\n            </GridLayout>\n            <ListPicker class=\"list-picker\" id='HygieneKitsPicker' #ListPicker visibility=\"collapsed\" [picked]=\"target.hygiene_kits\" [items]=\"hygiene_kits\"></ListPicker>\n\n            <!-- Medical Support -->\n            <Label class=\"label font-weight-bold m-b-5\" text=\"Medical Support\"></Label>\n            <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                <Label col=\"0\" #MedicalSupport visibility=\"visible\" [text]=\"target.medical_support\" class=\"input input-border\"></Label>\n                <Button col=\"1\" #MedicalButton class=\"editButton btn btn-primary\" [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('MedicalSupportPicker', 'MedicalButton')\"></Button>\n            </GridLayout>\n            <ListPicker class=\"list-picker\" id='MedicalSupportPicker' #ListPicker visibility=\"collapsed\" [picked]=\"target.medical_support\" [items]=\"medical_support\"></ListPicker>\n\n            <!-- Transport to Clinic -->\n            <Label class=\"label font-weight-bold m-b-5\" text=\"Transport to Clinic\"></Label>\n            <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                <Label col=\"0\" #TransportToClinic visibility=\"visible\" [text]=\"target.transport_to_clinic\" class=\"input input-border\"></Label>\n                <Button col=\"1\" #TransportButton class=\"editButton btn btn-primary\" [text]=\"Text.genericEditButton\" (tap)=\"listPickerSwitch('TransportToClinicPicker', 'TransportButton')\"></Button>\n            </GridLayout>\n            <ListPicker class=\"list-picker\" id=\"TransportToClinicPicker\" #ListPicker visibility=\"collapsed\" [picked]=\"target.transport_to_clinic\" [items]=\"transport_to_clinic\"></ListPicker>\n\n        </StackLayout>\n    </GridLayout>\n</ScrollView>"
+module.exports = "<ScrollView>\n    <GridLayout rows=\"auto, auto\" columns=\"*\">\n        <GridLayout columns=\"auto, *, auto, auto\" row=\"0\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\" col=\"0\"></Image>\n            <Label text=\"ID: {{target.id}}\" class=\"p-6\" col=\"2\"></Label>\n            <Label text=\"Age: {{target.age}}\" class=\"p-10\" col=\"3\"></Label>\n        </GridLayout>\n        <StackLayout class=\"form\" row=\"1\">\n\n            <Label text=\"Details\" class=\"h1\"></Label>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- First Name -->\n            <StackLayout>\n                <Label text=\"First Name\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"FirstNameLabel\" #labelField [text]=\"target.first_name\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField id=\"FirstNameEdit\" #textField [text]=\"target.first_name\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button id=\"FirstNameButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('FirstNameLabel','FirstNameEdit','FirstNameButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Family Name -->\n            <StackLayout>\n                <Label text=\"Family Name\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"FamilyNameLabel\" #labelField [text]=\"target.last_name\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField id=\"FamilyNameEdit\" #textField [text]=\"target.last_name\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button id=\"FamilyNameButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('FamilyNameLabel','FamilyNameEdit','FamilyNameButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Date of Birth -->\n            <StackLayout>\n                <Label text=\"Date of Birth\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"DateOfBirthLabel\" #labelField text=\"{{target.date_of_birth.day}}/{{target.date_of_birth.month}}/{{target.date_of_birth.year}}\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"DateOfBirthButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"datePickerButton('DateOfBirthLabel', 'DateOfBirthPicker', 'DateOfBirthButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <DatePicker id=\"DateOfBirthPicker\" #datePicker [year]=\"target.date_of_birth.year\" [month]=\"target.date_of_birth.month\" [day]=\"target.date_of_birth.day\" visibility=\"collapsed\" class=\"date-picker\"></DatePicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Gender -->\n            <StackLayout>\n                <Label text=\"Gender\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"GenderLabel\" #labelField [text]=\"target.gender\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"GenderButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('GenderLabel', 'GenderPicker', 'GenderButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"GenderPicker\" #listPicker [picked]=\"target.gender\" [items]=\"gender\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- School -->\n            <StackLayout>\n                <Label text=\"School\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"SchoolLabel\" #labelField [text]=\"target.school.school\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField id=\"SchoolEdit\" #textField [text]=\"target.school.school\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button id=\"SchoolButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('SchoolLabel','SchoolEdit','SchoolButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- School Level -->\n            <StackLayout>\n                <Label text=\"School Level\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"SchoolLevelLabel\" #labelField [text]=\"target.school.level\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"SchoolLevelButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('SchoolLevelLabel', 'SchoolLevelPicker', 'SchoolLevelButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"SchoolLevelPicker\" #listPicker [picked]=\"target.school.level\" [items]=\"school.level\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- School Books -->\n            <StackLayout>\n                <Label text=\"School Books\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"SchoolBooksLabel\" #labelField [text]=\"target.school.books\" class=\"input input-border labelField\" col=\"0\"></Label>\n                    <Button id=\"SchoolBooksButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('SchoolBooksLabel', 'SchoolBooksPicker', 'SchoolBooksButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"SchoolBooksPicker\" #listPicker [picked]=\"target.school.books\" [items]=\"school.books\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Head of Family -->\n            <!-- Need to change to relating to a head of family member -->\n            <StackLayout>\n                <Label text=\"Head of Family\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"HeadOfFamilyLabel\" #labelField [text]=\"target.head_of_family.hof\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField id=\"HeadOfFamilyEdit\" #textField [text]=\"target.head_of_family.hof\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button id=\"HeadOfFamilyButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('HeadOfFamilyLabel','HeadOfFamilyEdit','HeadOfFamilyButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Relation to Head of Family -->\n            <StackLayout>\n                <Label text=\"Relation to Head of Family\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"HeadOfFamilyRelationLabel\" #labelField [text]=\"target.head_of_family.relation\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextField id=\"HeadOfFamilyRelationEdit\" #textField [text]=\"target.head_of_family.relation\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextField>\n                    <Button id=\"HeadOfFamilyRelationButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('HeadOfFamilyRelationLabel','HeadOfFamilyRelationEdit','HeadOfFamilyRelationButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Personal Status -->\n            <StackLayout>\n                <Label text=\"Personal Status\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"PersonalStatusLabel\" #labelField [text]=\"target.personal_status\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"PersonalStatusButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('PersonalStatusLabel', 'PersonalStatusPicker', 'PersonalStatusButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"PersonalStatusPicker\" #listPicker [picked]=\"target.personal_status\" [items]=\"personal_status\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Future Educational Goals -->\n            <StackLayout>\n                <Label text=\"Future Educational Goals\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"EducationalGoalsLabel\" #labelField [text]=\"target.future_educational_goals\" class=\"input input-border\" col=\"0\"></Label>\n                    <TextView id=\"EducationalGoalsEdit\" #textField [text]=\"target.future_educational_goals\" visibility=\"collapsed\" class=\"input input-border\" col=\"0\"></TextView>\n                    <Button id=\"EducationalGoalsButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"textFieldButton('EducationalGoalsLabel','EducationalGoalsEdit','EducationalGoalsButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Hygiene Kits -->\n            <StackLayout>\n                <Label text=\"Hygiene Kits\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"HygieneKitsLabel\" #labelField [text]=\"target.hygiene_kits\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"HygieneKitsButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('HygieneKitsLabel', 'HygieneKitsPicker', 'HygieneKitsButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"HygieneKitsPicker\" #listPicker [picked]=\"target.personal_status\" [items]=\"personal_status\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Medical Support -->\n            <StackLayout>\n                <Label text=\"Medical Support\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"MedicalSupportLabel\" #labelField [text]=\"target.medical_support\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"MedicalSupportButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('MedicalSupportLabel', 'MedicalSupportPicker', 'MedicalSupportButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"MedicalSupportPicker\" #listPicker [picked]=\"target.medical_support\" [items]=\"medical_support\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n            <StackLayout class=\"hr-light\"></StackLayout>\n            <!-- Transport to Clinic -->\n            <StackLayout>\n                <Label text=\"Transport To Clinic\" class=\"font-weight-bold m-b-5\"></Label>\n                <GridLayout columns=\"*,auto\" orientation=\"horizontal\">\n                    <Label id=\"TransportToClinicLabel\" #labelField [text]=\"target.transport_to_clinic\" class=\"input input-border\" col=\"0\"></Label>\n                    <Button id=\"TransportToClinicButton\" #editButton [text]=\"Text.genericEditButton\" (tap)=\"listPickerButton('TransportToClinicLabel', 'TransportToClinicPicker', 'TransportToClinicButton')\" class=\"btn btn-primary\" col=\"1\"></Button>\n                </GridLayout>\n                <StackLayout>\n                    <ListPicker id=\"TransportToClinicPicker\" #listPicker [picked]=\"target.transport_to_clinic\" [items]=\"transport_to_clinic\" visibility=\"collapsed\" class=\"list-picker\"></ListPicker>\n                </StackLayout>\n            </StackLayout>\n\n        </StackLayout>\n    </GridLayout>\n</ScrollView>"
 
 /***/ }),
 
@@ -1156,9 +1527,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var view = __webpack_require__("../node_modules/tns-core-modules/ui/core/view/view.js");
 let SupportedChildComponent = class SupportedChildComponent {
-    constructor(route, page) {
+    constructor(route, page, renderer) {
         this.route = route;
         this.page = page;
+        this.renderer = renderer;
         this.supportedChildren = new _shared_supported_children_supported_children_service__WEBPACK_IMPORTED_MODULE_2__["SupportedChildrenService"]().defaultSupportedChildren;
         this.dataAvailable = false;
         this.Text = _shared_text__WEBPACK_IMPORTED_MODULE_4__["Text"];
@@ -1171,10 +1543,10 @@ let SupportedChildComponent = class SupportedChildComponent {
         this.hygiene_kits = ["Yes", "No"];
         this.medical_support = ["Yes", "No"];
         this.transport_to_clinic = ["Yes", "No"];
+        this.page.actionBarHidden = true;
+        this.textFieldButtonStatus = false;
         this.listPickerButtonStatus = false;
         this.datePickerButtonStatus = false;
-        this.textFieldButtonStatus = false;
-        this.page.actionBarHidden = true;
     }
     ngOnInit() {
         this.targetId = this.route.snapshot.params['child'];
@@ -1184,131 +1556,196 @@ let SupportedChildComponent = class SupportedChildComponent {
             }
         }
     }
+    ngAfterViewInit() {
+        /*console.log("datePickers")
+        console.log(this.datePickers.toArray())
+        console.log("listPickers")
+        console.log(this.listPickers.toArray())
+        console.log("textFieldLabels")
+        console.log(this.textFieldLabels.toArray())
+        console.log("textFieldTextFields")
+        console.log(this.textFieldTextFields.toArray())
+        console.log("editButtons")
+        console.log(this.editButtons.toArray())*/
+    }
     listPickerButton(labelID, pickerID, buttonID, status = this.listPickerButtonStatus) {
-        if (status) { // If Editing Is Active
+        console.log(view.getViewByID(labelID).visibility);
+        view.getViewByID(labelID).visibility = "collapse";
+        console.log(view.getViewByID(labelID).visibility);
+        console.log(view.getViewByID(pickerID).visibility);
+        view.getViewByID(pickerID).visibility = "visible";
+        console.log(view.getViewByID(pickerID).visibility);
+        console.log(view.getViewByID(buttonID).text);
+        view.getViewByID(buttonID).text = this.Text.genericDoneButton;
+        console.log(view.getViewByID(buttonID).text);
+        /*//if (status) { // If Editing Is Active
+        this.textFieldLabels.forEach((i) => {
+            if (i.nativeElement.id == labelID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "visible"
+                console.log(i.nativeElement.visibility)
+            }
+        })
+        this.listPickers.forEach((i) => {
+            if (i.nativeElement.id == pickerID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "collapse"
+                console.log(i.nativeElement.visibility)
+            }
+        })
+        //console.log(buttonID)
+        this.editButtons.forEach((i) => {
+            if (i.nativeElement.id == buttonID) {
+                console.log(i.nativeElement.text)
+                this.renderer.setProperty(i.nativeElement.text, "text", this.Text.genericEditButton)
+                console.log(i.nativeElement.text)
+            }
+        })*/
+    } /*else { // If Editing Isn't Active
+            console.dir(this.textFieldLabels.toArray())
             this.textFieldLabels.forEach((i) => {
                 if (i.nativeElement.id == labelID) {
-                    i.nativeElement.visibility = "visible";
+                    i.nativeElement.visibility = "collapse"
                 }
-            });
+            })
+            console.dir(this.listPickers.toArray())
             this.listPickers.forEach((i) => {
                 if (i.nativeElement.id == pickerID) {
-                    i.nativeElement.visibility = "collapse";
+                    i.nativeElement.visibility = "visible"
                 }
-            });
+            })
+            console.dir(this.editButtons.toArray())
             this.editButtons.forEach((i) => {
                 if (i.nativeElement.id == buttonID) {
-                    i.nativeElement.Text = this.Text.genericEditButton;
+                    i.nativeElement.Text = this.Text.genericDoneButton
                 }
-            });
-            this.listPickerButtonStatus = true;
+            })
+            this.listPickerButtonStatus = false
         }
-        else { // If Editing Isn't Active
-            this.textFieldLabels.forEach((i) => {
-                if (i.nativeElement.id == labelID) {
-                    i.nativeElement.visibility = "collapse";
-                }
-            });
-            this.listPickers.forEach((i) => {
-                if (i.nativeElement.id == pickerID) {
-                    i.nativeElement.visibility = "visible";
-                }
-            });
-            this.editButtons.forEach((i) => {
-                if (i.nativeElement.id == buttonID) {
-                    i.nativeElement.Text = this.Text.genericDoneButton;
-                }
-            });
-            this.datePickerButtonStatus = false;
-        }
-    }
+    }*/
     datePickerButton(labelID, pickerID, buttonID, status = this.datePickerButtonStatus) {
-        if (status) { // If Editing Is Active
+        console.log(view.getViewByID(labelID).visibility);
+        view.getViewByID(labelID).visibility = "collapse";
+        console.log(view.getViewByID(labelID).visibility);
+        console.log(view.getViewByID(pickerID).visibility);
+        view.getViewByID(pickerID).visibility = "visible";
+        console.log(view.getViewByID(pickerID).visibility);
+        console.log(view.getViewByID(buttonID).text);
+        view.getViewByID(buttonID).text = this.Text.genericDoneButton;
+        console.log(view.getViewByID(buttonID).text);
+        //if (status) { // If Editing Is Active
+        /*this.textFieldLabels.forEach((i) => {
+            if (i.nativeElement.id == labelID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "visible"
+                console.log(i.nativeElement.visibility)
+                //console.log(i.nativeElement.text)
+            }
+        })
+        this.datePickers.forEach((i) => {
+            if (i.nativeElement.id == pickerID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "collapse"
+                console.log(i.nativeElement.visibility)
+            }
+        })
+        this.editButtons.forEach((i) => {
+            if (i.nativeElement.id == buttonID) {
+                console.log(i.nativeElement.text)
+                this.renderer.setProperty(i.nativeElement.text, "text", this.Text.genericEditButton)
+                console.log(i.nativeElement.text)
+                //console.log(i.nativeElement.text)
+            }
+        })*/
+    } /*else { // If Editing Isn't Active
+            console.dir(this.textFieldLabels.toArray())
             this.textFieldLabels.forEach((i) => {
                 if (i.nativeElement.id == labelID) {
-                    i.nativeElement.visibility = "visible";
+                    i.nativeElement.visibility = "collapse"
                 }
-            });
+            })
+            console.dir(this.datePickers.toArray())
             this.datePickers.forEach((i) => {
                 if (i.nativeElement.id == pickerID) {
-                    i.nativeElement.visibility = "collapse";
+                    i.nativeElement.visibility = "visible"
                 }
-            });
+            })
+            console.dir(this.editButtons.toArray())
             this.editButtons.forEach((i) => {
                 if (i.nativeElement.id == buttonID) {
-                    i.nativeElement.Text = this.Text.genericEditButton;
+                    i.nativeElement.Text = this.Text.genericDoneButton
                 }
-            });
-            this.datePickerButtonStatus = true;
+            })
+            this.datePickerButtonStatus = false
         }
-        else { // If Editing Isn't Active
-            this.textFieldLabels.forEach((i) => {
-                if (i.nativeElement.id == labelID) {
-                    i.nativeElement.visibility = "collapse";
-                }
-            });
-            this.datePickers.forEach((i) => {
-                if (i.nativeElement.id == pickerID) {
-                    i.nativeElement.visibility = "visible";
-                }
-            });
-            this.editButtons.forEach((i) => {
-                if (i.nativeElement.id == buttonID) {
-                    i.nativeElement.Text = this.Text.genericDoneButton;
-                }
-            });
-            this.datePickerButtonStatus = false;
-        }
-    }
+    }*/
     textFieldButton(labelID, editID, buttonID, status = this.textFieldButtonStatus) {
-        if (status) { // If Editing Is Active
+        console.log(view.getViewByID(labelID).visibility);
+        view.getViewByID(labelID).visibility = "collapse";
+        console.log(view.getViewByID(labelID).visibility);
+        console.log(view.getViewByID(editID).visibility);
+        view.getViewByID(editID).visibility = "visible";
+        console.log(view.getViewByID(editID).visibility);
+        console.log(view.getViewByID(buttonID).text);
+        view.getViewByID(buttonID).text = this.Text.genericDoneButton;
+        console.log(view.getViewByID(buttonID).text);
+        /*//if (status) { // If Editing Is Active
+        this.textFieldLabels.forEach((i) => {
+            if (i.nativeElement.id == labelID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "collapse"
+                console.log(i.nativeElement.visibility)
+                //console.log(i.nativeElement.text)
+            }
+        })
+        this.textFieldTextFields.forEach((i) => {
+            if (i.nativeElement.id == editID) {
+                console.log(i.nativeElement.visibility)
+                i.nativeElement.visibility = "visible"
+                console.log(i.nativeElement.visibility)
+                //console.log(i.nativeElement.text)
+            }
+        })
+        this.editButtons.forEach((i) => {
+            if (i.nativeElement.id == buttonID) {
+                console.log(i.nativeElement.text)
+                this.renderer.setProperty(i.nativeElement.text, "innerHTML", this.Text.genericEditButton)
+                console.log(i.nativeElement.text)
+            }
+        })*/
+    } /*else { // If Editing Isn't Active
+            console.dir(this.textFieldLabels.toArray())
             this.textFieldLabels.forEach((i) => {
                 if (i.nativeElement.id == labelID) {
-                    i.nativeElement.visibility = "visible";
+                    i.nativeElement.visibility = "collapse"
                 }
-            });
+            })
+            console.dir(this.textFieldTextFields.toArray())
             this.textFieldTextFields.forEach((i) => {
                 if (i.nativeElement.id == editID) {
-                    i.nativeElement.visibility = "collapse";
+                    i.nativeElement.visibility = "visible"
                 }
-            });
+            })
+            console.dir(this.editButtons.toArray())
             this.editButtons.forEach((i) => {
                 if (i.nativeElement.id == buttonID) {
-                    i.nativeElement.Text = this.Text.genericEditButton;
+                    i.nativeElement.Text = this.Text.genericDoneButton
                 }
-            });
-            this.textFieldButtonStatus = true;
+            })
+            this.textFieldButtonStatus = false
         }
-        else { // If Editing Isn't Active
-            this.textFieldLabels.forEach((i) => {
-                if (i.nativeElement.id == labelID) {
-                    i.nativeElement.visibility = "collapse";
-                }
-            });
-            this.textFieldTextFields.forEach((i) => {
-                if (i.nativeElement.id == editID) {
-                    i.nativeElement.visibility = "visible";
-                }
-            });
-            this.editButtons.forEach((i) => {
-                if (i.nativeElement.id == buttonID) {
-                    i.nativeElement.Text = this.Text.genericDoneButton;
-                }
-            });
-            this.textFieldButtonStatus = false;
-        }
-    }
+    }*/
 };
 __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('DatePicker'),
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('datePicker'),
     __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
 ], SupportedChildComponent.prototype, "datePickers", void 0);
 __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('ListPicker'),
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('listPicker'),
     __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
 ], SupportedChildComponent.prototype, "listPickers", void 0);
 __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('label'),
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChildren"])('labelField'),
     __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
 ], SupportedChildComponent.prototype, "textFieldLabels", void 0);
 __decorate([
@@ -1326,7 +1763,8 @@ SupportedChildComponent = __decorate([
         styles: [__webpack_require__("./app/supported-child/supported-child.component.css")]
     }),
     __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
-        tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["Page"]])
+        tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_3__["Page"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"]])
 ], SupportedChildComponent);
 
 
@@ -1343,7 +1781,7 @@ module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled 
 /***/ "./app/supported-children/supported-children.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n            <Label [text]=\"Text.supportedChildrenTitle\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n            <!-- <SearchBar></SearchBar> -->\n        </FlexboxLayout>\n        \n        <GridLayout *ngFor=\"let i of supportedChildren\" rows=\"*,2*,*\" columns=\"*,auto,auto,auto,*\" class=\"p-20 btn-img flex-btn\">\n            <Label row=\"0\" col=\"4\" [text]=\"i.id\" class=\"p-6\"></Label>\n            <Image row=\"1\" col=\"0\" src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Image row=\"1\" col=\"4\" src=\"res://rightArrow\" (tap)=\"viewChild(i.id)\"></Image>\n            <Label row=\"1\" col=\"1\" colSpan=\"2\" text=\"{{i.first_name}} {{i.last_name}}\" class=\"p-10\"></Label>\n            <Label row=\"1\" col=\"3\" text=\"|  {{ i.age}}\" class=\"p-10\"></Label>\n            <Label row=\"2\" col=\"1\" colSpan=\"2\" [text]=\"i.school.school\" class=\"p-10\"></Label>\n        </GridLayout>\n    </StackLayout>\n</ScrollView>"
+module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\">\n            <Label [text]=\"Text.supportedChildrenTitle\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n            <!-- <SearchBar></SearchBar> -->\n        </FlexboxLayout>\n        \n        <GridLayout *ngFor=\"let i of supportedChildren\" rows=\"*,2*,*\" columns=\"*,auto,auto,auto,*\" class=\"p-20 btn-img flex-btn\">\n            <Label row=\"0\" col=\"4\" [text]=\"i.id\" class=\"p-6\"></Label>\n            <Image row=\"1\" col=\"0\" src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Image row=\"1\" col=\"4\" src=\"res://rightArrow\" (tap)=\"viewChild(i.id)\"></Image>\n            <Label row=\"1\" col=\"1\" colSpan=\"2\" text=\"{{i.first_name}} {{i.last_name}}\" class=\"p-10\"></Label>\n            <Label row=\"1\" col=\"3\" text=\"|  {{ i.age}}\" class=\"p-10\"></Label>\n            <Label row=\"2\" col=\"1\" colSpan=\"2\" [text]=\"i.school.school\" class=\"p-10\"></Label>\n        </GridLayout>\n    </StackLayout>\n</ScrollView>"
 
 /***/ }),
 

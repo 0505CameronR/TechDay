@@ -1,0 +1,84 @@
+export const Text = {
+    /**
+     * Feedback Text
+     */
+    feedbackMissingUsername: "Please Provide Username",
+    feedbackMissingPassword: "Please Provide Password",
+    feedbackMissingUsernamePassword: "Please Provide Both a Username and a Password",
+    feedbackSigningIn: "Signing In User:",
+    feedbackSignedIn: "Signed In User:",
+    feedbackSignInError: "Unfortunately we could not sign in to the account:",
+    feedbackSigningOut: "Signing Out User:",
+    feedbackSignedOut: "Signed Out",
+    feedbackSameLocation: "You're Already At:",
+    feedbackNotImplemented_1: "The Feature",
+    feedbackNotImplemented_2: "Hasn't Been Implemented Yet",
+    /**
+     * Bio Authentication
+     */
+    bioTitle: "Authenticate",
+    bioMessage: "Sign Into User",
+    /**
+     * Header Text
+     */
+    headerBack: "< Back",
+    /**
+     * Dropdown Text
+     */
+    headerSupportedChildren: "Supported Children",
+    headerHeadsFamily: "Heads of Family",
+    headerSponsors: "Sponsors",
+    headerSchools: "Schools",
+    headerWorkers: "Parish Workers",
+    headerOffices: "Assigned Offices",
+    /**
+     * Sign In Text
+     * Default Text
+     * Stays Static
+     */
+    signInUsernameHint: "Username",
+    signInPasswordHint: "Password",
+    signInSignInButton: "Sign In",
+    signInSignUpButton: "Sign Up",
+    signInBioFaceButton: "Use Face ID",
+    signInBioFingerButton: "Use Touch ID",
+    /**
+     * Home Text
+     * Default Text
+     * Some Will Be Changed On Sign In
+     */
+    homeWelcome: "Welcome:\n",
+    homeAllocatedSchool: "Allocated Schools",
+    homeAllocatedChildren: "Allocated Children",
+    homeSignOut: "Sign Out",
+    /**
+     * Supported Children Text
+     */
+    supportedChildrenTitle: "Supported Children",
+    /**
+     * Supported Child Text
+     */
+    supportedChildID: "ID:",
+    supportedChildAge: "Age:",
+    supportedChildSubTitle: "Details",
+    supportedChildHeadingFirstName: "First Name",
+    supportedChildHeadingFamilyName: "Family Name",
+    supportedChildHeadingDateBirth: "Date of Birth",
+    supportedChildHeadingGender: "Gender",
+    supportedChildHeadingSchool: "School",
+    supportedChildHeadingSchoolLevel: "School Level",
+    supportedChildHeadingSchoolBooks: "School Books",
+    supportedChildHeadingHeadFamily: "Head of Family",
+    supportedChildHeadingRelationHeadFamily: "Relation to Head of Family",
+    supportedChildHeadingPersonalStatus: "Personal Status",
+    supportedChildHeadingGoals: "Future Educational Goals",
+    supportedChildHeadingHygieneKits: "Hygiene Kits",
+    supportedChildHeadingMedicalSupport: "Medical Support",
+    supportedChildHeadingTransportToClinics: "Transport to Clinic",
+    /**
+     * Generic Text
+     */
+    genericEditButton: "Edit",
+    genericDoneButton: "Done",
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGV4dC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL3BsYXRmb3Jtcy9pb3MvYnVpbGQvRGVidWctaXBob25lb3MvVHVtYWluaUZ1bmQueGNhcmNoaXZlL1Byb2R1Y3RzL0FwcGxpY2F0aW9ucy9UdW1haW5pRnVuZC5hcHAvYXBwL2FwcC9zaGFyZWQvdGV4dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxNQUFNLENBQUMsTUFBTSxJQUFJLEdBQUc7SUFDaEI7O09BRUc7SUFDTix1QkFBdUIsRUFBRyx5QkFBeUI7SUFDbkQsdUJBQXVCLEVBQUcseUJBQXlCO0lBQ25ELCtCQUErQixFQUFHLCtDQUErQztJQUNqRixpQkFBaUIsRUFBRyxrQkFBa0I7SUFDdEMsZ0JBQWdCLEVBQUcsaUJBQWlCO0lBQ3BDLG1CQUFtQixFQUFHLG9EQUFvRDtJQUMxRSxrQkFBa0IsRUFBRyxtQkFBbUI7SUFDeEMsaUJBQWlCLEVBQUcsWUFBWTtJQUNoQyxvQkFBb0IsRUFBRyxvQkFBb0I7SUFDM0Msd0JBQXdCLEVBQUcsYUFBYTtJQUN4Qyx3QkFBd0IsRUFBRyw2QkFBNkI7SUFFckQ7O09BRUc7SUFDTixRQUFRLEVBQUcsY0FBYztJQUN6QixVQUFVLEVBQUcsZ0JBQWdCO0lBRTFCOztPQUVHO0lBQ04sVUFBVSxFQUFHLFFBQVE7SUFFbEI7O09BRUc7SUFDTix1QkFBdUIsRUFBRyxvQkFBb0I7SUFDOUMsaUJBQWlCLEVBQUcsaUJBQWlCO0lBQ3JDLGNBQWMsRUFBRyxVQUFVO0lBQzNCLGFBQWEsRUFBRyxTQUFTO0lBQ3pCLGFBQWEsRUFBRyxnQkFBZ0I7SUFDaEMsYUFBYSxFQUFHLGtCQUFrQjtJQUUvQjs7OztPQUlHO0lBQ04sa0JBQWtCLEVBQUcsVUFBVTtJQUMvQixrQkFBa0IsRUFBRyxVQUFVO0lBQy9CLGtCQUFrQixFQUFHLFNBQVM7SUFDOUIsa0JBQWtCLEVBQUcsU0FBUztJQUM5QixtQkFBbUIsRUFBRyxhQUFhO0lBQ25DLHFCQUFxQixFQUFHLGNBQWM7SUFFbkM7Ozs7T0FJRztJQUNOLFdBQVcsRUFBRyxZQUFZO0lBQzFCLG1CQUFtQixFQUFHLG1CQUFtQjtJQUN6QyxxQkFBcUIsRUFBRyxvQkFBb0I7SUFDNUMsV0FBVyxFQUFHLFVBQVU7SUFFckI7O09BRUc7SUFDTixzQkFBc0IsRUFBRyxvQkFBb0I7SUFFMUM7O09BRUc7SUFDTixnQkFBZ0IsRUFBRyxLQUFLO0lBQ3hCLGlCQUFpQixFQUFHLE1BQU07SUFDMUIsc0JBQXNCLEVBQUcsU0FBUztJQUNsQyw4QkFBOEIsRUFBRyxZQUFZO0lBQzdDLCtCQUErQixFQUFHLGFBQWE7SUFDL0MsOEJBQThCLEVBQUcsZUFBZTtJQUNoRCwyQkFBMkIsRUFBRyxRQUFRO0lBQ3RDLDJCQUEyQixFQUFHLFFBQVE7SUFDdEMsZ0NBQWdDLEVBQUcsY0FBYztJQUNqRCxnQ0FBZ0MsRUFBRyxjQUFjO0lBQ2pELCtCQUErQixFQUFHLGdCQUFnQjtJQUNsRCx1Q0FBdUMsRUFBRyw0QkFBNEI7SUFDdEUsbUNBQW1DLEVBQUcsaUJBQWlCO0lBQ3ZELDBCQUEwQixFQUFHLDBCQUEwQjtJQUN2RCxnQ0FBZ0MsRUFBRyxjQUFjO0lBQ2pELG1DQUFtQyxFQUFHLGlCQUFpQjtJQUN2RCx1Q0FBdUMsRUFBRyxxQkFBcUI7SUFFNUQ7O09BRUc7SUFDTixpQkFBaUIsRUFBRyxNQUFNO0lBQzFCLGlCQUFpQixFQUFHLE1BQU07Q0FDMUIsQ0FBQSIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCBUZXh0ID0ge1xuICAgIC8qKlxuICAgICAqIEZlZWRiYWNrIFRleHRcbiAgICAgKi9cblx0ZmVlZGJhY2tNaXNzaW5nVXNlcm5hbWUgOiBcIlBsZWFzZSBQcm92aWRlIFVzZXJuYW1lXCIsXG5cdGZlZWRiYWNrTWlzc2luZ1Bhc3N3b3JkIDogXCJQbGVhc2UgUHJvdmlkZSBQYXNzd29yZFwiLFxuXHRmZWVkYmFja01pc3NpbmdVc2VybmFtZVBhc3N3b3JkIDogXCJQbGVhc2UgUHJvdmlkZSBCb3RoIGEgVXNlcm5hbWUgYW5kIGEgUGFzc3dvcmRcIixcblx0ZmVlZGJhY2tTaWduaW5nSW4gOiBcIlNpZ25pbmcgSW4gVXNlcjpcIixcblx0ZmVlZGJhY2tTaWduZWRJbiA6IFwiU2lnbmVkIEluIFVzZXI6XCIsXG5cdGZlZWRiYWNrU2lnbkluRXJyb3IgOiBcIlVuZm9ydHVuYXRlbHkgd2UgY291bGQgbm90IHNpZ24gaW4gdG8gdGhlIGFjY291bnQ6XCIsXG5cdGZlZWRiYWNrU2lnbmluZ091dCA6IFwiU2lnbmluZyBPdXQgVXNlcjpcIixcblx0ZmVlZGJhY2tTaWduZWRPdXQgOiBcIlNpZ25lZCBPdXRcIixcblx0ZmVlZGJhY2tTYW1lTG9jYXRpb24gOiBcIllvdSdyZSBBbHJlYWR5IEF0OlwiLFxuXHRmZWVkYmFja05vdEltcGxlbWVudGVkXzEgOiBcIlRoZSBGZWF0dXJlXCIsXG5cdGZlZWRiYWNrTm90SW1wbGVtZW50ZWRfMiA6IFwiSGFzbid0IEJlZW4gSW1wbGVtZW50ZWQgWWV0XCIsXG5cbiAgICAvKipcbiAgICAgKiBCaW8gQXV0aGVudGljYXRpb25cbiAgICAgKi9cblx0YmlvVGl0bGUgOiBcIkF1dGhlbnRpY2F0ZVwiLFxuXHRiaW9NZXNzYWdlIDogXCJTaWduIEludG8gVXNlclwiLFxuXG4gICAgLyoqXG4gICAgICogSGVhZGVyIFRleHRcbiAgICAgKi9cblx0aGVhZGVyQmFjayA6IFwiPCBCYWNrXCIsXG5cbiAgICAvKipcbiAgICAgKiBEcm9wZG93biBUZXh0XG4gICAgICovXG5cdGhlYWRlclN1cHBvcnRlZENoaWxkcmVuIDogXCJTdXBwb3J0ZWQgQ2hpbGRyZW5cIixcblx0aGVhZGVySGVhZHNGYW1pbHkgOiBcIkhlYWRzIG9mIEZhbWlseVwiLFxuXHRoZWFkZXJTcG9uc29ycyA6IFwiU3BvbnNvcnNcIixcblx0aGVhZGVyU2Nob29scyA6IFwiU2Nob29sc1wiLFxuXHRoZWFkZXJXb3JrZXJzIDogXCJQYXJpc2ggV29ya2Vyc1wiLFxuXHRoZWFkZXJPZmZpY2VzIDogXCJBc3NpZ25lZCBPZmZpY2VzXCIsXG5cbiAgICAvKipcbiAgICAgKiBTaWduIEluIFRleHRcbiAgICAgKiBEZWZhdWx0IFRleHRcbiAgICAgKiBTdGF5cyBTdGF0aWNcbiAgICAgKi9cblx0c2lnbkluVXNlcm5hbWVIaW50IDogXCJVc2VybmFtZVwiLFxuXHRzaWduSW5QYXNzd29yZEhpbnQgOiBcIlBhc3N3b3JkXCIsXG5cdHNpZ25JblNpZ25JbkJ1dHRvbiA6IFwiU2lnbiBJblwiLFxuXHRzaWduSW5TaWduVXBCdXR0b24gOiBcIlNpZ24gVXBcIixcblx0c2lnbkluQmlvRmFjZUJ1dHRvbiA6IFwiVXNlIEZhY2UgSURcIixcblx0c2lnbkluQmlvRmluZ2VyQnV0dG9uIDogXCJVc2UgVG91Y2ggSURcIixcblxuICAgIC8qKlxuICAgICAqIEhvbWUgVGV4dFxuICAgICAqIERlZmF1bHQgVGV4dFxuICAgICAqIFNvbWUgV2lsbCBCZSBDaGFuZ2VkIE9uIFNpZ24gSW5cbiAgICAgKi9cblx0aG9tZVdlbGNvbWUgOiBcIldlbGNvbWU6XFxuXCIsXG5cdGhvbWVBbGxvY2F0ZWRTY2hvb2wgOiBcIkFsbG9jYXRlZCBTY2hvb2xzXCIsXG5cdGhvbWVBbGxvY2F0ZWRDaGlsZHJlbiA6IFwiQWxsb2NhdGVkIENoaWxkcmVuXCIsXG5cdGhvbWVTaWduT3V0IDogXCJTaWduIE91dFwiLFxuXG4gICAgLyoqXG4gICAgICogU3VwcG9ydGVkIENoaWxkcmVuIFRleHRcbiAgICAgKi9cblx0c3VwcG9ydGVkQ2hpbGRyZW5UaXRsZSA6IFwiU3VwcG9ydGVkIENoaWxkcmVuXCIsXG5cbiAgICAvKipcbiAgICAgKiBTdXBwb3J0ZWQgQ2hpbGQgVGV4dFxuICAgICAqL1xuXHRzdXBwb3J0ZWRDaGlsZElEIDogXCJJRDpcIixcblx0c3VwcG9ydGVkQ2hpbGRBZ2UgOiBcIkFnZTpcIixcblx0c3VwcG9ydGVkQ2hpbGRTdWJUaXRsZSA6IFwiRGV0YWlsc1wiLFxuXHRzdXBwb3J0ZWRDaGlsZEhlYWRpbmdGaXJzdE5hbWUgOiBcIkZpcnN0IE5hbWVcIixcblx0c3VwcG9ydGVkQ2hpbGRIZWFkaW5nRmFtaWx5TmFtZSA6IFwiRmFtaWx5IE5hbWVcIixcblx0c3VwcG9ydGVkQ2hpbGRIZWFkaW5nRGF0ZUJpcnRoIDogXCJEYXRlIG9mIEJpcnRoXCIsXG5cdHN1cHBvcnRlZENoaWxkSGVhZGluZ0dlbmRlciA6IFwiR2VuZGVyXCIsXG5cdHN1cHBvcnRlZENoaWxkSGVhZGluZ1NjaG9vbCA6IFwiU2Nob29sXCIsXG5cdHN1cHBvcnRlZENoaWxkSGVhZGluZ1NjaG9vbExldmVsIDogXCJTY2hvb2wgTGV2ZWxcIixcblx0c3VwcG9ydGVkQ2hpbGRIZWFkaW5nU2Nob29sQm9va3MgOiBcIlNjaG9vbCBCb29rc1wiLFxuXHRzdXBwb3J0ZWRDaGlsZEhlYWRpbmdIZWFkRmFtaWx5IDogXCJIZWFkIG9mIEZhbWlseVwiLFxuXHRzdXBwb3J0ZWRDaGlsZEhlYWRpbmdSZWxhdGlvbkhlYWRGYW1pbHkgOiBcIlJlbGF0aW9uIHRvIEhlYWQgb2YgRmFtaWx5XCIsXG5cdHN1cHBvcnRlZENoaWxkSGVhZGluZ1BlcnNvbmFsU3RhdHVzIDogXCJQZXJzb25hbCBTdGF0dXNcIixcblx0c3VwcG9ydGVkQ2hpbGRIZWFkaW5nR29hbHMgOiBcIkZ1dHVyZSBFZHVjYXRpb25hbCBHb2Fsc1wiLFxuXHRzdXBwb3J0ZWRDaGlsZEhlYWRpbmdIeWdpZW5lS2l0cyA6IFwiSHlnaWVuZSBLaXRzXCIsXG5cdHN1cHBvcnRlZENoaWxkSGVhZGluZ01lZGljYWxTdXBwb3J0IDogXCJNZWRpY2FsIFN1cHBvcnRcIixcblx0c3VwcG9ydGVkQ2hpbGRIZWFkaW5nVHJhbnNwb3J0VG9DbGluaWNzIDogXCJUcmFuc3BvcnQgdG8gQ2xpbmljXCIsXG5cbiAgICAvKipcbiAgICAgKiBHZW5lcmljIFRleHRcbiAgICAgKi9cblx0Z2VuZXJpY0VkaXRCdXR0b24gOiBcIkVkaXRcIixcblx0Z2VuZXJpY0RvbmVCdXR0b24gOiBcIkRvbmVcIixcbn0iXX0=

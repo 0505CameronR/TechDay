@@ -8,7 +8,7 @@ This package contains type definitions for Jasmine (http://jasmine.github.io/).
 Files were exported from https://www.github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jasmine
 
 Additional Details
- * Last updated: Fri, 26 Jan 2018 17:21:18 GMT
+ * Last updated: Thu, 03 May 2018 16:11:29 GMT
  * Dependencies: none
  * Global values: afterAll, afterEach, beforeAll, beforeEach, describe, expect, fail, fdescribe, fit, it, jasmine, pending, runs, spyOn, spyOnProperty, waits, waitsFor, xdescribe, xit
 

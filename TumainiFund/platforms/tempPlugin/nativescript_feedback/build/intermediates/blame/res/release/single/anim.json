@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/abc_slide_out_top.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/interpolator_slight_anticipate.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/alerter-2.0.5.aar/6388e97bbee88d4de66e27c7bd6e420e/res/anim/interpolator_slight_anticipate.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/abc_slide_in_top.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/alerter_slide_out_to_top.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/alerter-2.0.5.aar/6388e97bbee88d4de66e27c7bd6e420e/res/anim/alerter_slide_out_to_top.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/abc_fade_out.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/tooltip_exit.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/tooltip_exit.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/abc_popup_enter.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/alerter_pulse.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/alerter-2.0.5.aar/6388e97bbee88d4de66e27c7bd6e420e/res/anim/alerter_pulse.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/alerter_slide_in_from_top.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/alerter-2.0.5.aar/6388e97bbee88d4de66e27c7bd6e420e/res/anim/alerter_slide_in_from_top.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/abc_fade_in.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/interpolator_slight_overshoot.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/alerter-2.0.5.aar/6388e97bbee88d4de66e27c7bd6e420e/res/anim/interpolator_slight_overshoot.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/tooltip_enter.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/tooltip_enter.xml"
+    },
+    {
+        "merged": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/anim/abc_popup_exit.xml",
+        "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/anim/abc_popup_exit.xml"
+    }
+]

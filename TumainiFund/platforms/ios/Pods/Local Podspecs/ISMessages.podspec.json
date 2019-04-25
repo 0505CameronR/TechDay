@@ -19,13 +19,16 @@
     "tag": "1.2"
   },
   "social_media_url": "https://twitter.com/trsaltn",
-  "platforms": {
-    "ios": "8.0"
-  },
   "source_files": "ISMessages/Classes/**/*",
   "resource_bundles": {
     "ISMessages": [
       "ISMessages/Assets/*.png"
     ]
+  },
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
   }
 }

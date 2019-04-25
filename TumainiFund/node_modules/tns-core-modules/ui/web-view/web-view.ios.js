@@ -75,6 +75,19 @@ var WKNavigationDelegateImpl = (function (_super) {
             owner._onLoadFinished(src, error.localizedDescription);
         }
     };
+    WKNavigationDelegateImpl.prototype.webViewDidFailProvisionalNavigationWithError = function (webView, navigation, error) {
+        var owner = this._owner.get();
+        if (owner) {
+            var src = owner.src;
+            if (webView.URL) {
+                src = webView.URL.absoluteString;
+            }
+            if (web_view_common_1.traceEnabled()) {
+                web_view_common_1.traceWrite("WKNavigationDelegateClass.webViewDidFailProvisionalNavigationWithError(" + error.localizedDescription + ")", web_view_common_1.traceCategories.Debug);
+            }
+            owner._onLoadFinished(src, error.localizedDescription);
+        }
+    };
     WKNavigationDelegateImpl.ObjCProtocols = [WKNavigationDelegate];
     return WKNavigationDelegateImpl;
 }(NSObject));
@@ -124,7 +137,8 @@ var WebView = (function (_super) {
     };
     WebView.prototype._loadUrl = function (src) {
         if (src.startsWith("file:///")) {
-            this.ios.loadFileURLAllowingReadAccessToURL(NSURL.URLWithString(src), NSURL.URLWithString(src));
+            var cachePath = src.substring(0, src.lastIndexOf("/"));
+            this.ios.loadFileURLAllowingReadAccessToURL(NSURL.URLWithString(src), NSURL.URLWithString(cachePath));
         }
         else {
             this.ios.loadRequest(NSURLRequest.requestWithURL(NSURL.URLWithString(src)));

@@ -1,0 +1,31 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:1-120
+INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:1-120
+INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:1-120
+INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:1-120
+INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:1-120
+INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:1-120
+INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:1-120
+	package
+		ADDED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:70-118
+		INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml
+		INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml
+		ADDED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:1-120
+		INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml
+		ADDED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:1-120
+		INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml:2:11-69
+uses-sdk
+INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml
+INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml
+		ADDED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml
+		INJECTED from /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/src/main/AndroidManifest.xml

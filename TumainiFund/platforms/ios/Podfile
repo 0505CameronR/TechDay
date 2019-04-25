@@ -2,13 +2,15 @@ use_frameworks!
 
 target "TumainiFund" do
 # Begin Podfile - /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-iqkeyboardmanager/platforms/ios/Podfile
-pod 'IQKeyboardManager', '~> 5.0.0'
+pod 'IQKeyboardManager', '~> 6.2.0'
 
 # End Podfile
 
 # Begin Podfile - /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/nativescript-feedback/platforms/ios/Podfile
-pod 'ISMessages', :git => 'https://github.com/EddyVerbruggen/ISMessages.git', :commit => '580ac8cab611e2f92ebdd62b2201f9dada36ccd4'
+pod 'ISMessages', :git => 'https://github.com/EddyVerbruggen/ISMessages.git', :commit => '9cda6db2fcb11e62b0332eedb24dbefcbb69435f'
 # End Podfile
+
+
 
 # Begin Podfile - /Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/node_modules/kinvey-nativescript-sdk/platforms/ios/Podfile
 platform :ios, '9.0'

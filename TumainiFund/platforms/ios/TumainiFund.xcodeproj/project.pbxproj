@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		096B0137E3B54F7EB04CE7DD /* @2xuserImg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BFF3F1C4E574B51A4145AAA /* @2xuserImg.png */; };
 		0AE591DB17994743A720094B /* TNSSideDrawer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C22ADCC8F8243219F0C2E4D /* TNSSideDrawer.framework */; };
@@ -130,6 +131,7 @@
 				858B832F18CA111C00AB12DE /* Products */,
 				F6F334EA374641FA883A820A /* tns-core-modules */,
 				64C59E5CA25D71BAC19DE0FB /* Pods */,
+				BE9CB2B00F144F4F85A501ED /* TNSNativeSource */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,6 +213,13 @@
 				90D818C732D64B4CB87A68D9 /* NativeScriptEmbedder.m */,
 			);
 			name = "tns-core-modules";
+			sourceTree = "<group>";
+		};
+		BE9CB2B00F144F4F85A501ED /* TNSNativeSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TNSNativeSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,6 +527,12 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../node_modules/tns-core-modules/platforms/ios/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/TumainiFund/TumainiFund-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -546,6 +561,12 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../node_modules/tns-core-modules/platforms/ios/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/TumainiFund/TumainiFund-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

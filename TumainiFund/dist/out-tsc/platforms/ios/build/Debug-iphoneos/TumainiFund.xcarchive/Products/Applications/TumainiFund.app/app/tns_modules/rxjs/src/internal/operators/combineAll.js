@@ -1,0 +1,49 @@
+import { CombineLatestOperator } from '../observable/combineLatest';
+/**
+ * Flattens an Observable-of-Observables by applying {@link combineLatest} when the Observable-of-Observables completes.
+ *
+ * ![](combineAll.png)
+ *
+ * `combineAll` takes an Observable of Observables, and collects all Observables from it. Once the outer Observable completes,
+ * it subscribes to all collected Observables and combines their values using the {@link combineLatest}</a> strategy, such that:
+ *
+ * * Every time an inner Observable emits, the output Observable emits
+ * * When the returned observable emits, it emits all of the latest values by:
+ *    * If a `project` function is provided, it is called with each recent value from each inner Observable in whatever order they
+ *      arrived, and the result of the `project` function is what is emitted by the output Observable.
+ *    * If there is no `project` function, an array of all the most recent values is emitted by the output Observable.
+ *
+ * ---
+ *
+ * ## Examples
+ * ### Map two click events to a finite interval Observable, then apply `combineAll`
+ * ```javascript
+ * import { map, combineAll, take } from 'rxjs/operators';
+ * import { fromEvent } from 'rxjs/observable/fromEvent';
+ *
+ * const clicks = fromEvent(document, 'click');
+ * const higherOrder = clicks.pipe(
+ *   map(ev =>
+ *      interval(Math.random() * 2000).pipe(take(3))
+ *   ),
+ *   take(2)
+ * );
+ * const result = higherOrder.pipe(
+ *   combineAll()
+ * );
+ *
+ * result.subscribe(x => console.log(x));
+ * ```
+ *
+ * @see {@link combineLatest}
+ * @see {@link mergeAll}
+ *
+ * @param {function(...values: Array<any>)} An optional function to map the most recent values from each inner Observable into a new result.
+ * Takes each of the most recent values from each collected inner Observable as arguments, in order.
+ * @return {Observable<T>}
+ * @name combineAll
+ */
+export function combineAll(project) {
+    return (source) => source.lift(new CombineLatestOperator(project));
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29tYmluZUFsbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL3BsYXRmb3Jtcy9pb3MvYnVpbGQvRGVidWctaXBob25lb3MvVHVtYWluaUZ1bmQueGNhcmNoaXZlL1Byb2R1Y3RzL0FwcGxpY2F0aW9ucy9UdW1haW5pRnVuZC5hcHAvYXBwL3Ruc19tb2R1bGVzL3J4anMvc3JjL2ludGVybmFsL29wZXJhdG9ycy9jb21iaW5lQWxsLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxxQkFBcUIsRUFBRSxNQUFNLDZCQUE2QixDQUFDO0FBUXBFOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0dBMkNHO0FBQ0gsTUFBTSxVQUFVLFVBQVUsQ0FBTyxPQUFzQztJQUNyRSxPQUFPLENBQUMsTUFBcUIsRUFBRSxFQUFFLENBQUMsTUFBTSxDQUFDLElBQUksQ0FBQyxJQUFJLHFCQUFxQixDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUM7QUFDcEYsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbWJpbmVMYXRlc3RPcGVyYXRvciB9IGZyb20gJy4uL29ic2VydmFibGUvY29tYmluZUxhdGVzdCc7XG5pbXBvcnQgeyBPYnNlcnZhYmxlIH0gZnJvbSAnLi4vT2JzZXJ2YWJsZSc7XG5pbXBvcnQgeyBPcGVyYXRvckZ1bmN0aW9uLCBPYnNlcnZhYmxlSW5wdXQgfSBmcm9tICcuLi90eXBlcyc7XG5cbmV4cG9ydCBmdW5jdGlvbiBjb21iaW5lQWxsPFQ+KCk6IE9wZXJhdG9yRnVuY3Rpb248T2JzZXJ2YWJsZUlucHV0PFQ+LCBUW10+O1xuZXhwb3J0IGZ1bmN0aW9uIGNvbWJpbmVBbGw8VD4oKTogT3BlcmF0b3JGdW5jdGlvbjxhbnksIFRbXT47XG5leHBvcnQgZnVuY3Rpb24gY29tYmluZUFsbDxULCBSPihwcm9qZWN0OiAoLi4udmFsdWVzOiBUW10pID0+IFIpOiBPcGVyYXRvckZ1bmN0aW9uPE9ic2VydmFibGVJbnB1dDxUPiwgUj47XG5leHBvcnQgZnVuY3Rpb24gY29tYmluZUFsbDxSPihwcm9qZWN0OiAoLi4udmFsdWVzOiBBcnJheTxhbnk+KSA9PiBSKTogT3BlcmF0b3JGdW5jdGlvbjxhbnksIFI+O1xuLyoqXG4gKiBGbGF0dGVucyBhbiBPYnNlcnZhYmxlLW9mLU9ic2VydmFibGVzIGJ5IGFwcGx5aW5nIHtAbGluayBjb21iaW5lTGF0ZXN0fSB3aGVuIHRoZSBPYnNlcnZhYmxlLW9mLU9ic2VydmFibGVzIGNvbXBsZXRlcy5cbiAqXG4gKiAhW10oY29tYmluZUFsbC5wbmcpXG4gKlxuICogYGNvbWJpbmVBbGxgIHRha2VzIGFuIE9ic2VydmFibGUgb2YgT2JzZXJ2YWJsZXMsIGFuZCBjb2xsZWN0cyBhbGwgT2JzZXJ2YWJsZXMgZnJvbSBpdC4gT25jZSB0aGUgb3V0ZXIgT2JzZXJ2YWJsZSBjb21wbGV0ZXMsXG4gKiBpdCBzdWJzY3JpYmVzIHRvIGFsbCBjb2xsZWN0ZWQgT2JzZXJ2YWJsZXMgYW5kIGNvbWJpbmVzIHRoZWlyIHZhbHVlcyB1c2luZyB0aGUge0BsaW5rIGNvbWJpbmVMYXRlc3R9PC9hPiBzdHJhdGVneSwgc3VjaCB0aGF0OlxuICpcbiAqICogRXZlcnkgdGltZSBhbiBpbm5lciBPYnNlcnZhYmxlIGVtaXRzLCB0aGUgb3V0cHV0IE9ic2VydmFibGUgZW1pdHNcbiAqICogV2hlbiB0aGUgcmV0dXJuZWQgb2JzZXJ2YWJsZSBlbWl0cywgaXQgZW1pdHMgYWxsIG9mIHRoZSBsYXRlc3QgdmFsdWVzIGJ5OlxuICogICAgKiBJZiBhIGBwcm9qZWN0YCBmdW5jdGlvbiBpcyBwcm92aWRlZCwgaXQgaXMgY2FsbGVkIHdpdGggZWFjaCByZWNlbnQgdmFsdWUgZnJvbSBlYWNoIGlubmVyIE9ic2VydmFibGUgaW4gd2hhdGV2ZXIgb3JkZXIgdGhleVxuICogICAgICBhcnJpdmVkLCBhbmQgdGhlIHJlc3VsdCBvZiB0aGUgYHByb2plY3RgIGZ1bmN0aW9uIGlzIHdoYXQgaXMgZW1pdHRlZCBieSB0aGUgb3V0cHV0IE9ic2VydmFibGUuXG4gKiAgICAqIElmIHRoZXJlIGlzIG5vIGBwcm9qZWN0YCBmdW5jdGlvbiwgYW4gYXJyYXkgb2YgYWxsIHRoZSBtb3N0IHJlY2VudCB2YWx1ZXMgaXMgZW1pdHRlZCBieSB0aGUgb3V0cHV0IE9ic2VydmFibGUuXG4gKlxuICogLS0tXG4gKlxuICogIyMgRXhhbXBsZXNcbiAqICMjIyBNYXAgdHdvIGNsaWNrIGV2ZW50cyB0byBhIGZpbml0ZSBpbnRlcnZhbCBPYnNlcnZhYmxlLCB0aGVuIGFwcGx5IGBjb21iaW5lQWxsYFxuICogYGBgamF2YXNjcmlwdFxuICogaW1wb3J0IHsgbWFwLCBjb21iaW5lQWxsLCB0YWtlIH0gZnJvbSAncnhqcy9vcGVyYXRvcnMnO1xuICogaW1wb3J0IHsgZnJvbUV2ZW50IH0gZnJvbSAncnhqcy9vYnNlcnZhYmxlL2Zyb21FdmVudCc7XG4gKlxuICogY29uc3QgY2xpY2tzID0gZnJvbUV2ZW50KGRvY3VtZW50LCAnY2xpY2snKTtcbiAqIGNvbnN0IGhpZ2hlck9yZGVyID0gY2xpY2tzLnBpcGUoXG4gKiAgIG1hcChldiA9PlxuICogICAgICBpbnRlcnZhbChNYXRoLnJhbmRvbSgpICogMjAwMCkucGlwZSh0YWtlKDMpKVxuICogICApLFxuICogICB0YWtlKDIpXG4gKiApO1xuICogY29uc3QgcmVzdWx0ID0gaGlnaGVyT3JkZXIucGlwZShcbiAqICAgY29tYmluZUFsbCgpXG4gKiApO1xuICpcbiAqIHJlc3VsdC5zdWJzY3JpYmUoeCA9PiBjb25zb2xlLmxvZyh4KSk7XG4gKiBgYGBcbiAqXG4gKiBAc2VlIHtAbGluayBjb21iaW5lTGF0ZXN0fVxuICogQHNlZSB7QGxpbmsgbWVyZ2VBbGx9XG4gKlxuICogQHBhcmFtIHtmdW5jdGlvbiguLi52YWx1ZXM6IEFycmF5PGFueT4pfSBBbiBvcHRpb25hbCBmdW5jdGlvbiB0byBtYXAgdGhlIG1vc3QgcmVjZW50IHZhbHVlcyBmcm9tIGVhY2ggaW5uZXIgT2JzZXJ2YWJsZSBpbnRvIGEgbmV3IHJlc3VsdC5cbiAqIFRha2VzIGVhY2ggb2YgdGhlIG1vc3QgcmVjZW50IHZhbHVlcyBmcm9tIGVhY2ggY29sbGVjdGVkIGlubmVyIE9ic2VydmFibGUgYXMgYXJndW1lbnRzLCBpbiBvcmRlci5cbiAqIEByZXR1cm4ge09ic2VydmFibGU8VD59XG4gKiBAbmFtZSBjb21iaW5lQWxsXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBjb21iaW5lQWxsPFQsIFI+KHByb2plY3Q/OiAoLi4udmFsdWVzOiBBcnJheTxhbnk+KSA9PiBSKTogT3BlcmF0b3JGdW5jdGlvbjxULCBSPiB7XG4gIHJldHVybiAoc291cmNlOiBPYnNlcnZhYmxlPFQ+KSA9PiBzb3VyY2UubGlmdChuZXcgQ29tYmluZUxhdGVzdE9wZXJhdG9yKHByb2plY3QpKTtcbn1cbiJdfQ==

@@ -3,6 +3,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 var stack_layout_common_1 = require("./stack-layout-common");
+var trace = require("../../../trace");
 __export(require("./stack-layout-common"));
 var StackLayout = (function (_super) {
     __extends(StackLayout, _super);
@@ -49,6 +50,9 @@ var StackLayout = (function (_super) {
         this.eachLayoutChild(function (child, last) {
             if (isVertical) {
                 childSize = stack_layout_common_1.View.measureChild(_this, child, childMeasureSpec, stack_layout_common_1.layout.makeMeasureSpec(remainingLength, measureSpec));
+                if (measureSpec === stack_layout_common_1.layout.AT_MOST && _this.isUnsizedScrollableView(child)) {
+                    trace.write("Avoid using ListView or ScrollView with no explicit height set inside StackLayout. Doing so might result in poor user interface performance and poor user experience.", trace.categories.Layout, trace.messageType.warn);
+                }
                 measureWidth = Math.max(measureWidth, childSize.measuredWidth);
                 var viewHeight = childSize.measuredHeight;
                 measureHeight += viewHeight;
@@ -136,6 +140,12 @@ var StackLayout = (function (_super) {
             stack_layout_common_1.View.layoutChild(_this, child, childLeft, childTop, childLeft + childWidth, childBottom);
             childLeft += childWidth;
         });
+    };
+    StackLayout.prototype.isUnsizedScrollableView = function (child) {
+        if (child.height === "auto" && (child.ios instanceof UITableView || child.ios instanceof UIScrollView)) {
+            return true;
+        }
+        return false;
     };
     return StackLayout;
 }(stack_layout_common_1.StackLayoutBase));

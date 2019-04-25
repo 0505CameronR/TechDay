@@ -32,7 +32,7 @@ export class SignInComponent implements OnInit {
 	public Text = Text;
 
 	public constructor(
-		private user: User,
+		public user: User,
 		private router: Router,
 		private userService: UserService,
 		private page: Page,

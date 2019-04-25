@@ -14,6 +14,8 @@ import { SupportedChildrenComponent } from './supported-children/supported-child
 import { SupportedChildrenService } from './shared/supported-children/supported-children.service';
 import { SupportedChildComponent } from './supported-child/supported-child.component';
 import { UserService } from './shared/user/user.service';
+import { HeadOfFamilyComponent } from './head-of-family/head-of-family.component';
+import { HeadsOfFamilyComponent } from './heads-of-family/heads-of-family.component';
 
 
 Kinvey.init({
@@ -32,6 +34,8 @@ Kinvey.init({
 		SignInComponent,
 		SupportedChildrenComponent,
 		SupportedChildComponent,
+		HeadOfFamilyComponent,
+		HeadsOfFamilyComponent
 	],
 	imports: [
 		NativeScriptModule,

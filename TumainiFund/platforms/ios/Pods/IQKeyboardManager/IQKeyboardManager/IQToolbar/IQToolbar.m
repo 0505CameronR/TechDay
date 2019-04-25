@@ -25,8 +25,15 @@
 #import "IQKeyboardManagerConstantsInternal.h"
 #import "IQUIView+Hierarchy.h"
 
+#import <UIKit/UIButton.h>
 #import <UIKit/UIAccessibility.h>
 #import <UIKit/UIViewController.h>
+
+@interface IQTitleBarButtonItem (PrivateAccessor)
+
+@property(nonatomic, strong) UIButton *titleButton;
+
+@end
 
 @implementation IQToolbar
 @synthesize previousBarButton = _previousBarButton;
@@ -138,6 +145,18 @@
     if (_fixedSpaceBarButton == nil)
     {
         _fixedSpaceBarButton = [[IQBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+#ifdef __IPHONE_11_0
+        if (@available(iOS 10.0, *))
+#else
+            if (IQ_IS_IOS10_OR_GREATER)
+#endif
+            {
+                [_fixedSpaceBarButton setWidth:6];
+            }
+            else
+            {
+                [_fixedSpaceBarButton setWidth:20];
+            }
     }
     
     return _fixedSpaceBarButton;
@@ -156,13 +175,16 @@
 {
     [super setBarStyle:barStyle];
     
-    if (barStyle == UIBarStyleDefault)
+    if (self.titleBarButton.selectableTitleColor == nil)
     {
-        [self.titleBarButton setSelectableTextColor:[UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0]];
-    }
-    else
-    {
-        [self.titleBarButton setSelectableTextColor:[UIColor yellowColor]];
+        if (barStyle == UIBarStyleDefault)
+        {
+            [self.titleBarButton.titleButton setTitleColor:[UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+        }
+        else
+        {
+            [self.titleBarButton.titleButton setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
+        }
     }
 }
 
@@ -191,7 +213,7 @@
         
         BOOL isTitleBarButtonFound = NO;
         
-        NSArray *subviews = [self.subviews sortedArrayUsingComparator:^NSComparisonResult(UIView *view1, UIView *view2) {
+        NSArray<UIView*> *subviews = [self.subviews sortedArrayUsingComparator:^NSComparisonResult(UIView *view1, UIView *view2) {
             
             CGFloat x1 = CGRectGetMinX(view1.frame);
             CGFloat y1 = CGRectGetMinY(view1.frame);

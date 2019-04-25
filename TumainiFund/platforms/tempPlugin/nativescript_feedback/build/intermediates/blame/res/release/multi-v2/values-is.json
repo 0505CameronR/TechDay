@@ -1,0 +1,68 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/res/merged/release/values-is/values-is.xml",
+            "map": [
+                {
+                    "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/values-is/values-is.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,205,302,414,499,600,714,794,874,955,1065,1173,1271,1380,1479,1582,1737,1835",
+                        "endColumns": "99,96,111,84,100,113,79,79,80,109,107,97,108,98,102,154,97,80",
+                        "endOffsets": "200,297,409,494,595,709,789,869,950,1060,1168,1266,1375,1474,1577,1732,1830,1911"
+                    }
+                },
+                {
+                    "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.1.aar/e528056301ca532d663403c877937113/res/values-is/values-is.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1916",
+                        "endColumns": "100",
+                        "endOffsets": "2012"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/cameronriou/Desktop/TumainiFund/TechDay/TumainiFund/platforms/tempPlugin/nativescript_feedback/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-is/values-is.xml",
+            "map": [
+                {
+                    "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/a671700dff50d8300a630f8b8152a3a5/res/values-is/values-is.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,205,302,414,499,600,714,794,874,955,1065,1173,1271,1380,1479,1582,1737,1835",
+                        "endColumns": "99,96,111,84,100,113,79,79,80,109,107,97,108,98,102,154,97,80",
+                        "endOffsets": "200,297,409,494,595,709,789,869,950,1060,1168,1266,1375,1474,1577,1732,1830,1911"
+                    }
+                },
+                {
+                    "source": "/Users/cameronriou/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.1.aar/e528056301ca532d663403c877937113/res/values-is/values-is.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1916",
+                        "endColumns": "100",
+                        "endOffsets": "2012"
+                    }
+                }
+            ]
+        }
+    ]
+}
