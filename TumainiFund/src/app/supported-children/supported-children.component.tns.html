@@ -5,12 +5,12 @@
             <!-- <SearchBar></SearchBar> -->
         </FlexboxLayout>
         
-        <GridLayout *ngFor="let i of supportedChildren" rows="auto,auto,auto" columns="*,4*,*" class="p-20 btn-img flex-btn children">
-            <Image row="0" col="0" src="res://userImg" stretch="aspectFit" class="logo full left" rowspan="3"></Image>
-            <Label row="0" col="1" [text]="i.id" class="p-6"></Label>
-            <Image row="0" col="2" src="res://rightArrow" (tap)="viewChild(i.id)" rowspan="3" class="full right logo"></Image>
-            <Label row="1" col="1" text="{{i.first_name}} {{i.last_name}}| {{ i.age}}" class="p-10"></Label>
-            <Label row="2" col="1" [text]="i.school.school" class="p-6"></Label>
+        <GridLayout *ngFor="let i of supportedChildren" rows="auto,auto,auto" columns="*,10,4*,10,*" class="p-20 btn-img flex-btn children">
+            <Image row="0" col="0" src="res://userImg" stretch="aspectFit" class="logo full" rowspan="3"></Image>
+            <Label row="0" col="2" [text]="i.id" class="p-6"></Label>
+            <Image row="0" col="4" src="res://rightArrow" (tap)="viewChild(i.id)" rowspan="3" class="full logo"></Image>
+            <Label row="1" col="2" text="{{i.first_name}} {{i.last_name}}| {{ i.age}}" class="p-10"></Label>
+            <Label row="2" col="2" [text]="i.school.school" class="p-6"></Label>
         </GridLayout>
     </StackLayout>
 </ScrollView>

@@ -227,7 +227,7 @@ module.exports = "button {\n    font-size: 15;\n    horizontal-align: center;\n}
 /***/ "./app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<StackLayout>\n    <DockLayout #Menu [visibility]=\"isSignIn()\">\n        <GridLayout dock=\"top\" rows=\"auto\" columns=\"*,3*,*\" id=\"actionBar\" class=\"action-bar p-10\">\n            <StackLayout col=\"0\" orientation=\"horizontal\" [visibility]=\"isBackActive()\">\n                <Label text=\"< Back\" (tap)=\"back()\"></Label>\n            </StackLayout>\n            <Image col=\"1\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"navigate('/home')\"></Image>\n            <Image col=\"2\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\" (tap)=\"toggleDrawer()\"></Image>\n        </GridLayout>\n    </DockLayout>\n    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)=\"onLoaded()\" drawerLocation=\"Top\"\n        drawerTransition=\"RevealTransition\" drawerContentSize=\"470\">\n        <StackLayout tkDrawerContent class=\"sideStackLayout\">\n            <DockLayout>\n                <FlexboxLayout dock=\"bottom\" class=\"footer\">\n                    <Image src=\"res://close_drawer\" (tap)=\"closeDrawer()\" width=\"64\" height=\"64\"></Image>\n                </FlexboxLayout>\n                <ScrollView>\n                    <StackLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/supported-children')\">\n                            <Label text=\"Supported Children\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/heads-of-family')\">\n                            <Label text=\"Heads of Family\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/sponsors')\">\n                            <Label text=\"Sponsors\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n                            <Label text=\"Schools\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/parish-workers')\">\n                            <Label text=\"Parish Workers\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/assigned-offices')\">\n                            <Label text=\"Assigned Offices\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                    </StackLayout>\n                </ScrollView>\n            </DockLayout>\n        </StackLayout>\n        <StackLayout tkMainContent>\n            <page-router-outlet></page-router-outlet>\n        </StackLayout>\n    </RadSideDrawer>\n</StackLayout>"
+module.exports = "<StackLayout>\n    <DockLayout #Menu [visibility]=\"isSignIn()\">\n        <GridLayout dock=\"top\" rows=\"auto\" columns=\"*,3*,*\" id=\"actionBar\" class=\"action-bar p-10\">\n            <StackLayout col=\"0\" orientation=\"horizontal\" [visibility]=\"isBackActive()\">\n                <Label text=\"< Back\" (tap)=\"back()\"></Label>\n            </StackLayout>\n            <Image col=\"1\" height=\"60\" src=\"res://homeLogo\" stretch=\"aspectFit\" (tap)=\"navigate('/home')\"></Image>\n            <Image col=\"2\" height=\"30\" src=\"res://menuIcon\" stretch=\"aspectFit\" (tap)=\"toggleDrawer()\"></Image>\n        </GridLayout>\n    </DockLayout>\n    <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)=\"onLoaded()\" drawerLocation=\"Top\"\n        drawerTransition=\"RevealTransition\" [drawerContentSize]=\"pageHeight\">\n        <StackLayout tkDrawerContent class=\"sideStackLayout\">\n            <DockLayout>\n                <FlexboxLayout dock=\"bottom\" class=\"footer\">\n                    <Image src=\"res://close_drawer\" (tap)=\"closeDrawer()\" width=\"64\" height=\"64\"></Image>\n                </FlexboxLayout>\n                <ScrollView>\n                    <StackLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/supported-children')\">\n                            <Label text=\"Supported Children\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/heads-of-family')\">\n                            <Label text=\"Heads of Family\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/sponsors')\">\n                            <Label text=\"Sponsors\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n                            <Label text=\"Schools\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/parish-workers')\">\n                            <Label text=\"Parish Workers\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/assigned-offices')\">\n                            <Label text=\"Assigned Offices\" class=\"sideLabel h2 text-center\" textWrap=\"true\"></Label>\n                        </FlexboxLayout>\n                    </StackLayout>\n                </ScrollView>\n            </DockLayout>\n        </StackLayout>\n        <StackLayout tkMainContent id=\"body\">\n            <page-router-outlet iosOverflowSafeArea=\"true\"></page-router-outlet>\n        </StackLayout>\n    </RadSideDrawer>\n</StackLayout>"
 
 /***/ }),
 
@@ -247,6 +247,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("../node_modules/nativescript-feedback/feedback.js");
 /* harmony import */ var nativescript_feedback__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(nativescript_feedback__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("../node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var tns_core_modules_platform_platform__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("../node_modules/tns-core-modules/platform/platform.js");
+/* harmony import */ var tns_core_modules_platform_platform__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(tns_core_modules_platform_platform__WEBPACK_IMPORTED_MODULE_7__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -256,6 +258,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -286,6 +289,7 @@ let AppComponent = class AppComponent {
         if (tns_core_modules_ui_page_page__WEBPACK_IMPORTED_MODULE_2__["isIOS"]) {
             this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
         }
+        this.pageHeight = tns_core_modules_platform_platform__WEBPACK_IMPORTED_MODULE_7__["screen"].mainScreen.heightDIPs;
     }
     get mainContentText() {
         return this._mainContentText;
@@ -898,14 +902,14 @@ HeadsOfFamilyComponent = __decorate([
 /***/ "./app/home/home.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:90;\n    height:90;\n    margin: 5;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.homecont{\n    margin-left:167px;\n    padding:1px 16px;\n    height:1000px;\n    }\n\nul {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    width: 173px;\n    background-color: #707070;\n    position: fixed;\n    height: 100%;\n    overflow: auto;\n  }\n  \nli a {\n    display: block;\n    color: white;\n    padding: 8px 16px;\n    text-decoration: none;\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  }\n  \nli a.active {\n    background-color: #4CAF50;\n    color: white;\n  }\n  \nli a:hover:not(.active) {\n    background-color: #F7DB07;\n    color: #707070;\n  }\n\n  body{\n    background-color: #82CC33;\n  }\n\n  .topnav .search-container {\n    \n  }\n  \n  .topnav input[type=text] {\n    padding: 6px;\n    margin-top: 8px;\n    font-size: 17px;\n    border: none;\n  }\n  \n  .topnav .search-container button {\n    float: right;\n    padding: 6px 10px;\n    margin-top: 8px;\n    margin-right: 16px;\n    background: #ddd;\n    font-size: 17px;\n    border: none;\n    cursor: pointer;\n  }\n  \n  .topnav .search-container button:hover {\n    background: #ccc;\n  }\n"
+module.exports = "/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:90;\n    height:90;\n    margin: 5;\n}\n\n.page, #body, Page {\n    background-color: #A8F259;\n}\n\n.homecont{\n    margin-left:167px;\n    padding:1px 16px;\n    height:1000px;\n    }\n\nul {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n    width: 173px;\n    background-color: #707070;\n    position: fixed;\n    height: 100%;\n    overflow: auto;\n  }\n  \nli a {\n    display: block;\n    color: white;\n    padding: 8px 16px;\n    text-decoration: none;\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  }\n  \nli a.active {\n    background-color: #4CAF50;\n    color: white;\n  }\n  \nli a:hover:not(.active) {\n    background-color: #F7DB07;\n    color: #707070;\n  }\n\n  body{\n    background-color: #82CC33;\n  }\n\n  .topnav .search-container {\n    \n  }\n  \n  .topnav input[type=text] {\n    padding: 6px;\n    margin-top: 8px;\n    font-size: 17px;\n    border: none;\n  }\n  \n  .topnav .search-container button {\n    float: right;\n    padding: 6px 10px;\n    margin-top: 8px;\n    margin-right: 16px;\n    background: #ddd;\n    font-size: 17px;\n    border: none;\n    cursor: pointer;\n  }\n  \n  .topnav .search-container button:hover {\n    background: #ccc;\n  }\n"
 
 /***/ }),
 
 /***/ "./app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label [text]=\"homeWelcome\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n            <Label [text]=\"Text.homeAllocatedSchool\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/supported-children')\">\n            <Label [text]=\"Text.homeAllocatedChildren\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label [text]=\"Text.homeSignOut\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
+module.exports = "<ScrollView class=\"page\" iosOverflowSafeArea=\"true\">\n    <StackLayout>\n        <StackLayout class=\"p-20 btn-img\">\n            <Image src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo\"></Image>\n            <Label [text]=\"homeWelcome\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/schools')\">\n            <Label [text]=\"Text.homeAllocatedSchool\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"navigate('/supported-children')\">\n            <Label [text]=\"Text.homeAllocatedChildren\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\" (tap)=\"signOut($event)\">\n            <Label [text]=\"Text.homeSignOut\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n        </FlexboxLayout>\n    </StackLayout>\n</ScrollView>"
 
 /***/ }),
 
@@ -1133,6 +1137,136 @@ let SupportedChildrenService = class SupportedChildrenService {
                 id: 4,
                 first_name: "test 5",
                 last_name: "test 5",
+                age: 5,
+                date_of_birth: {
+                    day: 22,
+                    month: 0o7,
+                    year: 2001,
+                },
+                gender: "Male",
+                school: {
+                    school: "school",
+                    level: "education high",
+                    books: "No",
+                },
+                head_of_family: {
+                    hof: "person",
+                    relation: "nephew",
+                },
+                personal_status: "Single",
+                future_educational_goals: "orem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis Nostrud",
+                hygiene_kits: "Yes",
+                medical_support: "Yes",
+                transport_to_clinic: "Yes",
+            },
+            {
+                id: 5,
+                first_name: "test 6",
+                last_name: "test 6",
+                age: 1,
+                date_of_birth: {
+                    day: 22,
+                    month: 0o7,
+                    year: 2001,
+                },
+                gender: "Male",
+                school: {
+                    school: "school",
+                    level: "education high",
+                    books: "No",
+                },
+                head_of_family: {
+                    hof: "person",
+                    relation: "nephew",
+                },
+                personal_status: "Single",
+                future_educational_goals: "orem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis Nostrud",
+                hygiene_kits: "Yes",
+                medical_support: "Yes",
+                transport_to_clinic: "Yes",
+            },
+            {
+                id: 6,
+                first_name: "test 7",
+                last_name: "test 7",
+                age: 2,
+                date_of_birth: {
+                    day: 22,
+                    month: 0o7,
+                    year: 2001,
+                },
+                gender: "Male",
+                school: {
+                    school: "school",
+                    level: "education high",
+                    books: "No",
+                },
+                head_of_family: {
+                    hof: "person",
+                    relation: "nephew",
+                },
+                personal_status: "Single",
+                future_educational_goals: "orem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis Nostrud",
+                hygiene_kits: "Yes",
+                medical_support: "Yes",
+                transport_to_clinic: "Yes",
+            },
+            {
+                id: 7,
+                first_name: "test 8",
+                last_name: "test 8",
+                age: 3,
+                date_of_birth: {
+                    day: 22,
+                    month: 0o7,
+                    year: 2001,
+                },
+                gender: "Male",
+                school: {
+                    school: "school",
+                    level: "education high",
+                    books: "No",
+                },
+                head_of_family: {
+                    hof: "person",
+                    relation: "nephew",
+                },
+                personal_status: "Single",
+                future_educational_goals: "orem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis Nostrud",
+                hygiene_kits: "Yes",
+                medical_support: "Yes",
+                transport_to_clinic: "Yes",
+            },
+            {
+                id: 8,
+                first_name: "test 9",
+                last_name: "test 9",
+                age: 4,
+                date_of_birth: {
+                    day: 22,
+                    month: 0o7,
+                    year: 2001,
+                },
+                gender: "Male",
+                school: {
+                    school: "school",
+                    level: "education high",
+                    books: "No",
+                },
+                head_of_family: {
+                    hof: "person",
+                    relation: "nephew",
+                },
+                personal_status: "Single",
+                future_educational_goals: "orem ipsum dolor sit amet,\nconsectetur adipiscing elit,\nsed do eiusmod tempor incididunt\nut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis Nostrud",
+                hygiene_kits: "Yes",
+                medical_support: "Yes",
+                transport_to_clinic: "Yes",
+            },
+            {
+                id: 9,
+                first_name: "test 10",
+                last_name: "test 10",
                 age: 5,
                 date_of_birth: {
                     day: 22,
@@ -1774,14 +1908,14 @@ SupportedChildComponent = __decorate([
 /***/ "./app/supported-children/supported-children.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n\topacity: 0.5;\n}\n\n:disabled> :disabled {\n\topacity: 1;\n}\n\nFlexboxLayout {\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-size: cover;\n\tbackground-color: #82CC33;\n}\n\nGridLayout {\n\t/* width: 300; */\n\tpadding: 10 16;\n\ttext-align: left;\n}\n\nButton, TextField {\n\tmargin: 10 0;\n}\n\n.btn-primary {\n\tmargin-left: 0;\n\tmargin-right: 0;\n}\n\nTextField {\n\tplaceholder-color: #C4AFB4;\n\tcolor: black;\n}\n\n.input, .btn-primary {\n\tbackground-color: white;\n\tcolor: black;\n}\n\n.web-form {\n\tdisplay: flex;\n\talign-items: center;\n\theight: 100vh;\n\tmargin: auto;\n\twidth: auto;\n\tmax-width: 90%;\n}\n\n.web-form-contents {\n\twidth: fit-content;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin: auto;\n}\n\nbutton {\n\tfont-size: 15;\n\thorizontal-align: center;\n}\n\n.drawerContentText {\n\tfont-size: 13;\n\tpadding: 10;\n}\n\n.drawerContentButton {\n\tmargin: 10;\n\thorizontal-align: center;\n}\n\n.sideStackLayout {\n\tbackground-color: #A8F259;\n}\n\n.sideLabel {\n\tpadding: 10;\n\ttext-align: center;\n}\n\n.footer {\n\tborder-color: black;\n\tborder-width: 1 0 0 0;\n\tvertical-align: center;\n\twidth: 100%;\n\tjustify-content: center;\n\tdisplay: flex;\n\talign-items: center;\n\tbox-pack: center;\n\tjustify-content: center;\n\toverflow: hidden;\n\tmargin: auto;\n\theight: 80;\n}\n\n#actionBar {\n\tbackground-color: #82CC33;\n\tborder-color: black;\n\tborder-width: 0 0 1 0;\n\t/* #A8F259 */\n\t/* background-color: #A8F259 */\n}\n\n.action-image {\n\theight: 30;\n\tvertical-align: center;\n\thorizontal-align: center;\n}\n\n.btn-img {\n\tborder-radius: 5;\n\tborder-width: 1;\n\tmargin: 10;\n\tcolor: black;\n\tborder-color: #A8F259;\n\tbackground-color: #82CC33;\n\ttext-align: center;\n}\n\n.flex-btn {\n\talign-items: center;\n\tjustify-content: center;\n}\n\n/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:45;\n    height:45;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.txt-left {\n\ttext-align: left;\n}\n\nGridLayout.children {\n\tbackground-color: white;\n\tborder-radius: 100%;\n\ttext-align: left;\n}\n\nGridLayout.children Label {\n\tpadding: 0;\n\tmargin: 0;\n}\n\nImage.full {\n\tpadding: 0;\n\tmargin: 0;\n\theight: 100%;\n\twidth: auto;\n}\n\n.left {\n\tpadding-right: 10;\n\tmargin-right: 10;\n}\n\n.right {\n\tpadding-left: 10;\n\tmargin-right: 10;\n}"
+module.exports = "/* Add mobile styles for the component here.  */\n\n:disabled {\n\topacity: 0.5;\n}\n\n:disabled> :disabled {\n\topacity: 1;\n}\n\nFlexboxLayout {\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-size: cover;\n\tbackground-color: #82CC33;\n}\n\nGridLayout {\n\t/* width: 300; */\n\tpadding: 10 16;\n\ttext-align: left;\n}\n\nButton, TextField {\n\tmargin: 10 0;\n}\n\n.btn-primary {\n\tmargin-left: 0;\n\tmargin-right: 0;\n}\n\nTextField {\n\tplaceholder-color: #C4AFB4;\n\tcolor: black;\n}\n\n.input, .btn-primary {\n\tbackground-color: white;\n\tcolor: black;\n}\n\n.web-form {\n\tdisplay: flex;\n\talign-items: center;\n\theight: 100vh;\n\tmargin: auto;\n\twidth: auto;\n\tmax-width: 90%;\n}\n\n.web-form-contents {\n\twidth: fit-content;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\tmargin: auto;\n}\n\nbutton {\n\tfont-size: 15;\n\thorizontal-align: center;\n}\n\n.drawerContentText {\n\tfont-size: 13;\n\tpadding: 10;\n}\n\n.drawerContentButton {\n\tmargin: 10;\n\thorizontal-align: center;\n}\n\n.sideStackLayout {\n\tbackground-color: #A8F259;\n}\n\n.sideLabel {\n\tpadding: 10;\n\ttext-align: center;\n}\n\n.footer {\n\tborder-color: black;\n\tborder-width: 1 0 0 0;\n\tvertical-align: center;\n\twidth: 100%;\n\tjustify-content: center;\n\tdisplay: flex;\n\talign-items: center;\n\tbox-pack: center;\n\tjustify-content: center;\n\toverflow: hidden;\n\tmargin: auto;\n\theight: 80;\n}\n\n#actionBar {\n\tbackground-color: #82CC33;\n\tborder-color: black;\n\tborder-width: 0 0 1 0;\n\t/* #A8F259 */\n\t/* background-color: #A8F259 */\n}\n\n.action-image {\n\theight: 30;\n\tvertical-align: center;\n\thorizontal-align: center;\n}\n\n.btn-img {\n\tborder-radius: 5;\n\tborder-width: 1;\n\tmargin: 10;\n\tcolor: black;\n\tborder-color: #A8F259;\n\tbackground-color: #82CC33;\n\ttext-align: center;\n}\n\n.flex-btn {\n\talign-items: center;\n\tjustify-content: center;\n}\n\n/* Add mobile styles for the component here.  */\n.btn-img{\n    border-radius: 5;\n    border-width: 1;\n    margin: 10;\n    color: black;\n    border-color: #A8F259;\n    background-color: #82CC33;\n    text-align: center;\n}\n\n.flex-btn {\n    align-items: center;\n    justify-content: center;\n}\n\n.logo {\n    border-radius:100%;\n    width:45;\n    height:45;\n}\n\n.page {\n    background-color: #A8F259;\n}\n\n.txt-left {\n\ttext-align: left;\n}\n\nGridLayout.children {\n\tbackground-color: white;\n\tborder-radius: 100%;\n\ttext-align: left;\n}\n\nGridLayout.children Label {\n\tpadding: 0;\n\tmargin: 0;\n}\n\nImage.full {\n\tpadding: 0;\n\tmargin: 0;\n\theight: 100%;\n\twidth: 100%;\n}\n"
 
 /***/ }),
 
 /***/ "./app/supported-children/supported-children.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\">\n            <Label [text]=\"Text.supportedChildrenTitle\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n            <!-- <SearchBar></SearchBar> -->\n        </FlexboxLayout>\n        \n        <GridLayout *ngFor=\"let i of supportedChildren\" rows=\"auto,auto,auto\" columns=\"*,4*,*\" class=\"p-20 btn-img flex-btn children\">\n            <Image row=\"0\" col=\"0\" src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo full left\" rowspan=\"3\"></Image>\n            <Label row=\"0\" col=\"1\" [text]=\"i.id\" class=\"p-6\"></Label>\n            <Image row=\"0\" col=\"2\" src=\"res://rightArrow\" (tap)=\"viewChild(i.id)\" rowspan=\"3\" class=\"full right logo\"></Image>\n            <Label row=\"1\" col=\"1\" text=\"{{i.first_name}} {{i.last_name}}| {{ i.age}}\" class=\"p-10\"></Label>\n            <Label row=\"2\" col=\"1\" [text]=\"i.school.school\" class=\"p-6\"></Label>\n        </GridLayout>\n    </StackLayout>\n</ScrollView>"
+module.exports = "<ScrollView class=\"page\">\n    <StackLayout>\n        <FlexboxLayout class=\"p-20 btn-img flex-btn\">\n            <Label [text]=\"Text.supportedChildrenTitle\" class=\"h2 text-center\" textWrap=\"true\"></Label>\n            <!-- <SearchBar></SearchBar> -->\n        </FlexboxLayout>\n        \n        <GridLayout *ngFor=\"let i of supportedChildren\" rows=\"auto,auto,auto\" columns=\"*,10,4*,10,*\" class=\"p-20 btn-img flex-btn children\">\n            <Image row=\"0\" col=\"0\" src=\"res://userImg\" stretch=\"aspectFit\" class=\"logo full\" rowspan=\"3\"></Image>\n            <Label row=\"0\" col=\"2\" [text]=\"i.id\" class=\"p-6\"></Label>\n            <Image row=\"0\" col=\"4\" src=\"res://rightArrow\" (tap)=\"viewChild(i.id)\" rowspan=\"3\" class=\"full logo\"></Image>\n            <Label row=\"1\" col=\"2\" text=\"{{i.first_name}} {{i.last_name}}| {{ i.age}}\" class=\"p-10\"></Label>\n            <Label row=\"2\" col=\"2\" [text]=\"i.school.school\" class=\"p-6\"></Label>\n        </GridLayout>\n    </StackLayout>\n</ScrollView>"
 
 /***/ }),
 

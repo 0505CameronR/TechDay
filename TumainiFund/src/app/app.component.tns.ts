@@ -7,6 +7,7 @@ import { Router, Route, Routes } from "@angular/router";
 import { routes } from "./app.routes";
 import { Feedback } from "nativescript-feedback";
 import { Location } from '@angular/common';
+import { screen } from 'tns-core-modules/platform/platform'
 
 declare var UISearchBarStyle: any;
 declare var UIImage: any;
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     @ViewChild("radSideDrawer") private drawerComponent: RadSideDrawerComponent;
     private _mainContentText: string;
     public drawer: RadSideDrawer;
+    public pageHeight;
 
     constructor(
         public page: Page,
@@ -47,6 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         if (isIOS) {
             this.drawer.ios.defaultSideDrawer.allowEdgeSwipe = false;
         }
+        this.pageHeight = screen.mainScreen.heightDIPs;
     }
 
     get mainContentText() {

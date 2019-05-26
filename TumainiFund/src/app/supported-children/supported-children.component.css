@@ -171,15 +171,5 @@ Image.full {
 	padding: 0;
 	margin: 0;
 	height: 100%;
-	width: auto;
-}
-
-.left {
-	padding-right: 10;
-	margin-right: 10;
-}
-
-.right {
-	padding-left: 10;
-	margin-right: 10;
+	width: 100%;
 }

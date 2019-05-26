@@ -9,7 +9,7 @@
         </GridLayout>
     </DockLayout>
     <RadSideDrawer #radSideDrawer tkExampleTitle tkToggleNavButton (loaded)="onLoaded()" drawerLocation="Top"
-        drawerTransition="RevealTransition" drawerContentSize="470">
+        drawerTransition="RevealTransition" [drawerContentSize]="pageHeight">
         <StackLayout tkDrawerContent class="sideStackLayout">
             <DockLayout>
                 <FlexboxLayout dock="bottom" class="footer">
@@ -39,8 +39,8 @@
                 </ScrollView>
             </DockLayout>
         </StackLayout>
-        <StackLayout tkMainContent>
-            <page-router-outlet></page-router-outlet>
+        <StackLayout tkMainContent id="body">
+            <page-router-outlet iosOverflowSafeArea="true"></page-router-outlet>
         </StackLayout>
     </RadSideDrawer>
 </StackLayout>
