@@ -13,9 +13,9 @@
 			<key>certificate</key>
 			<dict>
 				<key>SHA1</key>
-				<string>06DC4BA12E106727E15EF41C8B06A94C2026B6E1</string>
+				<string>C1E5BDFA09FFC3C3309468E55B6158764DC063E0</string>
 				<key>dateExpires</key>
-				<string>23/04/2020</string>
+				<string>25/05/2020</string>
 				<key>type</key>
 				<string>iOS Development</string>
 			</dict>
@@ -30,9 +30,9 @@
 					<key>certificate</key>
 					<dict>
 						<key>SHA1</key>
-						<string>06DC4BA12E106727E15EF41C8B06A94C2026B6E1</string>
+						<string>C1E5BDFA09FFC3C3309468E55B6158764DC063E0</string>
 						<key>dateExpires</key>
-						<string>23/04/2020</string>
+						<string>25/05/2020</string>
 						<key>type</key>
 						<string>iOS Development</string>
 					</dict>
@@ -55,9 +55,9 @@
 					<key>certificate</key>
 					<dict>
 						<key>SHA1</key>
-						<string>06DC4BA12E106727E15EF41C8B06A94C2026B6E1</string>
+						<string>C1E5BDFA09FFC3C3309468E55B6158764DC063E0</string>
 						<key>dateExpires</key>
-						<string>23/04/2020</string>
+						<string>25/05/2020</string>
 						<key>type</key>
 						<string>iOS Development</string>
 					</dict>
@@ -80,9 +80,9 @@
 					<key>certificate</key>
 					<dict>
 						<key>SHA1</key>
-						<string>06DC4BA12E106727E15EF41C8B06A94C2026B6E1</string>
+						<string>C1E5BDFA09FFC3C3309468E55B6158764DC063E0</string>
 						<key>dateExpires</key>
-						<string>23/04/2020</string>
+						<string>25/05/2020</string>
 						<key>type</key>
 						<string>iOS Development</string>
 					</dict>
@@ -105,9 +105,9 @@
 					<key>certificate</key>
 					<dict>
 						<key>SHA1</key>
-						<string>06DC4BA12E106727E15EF41C8B06A94C2026B6E1</string>
+						<string>C1E5BDFA09FFC3C3309468E55B6158764DC063E0</string>
 						<key>dateExpires</key>
-						<string>23/04/2020</string>
+						<string>25/05/2020</string>
 						<key>type</key>
 						<string>iOS Development</string>
 					</dict>
@@ -130,9 +130,9 @@
 					<key>certificate</key>
 					<dict>
 						<key>SHA1</key>
-						<string>06DC4BA12E106727E15EF41C8B06A94C2026B6E1</string>
+						<string>C1E5BDFA09FFC3C3309468E55B6158764DC063E0</string>
 						<key>dateExpires</key>
-						<string>23/04/2020</string>
+						<string>25/05/2020</string>
 						<key>type</key>
 						<string>iOS Development</string>
 					</dict>
@@ -155,9 +155,9 @@
 					<key>certificate</key>
 					<dict>
 						<key>SHA1</key>
-						<string>06DC4BA12E106727E15EF41C8B06A94C2026B6E1</string>
+						<string>C1E5BDFA09FFC3C3309468E55B6158764DC063E0</string>
 						<key>dateExpires</key>
-						<string>23/04/2020</string>
+						<string>25/05/2020</string>
 						<key>type</key>
 						<string>iOS Development</string>
 					</dict>
@@ -180,9 +180,9 @@
 					<key>certificate</key>
 					<dict>
 						<key>SHA1</key>
-						<string>06DC4BA12E106727E15EF41C8B06A94C2026B6E1</string>
+						<string>C1E5BDFA09FFC3C3309468E55B6158764DC063E0</string>
 						<key>dateExpires</key>
-						<string>23/04/2020</string>
+						<string>25/05/2020</string>
 						<key>type</key>
 						<string>iOS Development</string>
 					</dict>
@@ -205,9 +205,9 @@
 					<key>certificate</key>
 					<dict>
 						<key>SHA1</key>
-						<string>06DC4BA12E106727E15EF41C8B06A94C2026B6E1</string>
+						<string>C1E5BDFA09FFC3C3309468E55B6158764DC063E0</string>
 						<key>dateExpires</key>
-						<string>23/04/2020</string>
+						<string>25/05/2020</string>
 						<key>type</key>
 						<string>iOS Development</string>
 					</dict>
@@ -240,7 +240,7 @@
 			<key>profile</key>
 			<dict>
 				<key>UUID</key>
-				<string>3c7c8710-5333-461e-8bfe-0dd1dc2e5ed5</string>
+				<string>979b91a1-5093-4b88-a339-f087244b05a5</string>
 				<key>name</key>
 				<string>iOS Team Provisioning Profile: org.nativescript.TumainiFund</string>
 			</dict>

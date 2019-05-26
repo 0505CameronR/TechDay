@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E093A257B9FB52DB8F0530214EE4C0C"
+               BlueprintIdentifier = "20BD01C7BF5AF19E66A76EA608871518"
+               BuildableName = "ISMessages-ISMessages.bundle"
                BlueprintName = "ISMessages-ISMessages"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "ISMessages-ISMessages.bundle">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -63,6 +63,7 @@
 		0C3F7B2859CF45968C5DE791 /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rightArrow.png; path = TumainiFund/Resources/rightArrow.png; sourceTree = "<group>"; };
 		2C22ADCC8F8243219F0C2E4D /* TNSSideDrawer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSSideDrawer.framework; path = "$(SRCROOT)/../../node_modules/nativescript-ui-sidedrawer/platforms/ios/TNSSideDrawer.framework"; sourceTree = "<group>"; };
 		3128088C07A9457F8FD69612 /* close_drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close_drawer.png; path = TumainiFund/Resources/close_drawer.png; sourceTree = "<group>"; };
+		4DB6921CFBE04F2979389B53 /* Pods-TumainiFund.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumainiFund.release.xcconfig"; path = "Pods/Target Support Files/Pods-TumainiFund/Pods-TumainiFund.release.xcconfig"; sourceTree = "<group>"; };
 		5AFB123CBBAA494E9D55D7F1 /* @2xclose_drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "@2xclose_drawer.png"; path = "TumainiFund/Resources/@2xclose_drawer.png"; sourceTree = "<group>"; };
 		5E3EBA6DA51C4E8CB430507B /* homeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homeLogo.png; path = TumainiFund/Resources/homeLogo.png; sourceTree = "<group>"; };
 		632DD2825D9848088BCD349B /* TNSWidgets.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TNSWidgets.framework; path = "$(SRCROOT)/../../node_modules/tns-core-modules-widgets/platforms/ios/TNSWidgets.framework"; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		D069AAA5B13D4FDB8E7E39E8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = LaunchScreen.storyboard; path = TumainiFund/Resources/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2E1F58931E74E9B972C1C49 /* @1xclose_drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "@1xclose_drawer.png"; path = "TumainiFund/Resources/@1xclose_drawer.png"; sourceTree = "<group>"; };
 		FC5570B839905B47C8B89C7C /* Pods_TumainiFund.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TumainiFund.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD086972458164A8853E50FE /* Pods-TumainiFund.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TumainiFund.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TumainiFund/Pods-TumainiFund.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,8 @@
 		64C59E5CA25D71BAC19DE0FB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				FD086972458164A8853E50FE /* Pods-TumainiFund.debug.xcconfig */,
+				4DB6921CFBE04F2979389B53 /* Pods-TumainiFund.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -131,7 +135,7 @@
 				858B832F18CA111C00AB12DE /* Products */,
 				F6F334EA374641FA883A820A /* tns-core-modules */,
 				64C59E5CA25D71BAC19DE0FB /* Pods */,
-				BE9CB2B00F144F4F85A501ED /* TNSNativeSource */,
+				382551DDEFEE41B6878BFB64 /* TNSNativeSource */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,7 +219,7 @@
 			name = "tns-core-modules";
 			sourceTree = "<group>";
 		};
-		BE9CB2B00F144F4F85A501ED /* TNSNativeSource */ = {
+		382551DDEFEE41B6878BFB64 /* TNSNativeSource */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -344,7 +348,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TumainiFund/Pods-TumainiFund-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-TumainiFund/Pods-TumainiFund-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/ISMessages/ISMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/SAMKeychain/SAMKeychain.framework",
@@ -359,7 +363,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TumainiFund/Pods-TumainiFund-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TumainiFund/Pods-TumainiFund-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C97FD7AC1ADE5369004DB2A4 /* NativeScript PreBuild */ = {
@@ -533,6 +537,10 @@
 					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
 					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
 					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/TumainiFund/TumainiFund-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -561,6 +569,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../node_modules/tns-core-modules/platforms/ios/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
+					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
 					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
 					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
 					"\"$(SRCROOT)/../../App_Resources/iOS/src\"",
