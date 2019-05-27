@@ -1,41 +1,41 @@
 <ScrollView>
     <GridLayout rows="auto, auto" columns="*">
-        <GridLayout columns="auto, *, auto, auto" row="0">
-            <Image src="res://userImg" stretch="aspectFit" class="logo" col="0"></Image>
-            <Label text="ID: {{target.id}}" class="p-6" col="2"></Label>
-            <Label text="Age: {{target.age}}" class="p-10" col="3"></Label>
-        </GridLayout>
+        <FlexboxLayout flexDirection="row" row="0" class="info">
+            <Image src="res://userImg" stretch="aspectFit" class="logo"></Image>
+            <Label text="ID: {{target.id}}" class="h2"></Label>
+            <Label text="Age: {{target.age}}" class="h3"></Label>
+        </FlexboxLayout>
         <StackLayout class="form" row="1">
 
             <Label text="Details" class="h1"></Label>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- First Name -->
             <StackLayout>
                 <Label text="First Name" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="FirstNameLabel" #labelField [text]="target.first_name" class="input input-border" col="0"></Label>
                     <TextField id="FirstNameEdit" #textField [text]="target.first_name" visibility="collapsed" class="input input-border" col="0"></TextField>
                     <Button id="FirstNameButton" #editButton [text]="Text.genericEditButton" (tap)="textFieldButton('FirstNameLabel','FirstNameEdit','FirstNameButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- Family Name -->
             <StackLayout>
                 <Label text="Family Name" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="FamilyNameLabel" #labelField [text]="target.last_name" class="input input-border" col="0"></Label>
                     <TextField id="FamilyNameEdit" #textField [text]="target.last_name" visibility="collapsed" class="input input-border" col="0"></TextField>
                     <Button id="FamilyNameButton" #editButton [text]="Text.genericEditButton" (tap)="textFieldButton('FamilyNameLabel','FamilyNameEdit','FamilyNameButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- Date of Birth -->
             <StackLayout>
                 <Label text="Date of Birth" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="DateOfBirthLabel" #labelField text="{{target.date_of_birth.day}}/{{target.date_of_birth.month}}/{{target.date_of_birth.year}}" class="input input-border" col="0"></Label>
                     <Button id="DateOfBirthButton" #editButton [text]="Text.genericEditButton" (tap)="datePickerButton('DateOfBirthLabel', 'DateOfBirthPicker', 'DateOfBirthButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
@@ -44,11 +44,11 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- Gender -->
             <StackLayout>
                 <Label text="Gender" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="GenderLabel" #labelField [text]="target.gender" class="input input-border" col="0"></Label>
                     <Button id="GenderButton" #editButton [text]="Text.genericEditButton" (tap)="listPickerButton('GenderLabel', 'GenderPicker', 'GenderButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
@@ -57,22 +57,22 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- School -->
             <StackLayout>
                 <Label text="School" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="SchoolLabel" #labelField [text]="target.school.school" class="input input-border" col="0"></Label>
                     <TextField id="SchoolEdit" #textField [text]="target.school.school" visibility="collapsed" class="input input-border" col="0"></TextField>
                     <Button id="SchoolButton" #editButton [text]="Text.genericEditButton" (tap)="textFieldButton('SchoolLabel','SchoolEdit','SchoolButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- School Level -->
             <StackLayout>
                 <Label text="School Level" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="SchoolLevelLabel" #labelField [text]="target.school.level" class="input input-border" col="0"></Label>
                     <Button id="SchoolLevelButton" #editButton [text]="Text.genericEditButton" (tap)="listPickerButton('SchoolLevelLabel', 'SchoolLevelPicker', 'SchoolLevelButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
@@ -81,11 +81,11 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- School Books -->
             <StackLayout>
                 <Label text="School Books" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="SchoolBooksLabel" #labelField [text]="target.school.books" class="input input-border labelField" col="0"></Label>
                     <Button id="SchoolBooksButton" #editButton [text]="Text.genericEditButton" (tap)="listPickerButton('SchoolBooksLabel', 'SchoolBooksPicker', 'SchoolBooksButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
@@ -94,34 +94,34 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- Head of Family -->
             <!-- Need to change to relating to a head of family member -->
             <StackLayout>
                 <Label text="Head of Family" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="HeadOfFamilyLabel" #labelField [text]="target.head_of_family.hof" class="input input-border" col="0"></Label>
                     <TextField id="HeadOfFamilyEdit" #textField [text]="target.head_of_family.hof" visibility="collapsed" class="input input-border" col="0"></TextField>
                     <Button id="HeadOfFamilyButton" #editButton [text]="Text.genericEditButton" (tap)="textFieldButton('HeadOfFamilyLabel','HeadOfFamilyEdit','HeadOfFamilyButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- Relation to Head of Family -->
             <StackLayout>
                 <Label text="Relation to Head of Family" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="HeadOfFamilyRelationLabel" #labelField [text]="target.head_of_family.relation" class="input input-border" col="0"></Label>
                     <TextField id="HeadOfFamilyRelationEdit" #textField [text]="target.head_of_family.relation" visibility="collapsed" class="input input-border" col="0"></TextField>
                     <Button id="HeadOfFamilyRelationButton" #editButton [text]="Text.genericEditButton" (tap)="textFieldButton('HeadOfFamilyRelationLabel','HeadOfFamilyRelationEdit','HeadOfFamilyRelationButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- Personal Status -->
             <StackLayout>
                 <Label text="Personal Status" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="PersonalStatusLabel" #labelField [text]="target.personal_status" class="input input-border" col="0"></Label>
                     <Button id="PersonalStatusButton" #editButton [text]="Text.genericEditButton" (tap)="listPickerButton('PersonalStatusLabel', 'PersonalStatusPicker', 'PersonalStatusButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
@@ -130,22 +130,22 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- Future Educational Goals -->
             <StackLayout>
                 <Label text="Future Educational Goals" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="EducationalGoalsLabel" #labelField [text]="target.future_educational_goals" class="input input-border" col="0"></Label>
                     <TextView id="EducationalGoalsEdit" #textField [text]="target.future_educational_goals" visibility="collapsed" class="input input-border" col="0"></TextView>
                     <Button id="EducationalGoalsButton" #editButton [text]="Text.genericEditButton" (tap)="textFieldButton('EducationalGoalsLabel','EducationalGoalsEdit','EducationalGoalsButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- Hygiene Kits -->
             <StackLayout>
                 <Label text="Hygiene Kits" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="HygieneKitsLabel" #labelField [text]="target.hygiene_kits" class="input input-border" col="0"></Label>
                     <Button id="HygieneKitsButton" #editButton [text]="Text.genericEditButton" (tap)="listPickerButton('HygieneKitsLabel', 'HygieneKitsPicker', 'HygieneKitsButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
@@ -154,11 +154,11 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- Medical Support -->
             <StackLayout>
                 <Label text="Medical Support" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="MedicalSupportLabel" #labelField [text]="target.medical_support" class="input input-border" col="0"></Label>
                     <Button id="MedicalSupportButton" #editButton [text]="Text.genericEditButton" (tap)="listPickerButton('MedicalSupportLabel', 'MedicalSupportPicker', 'MedicalSupportButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>
@@ -167,11 +167,11 @@
                 </StackLayout>
             </StackLayout>
 
-            <StackLayout class="hr-light"></StackLayout>
+            <!-- <StackLayout class="hr-light"></StackLayout> -->
             <!-- Transport to Clinic -->
             <StackLayout>
                 <Label text="Transport To Clinic" class="font-weight-bold m-b-5"></Label>
-                <GridLayout columns="*,auto" orientation="horizontal">
+                <GridLayout columns="*,auto" orientation="horizontal" class="input input-border">
                     <Label id="TransportToClinicLabel" #labelField [text]="target.transport_to_clinic" class="input input-border" col="0"></Label>
                     <Button id="TransportToClinicButton" #editButton [text]="Text.genericEditButton" (tap)="listPickerButton('TransportToClinicLabel', 'TransportToClinicPicker', 'TransportToClinicButton')" class="btn btn-primary" col="1"></Button>
                 </GridLayout>

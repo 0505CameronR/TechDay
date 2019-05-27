@@ -15,9 +15,13 @@ FlexboxLayout {
 	background-color: #82CC33;
 }
 
-GridLayout {
-	width: 300;
+StackLayout.form {
+	width: 90%;
 	padding: 10 16;
+}
+
+StackLayout {
+	margin: 10;
 }
 
 /* Button, Label {
@@ -146,8 +150,8 @@ TextField {
 
 .logo {
     border-radius:100%;
-    width:45;
-    height:45;
+    width:90;
+    height:90;
 }
 
 .page {
@@ -164,4 +168,23 @@ TextField {
 
 .hr-light {
 	margin-bottom: 20
+}
+
+FlexboxLayout.info {
+	justify-content: space-between;
+	align-content: space-between;
+	align-items: center;
+	width: 90%;
+	background-color: white;
+	margin-top: 10;
+	margin-bottom: 10;
+}
+
+GridLayout.input.input-border {
+	padding: 0;
+}
+
+GridLayout.input.input-border > * {
+	margin: 0;
+	height: 100%;
 }

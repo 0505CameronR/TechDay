@@ -214,31 +214,31 @@ export class SupportedChildComponent implements OnInit, AfterViewInit {
 		console.log(view.getViewByID(buttonID).text)
 		view.getViewByID(buttonID).text=this.Text.genericDoneButton
 		console.log(view.getViewByID(buttonID).text)
-		/*//if (status) { // If Editing Is Active
-		this.textFieldLabels.forEach((i) => {
-			if (i.nativeElement.id == labelID) {
-				console.log(i.nativeElement.visibility)
-				i.nativeElement.visibility = "collapse"
-				console.log(i.nativeElement.visibility)
-				//console.log(i.nativeElement.text)
-			}
+		if (status) { // If Editing Is Active
+			this.textFieldLabels.forEach((i) => {
+				if (i.nativeElement.id == labelID) {
+					console.log(i.nativeElement.visibility)
+					i.nativeElement.visibility = "collapse"
+					console.log(i.nativeElement.visibility)
+					//console.log(i.nativeElement.text)
+				}
+			})
+			this.textFieldTextFields.forEach((i) => {
+				if (i.nativeElement.id == editID) {
+					console.log(i.nativeElement.visibility)
+					i.nativeElement.visibility = "visible"
+					console.log(i.nativeElement.visibility)
+					//console.log(i.nativeElement.text)
+				}
+			})
+			this.editButtons.forEach((i) => {
+				if (i.nativeElement.id == buttonID) {
+					console.log(i.nativeElement.text)
+					this.renderer.setProperty(i.nativeElement.text, "innerHTML", this.Text.genericEditButton)
+					console.log(i.nativeElement.text)
+				}
 		})
-		this.textFieldTextFields.forEach((i) => {
-			if (i.nativeElement.id == editID) {
-				console.log(i.nativeElement.visibility)
-				i.nativeElement.visibility = "visible"
-				console.log(i.nativeElement.visibility)
-				//console.log(i.nativeElement.text)
-			}
-		})
-		this.editButtons.forEach((i) => {
-			if (i.nativeElement.id == buttonID) {
-				console.log(i.nativeElement.text)
-				this.renderer.setProperty(i.nativeElement.text, "innerHTML", this.Text.genericEditButton)
-				console.log(i.nativeElement.text)
-			}
-		})*/
-	} /*else { // If Editing Isn't Active
+		} else { // If Editing Isn't Active
 			console.dir(this.textFieldLabels.toArray())
 			this.textFieldLabels.forEach((i) => {
 				if (i.nativeElement.id == labelID) {
@@ -259,5 +259,5 @@ export class SupportedChildComponent implements OnInit, AfterViewInit {
 			})
 			this.textFieldButtonStatus = false
 		}
-	}*/
+	}
 }
